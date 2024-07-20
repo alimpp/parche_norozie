@@ -10,6 +10,19 @@
   animation: 0.3s slid-up;
 }
 
+.fade_animations {
+  animation: 1s fade_animations;
+}
+
+@keyframes fade_animations {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes slid-right {
   0% {
     transform: translateX(-100%);

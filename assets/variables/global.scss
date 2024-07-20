@@ -22,14 +22,14 @@
   border: 1px solid #8481812f;
 }
 
-.app_active_route {
+.app-active-route {
   border-bottom: 3px solid #fd7403;
 }
-.app_pointer {
+.app-pointer {
   cursor: pointer;
 }
 
-.app_overflow_hidden {
+.app-overflow-hidden {
   overflow: hidden;
 }
 
@@ -43,7 +43,7 @@
   }
 }
 
-/// *** custon scrollbar
+// ** custom scrollbar ** //
 
 ::-webkit-scrollbar {
   width: 0px;
@@ -59,38 +59,4 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: #cac8c8;
-}
-
-/// *** custon animations
-
-.fade_animations {
-  animation: 1s fade_animations;
-}
-
-@keyframes fade_animations {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.slid-left-animation {
-  animation: 0.3s slid-left;
-}
-
-@keyframes slid-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.cards-container-handler {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
 }

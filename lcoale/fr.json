@@ -1,4 +1,10 @@
 {
   "hello": "سلام...",
-  "language": "زبان"
+  "home": "خانه",
+  "products": "محصولات",
+  "blogs": "بلاگ",
+  "aboutUs": "درباره ما",
+  "contactUs": "ارتباط با ما",
+  "login": "ورود",
+  "register": "ثبت نام"
 }
