@@ -1,8 +1,11 @@
 <template>
-  <div class="app-bg-danger app-w-100">
+  <div class="app-w-100">
     <span class="app-color-primary app-font-size-20 app-font-weight-900"
       >Hello world</span
     >
-    <UserIcon size="1" class="app-color-primary"></UserIcon>
+    
   </div>
+  <HomeIcon size="1.5x" class="custom-class"></HomeIcon>
+  <UserIcon size="1.5x" class="custom-class"></UserIcon>
+  <PhoneIcon size="1.5x" class="custom-class"></PhoneIcon>
 </template>
