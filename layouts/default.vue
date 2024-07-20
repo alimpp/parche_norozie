@@ -5,3 +5,10 @@
     <slot />
   </div>
 </template>
+
+<script setup>
+import { themeConfig } from "../utils/theme.js";
+onMounted(() => {
+  themeConfig();
+});
+</script>
