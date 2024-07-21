@@ -2,7 +2,7 @@
   <div :dir="locale == 'fr' ? 'rtl' : 'ltr'">
     <NuxtLoadingIndicator color="#fd7403" />
     <NavigationBar />
-    <div class="app-h-90 app-bg-gray">
+    <div class="app-h-90 app-bg-secondary">
       <slot />
     </div>
   </div>

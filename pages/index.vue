@@ -1,7 +1,5 @@
 <template>
-  <div>
-    {{ t("hello") }}
-  </div>
+  <div></div>
 </template>
 
 <script setup>

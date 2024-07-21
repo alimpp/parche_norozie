@@ -1,37 +1,66 @@
 <template>
-  <div
-    class="app-w-100 app-h-10 app-bg-white app-flex app-align-center border-bottom"
-  >
-    <div class="app-w-30 app-h-10 app-flex app-align-center app-px-4">
-      <LoginButton />
+  <div class="app-w-100 app-h-10 app-bg-secondary app-flex app-align-center">
+    <div class="auth-content">
+      <div class="app-w-100 app-h-10 app-flex app-align-center">
+        <div class="mobile-size">
+          <MenuIcon
+            size="1.5x"
+            class="custom-class app-mx-2 app-pointer"
+          ></MenuIcon>
+        </div>
+        <LoginButton class="app-mx-2" />
+      </div>
     </div>
-    <div class="app-w-40 app-h-10 app-flex app-align-center app-justify-center">
-      <span class="app-pointer pp-font-size-16 app-font-weight-600">{{
-        t("home")
-      }}</span>
-      <span class="app-pointer app-font-size-16 app-font-weight-600 app-px-5">{{
-        t("blogs")
-      }}</span>
-      <span class="app-pointer app-font-size-16 app-font-weight-600">{{
-        t("products")
-      }}</span>
-      <span class="app-pointer app-font-size-16 app-font-weight-600 app-px-5">{{
-        t("aboutUs")
-      }}</span>
-      <span class="app-pointer app-font-size-16 app-font-weight-600">{{
-        t("contactUs")
-      }}</span>
-    </div>
-    <div
-      class="app-w-30 app-h-10 app-flex app-align-center app-justify-end app-px-4"
-    >
-      <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
-      <ShoppingCartIcon
-        size="1.5x"
-        class="custom-class app-mx-3 app-pointer"
-      ></ShoppingCartIcon>
 
-      <span class="app-font-weight-700">فروشگاه نوروزی</span>
+    <div class="menu-content">
+      <div
+        class="app-w-100 app-h-10 app-flex app-align-center app-justify-center"
+      >
+        <span
+          class="app-pointer pp-font-size-16 app-font-weight-600"
+          :class="{ 'active-route-main-theme': route.path == '/' }"
+          @click="navigateTo('/')"
+          >{{ t("home") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-16 app-font-weight-600 app-mx-5"
+          :class="{ 'active-route-main-theme': route.path == '/blogs' }"
+          @click="navigateTo('/blogs')"
+          >{{ t("blogs") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-16 app-font-weight-600"
+          :class="{ 'active-route-main-theme': route.path == '/products' }"
+          @click="navigateTo('/products')"
+          >{{ t("products") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-16 app-font-weight-600 app-mx-5"
+          :class="{ 'active-route-main-theme': route.path == '/about-us' }"
+          @click="navigateTo('/about-us')"
+          >{{ t("aboutUs") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-16 app-font-weight-600"
+          :class="{ 'active-route-main-theme': route.path == '/contact-us' }"
+          @click="navigateTo('/contact-us')"
+          >{{ t("contactUs") }}</span
+        >
+      </div>
+    </div>
+
+    <div class="logo-content">
+      <div
+        class="app-w-100 app-h-10 app-flex app-align-center app-justify-end app-px-4"
+      >
+        <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
+        <ShoppingCartIcon
+          size="1.5x"
+          class="custom-class app-mx-3 app-pointer"
+        ></ShoppingCartIcon>
+
+        <span class="app-font-weight-700">فروشگاه نوروزی</span>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +74,41 @@ const route = useRoute();
 </script>
 
 <style scoped>
-.border-bottom {
-  box-shadow: 0px 0px 2px 0px #646464;
+.mobile-size {
+  display: none;
+}
+.auth-content {
+  width: 30%;
+  height: 10vh;
+}
+
+.menu-content {
+  width: 40%;
+  height: 10vh;
+}
+
+.logo-content {
+  width: 30%;
+  height: 10vh;
+}
+
+.active-route-main-theme {
+  border-bottom: 2px solid #000000;
+}
+
+@media (max-width: 800px) {
+  .menu-content {
+    display: none;
+  }
+  .auth-content {
+    width: 50%;
+  }
+  .logo-content {
+    width: 50%;
+  }
+
+  .mobile-size {
+    display: flex;
+  }
 }
 </style>

@@ -17,12 +17,15 @@ const { t } = useI18n();
 <style scoped lang="scss">
 .login-button {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   border-radius: 6px;
   border: 1px solid #c1bdbd;
-  padding: 7px 15px;
+  padding: 0px 8px;
   transition: 0.5s;
 }
 
