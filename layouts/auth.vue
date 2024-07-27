@@ -1,7 +1,6 @@
 <template>
   <div :dir="locale == 'fr' ? 'rtl' : 'ltr'">
     <NuxtLoadingIndicator color="#fd7403" />
-    auth layout
     <slot />
   </div>
 </template>

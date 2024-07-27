@@ -1,4 +1,4 @@
-<template>forget password</template>
+<template>otp</template>
 
 <script setup>
 definePageMeta({

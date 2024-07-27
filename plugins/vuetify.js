@@ -7,6 +7,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     ssr: true,
     components,
     directives,
+    rtl: true,
   });
 
   nuxtApp.vueApp.use(vuetify);

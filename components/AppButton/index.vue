@@ -22,7 +22,7 @@ const props = defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
+  height: 44px;
   padding: 0px 15px;
   border-radius: 6px;
   cursor: pointer;

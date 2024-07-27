@@ -8,7 +8,7 @@
             class="custom-class app-mx-2 app-pointer"
           ></MenuIcon>
         </div>
-        <LoginButton class="app-mx-2" />
+        <LoginButton @click="navigateTo('/auth/login')" class="app-mx-2" />
       </div>
     </div>
 
@@ -51,7 +51,7 @@
 
     <div class="logo-content">
       <div
-        class="app-w-100 app-h-10 app-flex app-align-center app-justify-end app-px-4"
+        class="app-w-100 app-h-10 app-flex app-align-center app-justify-end app-px-1"
       >
         <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
         <ShoppingCartIcon
@@ -59,7 +59,7 @@
           class="custom-class app-mx-3 app-pointer"
         ></ShoppingCartIcon>
 
-        <span class="app-font-weight-700">فروشگاه نوروزی</span>
+        <AppLogo />
       </div>
     </div>
   </div>
