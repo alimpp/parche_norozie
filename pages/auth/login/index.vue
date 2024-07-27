@@ -13,10 +13,24 @@
           {{ t("login") }} | {{ t("register") }}</span
         >
         <div class="app-px-4 app-py-4">
-          <AppInput label="شماره تلفن" />
+          <AppInput
+            :label="t('phoneNumber')"
+            v-model="phoneNumber"
+            placeholder="09123232123"
+            type="number"
+            :error="errorState.state"
+            :message-error="errorState.message"
+          />
         </div>
         <div class="app-px-4 app-py-4">
-          <AppButton background="app-bg-primary" :name="t('login')" />
+          <AppButton
+            background="app-bg-primary"
+            :name="t('send')"
+            @click="handleLogin"
+            :loading="loading"
+            width="100%"
+            :disabled="disabled"
+          />
         </div>
       </div>
     </div>
@@ -25,12 +39,27 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-
+import { ValidatePhoneNumber } from "@/utils/validate";
 const { t } = useI18n();
+const phoneNumber = ref("");
+const errorState = ref({ state: false, message: "" });
+const loading = ref(false);
+const disabled = ref(false);
 
 definePageMeta({
   layout: "auth",
 });
+
+const handleLogin = () => {
+  errorState.value = ValidatePhoneNumber(phoneNumber.value);
+  if (!errorState.value.state) {
+    loading.value = true;
+    setTimeout(() => {
+      loading.value = false;
+      navigateTo("/auth/otp");
+    }, 2000);
+  }
+};
 </script>
 
 <style scoped>

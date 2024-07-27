@@ -7,9 +7,10 @@
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :type="type"
-      :class="{ error: error, 'app-color-white': ThemeStatus === 'dark' }"
+      :class="{ error: error, 'app-color-white': themeState === 'dark' }"
       :disabled="disabled"
       class="app-border-radius"
+      :placeholder="placeholder"
     />
     <span
       v-if="error"
@@ -21,13 +22,11 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
+const themeState = ref("main");
 
-const ThemeStatus = computed(() => {
-  setTimeout(() => {
-    const theme = localStorage.getItem("theme");
-    return theme;
-  }, 0);
+onMounted(() => {
+  const theme = localStorage.getItem("theme");
+  themeState.value = theme;
 });
 
 const props = defineProps({
@@ -61,6 +60,11 @@ const props = defineProps({
     default: "",
     required: false,
   },
+  placeholder: {
+    type: String,
+    default: "",
+    required: false,
+  },
 });
 </script>
 
@@ -74,6 +78,13 @@ input {
 }
 
 .error {
-  border: 1px solid #f50000;
+  border: 2px solid #f50000;
+  color: #f50000;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>

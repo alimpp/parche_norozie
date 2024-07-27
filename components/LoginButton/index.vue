@@ -1,10 +1,10 @@
 <template>
   <div class="login-button">
     {{ t("login") }} | {{ t("register") }}
-    <ArrowLeftIcon
+    <!-- <ArrowLeftIcon
       size="1.5x"
       class="custom-class app-mx-2 app-pointer"
-    ></ArrowLeftIcon>
+    ></ArrowLeftIcon> -->
   </div>
 </template>
 
@@ -25,7 +25,7 @@ const { t } = useI18n();
   cursor: pointer;
   border-radius: 6px;
   border: 1px solid #c1bdbd;
-  padding: 0px 8px;
+  padding: 0px 4px;
   transition: 0.5s;
 }
 
