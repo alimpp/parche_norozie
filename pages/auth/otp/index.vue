@@ -18,10 +18,13 @@
         <div
           class="app-w-100 app-flex app-justify-center app-flex-column app-align-center"
         >
-          <span class="app-font-size-12 app-font-weight-900">01:59</span>
-          <span class="app-font-size-12 app-font-weight-900">{{
-            t("resendCode")
-          }}</span>
+          <!-- <span class="app-font-size-12 app-font-weight-900">01:59</span> -->
+          <CountDown :starterFlag="starterFlag"> </CountDown>
+          <span
+            @click="resend"
+            class="app-font-size-12 app-font-weight-900 app-pointer app-bg-primary"
+            >{{ t("resendCode") }}</span
+          >
         </div>
         <div class="app-px-4 app-py-4">
           <AppButton
@@ -48,6 +51,11 @@ const disabled = ref(false);
 definePageMeta({
   layout: "auth",
 });
+const starterFlag = ref("stop");
+
+const resend = (starterFlag) => {
+  starterFlag.value = "reset";
+};
 
 const handleSendOtp = () => {
   loading.value = true;
@@ -56,6 +64,11 @@ const handleSendOtp = () => {
     navigateTo("/");
   }, 2000);
 };
+onMounted(() => {
+  setTimeout(() => {
+    starterFlag.value = "start";
+  }, 0);
+});
 </script>
 
 <style scoped>
