@@ -1,6 +1,21 @@
 <template>
-  <div>
-    <AppCarousel :dataSource="dataSource" :cycleTime="cycleTime" />
+  <div class="app-container">
+    <div class="app-flex app-w-100">
+      <div class="app-w-60">
+        <AppCarousel :dataSource="dataSource" :cycleTime="cycleTime" />
+      </div>
+      <div class="app-w-40 app-mx-6">
+        <AppCarousel :dataSource="dataSource" :cycleTime="cycleTime" />
+      </div>
+    </div>
+    <div class="app-flex app-w-100 app-mt-4">
+      <div class="app-w-40">
+        <AppCarousel :dataSource="dataSource" :cycleTime="cycleTime" />
+      </div>
+      <div class="app-w-60 app-mx-6">
+        <AppCarousel :dataSource="dataSource" :cycleTime="cycleTime" />
+      </div>
+    </div>
   </div>
 </template>
 

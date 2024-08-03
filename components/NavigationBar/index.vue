@@ -6,6 +6,7 @@
           <MenuIcon
             size="1.5x"
             class="custom-class app-mx-2 app-pointer"
+            @click="openHamburgerMenu"
           ></MenuIcon>
         </div>
         <LoginButton @click="navigateTo('/auth/login')" class="app-mx-2" />
@@ -58,7 +59,6 @@
           size="1.5x"
           class="custom-class app-mx-3 app-pointer"
         ></ShoppingCartIcon>
-
         <AppLogo />
       </div>
     </div>
@@ -71,6 +71,8 @@ import { useRoute } from "vue-router";
 
 const { t } = useI18n();
 const route = useRoute();
+
+const openHamburgerMenu = () => {};
 </script>
 
 <style scoped>

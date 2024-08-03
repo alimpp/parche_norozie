@@ -1,5 +1,8 @@
 <template>
-  <div class="content" :style="{ backgroundImage: `url(${active.image})` }">
+  <div
+    class="content app-border-radius"
+    :style="{ backgroundImage: `url(${active.image})` }"
+  >
     <div class="glass">
       <span class="app-font-size-18 app-color-white">{{ active.title }}</span>
       <AppButton class="app-mt-4" name="بازدید" background="app-bg-white" />
@@ -73,8 +76,9 @@ onMounted(() => {
 
 <style scoped>
 .content {
+  overflow: hidden;
   width: 100%;
-  height: 80vh;
+  height: 55vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -82,7 +86,7 @@ onMounted(() => {
 
 .glass {
   width: 100%;
-  height: 80vh;
+  height: 55vh;
   display: flex;
   justify-content: center;
   align-items: center;
