@@ -1,8 +1,13 @@
 <template>
-  <span class="app-font-size-12 app-font-weight-900">{{ totalSeconds }}</span>
+  <span class="app-font-size-12 app-font-weight-900"
+    ><span v-if="totalSeconds.sec < 10">0</span
+    ><span>{{ totalSeconds.sec }}</span> : <span>0{{ totalSeconds.min }}</span>
+  </span>
 </template>
 
 <script setup>
+const emit = defineEmits(["stop"]);
+
 const props = defineProps({
   starterFlag: {
     type: String,
@@ -10,33 +15,40 @@ const props = defineProps({
   },
 });
 
-const totalSeconds = ref(5);
+const totalSeconds = ref({
+  min: 1,
+  sec: 15,
+});
 
+const startMethod = () => {
+  let start = setInterval(() => {
+    if (totalSeconds.value.sec > 1) {
+      totalSeconds.value.sec--;
+    } else if (totalSeconds.value.min == 1 && totalSeconds.value.sec == 1) {
+      totalSeconds.value.sec = 59;
+      totalSeconds.value.min = 0;
+    } else if (totalSeconds.value.min == 0 && totalSeconds.value.sec == 1) {
+      totalSeconds.value.sec = 0;
+      totalSeconds.value.min = 0;
+      clearInterval(start);
+      emit("stop");
+    }
+  }, 1000);
+};
 
 watch(
   () => props.starterFlag,
   (newValue) => {
     switch (newValue) {
       case "start":
-        let start = setInterval(() => {
-          totalSeconds.value--;
-        }, 1000);
-        setTimeout(() => {
-          clearInterval(start);
-          totalSeconds.value = 5;
-        }, 5000);
-        
-
+        startMethod();
         break;
       case "reset":
-        let reStart = setInterval(() => {
-          totalSeconds.value--;
-        }, 1000);
+        totalSeconds.value.sec = 59;
+        totalSeconds.value.min = 1;
         setTimeout(() => {
-          clearInterval(reStart);
-        }, 5000);
-        
-
+          startMethod();
+        }, 0);
         break;
       default:
         return;

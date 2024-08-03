@@ -1,10 +1,6 @@
 <template>
-  <div class="login-button">
+  <div class="login-button app-font-size-14 app-font-weight-100">
     {{ t("login") }} | {{ t("register") }}
-    <!-- <ArrowLeftIcon
-      size="1.5x"
-      class="custom-class app-mx-2 app-pointer"
-    ></ArrowLeftIcon> -->
   </div>
 </template>
 
@@ -20,12 +16,11 @@ const { t } = useI18n();
   align-items: center;
   justify-content: center;
   height: 38px;
-  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   border-radius: 6px;
   border: 1px solid #c1bdbd;
-  padding: 0px 4px;
+  padding: 0px 20px;
   transition: 0.5s;
 }
 

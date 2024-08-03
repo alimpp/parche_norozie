@@ -17,31 +17,31 @@
         class="app-w-100 app-h-10 app-flex app-align-center app-justify-center"
       >
         <span
-          class="app-pointer pp-font-size-16 app-font-weight-600"
+          class="app-pointer app-font-size-14 app-font-weight-600"
           :class="{ 'active-route-main-theme': route.path == '/' }"
           @click="navigateTo('/')"
           >{{ t("home") }}</span
         >
         <span
-          class="app-pointer app-font-size-16 app-font-weight-600 app-mx-5"
+          class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5"
           :class="{ 'active-route-main-theme': route.path == '/blogs' }"
           @click="navigateTo('/blogs')"
           >{{ t("blogs") }}</span
         >
         <span
-          class="app-pointer app-font-size-16 app-font-weight-600"
+          class="app-pointer app-font-size-14 app-font-weight-600"
           :class="{ 'active-route-main-theme': route.path == '/products' }"
           @click="navigateTo('/products')"
           >{{ t("products") }}</span
         >
         <span
-          class="app-pointer app-font-size-16 app-font-weight-600 app-mx-5"
+          class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5"
           :class="{ 'active-route-main-theme': route.path == '/about-us' }"
           @click="navigateTo('/about-us')"
           >{{ t("aboutUs") }}</span
         >
         <span
-          class="app-pointer app-font-size-16 app-font-weight-600"
+          class="app-pointer app-font-size-14 app-font-weight-600"
           :class="{ 'active-route-main-theme': route.path == '/contact-us' }"
           @click="navigateTo('/contact-us')"
           >{{ t("contactUs") }}</span

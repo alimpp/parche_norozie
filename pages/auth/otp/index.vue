@@ -19,10 +19,10 @@
           class="app-w-100 app-flex app-justify-center app-flex-column app-align-center"
         >
           <!-- <span class="app-font-size-12 app-font-weight-900">01:59</span> -->
-          <CountDown :starterFlag="starterFlag"> </CountDown>
+          <CountDown :starterFlag="countDownState" @stop="stoped"> </CountDown>
           <span
-            @click="resend"
-            class="app-font-size-12 app-font-weight-900 app-pointer app-bg-primary"
+            @click="resendCode"
+            class="app-font-size-12 app-font-weight-900 app-pointer"
             >{{ t("resendCode") }}</span
           >
         </div>
@@ -44,6 +44,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
+
 const otpCode = ref("");
 const loading = ref(false);
 const disabled = ref(false);
@@ -51,10 +52,16 @@ const disabled = ref(false);
 definePageMeta({
   layout: "auth",
 });
-const starterFlag = ref("stop");
 
-const resend = (starterFlag) => {
-  starterFlag.value = "reset";
+const countDownState = ref("stop");
+const resendState = ref(false);
+
+const resendCode = () => {
+  countDownState.value = "reset";
+};
+
+const stoped = () => {
+  resendState.value = true;
 };
 
 const handleSendOtp = () => {
@@ -64,9 +71,10 @@ const handleSendOtp = () => {
     navigateTo("/");
   }, 2000);
 };
+
 onMounted(() => {
   setTimeout(() => {
-    starterFlag.value = "start";
+    countDownState.value = "start";
   }, 0);
 });
 </script>
