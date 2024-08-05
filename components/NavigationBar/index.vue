@@ -3,11 +3,12 @@
     <div class="auth-content">
       <div class="app-w-100 app-h-10 app-flex app-align-center">
         <div class="mobile-size">
-          <MenuIcon
-            size="1.5x"
-            class="custom-class app-mx-2 app-pointer"
-            @click="openHamburgerMenu"
-          ></MenuIcon>
+          <span class="app-pt-2" @click="openHamburgerMenu">
+            <MenuIcon
+              size="1.5x"
+              class="custom-class app-mx-2 app-pointer"
+            ></MenuIcon>
+          </span>
         </div>
         <LoginButton @click="navigateTo('/auth/login')" class="app-mx-2" />
       </div>
@@ -69,10 +70,14 @@
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 
+const emit = defineEmits(["openHamburgerMenu"]);
+
 const { t } = useI18n();
 const route = useRoute();
 
-const openHamburgerMenu = () => {};
+const openHamburgerMenu = () => {
+  emit("openHamburgerMenu");
+};
 </script>
 
 <style scoped>
