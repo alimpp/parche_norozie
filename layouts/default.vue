@@ -1,9 +1,15 @@
 <template>
   <div :dir="locale == 'fr' ? 'rtl' : 'ltr'">
-    <HamburgerMenu :isOpen="isOpen" @closeMenu="closeMenu" />
-
+    <HamburgerMenu :isOpen="isOpen" @closeMenu="handleChangeStateMenu" />
+    <ShoppingCard
+      @close="handleChangeStateShoppingCard"
+      :isOpen="isOpenShoppingCard"
+    />
     <NuxtLoadingIndicator color="#fd7403" />
-    <NavigationBar @openHamburgerMenu="openHamburgerMenu" />
+    <NavigationBar
+      @openHamburgerMenu="handleChangeStateMenu"
+      @openHamburgerShoppingCard="handleChangeStateShoppingCard"
+    />
     <div class="app-h-90 app-bg-secondary">
       <slot />
     </div>
@@ -16,13 +22,14 @@ import { themeConfig } from "../utils/theme.js";
 
 const { locale } = useI18n();
 const isOpen = ref(false);
+const isOpenShoppingCard = ref(false);
 
-const openHamburgerMenu = () => {
+const handleChangeStateMenu = () => {
   isOpen.value = !isOpen.value;
 };
 
-const closeMenu = () => {
-  isOpen.value = !isOpen.value;
+const handleChangeStateShoppingCard = () => {
+  isOpenShoppingCard.value = !isOpenShoppingCard.value;
 };
 
 onMounted(() => {

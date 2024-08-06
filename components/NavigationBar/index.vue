@@ -56,10 +56,13 @@
         class="app-w-100 app-h-10 app-flex app-align-center app-justify-end app-px-1"
       >
         <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
-        <ShoppingCartIcon
-          size="1.5x"
-          class="custom-class app-mx-3 app-pointer"
-        ></ShoppingCartIcon>
+        <span @click="openHamburgerShoppingCard" class="app-pt-2">
+          <ShoppingCartIcon
+            size="1.5x"
+            class="custom-class app-mx-3 app-pointer"
+          ></ShoppingCartIcon
+        ></span>
+
         <AppLogo />
       </div>
     </div>
@@ -70,13 +73,17 @@
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 
-const emit = defineEmits(["openHamburgerMenu"]);
+const emit = defineEmits(["openHamburgerMenu", "openHamburgerShoppingCard"]);
 
 const { t } = useI18n();
 const route = useRoute();
 
 const openHamburgerMenu = () => {
   emit("openHamburgerMenu");
+};
+
+const openHamburgerShoppingCard = () => {
+  emit("openHamburgerShoppingCard");
 };
 </script>
 

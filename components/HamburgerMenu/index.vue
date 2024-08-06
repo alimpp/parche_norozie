@@ -1,10 +1,51 @@
 <template>
-  <div class="menu-items-container" v-if="isOpen">
+  <div
+    class="menu-items-container"
+    v-if="isOpen"
+    @click.self="emit('closeMenu')"
+  >
     <div class="menu-content app-bg-white slid-left-animation">
       <div class="app-w-100 app-flex app-py-3 app-px-3 app-justify-end">
         <span @click="emit('closeMenu')">
           <XIcon size="1.5x" class="custom-class app-pointer"></XIcon>
         </span>
+      </div>
+      <div class="app-w-100 app-flex app-justify-center app-align-center">
+        <AppLogo />
+      </div>
+      <div
+        class="app-w-100 app-flex app-flex-column app-justify-center app-align-center"
+      >
+        <span
+          class="app-pointer app-font-size-14 app-font-weight-600"
+          :class="{ 'active-route-main-theme': route.path == '/' }"
+          @click="navigateTo('/')"
+          >{{ t("home") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5 app-mt-2"
+          :class="{ 'active-route-main-theme': route.path == '/blogs' }"
+          @click="navigateTo('/blogs')"
+          >{{ t("blogs") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-14 app-font-weight-600"
+          :class="{ 'active-route-main-theme': route.path == '/products' }"
+          @click="navigateTo('/products')"
+          >{{ t("products") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5 app-mt-2"
+          :class="{ 'active-route-main-theme': route.path == '/about-us' }"
+          @click="navigateTo('/about-us')"
+          >{{ t("aboutUs") }}</span
+        >
+        <span
+          class="app-pointer app-font-size-14 app-font-weight-600 app-mt-2"
+          :class="{ 'active-route-main-theme': route.path == '/contact-us' }"
+          @click="navigateTo('/contact-us')"
+          >{{ t("contactUs") }}</span
+        >
       </div>
     </div>
   </div>
@@ -13,20 +54,12 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 const emit = defineEmits(["closeMenu"]);
 const router = useRouter();
 const route = useRoute();
-
-const menuItems = ref([
-  { id: "000", title: "Dashboard", path: "/dashboard" },
-  { id: "001", title: "Journals", path: "/journals" },
-  { id: "002", title: "Create Journal", path: "/create-journal" },
-  { id: "003", title: "Coins List", path: "/coin-list" },
-  { id: "004", title: "Watch List", path: "/watch-list" },
-  { id: "005", title: "Holder", path: "/holder" },
-  { id: "001", title: "Profile", path: "/profile" },
-]);
+const { t } = useI18n();
 
 const props = defineProps({
   isOpen: {
@@ -56,7 +89,7 @@ const navigateTo = (path) => {
   position: absolute;
   z-index: 1;
 }
-.active-route {
-  border-bottom: 2px solid #7d70f1;
+.active-route-main-theme {
+  border-bottom: 2px solid #000000;
 }
 </style>
