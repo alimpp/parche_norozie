@@ -4,7 +4,7 @@
     v-if="isOpen"
     @click.self="emit('close')"
   >
-    <div class="content app-bg-white slid-right-animation">
+    <div class="content app-bg-white slid-right-animation-3">
       <div class="app-w-100 app-flex app-py-3 app-px-3 app-justify-start">
         <span @click="emit('close')">
           <XIcon size="1.5x" class="custom-class app-pointer"></XIcon>
