@@ -1,37 +1,41 @@
 <template>
-  <div class="app-container fade_animations">
-    <div class="app-flex app-w-100">
-      <div class="app-w-60">
-        <AppCarousel
-          class="slid-right-animation"
-          :dataSource="dataSource"
-          :cycleTime="cycleTime"
-        />
-      </div>
-      <div class="app-w-40 app-mx-6">
-        <AppCarousel
-          class="slid-left-animation"
-          :dataSource="dataSource"
-          :cycleTime="cycleTime"
-        />
-      </div>
-    </div>
-    <div class="app-flex app-w-100 app-mt-4">
-      <div class="app-w-40">
-        <AppCarousel
-          class="slid-left-animation"
-          :dataSource="dataSource"
-          :cycleTime="cycleTime"
-        />
-      </div>
-      <div class="app-w-60 app-mx-6">
-        <AppCarousel
-          class="slid-right-animation"
-          :dataSource="dataSource"
-          :cycleTime="cycleTime"
-        />
-      </div>
-    </div>
+  <div class="app-container">
+    <v-row>
+      <v-col md="7" sm="12" xs="4"
+        ><div class="app-w-100 app-px-2 app-py-2">
+          <AppCarousel
+            class="slid-left-animation-5"
+            :dataSource="dataSource"
+            cycleTime="3000"
+          /></div
+      ></v-col>
+      <v-col md="5" sm="12" xs="4">
+        <div class="app-w-100 app-px-2 app-py-2">
+          <AppCarousel
+            class="slid-right-animation-8"
+            :dataSource="dataSource"
+            cycleTime="5000"
+          /></div
+      ></v-col>
+    </v-row>
+    <v-row>
+      <v-col md="5" sm="12" xs="4"
+        ><div class="app-w-100 app-px-2 app-py-2">
+          <AppCarousel
+            class="slid-left-animation-3"
+            :dataSource="dataSource"
+            cycleTime="3000"
+          /></div
+      ></v-col>
+      <v-col md="7" sm="12" xs="4">
+        <div class="app-w-100 app-px-2 app-py-2">
+          <AppCarousel
+            class="slid-right-animation-5"
+            :dataSource="dataSource"
+            cycleTime="5000"
+          /></div
+      ></v-col>
+    </v-row>
   </div>
 </template>
 
@@ -39,7 +43,6 @@
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-const cycleTime = ref(5000);
 const dataSource = ref([
   {
     id: 1,

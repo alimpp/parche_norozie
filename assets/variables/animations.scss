@@ -1,12 +1,36 @@
-.slid-left-animation {
+.slid-left-animation-8 {
+  animation: 0.8s slid-left;
+}
+
+.slid-right-animation-8 {
+  animation: 0.8s slid-right;
+}
+
+.slid-up-animation-8 {
+  animation: 0.8s slid-up;
+}
+
+.slid-left-animation-5 {
+  animation: 0.5s slid-left;
+}
+
+.slid-right-animation-5 {
+  animation: 0.5s slid-right;
+}
+
+.slid-up-animation-5 {
+  animation: 0.5s slid-up;
+}
+
+.slid-left-animation-3 {
   animation: 0.3s slid-left;
 }
 
-.slid-right-animation {
+.slid-right-animation-3 {
   animation: 0.3s slid-right;
 }
 
-.slid-up-animation {
+.slid-up-animation-3 {
   animation: 0.3s slid-up;
 }
 
