@@ -6,7 +6,7 @@
           <AppCarousel
             class="slid-left-animation-5"
             :dataSource="dataSource"
-            cycleTime="3000"
+            :cycleTime="cycleTime.one"
           /></div
       ></v-col>
       <v-col md="5" sm="12" xs="4">
@@ -14,7 +14,7 @@
           <AppCarousel
             class="slid-right-animation-8"
             :dataSource="dataSource"
-            cycleTime="5000"
+            :cycleTime="cycleTime.two"
           /></div
       ></v-col>
     </v-row>
@@ -24,7 +24,7 @@
           <AppCarousel
             class="slid-left-animation-3"
             :dataSource="dataSource"
-            cycleTime="3000"
+            :cycleTime="cycleTime.tree"
           /></div
       ></v-col>
       <v-col md="7" sm="12" xs="4">
@@ -32,7 +32,7 @@
           <AppCarousel
             class="slid-right-animation-5"
             :dataSource="dataSource"
-            cycleTime="5000"
+            :cycleTime="cycleTime.four"
           /></div
       ></v-col>
     </v-row>
@@ -43,6 +43,12 @@
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
+const cycleTime = ref({
+  one: 3000,
+  two: 5000,
+  tree: 8000,
+  four: 4000,
+});
 const dataSource = ref([
   {
     id: 1,
