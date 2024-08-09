@@ -18,9 +18,10 @@ export const useAuthStore = defineStore("useAuthStore", {
             phone: phone,
           },
         });
-        this.phone = phone;
-        this.isAccessToOtpPage = true;
-        console.log(data.value);
+        if (data.value?.status == 200) {
+          this.phone = phone;
+          this.isAccessToOtpPage = true;
+        }
       } catch (err: any) {
         console.log(err);
       }
@@ -30,16 +31,16 @@ export const useAuthStore = defineStore("useAuthStore", {
       try {
         const { data, error } = await useFetch<IOtp>("/api/auth/otp", {
           method: "POST",
-          body: {
-            phone: param,
-          },
+          body: param,
         });
-        this.isAuthenticated = true;
-        this.isAccessToOtpPage = false;
-        console.log(data.value);
+        if (data.value?.status == 200) {
+          this.isAuthenticated = true;
+          this.isAccessToOtpPage = false;
+        }
       } catch (err: any) {
         console.log(err);
       }
     },
   },
+  persist: true,
 });

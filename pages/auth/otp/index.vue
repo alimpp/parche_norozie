@@ -7,20 +7,31 @@
     >
       <AppLogo />
     </div>
-    <div class="app-flex app-justify-center app-align-center">
+    <div class="app-flex app-flex-column app-justify-center app-align-center">
       <span class="app-font-size-14 app-font-weight-600 app-px-4 app-py-2">
         {{ t("otp") }}</span
       >
+      <span class="app-font-size-14 app-font-weight-600">{{
+        authStore.phone
+      }}</span>
     </div>
     <div class="app-px-4 app-py-4" dir="ltr">
       <v-otp-input :loading="loading" v-model="otpCode"></v-otp-input>
     </div>
     <div
+      class="app-flex app-flex-column app-justify-center app-align-center"
+      v-if="otpError"
+    >
+      <span class="app-font-size-14 app-font-weight-600 app-color-danger">
+        {{ t("otp error") }}</span
+      >
+    </div>
+    <div
       class="app-w-100 app-flex app-justify-center app-flex-column app-align-center"
     >
-      <!-- <span class="app-font-size-12 app-font-weight-900">01:59</span> -->
       <CountDown :starterFlag="countDownState" @stop="stoped"> </CountDown>
       <span
+        v-if="resendState"
         @click="resendCode"
         class="app-font-size-12 app-font-weight-900 app-pointer"
         >{{ t("resendCode") }}</span
@@ -47,6 +58,7 @@ import { useAuthStore } from "@/store/auth/index";
 const authStore = useAuthStore();
 
 const otpCode = ref("");
+const otpError = ref(false);
 const loading = ref(false);
 const disabled = ref(false);
 
@@ -55,23 +67,35 @@ definePageMeta({
   middleware: ["otp"],
 });
 
+watch(otpCode, async (newValue, oldValue) => {
+  if (otpCode.value.length == 6) {
+    await handleSendOtp();
+  }
+});
+
 const countDownState = ref("stop");
 const resendState = ref(false);
 
-const resendCode = () => {
+const resendCode = async () => {
   countDownState.value = "reset";
+  await authStore.login(authStore.phone);
+  resendState.value = false;
 };
 
-const stoped = () => {
+const stoped = async () => {
   resendState.value = true;
 };
 
 const handleSendOtp = async () => {
   loading.value = true;
-  await authStore.otp({ otp_token: otpCode.value, phone: "09383758792" });
+  await authStore.otp({ otp_token: otpCode.value, phone: authStore.phone });
   if (authStore.isAuthenticated) {
     loading.value = false;
+    otpError.value = false;
     navigateTo("/");
+  } else {
+    loading.value = false;
+    otpError.value = true;
   }
 };
 

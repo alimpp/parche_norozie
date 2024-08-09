@@ -14,5 +14,16 @@ export default defineNuxtConfig({
 
   css: ["@/assets/scss/main.scss", "vuetify/lib/styles/main.sass"],
 
-  modules: ["nuxt-feather-icons", "@pinia/nuxt"],
+  modules: [
+    "nuxt-feather-icons",
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+  ],
+
+  piniaPersistedstate: {
+    cookieOptions: {
+      sameSite: "strict",
+    },
+    storage: "localStorage",
+  },
 });

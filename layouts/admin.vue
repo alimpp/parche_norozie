@@ -8,11 +8,6 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import { themeConfig } from "../utils/theme.js";
 
 const { locale } = useI18n();
-
-onMounted(() => {
-  themeConfig();
-});
 </script>
