@@ -36,6 +36,10 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { ValidatePhoneNumber } from "@/utils/validate";
+
+import { useAuthStore } from "@/store/auth/index";
+const authStore = useAuthStore();
+
 const { t } = useI18n();
 const phoneNumber = ref("");
 const errorState = ref({ state: false, message: "" });
@@ -46,14 +50,13 @@ definePageMeta({
   layout: "auth",
 });
 
-const handleLogin = () => {
+const handleLogin = async () => {
   errorState.value = ValidatePhoneNumber(phoneNumber.value);
   if (!errorState.value.state) {
     loading.value = true;
-    setTimeout(() => {
-      loading.value = false;
-      navigateTo("/auth/otp");
-    }, 2000);
+    await authStore.login(phoneNumber.value);
+    loading.value = false;
+    navigateTo("/auth/otp");
   }
 };
 </script>

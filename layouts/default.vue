@@ -10,7 +10,7 @@
       @openHamburgerMenu="handleChangeStateMenu"
       @openHamburgerShoppingCard="handleChangeStateShoppingCard"
     />
-    <div class="app-h-90 app-bg-secondary">
+    <div class="content app-h-90 app-bg-secondary">
       <slot />
     </div>
   </div>
@@ -36,3 +36,9 @@ onMounted(() => {
   themeConfig();
 });
 </script>
+
+<style scoped>
+.content {
+  overflow-y: scroll;
+}
+</style>

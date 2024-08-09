@@ -43,12 +43,16 @@
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
+import { useAuthStore } from "@/store/auth/index";
+const authStore = useAuthStore();
+
 const otpCode = ref("");
 const loading = ref(false);
 const disabled = ref(false);
 
 definePageMeta({
   layout: "auth",
+  middleware: ["otp"],
 });
 
 const countDownState = ref("stop");
@@ -62,12 +66,13 @@ const stoped = () => {
   resendState.value = true;
 };
 
-const handleSendOtp = () => {
+const handleSendOtp = async () => {
   loading.value = true;
-  setTimeout(() => {
+  await authStore.otp({ otp_token: otpCode.value, phone: "09383758792" });
+  if (authStore.isAuthenticated) {
     loading.value = false;
     navigateTo("/");
-  }, 2000);
+  }
 };
 
 onMounted(() => {

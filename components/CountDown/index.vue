@@ -17,7 +17,7 @@ const props = defineProps({
 
 const totalSeconds = ref({
   min: 1,
-  sec: 15,
+  sec: 59,
 });
 
 const startMethod = () => {
