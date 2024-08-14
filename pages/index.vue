@@ -3,17 +3,17 @@
     <v-row>
       <v-col md="7" sm="12" xs="4"
         ><div class="app-w-100 app-px-2 app-py-2">
-          <AppCarousel
+          <DiscountCarousel
             class="slid-left-animation-5"
-            :dataSource="dataSource"
+            :dataSource="discount"
             :cycleTime="cycleTime.one"
           /></div
       ></v-col>
       <v-col md="5" sm="12" xs="4">
         <div class="app-w-100 app-px-2 app-py-2">
-          <AppCarousel
+          <NewProductsCarousel
             class="slid-right-animation-8"
-            :dataSource="dataSource"
+            :dataSource="newProducts"
             :cycleTime="cycleTime.two"
           /></div
       ></v-col>
@@ -49,6 +49,81 @@ const cycleTime = ref({
   tree: 8000,
   four: 4000,
 });
+
+const discount = ref([
+  {
+    id: 1,
+    title: "Rose Gold",
+    name: "رو تختی تک نفره",
+    price: "2,100,000",
+    newPrice: "1,200,000",
+    image:
+      "https://cdn.thewirecutter.com/wp-content/media/2023/01/platform-bed-frames-2048px-6229.jpg",
+  },
+  {
+    id: 2,
+    title: "Rose Gold",
+    name: "رو تختی دو نفره",
+    price: "4,100,000",
+    newPrice: "1,200,000",
+    image:
+      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
+  },
+  {
+    id: 3,
+    title: "Rose Gold",
+    name: "رو تختی تک نفره",
+    price: "2,100,000",
+    newPrice: "1,200,000",
+    image:
+      "https://i1.adis.ws/i/dreams/251-00325_main-shot_01_hart-upholstered-bed?w=750&h=549&sm=c",
+  },
+  {
+    id: 4,
+    title: "Rose Gold",
+    name: "رو تختی دو نفره",
+    price: "5,100,000",
+    newPrice: "1,200,000",
+    image:
+      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
+  },
+]);
+
+const newProducts = ref([
+  {
+    id: 1,
+    title: "Rose Gold",
+    name: "رو تختی تک نفره",
+    price: "2,100,000",
+    image:
+      "https://cdn.thewirecutter.com/wp-content/media/2023/01/platform-bed-frames-2048px-6229.jpg",
+  },
+  {
+    id: 2,
+    title: "Rose Gold",
+    name: "رو تختی دو نفره",
+    price: "4,100,000",
+    image:
+      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
+  },
+  {
+    id: 3,
+    title: "Rose Gold",
+    name: "رو تختی تک نفره",
+    price: "2,100,000",
+    image:
+      "https://i1.adis.ws/i/dreams/251-00325_main-shot_01_hart-upholstered-bed?w=750&h=549&sm=c",
+  },
+  {
+    id: 4,
+    title: "Rose Gold",
+    name: "رو تختی دو نفره",
+    price: "5,100,000",
+    image:
+      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
+  },
+]);
+
 const dataSource = ref([
   {
     id: 1,

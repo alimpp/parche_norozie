@@ -12,7 +12,7 @@ export const useAuthStore = defineStore("useAuthStore", {
   actions: {
     async login(phone: ILogin) {
       try {
-        const { data, error } = await useFetch<ILogin>("/api/auth/login", {
+        const { data, error } = await useFetch<ILogin>("/api/v1/login", {
           method: "POST",
           body: {
             phone: phone,
@@ -29,7 +29,7 @@ export const useAuthStore = defineStore("useAuthStore", {
 
     async otp(param: IOtp) {
       try {
-        const { data, error } = await useFetch<IOtp>("/api/auth/otp", {
+        const { data, error } = await useFetch<IOtp>("/api/v1/otp", {
           method: "POST",
           body: param,
         });

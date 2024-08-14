@@ -19,8 +19,11 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { useThemeStore } from "@/store/theme/index";
+import { useUserStore } from "@/store/user/index";
 
+const userStore = useUserStore();
 const themeStore = useThemeStore();
+
 const { locale } = useI18n();
 const isOpen = ref(false);
 const isOpenShoppingCard = ref(false);
@@ -33,7 +36,8 @@ const handleChangeStateShoppingCard = () => {
   isOpenShoppingCard.value = !isOpenShoppingCard.value;
 };
 
-onMounted(() => {
+onMounted(async () => {
+  userStore.userProfile();
   themeStore.updateThemeState("main");
 });
 </script>
