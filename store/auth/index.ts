@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { useFetch } from "#app";
 import { type ILogin, type IOtp } from "@/dataModel/auth/model";
+import { useCookie } from "@/composable/useCookie";
 
 export const useAuthStore = defineStore("useAuthStore", {
   state: (): any => ({
@@ -28,11 +29,16 @@ export const useAuthStore = defineStore("useAuthStore", {
     },
 
     async otp(param: IOtp) {
+      const { setCookie } = useCookie();
+
       try {
-        const { data, error } = await useFetch<IOtp>("/api/v1/otp", {
+        const { data, error } = await useFetch<any>("/api/v1/otp", {
           method: "POST",
           body: param,
         });
+        const cookie = setCookie("token", data.value?.data.token);
+        console.log(cookie);
+
         if (data.value?.status == 200) {
           this.isAuthenticated = true;
           this.isAccessToOtpPage = false;

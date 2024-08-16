@@ -10,13 +10,8 @@ export const useUserStore = defineStore("useUserStore", {
   getters: {},
   actions: {
     async userProfile() {
-      setTimeout(async () => {
-        const response: any = await $fetch(
-          "https://parche-go.liara.run/api/v1/profile"
-        );
-        this.user = response.data;
-        console.log(response.data);
-      }, 1000);
+      const response: any = await $fetch("/api/v1/profile");
+      this.user = response.data;
     },
   },
   persist: true,
