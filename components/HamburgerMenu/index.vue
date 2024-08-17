@@ -46,6 +46,13 @@
           @click="navigateTo('/contact-us')"
           >{{ t("contactUs") }}</span
         >
+        <AppButton
+          @click="logOut"
+          class="app-mt-8"
+          height="38px"
+          name="خروج از حساب کاربری"
+          background="custom-border-danger"
+        />
       </div>
     </div>
   </div>
@@ -55,6 +62,7 @@
 import { useRouter } from "vue-router";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { useAuthStore } from "@/store/auth/index";
 
 const emit = defineEmits(["closeMenu"]);
 const router = useRouter();
@@ -71,6 +79,11 @@ const props = defineProps({
 const navigateTo = (path) => {
   router.push(`${path}`);
   emit("closeMenu");
+};
+
+const logOut = () => {
+  const authStore = useAuthStore();
+  authStore.logOut();
 };
 </script>
 

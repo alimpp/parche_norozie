@@ -51,4 +51,17 @@ const props = defineProps({
   border-radius: 6px;
   cursor: pointer;
 }
+
+.custom-border-danger {
+  background: none;
+  border: 1px solid #ff3333;
+  border-radius: 30px;
+  color: #ff3333;
+}
+
+.custom-dark-btn {
+  background: #353535;
+  border: 2px solid #252525;
+  color: #fff;
+}
 </style>

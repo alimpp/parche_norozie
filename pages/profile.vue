@@ -1,6 +1,6 @@
 <template>
-  <div>
-    {{ userInformation }}
+  <div class="app-container">
+    <AppDivider :name="$t('account')" width="82px" :hasLine="true" />
   </div>
 </template>
 

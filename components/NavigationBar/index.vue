@@ -10,7 +10,18 @@
             ></MenuIcon>
           </span>
         </div>
-        <LoginButton @click="navigateTo('/auth/login')" class="app-mx-2" />
+        <span
+          class="app-mt-1 app-px-2"
+          v-if="authStore.isAuthenticated"
+          @click="navigateTo('/profile')"
+        >
+          <UserIcon size="1.5x" class="custom-class app-pointer"></UserIcon
+        ></span>
+        <LoginButton
+          v-else
+          @click="navigateTo('/auth/login')"
+          class="app-mx-2"
+        />
       </div>
     </div>
 
@@ -72,11 +83,13 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
+import { useAuthStore } from "@/store/auth/index";
 
 const emit = defineEmits(["openHamburgerMenu", "openHamburgerShoppingCard"]);
 
 const { t } = useI18n();
 const route = useRoute();
+const authStore = useAuthStore();
 
 const openHamburgerMenu = () => {
   emit("openHamburgerMenu");

@@ -2,21 +2,24 @@
   <div class="app-container">
     <v-row>
       <v-col md="7" sm="12" xs="4"
-        ><div class="app-w-100 app-px-2 app-py-2">
-          <DiscountCarousel
-            class="slid-left-animation-5"
-            :dataSource="discount"
-            :cycleTime="cycleTime.one"
-          /></div
-      ></v-col>
-      <v-col md="5" sm="12" xs="4">
-        <div class="app-w-100 app-px-2 app-py-2">
+        ><div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
+          <AppDivider name="محصولات جدید" width="120px" />
           <NewProductsCarousel
-            class="slid-right-animation-8"
+            class="slid-right-animation-8 app-mt-4"
             :dataSource="newProducts"
             :cycleTime="cycleTime.two"
           /></div
       ></v-col>
+      <v-col md="5" sm="12" xs="4">
+        <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
+          <AppDivider name="تخفیفات شگفت انگیز" width="160px" />
+        </div>
+        <DiscountCarousel
+          class="slid-left-animation-5 app-mt-2"
+          :dataSource="discount"
+          :cycleTime="cycleTime.one"
+        />
+      </v-col>
     </v-row>
     <v-row>
       <v-col md="5" sm="12" xs="4"

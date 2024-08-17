@@ -15,23 +15,29 @@
             :style="{ backgroundImage: `url(${slide.image})` }"
           >
             <div class="glass">
-              <span class="app-font-size-22 app-color-gray">{{
-                slide.title
-              }}</span>
-              <span class="app-font-size-20 app-color-white">{{
-                slide.name
-              }}</span>
+              <span
+                class="app-font-size-22 app-font-weight-900 app-color-white"
+                >{{ slide.title }}</span
+              >
+              <span
+                class="app-font-size-14 app-font-weight-500 app-color-white"
+                >{{ slide.name }}</span
+              >
               <del style="color: yellow">
-                <span class="app-font-size-14 app-color-white">{{
-                  slide.price
-                }}</span>
+                <span
+                  class="app-font-size-14 app-font-weight-600 app-color-white"
+                  >{{ slide.price }}</span
+                >
               </del>
-              <span class="app-font-size-14 app-color-white">{{
-                slide.newPrice
-              }}</span>
+              <span
+                class="app-font-size-14 app-font-weight-600 app-color-white"
+                >{{ slide.newPrice }}</span
+              >
               <AppButton
                 class="app-mt-4"
                 name="بازدید"
+                width="150px"
+                height="32px"
                 background="app-bg-primary"
               />
             </div>
