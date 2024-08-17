@@ -1,44 +1,27 @@
 <template>
   <div class="app-container">
-    <v-row>
-      <v-col md="7" sm="12" xs="4"
-        ><div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
+    <div class="banner-content">
+      <div class="new-products-container">
+        <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
           <AppDivider name="محصولات جدید" width="120px" />
           <NewProductsCarousel
-            class="slid-right-animation-8 app-mt-4"
+            class="slid-right-animation-8 app-mt-2"
             :dataSource="newProducts"
             :cycleTime="cycleTime.two"
-          /></div
-      ></v-col>
-      <v-col md="5" sm="12" xs="4">
+          />
+        </div>
+      </div>
+      <div class="discount-container">
         <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
           <AppDivider name="تخفیفات شگفت انگیز" width="160px" />
+          <DiscountCarousel
+            class="slid-left-animation-5 app-mt-2"
+            :dataSource="discount"
+            :cycleTime="cycleTime.one"
+          />
         </div>
-        <DiscountCarousel
-          class="slid-left-animation-5 app-mt-2"
-          :dataSource="discount"
-          :cycleTime="cycleTime.one"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col md="5" sm="12" xs="4"
-        ><div class="app-w-100 app-px-2 app-py-2">
-          <AppCarousel
-            class="slid-left-animation-3"
-            :dataSource="dataSource"
-            :cycleTime="cycleTime.tree"
-          /></div
-      ></v-col>
-      <v-col md="7" sm="12" xs="4">
-        <div class="app-w-100 app-px-2 app-py-2">
-          <AppCarousel
-            class="slid-right-animation-5"
-            :dataSource="dataSource"
-            :cycleTime="cycleTime.four"
-          /></div
-      ></v-col>
-    </v-row>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -154,3 +137,33 @@ const dataSource = ref([
   },
 ]);
 </script>
+
+<style scoped>
+.banner-content {
+  display: flex;
+  width: 100%;
+}
+
+.banner-content .new-products-container {
+  width: 60%;
+}
+
+.banner-content .discount-container {
+  width: 40%;
+}
+
+@media (max-width: 800px) {
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-content .new-products-container {
+    width: 100%;
+  }
+
+  .banner-content .discount-container {
+    width: 100%;
+  }
+}
+</style>
