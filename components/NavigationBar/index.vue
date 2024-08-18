@@ -1,76 +1,70 @@
 <template>
   <div class="app-w-100 app-h-10 app-bg-secondary app-flex app-align-center">
-    <div class="auth-content">
-      <div class="app-w-100 app-h-10 app-flex app-align-center">
-        <div class="mobile-size">
-          <span class="app-pt-2" @click="openHamburgerMenu">
-            <MenuIcon
-              size="1.5x"
-              class="custom-class app-mx-2 app-pointer"
-            ></MenuIcon>
-          </span>
-        </div>
-        <span
-          class="app-mt-1 app-px-2"
-          v-if="authStore.isAuthenticated"
-          @click="navigateTo('/profile')"
-        >
-          <UserIcon size="1.5x" class="custom-class app-pointer"></UserIcon
-        ></span>
-        <LoginButton
-          v-else
-          @click="navigateTo('/auth/login')"
-          class="app-mx-2"
-        />
-      </div>
-    </div>
-
     <div class="menu-content">
+      <div class="mobile-size">
+        <span class="app-pt-2" @click="openHamburgerMenu">
+          <MenuIcon
+            size="1.5x"
+            class="custom-class app-mx-2 app-pointer"
+          ></MenuIcon>
+        </span>
+      </div>
       <div
-        class="app-w-100 app-h-10 app-flex app-align-center app-justify-center"
+        class="app-h-10 app-flex app-align-center app-mx-2"
+        v-if="!authStore.isAuthenticated"
       >
+        <LoginButton @click="navigateTo('/auth/login')" />
+      </div>
+      <div class="app-mr-30">
         <span
-          class="app-pointer app-font-size-14 app-font-weight-600"
+          class="app-pointer app-font-size-14 app-font-weight-600 desktop-size"
           :class="{ 'active-route-main-theme': route.path == '/' }"
           @click="navigateTo('/')"
           >{{ t("home") }}</span
         >
-        <span
-          class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5"
-          :class="{ 'active-route-main-theme': route.path == '/blogs' }"
-          @click="navigateTo('/blogs')"
-          >{{ t("blogs") }}</span
-        >
-        <span
-          class="app-pointer app-font-size-14 app-font-weight-600"
-          :class="{ 'active-route-main-theme': route.path == '/products' }"
-          @click="navigateTo('/products')"
-          >{{ t("products") }}</span
-        >
-        <span
-          class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5"
-          :class="{ 'active-route-main-theme': route.path == '/about-us' }"
-          @click="navigateTo('/about-us')"
-          >{{ t("aboutUs") }}</span
-        >
-        <span
-          class="app-pointer app-font-size-14 app-font-weight-600"
-          :class="{ 'active-route-main-theme': route.path == '/contact-us' }"
-          @click="navigateTo('/contact-us')"
-          >{{ t("contactUs") }}</span
-        >
       </div>
+      <span
+        class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5 desktop-size"
+        :class="{ 'active-route-main-theme': route.path == '/blogs' }"
+        @click="navigateTo('/blogs')"
+        >{{ t("blogs") }}</span
+      >
+      <span
+        class="app-pointer app-font-size-14 app-font-weight-600 desktop-size"
+        :class="{ 'active-route-main-theme': route.path == '/products' }"
+        @click="navigateTo('/products')"
+        >{{ t("products") }}</span
+      >
+      <span
+        class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5 desktop-size"
+        :class="{ 'active-route-main-theme': route.path == '/about-us' }"
+        @click="navigateTo('/about-us')"
+        >{{ t("aboutUs") }}</span
+      >
+      <span
+        class="app-pointer app-font-size-14 app-font-weight-600 desktop-size"
+        :class="{ 'active-route-main-theme': route.path == '/contact-us' }"
+        @click="navigateTo('/contact-us')"
+        >{{ t("contactUs") }}</span
+      >
     </div>
 
     <div class="logo-content">
-      <div
-        class="app-w-100 app-h-10 app-flex app-align-center app-justify-end app-px-1"
-      >
-        <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
+      <div class="app-w-100 app-h-10 app-flex app-align-center app-justify-end">
+        <span
+          @click="navigateTo('/profile')"
+          class="app-pt-2"
+          v-if="authStore.isAuthenticated"
+        >
+          <UserIcon size="1.5x" class="custom-class app-pointer"></UserIcon
+        ></span>
+        <span class="app-pt-2 app-px-2">
+          <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
+        </span>
         <span @click="openHamburgerShoppingCard" class="app-pt-2">
           <ShoppingCartIcon
             size="1.5x"
-            class="custom-class app-mx-3 app-pointer"
+            class="custom-class app-pointer"
           ></ShoppingCartIcon
         ></span>
 
@@ -104,18 +98,20 @@ const openHamburgerShoppingCard = () => {
 .mobile-size {
   display: none;
 }
-.auth-content {
-  width: 30%;
-  height: 10vh;
+
+.desktop-size {
+  display: flex;
 }
 
 .menu-content {
-  width: 40%;
+  width: 50%;
   height: 10vh;
+  display: flex;
+  align-items: center;
 }
 
 .logo-content {
-  width: 30%;
+  width: 50%;
   height: 10vh;
 }
 
@@ -123,19 +119,12 @@ const openHamburgerShoppingCard = () => {
   border-bottom: 2px solid #000000;
 }
 
-@media (max-width: 800px) {
-  .menu-content {
-    display: none;
-  }
-  .auth-content {
-    width: 50%;
-  }
-  .logo-content {
-    width: 50%;
-  }
-
+@media (max-width: 900px) {
   .mobile-size {
     display: flex;
+  }
+  .desktop-size {
+    display: none;
   }
 }
 </style>

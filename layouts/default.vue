@@ -1,5 +1,6 @@
 <template>
   <div :dir="locale == 'fr' ? 'rtl' : 'ltr'">
+    <AppModal />
     <HamburgerMenu :isOpen="isOpen" @closeMenu="handleChangeStateMenu" />
     <ShoppingCard
       @close="handleChangeStateShoppingCard"
