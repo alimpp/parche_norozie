@@ -12,7 +12,7 @@
 const props = defineProps({
   state: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   width: {
     type: Boolean,
