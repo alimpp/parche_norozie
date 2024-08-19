@@ -4,7 +4,7 @@
     :class="{
       'app-bg-secondary': themeStore.theme == 'light',
       'app-bg-dark': themeStore.theme == 'dark',
-      'app-bg-secondary-custom': themeStore.theme == 'custom',
+      'app-bg-primary-custom': themeStore.theme == 'custom',
     }"
   >
     <div class="menu-content">

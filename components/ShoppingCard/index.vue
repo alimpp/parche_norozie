@@ -4,7 +4,14 @@
     v-if="isOpen"
     @click.self="emit('close')"
   >
-    <div class="content app-bg-white slid-right-animation-3">
+    <div
+      class="content slid-right-animation-3"
+      :class="{
+        'app-bg-secondary': themeStore.theme == 'light',
+        'app-bg-dark': themeStore.theme == 'dark',
+        'app-bg-primary-custom': themeStore.theme == 'custom',
+      }"
+    >
       <div class="app-w-100 app-flex app-py-3 app-px-3 app-justify-start">
         <span @click="emit('close')">
           <XIcon size="1.5x" class="custom-class app-pointer"></XIcon>
@@ -24,7 +31,8 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
 const emit = defineEmits(["close"]);
 
 const { t } = useI18n();

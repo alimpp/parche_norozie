@@ -9,7 +9,7 @@
   >
     <g
       transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-      fill="#000000"
+      :fill="logoColor"
       stroke="none"
     >
       <path
@@ -75,3 +75,16 @@
     </g>
   </svg>
 </template>
+
+<script setup>
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+
+const logoColor = computed(() => {
+  if (themeStore.theme == "dark" || themeStore.theme == "custom") {
+    return "#fff";
+  } else {
+    return "#000000";
+  }
+});
+</script>

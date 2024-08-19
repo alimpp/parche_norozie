@@ -4,7 +4,14 @@
     v-if="isOpen"
     @click.self="emit('closeMenu')"
   >
-    <div class="menu-content app-bg-white slid-left-animation-3">
+    <div
+      class="menu-content slid-left-animation-3"
+      :class="{
+        'app-bg-secondary': themeStore.theme == 'light',
+        'app-bg-dark': themeStore.theme == 'dark',
+        'app-bg-primary-custom': themeStore.theme == 'custom',
+      }"
+    >
       <div class="app-w-100 app-flex app-py-3 app-px-3 app-justify-end">
         <span @click="emit('closeMenu')">
           <XIcon size="1.5x" class="custom-class app-pointer"></XIcon>
@@ -63,6 +70,8 @@ import { useRouter } from "vue-router";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/store/auth/index";
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
 
 const emit = defineEmits(["closeMenu"]);
 const router = useRouter();
@@ -103,6 +112,6 @@ const logOut = () => {
   z-index: 1;
 }
 .active-route-main-theme {
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid #ffa500;
 }
 </style>
