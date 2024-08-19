@@ -1,15 +1,19 @@
 <template>
-  <div
-    class="app-w-100 app-h-100 app-flex app-flex-column app-justify-center app-px-8"
-  >
+  <div class="app-w-100 app-flex app-flex-column app-justify-center">
     <div
       class="app-flex app-align-center app-justify-center app-w-100 app-h-10"
     >
       <AppLogo />
     </div>
-    <span class="app-font-size-18 app-font-weight-600 app-px-4 app-py-2">
+    <AppDivider
+      class="mx-4"
+      name="ورود | ثبت نام"
+      :hasLine="true"
+      width="90px"
+    />
+    <!-- <span class="app-font-size-18 app-font-weight-600 app-px-4 app-py-2">
       {{ t("login") }} | {{ t("register") }}</span
-    >
+    > -->
     <div class="app-px-4 app-py-4">
       <AppInput
         :label="t('phoneNumber')"
@@ -22,7 +26,7 @@
     </div>
     <div class="app-px-4 app-py-4">
       <AppButton
-        background="app-bg-dark"
+        :background="background"
         :name="t('send')"
         @click="handleLogin"
         :loading="loading"
@@ -36,6 +40,16 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { ValidatePhoneNumber } from "@/utils/validate";
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+
+const background = computed(() => {
+  if (themeStore.theme == "dark" || themeStore.theme == "dark") {
+    return "app-bg-primary";
+  } else {
+    return "app-bg-primary";
+  }
+});
 
 import { useAuthStore } from "@/store/auth/index";
 const authStore = useAuthStore();

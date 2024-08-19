@@ -15,11 +15,11 @@ const { t } = useI18n();
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
+  height: 35px;
   cursor: pointer;
   border-radius: 6px;
   border: 1px solid #c1bdbd;
-  padding: 0px 20px;
+  padding: 0px 10px;
   transition: 0.5s;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <v-carousel
     height="400"
-    progress="primary"
+    progress="orange"
     hide-delimiters
     cycle
     :interval="cycleTime"
@@ -59,7 +59,7 @@ const props = defineProps({
 .content {
   overflow: hidden;
   width: 100%;
-  height: 55vh;
+  height: 400px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -67,7 +67,7 @@ const props = defineProps({
 
 .glass {
   width: 100%;
-  height: 55vh;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;

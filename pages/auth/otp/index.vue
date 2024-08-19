@@ -1,16 +1,12 @@
 <template>
-  <div
-    class="app-w-100 app-h-100 app-flex app-flex-column app-justify-center app-px-8"
-  >
+  <div class="app-w-100 app-flex app-flex-column app-justify-center">
     <div
       class="app-flex app-align-center app-justify-center app-w-100 app-h-10"
     >
       <AppLogo />
     </div>
     <div class="app-flex app-flex-column app-justify-center app-align-center">
-      <span class="app-font-size-14 app-font-weight-600 app-px-4 app-py-2">
-        {{ t("otp") }}</span
-      >
+      <AppDivider :name="$t('otp')" :hasLine="false" width="160px" />
       <span class="app-font-size-14 app-font-weight-600">{{
         authStore.phone
       }}</span>
@@ -39,7 +35,7 @@
     </div>
     <div class="app-px-4 app-py-4">
       <AppButton
-        background="app-bg-dark"
+        :background="background"
         :name="t('submit')"
         @click="handleSendOtp"
         :loading="loading"
@@ -53,7 +49,16 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
 
+const background = computed(() => {
+  if (themeStore.theme == "dark" || themeStore.theme == "dark") {
+    return "app-bg-primary";
+  } else {
+    return "app-bg-primary";
+  }
+});
 import { useAuthStore } from "@/store/auth/index";
 const authStore = useAuthStore();
 

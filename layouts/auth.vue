@@ -1,16 +1,23 @@
 <template>
-  <div :dir="locale == 'fr' ? 'rtl' : 'ltr'" class="auth-layout">
-    <div class="form">
+  <div
+    :dir="locale == 'fr' ? 'rtl' : 'ltr'"
+    class="auth-layout"
+    :class="{
+      'app-bg-secondary': themeStore.theme == 'light',
+      'app-bg-dark': themeStore.theme == 'dark',
+      'app-bg-primary-custom': themeStore.theme == 'custom',
+    }"
+  >
+    <div class="form app-w-100">
       <slot />
-    </div>
-    <div class="image-bar">
-      <img src="@/assets/images/login-bg.jpg" alt="image" />
     </div>
   </div>
 </template>
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
 
 const { locale } = useI18n();
 </script>
@@ -20,21 +27,16 @@ const { locale } = useI18n();
   width: 100%;
   height: 100vh;
   display: flex;
-}
-
-.image-bar {
-  width: 60%;
-  height: 100vh;
-}
-.image-bar img {
-  width: 100%;
-  height: 100vh;
-  border-radius: 0 50px 50px 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .form {
-  width: 40%;
-  height: 100vh;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 900px) {

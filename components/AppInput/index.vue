@@ -7,7 +7,11 @@
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :type="type"
-      :class="{ error: error, 'app-color-white': themeState === 'dark' }"
+      :class="{
+        error: error,
+        'app-color-white': themeStore.theme == 'dark',
+        'app-color-white': themeStore.theme == 'custom',
+      }"
       :disabled="disabled"
       class="app-border-radius"
       :placeholder="placeholder"
@@ -22,13 +26,8 @@
 </template>
 
 <script setup>
-const themeState = ref("main");
-
-onMounted(() => {
-  const theme = localStorage.getItem("theme");
-  themeState.value = theme;
-});
-
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
 const props = defineProps({
   disabled: {
     type: Boolean,

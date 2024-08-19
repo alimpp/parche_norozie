@@ -22,7 +22,7 @@
       <slot />
       <div
         class="wighet-button app-bg-primary app-pointer"
-        v-if="!isOpenWighetBar"
+        v-if="wighetState"
         @click="handleChangeStateWighetBar"
       >
         <SettingsIcon size="1.5x" class="custom-class"></SettingsIcon>
@@ -38,6 +38,14 @@ import { useUserStore } from "@/store/user/index";
 
 const userStore = useUserStore();
 const themeStore = useThemeStore();
+
+const wighetState = computed(() => {
+  if (isOpen.value || isOpenShoppingCard.value || isOpenWighetBar.value) {
+    return false;
+  } else {
+    return true;
+  }
+});
 
 const { locale } = useI18n();
 const isOpen = ref(false);
