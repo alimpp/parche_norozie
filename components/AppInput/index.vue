@@ -9,8 +9,6 @@
       :type="type"
       :class="{
         error: error,
-        'app-color-white': themeStore.theme == 'dark',
-        'app-color-white': themeStore.theme == 'custom',
       }"
       :disabled="disabled"
       class="app-border-radius"
@@ -26,8 +24,6 @@
 </template>
 
 <script setup>
-import { useThemeStore } from "@/store/theme/index";
-const themeStore = useThemeStore();
 const props = defineProps({
   disabled: {
     type: Boolean,
@@ -72,7 +68,7 @@ input {
   width: 100%;
   height: 44px;
   padding: 0 7px;
-  border: 1px solid #a4a4a48b;
+  background: #fff;
   outline: none;
 }
 

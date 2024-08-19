@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <v-row>
+    <!-- <v-row>
       <v-col md="7" sm="12" xs="4">
         <div class="app-w-100 app-px-2 app-py-2">
           <span
@@ -15,7 +15,7 @@
           <AboutUsCarousel :dataSource="sectionOne" />
         </div>
       </v-col>
-    </v-row>
+    </v-row> -->
   </div>
 </template>
 

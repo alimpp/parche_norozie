@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
-import { useCookie } from "#app";
+import { useCookie, useFetch } from "#app";
+
 import { useAuthStore } from "../auth";
 export const useUserStore = defineStore("useUserStore", {
   state: (): any => ({
@@ -18,6 +19,14 @@ export const useUserStore = defineStore("useUserStore", {
       } else {
         authStore.isAuthenticated = false;
       }
+    },
+
+    async sendProfile(param: any) {
+      const { data } = await useFetch("/api/v1/profile/update", {
+        method: "POST",
+        body: param,
+      });
+      console.log(data.value);
     },
   },
   persist: true,
