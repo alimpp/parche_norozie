@@ -74,7 +74,16 @@
 </template>
 
 <script setup>
-const logoColor = ref("#000000");
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+
+const logoColor = computed(() => {
+  if (themeStore.theme == "dark" || themeStore.theme == "custom") {
+    return "#fff";
+  } else {
+    return "#000000";
+  }
+});
 
 onMounted(() => {
   const appThemeState = localStorage.getItem("theme");

@@ -1,8 +1,5 @@
 <template>
-  <div
-    :dir="locale == 'fr' ? 'rtl' : 'ltr'"
-    class="auth-layout app-bg-secondary"
-  >
+  <div :dir="locale == 'fr' ? 'rtl' : 'ltr'" class="auth-layout">
     <div class="form">
       <slot />
     </div>

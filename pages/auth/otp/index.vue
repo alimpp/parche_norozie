@@ -39,7 +39,7 @@
     </div>
     <div class="app-px-4 app-py-4">
       <AppButton
-        background="custom-dark-btn"
+        background="app-bg-dark"
         :name="t('submit')"
         @click="handleSendOtp"
         :loading="loading"

@@ -21,7 +21,7 @@
               <AppButton
                 class="app-mt-4"
                 name="بازدید"
-                background="app-bg-white"
+                background="app-border-light"
               />
             </div>
           </div>

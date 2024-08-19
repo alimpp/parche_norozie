@@ -3,7 +3,9 @@ import { type ITheme } from "@/dataModel/theme/model";
 
 export const useThemeStore = defineStore("useThemeStore", {
   state: (): any => ({
-    theme: "main",
+    theme: {
+      value: "light",
+    },
   }),
 
   getters: {
@@ -16,5 +18,5 @@ export const useThemeStore = defineStore("useThemeStore", {
       this.theme = theme;
     },
   },
-  persist: true,
+  persist: false,
 });

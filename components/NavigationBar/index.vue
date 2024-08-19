@@ -1,5 +1,12 @@
 <template>
-  <div class="app-w-100 app-h-10 app-bg-secondary app-flex app-align-center">
+  <div
+    class="app-w-100 app-h-10 app-flex app-align-center"
+    :class="{
+      'app-bg-secondary': themeStore.theme == 'light',
+      'app-bg-dark': themeStore.theme == 'dark',
+      'app-bg-secondary-custom': themeStore.theme == 'custom',
+    }"
+  >
     <div class="menu-content">
       <div class="mobile-size">
         <span class="app-pt-2" @click="openHamburgerMenu">
@@ -78,7 +85,8 @@
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 import { useAuthStore } from "@/store/auth/index";
-
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
 const emit = defineEmits(["openHamburgerMenu", "openHamburgerShoppingCard"]);
 
 const { t } = useI18n();
@@ -116,7 +124,7 @@ const openHamburgerShoppingCard = () => {
 }
 
 .active-route-main-theme {
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid #ffa500;
 }
 
 @media (max-width: 900px) {

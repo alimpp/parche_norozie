@@ -1,5 +1,5 @@
 <template>
-  <div class="login-button app-font-size-14 app-font-weight-100">
+  <div class="login-button app-bg-primary app-font-size-12 app-font-weight-100">
     {{ t("login") }} | {{ t("register") }}
   </div>
 </template>
@@ -16,7 +16,6 @@ const { t } = useI18n();
   align-items: center;
   justify-content: center;
   height: 38px;
-  font-weight: 600;
   cursor: pointer;
   border-radius: 6px;
   border: 1px solid #c1bdbd;

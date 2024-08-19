@@ -32,7 +32,7 @@
                 name="بازدید"
                 width="150px"
                 height="32px"
-                background="app-bg-primary"
+                background="app-border-light"
               />
             </div>
           </div>

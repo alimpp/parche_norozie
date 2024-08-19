@@ -45,3 +45,15 @@
   color: var(--dark-);
   transition: 0.5s;
 }
+
+.app-bg-primary-custom {
+  background: var(--primary-custom-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+
+.app-bg-secondary-custom {
+  background: var(--secondary-custom-);
+  color: var(--white-);
+  transition: 0.5s;
+}

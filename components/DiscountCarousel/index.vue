@@ -23,7 +23,7 @@
                 class="app-font-size-14 app-font-weight-500 app-color-white"
                 >{{ slide.name }}</span
               >
-              <del style="color: yellow">
+              <del style="color: #ffa500">
                 <span
                   class="app-font-size-14 app-font-weight-600 app-color-white"
                   >{{ slide.price }}</span
@@ -38,7 +38,7 @@
                 name="بازدید"
                 width="150px"
                 height="32px"
-                background="app-bg-primary"
+                background="app-border-light"
               />
             </div>
           </div>

@@ -1,6 +1,6 @@
 <template>
   <div :dir="locale == 'fr' ? 'rtl' : 'ltr'">
-    <AppModal />
+    <WighetBar :isOpen="isOpenWighetBar" @close="handleChangeStateWighetBar" />
     <HamburgerMenu :isOpen="isOpen" @closeMenu="handleChangeStateMenu" />
     <ShoppingCard
       @close="handleChangeStateShoppingCard"
@@ -11,8 +11,22 @@
       @openHamburgerMenu="handleChangeStateMenu"
       @openHamburgerShoppingCard="handleChangeStateShoppingCard"
     />
-    <div class="content app-h-90 app-bg-secondary">
+    <div
+      class="content app-h-90"
+      :class="{
+        'app-bg-secondary': themeStore.theme == 'light',
+        'app-bg-dark': themeStore.theme == 'dark',
+        'app-bg-primary-custom': themeStore.theme == 'custom',
+      }"
+    >
       <slot />
+      <div
+        class="wighet-button app-bg-primary app-pointer"
+        v-if="!isOpenWighetBar"
+        @click="handleChangeStateWighetBar"
+      >
+        <SettingsIcon size="1.5x" class="custom-class"></SettingsIcon>
+      </div>
     </div>
   </div>
 </template>
@@ -28,6 +42,7 @@ const themeStore = useThemeStore();
 const { locale } = useI18n();
 const isOpen = ref(false);
 const isOpenShoppingCard = ref(false);
+const isOpenWighetBar = ref(false);
 
 const handleChangeStateMenu = () => {
   isOpen.value = !isOpen.value;
@@ -37,14 +52,32 @@ const handleChangeStateShoppingCard = () => {
   isOpenShoppingCard.value = !isOpenShoppingCard.value;
 };
 
+const handleChangeStateWighetBar = () => {
+  isOpenWighetBar.value = !isOpenWighetBar.value;
+};
+
 onMounted(async () => {
   userStore.userProfile();
-  themeStore.updateThemeState("main");
+  themeStore.updateThemeState("light");
 });
 </script>
 
 <style scoped>
 .content {
   overflow-y: scroll;
+}
+
+.wighet-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  margin: 15px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

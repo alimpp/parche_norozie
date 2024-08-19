@@ -59,9 +59,8 @@ const props = defineProps({
   color: #ff3333;
 }
 
-.custom-dark-btn {
-  background: #353535;
-  border: 2px solid #252525;
+.app-border-light {
+  border: 1px solid #fff;
   color: #fff;
 }
 </style>
