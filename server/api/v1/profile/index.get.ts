@@ -11,11 +11,14 @@ export default defineEventHandler(async (event) => {
       return acc;
     }, {} as CookiesObject);
 
+  const headers = {
+    Authorization: `Bearer ${cookiesObject.token || ""}`,
+    "Content-Type": "application/json",
+  };
+
   const response: any = await $fetch(`${url.baseUrl}/api/v1/profile`, {
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${cookiesObject.token || ""}`,
-    },
+    method: "GET",
+    headers: headers,
   });
   return response;
 });

@@ -14,12 +14,18 @@
           @click="sendProfile"
         />
       </div>
+      {{ authStore.isAuthenticated }}
+      {{ authStore.phone }}
     </div>
   </div>
 </template>
 
 <script setup>
 import { useUserStore } from "@/store/user/index";
+import { useAuthStore } from "@/store/auth/index";
+
+const authStore = useAuthStore();
+const userStore = useUserStore();
 
 const form = ref({
   email: "",
@@ -27,11 +33,6 @@ const form = ref({
   last_name: "",
   name: "",
   phone: "",
-});
-
-const userInformation = computed(() => {
-  const userStore = useUserStore();
-  return userStore.user;
 });
 
 const sendProfile = async () => {
@@ -45,12 +46,9 @@ const sendProfile = async () => {
 };
 
 onMounted(() => {
+  userStore.userProfile();
   setTimeout(() => {
-    form.value.email = userInformation.value.email;
-    form.value.id_card_number = userInformation.value.id_card_number;
-    form.value.last_name = userInformation.value.last_name;
-    form.value.name = userInformation.value.name;
-    form.value.phone = userInformation.value.phone;
-  }, 1);
+    form.value.phone = userStore.user.phone;
+  }, 1000);
 });
 </script>

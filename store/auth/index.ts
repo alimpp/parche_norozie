@@ -55,5 +55,4 @@ export const useAuthStore = defineStore("useAuthStore", {
       location.reload();
     },
   },
-  persist: true,
 });

@@ -13,9 +13,30 @@ export const useUserStore = defineStore("useUserStore", {
       const authStore = useAuthStore();
       const cookie = useCookie("token");
       if (cookie.value) {
-        authStore.isAuthenticated = true;
-        const response: any = await $fetch("/api/v1/profile");
-        this.user = response.data;
+        // for develop side
+        // await $fetch("/api/v1/profile")
+        //   .then((res) => {
+        //     this.user = res.data;
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //   });
+
+        // for server
+        await $fetch("https://parche-go.liara.run/api/v1/profile", {
+          headers: {
+            Authorization: `Bearer ${cookie.value}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res: any) => {
+            console.log("res", res);
+            this.user = res.data;
+            authStore.isAuthenticated = true;
+          })
+          .catch((err) => {
+            authStore.isAuthenticated = false;
+          });
       } else {
         authStore.isAuthenticated = false;
       }
@@ -29,5 +50,4 @@ export const useUserStore = defineStore("useUserStore", {
       console.log(data.value);
     },
   },
-  persist: true,
 });

@@ -27,6 +27,9 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { useUserStore } from "@/store/user/index";
+
+const userStore = useUserStore();
 
 const { t } = useI18n();
 const cycleTime = ref({
@@ -136,6 +139,10 @@ const dataSource = ref([
       "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
   },
 ]);
+
+onMounted(async () => {
+  await userStore.userProfile();
+});
 </script>
 
 <style scoped>

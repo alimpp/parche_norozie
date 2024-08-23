@@ -34,9 +34,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { useThemeStore } from "@/store/theme/index";
-import { useUserStore } from "@/store/user/index";
 
-const userStore = useUserStore();
 const themeStore = useThemeStore();
 
 const wighetState = computed(() => {
@@ -65,7 +63,6 @@ const handleChangeStateWighetBar = () => {
 };
 
 onMounted(async () => {
-  userStore.userProfile();
   themeStore.updateThemeState("light");
 });
 </script>
