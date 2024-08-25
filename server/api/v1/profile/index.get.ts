@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const { public: url } = useRuntimeConfig();
+  const config = useRuntimeConfig();
 
   const cookieString = event.node.req.headers.cookie;
   type CookiesObject = { [key: string]: string };
@@ -16,9 +16,12 @@ export default defineEventHandler(async (event) => {
     "Content-Type": "application/json",
   };
 
-  const response: any = await $fetch(`${url.baseUrl}/api/v1/profile`, {
-    method: "GET",
-    headers: headers,
-  });
+  const response: any = await $fetch(
+    `${config.public.BASE_URL}/api/v1/profile`,
+    {
+      method: "GET",
+      headers: headers,
+    }
+  );
   return response;
 });

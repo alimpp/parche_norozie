@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const { public: url } = useRuntimeConfig();
+  const config = useRuntimeConfig();
   const body = await readBody(event);
 
   const cookieString = event.node.req.headers.cookie;
@@ -12,13 +12,18 @@ export default defineEventHandler(async (event) => {
       return acc;
     }, {} as CookiesObject);
 
-  const response: any = await $fetch(`${url.baseUrl}/api/v1/profile/update`, {
-    method: "POST",
-    body: body,
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${cookiesObject.token || ""}`,
-    },
-  });
+  const headers = {
+    Authorization: `Bearer ${cookiesObject.token || ""}`,
+    "Content-Type": "application/json",
+  };
+
+  const response: any = await $fetch(
+    `${config.public.BASE_URL}/api/v1/profile/update`,
+    {
+      method: "PUT",
+      body: body,
+      headers: headers,
+    }
+  );
   return response;
 });

@@ -4,9 +4,11 @@
     <div class="app-flex app-flex-column app-w-100 app-mt-5">
       <AppInput :disabled="true" v-model="form.phone" label="شماره تلفن" />
       <AppInput v-model="form.name" label="نام" />
-      <AppInput v-model="form.last_name" label="نام خانوادگی" />
+      <AppInput v-model="form.lastname" label="نام خانوادگی" />
       <AppInput v-model="form.id_card_number" label="کد ملی" />
       <AppInput v-model="form.email" label="ایمیل" />
+      <AppInput v-model="form.job" label="شغل" />
+
       <div class="app-mt-5" width="200px">
         <AppButton
           name="ثبت"
@@ -14,41 +16,38 @@
           @click="sendProfile"
         />
       </div>
-      {{ authStore.isAuthenticated }}
-      {{ authStore.phone }}
     </div>
   </div>
 </template>
 
 <script setup>
 import { useUserStore } from "@/store/user/index";
-import { useAuthStore } from "@/store/auth/index";
 
-const authStore = useAuthStore();
 const userStore = useUserStore();
 
 const form = ref({
+  birthdate: "",
   email: "",
   id_card_number: "",
-  last_name: "",
+  job: "",
+  lastname: "",
   name: "",
   phone: "",
+  role: "",
+  theme: "",
 });
 
 const sendProfile = async () => {
   const userStore = useUserStore();
   await userStore.sendProfile({
-    email: form.value.email,
-    id_card_number: form.value.id_card_number,
-    last_name: form.value.last_name,
-    name: form.value.name,
+    ...form.value,
   });
 };
 
 onMounted(() => {
   userStore.userProfile();
   setTimeout(() => {
-    form.value.phone = userStore.user.phone;
-  }, 1000);
+    form.value = userStore.user;
+  }, 500);
 });
 </script>
