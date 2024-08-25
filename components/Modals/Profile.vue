@@ -1,0 +1,89 @@
+<template>
+  <AppModal :state="state" @close="emit('close')">
+    <template #content>
+      <div class="app-w-100 app-flex app-flex-column app-px-3 app-py-8">
+        <div class="app-flex app-w-100 app-mb-5">
+          <AppAvatar :name="userStore.user.name[0]" />
+          <div class="app-flex app-flex-column app-justify-center app-px-2">
+            <span class="app-font-size-16 app-font-weight-600"
+              >{{ userStore.user.name }} {{ userStore.user.lastname }}</span
+            >
+            <span class="app-font-size-14 app-font-weight-100">{{
+              userStore.user.phone
+            }}</span>
+          </div>
+        </div>
+        <div class="app-flex app-align-center app-mt-3" @click="toProfile">
+          <UserIcon size="1.5x" class="custom-class app-pointer"></UserIcon>
+          <span class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
+            >اطلاعات حساب کاربری</span
+          >
+        </div>
+        <div class="line"></div>
+        <div class="app-flex app-align-center">
+          <AlignLeftIcon
+            size="1.5x"
+            class="custom-class app-pointer"
+          ></AlignLeftIcon>
+          <span class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
+            >آدرس ها</span
+          >
+        </div>
+        <div class="line"></div>
+        <div class="app-flex app-align-center">
+          <HeartIcon size="1.5x" class="custom-class app-pointer"></HeartIcon>
+          <span class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
+            >لیست علاقه مندی ها</span
+          >
+        </div>
+        <div class="line"></div>
+        <div
+          class="app-flex app-align-center app-color-danger app-mb-5"
+          @click="logOut"
+        >
+          <ArrowRightIcon
+            size="1.5x"
+            class="custom-class app-pointer"
+          ></ArrowRightIcon>
+          <span class="app-font-size-12 app-font-weight-600 app-px-2"
+            >خروج از حساب کاربری</span
+          >
+        </div>
+      </div>
+    </template>
+  </AppModal>
+</template>
+
+<script setup>
+import { useUserStore } from "@/store/user";
+import { useAuthStore } from "@/store/auth";
+const emit = defineEmits(["close"]);
+
+const userStore = useUserStore();
+
+const props = defineProps({
+  state: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const toProfile = () => {
+  navigateTo("/profile");
+  emit("close");
+};
+
+const logOut = () => {
+  const authStore = useAuthStore();
+  authStore.logOut();
+};
+</script>
+
+<style scoped>
+.line {
+  width: 100%;
+  height: 1px;
+  background: #20202021;
+  margin: 10px 0;
+}
+</style>

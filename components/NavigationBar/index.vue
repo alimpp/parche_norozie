@@ -18,7 +18,7 @@
       </div>
       <div
         class="app-h-10 app-flex app-align-center app-mx-2"
-        v-if="!authStore.isAuthenticated"
+        v-if="!authStore.isAuthenticated || !detectToken"
       >
         <LoginButton @click="navigateTo('/auth/login')" />
       </div>
@@ -59,9 +59,9 @@
     <div class="logo-content">
       <div class="app-w-100 app-h-10 app-flex app-align-center app-justify-end">
         <span
-          @click="navigateTo('/profile')"
+          @click="emit('openProfileModal')"
           class="app-pt-2"
-          v-if="authStore.isAuthenticated"
+          v-if="authStore.isAuthenticated || detectToken"
         >
           <UserIcon size="1.5x" class="custom-class app-pointer"></UserIcon
         ></span>
@@ -82,12 +82,17 @@
 </template>
 
 <script setup>
+import { useCookie } from "@/composable/useCookie";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 import { useAuthStore } from "@/store/auth/index";
 import { useThemeStore } from "@/store/theme/index";
 const themeStore = useThemeStore();
-const emit = defineEmits(["openHamburgerMenu", "openHamburgerShoppingCard"]);
+const emit = defineEmits([
+  "openHamburgerMenu",
+  "openHamburgerShoppingCard",
+  "openProfileModal",
+]);
 
 const { t } = useI18n();
 const route = useRoute();
@@ -100,6 +105,16 @@ const openHamburgerMenu = () => {
 const openHamburgerShoppingCard = () => {
   emit("openHamburgerShoppingCard");
 };
+
+const detectToken = computed(() => {
+  const { getCookie } = useCookie();
+  const token = getCookie("token");
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+});
 </script>
 
 <style scoped>

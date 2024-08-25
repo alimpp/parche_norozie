@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    <CardsProducts />
   </div>
 </template>
 

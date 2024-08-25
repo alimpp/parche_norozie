@@ -1,5 +1,9 @@
 <template>
   <div :dir="locale == 'fr' ? 'rtl' : 'ltr'">
+    <ModalsProfile
+      :state="profileModalState"
+      @close="profileModalState = false"
+    />
     <WighetBar :isOpen="isOpenWighetBar" @close="handleChangeStateWighetBar" />
     <HamburgerMenu :isOpen="isOpen" @closeMenu="handleChangeStateMenu" />
     <ShoppingCard
@@ -10,6 +14,7 @@
     <NavigationBar
       @openHamburgerMenu="handleChangeStateMenu"
       @openHamburgerShoppingCard="handleChangeStateShoppingCard"
+      @openProfileModal="openProfileModal"
     />
     <div
       class="content app-h-90"
@@ -46,9 +51,11 @@ const wighetState = computed(() => {
 });
 
 const { locale } = useI18n();
+
 const isOpen = ref(false);
 const isOpenShoppingCard = ref(false);
 const isOpenWighetBar = ref(false);
+const profileModalState = ref(false);
 
 const handleChangeStateMenu = () => {
   isOpen.value = !isOpen.value;
@@ -60,6 +67,10 @@ const handleChangeStateShoppingCard = () => {
 
 const handleChangeStateWighetBar = () => {
   isOpenWighetBar.value = !isOpenWighetBar.value;
+};
+
+const openProfileModal = () => {
+  profileModalState.value = true;
 };
 
 onMounted(async () => {

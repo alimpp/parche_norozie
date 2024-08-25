@@ -54,7 +54,7 @@ export const useUserStore = defineStore("useUserStore", {
         });
 
       // await $fetch("https://parche-go.liara.run/api/v1/profile/update", {
-      //   method: "POST",
+      //   method: "PUT",
       //   body: param,
       //   headers: {
       //     Authorization: `Bearer ${cookie.value}`,
