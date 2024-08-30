@@ -3,8 +3,6 @@
     <AppDivider :name="$t('account')" width="82px" :hasLine="true" />
     <div class="app-flex app-flex-column app-w-100 app-mt-5">
       <AppInput
-        :error="error.phone.state"
-        :message-error="error.phone.message"
         :disabled="true"
         v-model="form.phone"
         label="شماره تلفن"
@@ -63,7 +61,6 @@
 <script setup>
 import { useUserStore } from "@/store/user/index";
 import {
-  ValidatePhoneNumber,
   ValidateName,
   ValidateLastName,
   ValidateJob,
@@ -95,7 +92,6 @@ const error = ref({
   job: { state: false, message: "" },
   lastname: { state: false, message: "" },
   name: { state: false, message: "" },
-  phone: { state: false, message: "" },
 });
 
 const sendProfile = async () => {
@@ -103,7 +99,6 @@ const sendProfile = async () => {
 
   error.value.name = ValidateName(form.value.name);
   error.value.lastname = ValidateLastName(form.value.lastname);
-  error.value.phone = ValidatePhoneNumber(form.value.phone);
   error.value.id_card_number = ValidateCardNumber(form.value.id_card_number);
   error.value.job = ValidateJob(form.value.job);
   error.value.email = validateEmail(form.value.email);
@@ -113,8 +108,7 @@ const sendProfile = async () => {
     !error.value.lastname.state &&
     !error.value.email.state &&
     !error.value.id_card_number.state &&
-    !error.value.job.state &&
-    !error.value.phone.state
+    !error.value.job.state
   ) {
     loading.value = true;
 

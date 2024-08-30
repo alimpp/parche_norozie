@@ -52,7 +52,7 @@ export const ValidateCardNumber = (param) => {
     return { state: true, message: " کد ملی خود را وارد کنید" };
   } else if (param == "") {
     return { state: true, message: "کد ملی وارده اشتباه است" };
-  } else if (param.length < 10) {
+  } else if (param.length < 10 ) {
     return { state: true, message: "نباید کمتر از ۱۰ عدد باشد" };
   } else {
     return {
