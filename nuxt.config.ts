@@ -18,7 +18,15 @@ export default defineNuxtConfig({
     "nuxt-feather-icons",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
+    "@vite-pwa/nuxt",
   ],
+
+  pwa: {
+    manifest: {
+      name: "Parche Norozie",
+      lang: "fa",
+    },
+  },
 
   piniaPersistedstate: {
     cookieOptions: {

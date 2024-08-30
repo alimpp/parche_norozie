@@ -14,5 +14,10 @@
   "otp error": "کد وارد شده اشتباه است",
   "resendCode": "ارسال مجدد کد",
   "emptyshoppingcard": "سبد خرید شما خالی است",
-  "account": "اطلاعات کاربری"
+  "account": "اطلاعات کاربری",
+  "address and submit address": "آدرس ها و ثبت آدرس",
+  "new address": "آدرس جدید",
+  "name": "نام",
+  "address": "آدرس",
+  "postal code": "کد پستی"
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container fade_animations">
     <AppDivider :name="$t('account')" width="82px" :hasLine="true" />
     <div class="app-flex app-flex-column app-w-100 app-mt-5">
       <AppInput :disabled="true" v-model="form.phone" label="شماره تلفن" />
@@ -54,9 +54,11 @@ const form = ref({
 const sendProfile = async () => {
   const userStore = useUserStore();
   loading.value = true;
+
   await userStore
     .sendProfile({
       ...form.value,
+      theme: form.value.theme ? form.value.theme : "light",
     })
     .then((res) => {
       loading.value = false;

@@ -39,8 +39,10 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { useThemeStore } from "@/store/theme/index";
+import { useUserStore } from "~/store/user";
 
 const themeStore = useThemeStore();
+const userStore = useUserStore();
 
 const wighetState = computed(() => {
   if (isOpen.value || isOpenShoppingCard.value || isOpenWighetBar.value) {
@@ -74,7 +76,16 @@ const openProfileModal = () => {
 };
 
 onMounted(async () => {
-  themeStore.updateThemeState("light");
+  await userStore.userProfile();
+  if (userStore.user) {
+    if (userStore.user.theme) {
+      themeStore.updateThemeState(userStore.user.theme);
+    } else {
+      themeStore.updateThemeState("light");
+    }
+  } else {
+    themeStore.updateThemeState("light");
+  }
 });
 </script>
 

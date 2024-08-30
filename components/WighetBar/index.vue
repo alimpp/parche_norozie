@@ -67,7 +67,10 @@
 import { useI18n } from "vue-i18n";
 
 import { useThemeStore } from "@/store/theme/index";
+import { useUserStore } from "~/store/user";
+
 const themeStore = useThemeStore();
+const userStore = useUserStore();
 
 const emit = defineEmits(["close"]);
 
@@ -81,6 +84,11 @@ const props = defineProps({
 });
 
 const changeThemeState = (val) => {
+  if (userStore.user) {
+    if (userStore.user.theme) {
+      userStore.sendProfile({ ...userStore.user, theme: val });
+    }
+  }
   themeStore.updateThemeState(val);
 };
 </script>

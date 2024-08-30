@@ -1,9 +1,9 @@
 <template>
   <div class="app-modal-content" v-if="state">
-    <AppCard width="380px" class="slid-right-animation-3">
+    <AppCard :width="width" class="fade_animations">
       <template #content>
         <div
-          class="app-w-100 app-flex app-justify-end app-px-1 app-py-1"
+          class="app-w-100 app-flex app-justify-end app-px-1 app-py-3 app-px-3"
           @click="emit('close')"
         >
           <XIcon size="1.5x" class="custom-class app-pointer"></XIcon>
@@ -23,7 +23,7 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: "",
+    default: "380px",
   },
 });
 </script>
@@ -39,9 +39,7 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(8, 10, 10, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(0px);
+  background: rgba(5, 5, 5, 0.816);
   transition: 1s;
 }
 </style>

@@ -13,38 +13,35 @@
             }}</span>
           </div>
         </div>
-        <div class="app-flex app-align-center app-mt-3" @click="toProfile">
-          <UserIcon size="1.5x" class="custom-class app-pointer"></UserIcon>
+        <div
+          class="app-flex app-align-center app-mt-3 app-pointer"
+          @click="toProfile"
+        >
+          <UserIcon size="1.5x" class="custom-class"></UserIcon>
           <span class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
             >اطلاعات حساب کاربری</span
           >
         </div>
         <div class="line"></div>
-        <div class="app-flex app-align-center">
-          <AlignLeftIcon
-            size="1.5x"
-            class="custom-class app-pointer"
-          ></AlignLeftIcon>
+        <div class="app-flex app-align-center app-pointer" @click="toAddress">
+          <AlignLeftIcon size="1.5x" class="custom-class"></AlignLeftIcon>
           <span class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
             >آدرس ها</span
           >
         </div>
         <div class="line"></div>
-        <div class="app-flex app-align-center">
-          <HeartIcon size="1.5x" class="custom-class app-pointer"></HeartIcon>
+        <div class="app-flex app-align-center app-pointer">
+          <HeartIcon size="1.5x" class="custom-class"></HeartIcon>
           <span class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
             >لیست علاقه مندی ها</span
           >
         </div>
         <div class="line"></div>
         <div
-          class="app-flex app-align-center app-color-danger app-mb-5"
+          class="app-flex app-align-center app-color-danger app-mb-5 app-pointer"
           @click="logOut"
         >
-          <ArrowRightIcon
-            size="1.5x"
-            class="custom-class app-pointer"
-          ></ArrowRightIcon>
+          <ArrowRightIcon size="1.5x" class="custom-class"></ArrowRightIcon>
           <span class="app-font-size-12 app-font-weight-600 app-px-2"
             >خروج از حساب کاربری</span
           >
@@ -70,6 +67,11 @@ const props = defineProps({
 
 const toProfile = () => {
   navigateTo("/profile");
+  emit("close");
+};
+
+const toAddress = () => {
+  navigateTo("/address");
   emit("close");
 };
 

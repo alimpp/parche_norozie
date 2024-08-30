@@ -11,7 +11,7 @@
         error: error,
       }"
       :disabled="disabled"
-      class="app-border-radius"
+      class="app-border-radius app-border"
       :placeholder="placeholder"
     />
     <span
