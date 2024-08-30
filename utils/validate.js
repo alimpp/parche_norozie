@@ -14,37 +14,66 @@ export const ValidatePhoneNumber = (phoneNumber) => {
   }
 };
 
-export const ValidateNameAndLastName = (param) => {
+export const ValidateName = (param) => {
   if (param.length > 2 && param.length < 20) {
     return {
       state: false,
       message: "",
     };
   } else {
-    return { state: true, message: "" };
+    return { state: true, message: "نام خود را وارد کنید" };
+  }
+};
+
+export const ValidateLastName = (param) => {
+  if (param.length > 2 && param.length < 20) {
+    return {
+      state: false,
+      message: "",
+    };
+  } else {
+    return { state: true, message: "نام خانوادگی خود را وارد کنید" };
+  }
+};
+
+export const ValidateJob = (param) => {
+  if (param.length > 2 && param.length < 20) {
+    return {
+      state: false,
+      message: "",
+    };
+  } else {
+    return { state: true, message: "شغل خود را وارد کنید" };
   }
 };
 
 export const ValidateCardNumber = (param) => {
   if (isNaN(param)) {
-    console.log("please enter a number !");
+    return { state: true, message: " کد ملی خود را وارد کنید" };
   } else if (param == "") {
-    console.log("please write a code !");
+    return { state: true, message: "کد ملی وارده اشتباه است" };
   } else if (param.length < 10) {
-    console.log("your entered code is less than 10!");
+    return { state: true, message: "نباید کمتر از ۱۰ عدد باشد" };
   } else {
-    let yy = 0;
-    let yv = parseInt(yv);
-    for (let i = 0; i < param.length; i++) {
-      yv = param[i] * (param.length - i);
-      yy += yv;
-    }
-    let x = yy % 11;
-    if (x === 0) {
-      console.log("your code is valid !");
-    } else {
-      console.log("your code is invalid !");
-    }
-    yy = 0;
+    return {
+      state: false,
+      message: "",
+    };
+  }
+};
+
+export const validateEmail = (param) => {
+  const reg =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (reg.test(param)) {
+    return {
+      state: false,
+      message: "",
+    };
+  } else {
+    return {
+      state: true,
+      message: "ایمیل اشتباه است",
+    };
   }
 };
