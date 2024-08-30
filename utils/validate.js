@@ -49,16 +49,28 @@ export const ValidateJob = (param) => {
 
 export const ValidateCardNumber = (param) => {
   if (isNaN(param)) {
-    return { state: true, message: " کد ملی خود را وارد کنید" };
+    return { state: true, message: "فقط عدد بصورت لاتین وارد کنید" };
   } else if (param == "") {
-    return { state: true, message: "کد ملی وارده اشتباه است" };
-  } else if (param.length < 10 ) {
-    return { state: true, message: "نباید کمتر از ۱۰ عدد باشد" };
+    return { state: true, message: "کد ملی خودرا وارد کنید" };
+  } else if (param.length < 10) {
+    return { state: true, message: "کد نباید کمتر از ۱۰ عدد باشد" };
   } else {
-    return {
-      state: false,
-      message: "",
-    };
+    var yy = 0;
+    var yv = parseInt(yv);
+    for (let i = 0; i < param.length; i++) {
+      yv = param[i] * (param.length - i);
+      yy += yv;
+    }
+    var x = yy % 11;
+    if (x === 0) {
+      return {
+        state: false,
+        message: "",
+      };
+    } else {
+      return { state: true, message: "کد ملی اشتباه است" };
+    }
+    yy = 0;
   }
 };
 
