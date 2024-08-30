@@ -33,13 +33,13 @@ export const ValidateCardNumber = (param) => {
   } else if (param.length < 10) {
     console.log("your entered code is less than 10!");
   } else {
-    var yy = 0;
-    var yv = parseInt(yv);
+    let yy = 0;
+    let yv = parseInt(yv);
     for (let i = 0; i < param.length; i++) {
       yv = param[i] * (param.length - i);
       yy += yv;
     }
-    var x = yy % 11;
+    let x = yy % 11;
     if (x === 0) {
       console.log("your code is valid !");
     } else {

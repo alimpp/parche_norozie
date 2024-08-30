@@ -18,6 +18,7 @@
       <AppInput
         :label="t('phoneNumber')"
         v-model="phoneNumber"
+        @keyup.enter="handleLogin"
         placeholder="09123232123"
         type="number"
         :error="errorState.state"
