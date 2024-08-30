@@ -12,27 +12,27 @@ export const useAddressStore = defineStore("useAddressStore", {
     async getAddress() {
       const cookie = useCookie("token");
 
-      // await $fetch("/api/v1/address")
-      //   .then((res: any) => {
-      //     this.address = res.data;
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-
-      await $fetch("https://parche-go.liara.run/api/v1/address", {
-        headers: {
-          Authorization: `Bearer ${cookie.value}`,
-          "Content-Type": "application/json",
-        },
-      })
+      await $fetch("/api/v1/address")
         .then((res: any) => {
           this.address = res.data;
-          console.log(this.address);
         })
         .catch((err) => {
           console.log(err);
         });
+
+      // await $fetch("https://parche-go.liara.run/api/v1/address", {
+      //   headers: {
+      //     Authorization: `Bearer ${cookie.value}`,
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      //   .then((res: any) => {
+      //     this.address = res.data;
+      //     console.log(this.address);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     },
 
     async add(param: any) {

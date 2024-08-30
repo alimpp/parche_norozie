@@ -1,5 +1,10 @@
 <template>
-  <AppModal width="90%" :state="state" @close="emit('close')">
+  <AppModal
+    width="90%"
+    :state="state"
+    @close="emit('close')"
+    :title="$t('submit address')"
+  >
     <template #content>
       <div class="app-flex app-flex-column app-px-4 app-py-8">
         <AppInput :label="$t('name')" v-model="form.name" />
