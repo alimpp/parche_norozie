@@ -18,7 +18,12 @@
   "address and submit address": "آدرس ها و ثبت آدرس",
   "new address": "آدرس جدید",
   "submit address": "ثبت آدرس",
+  "edit address": "ویرایش آدرس",
   "name": "نام",
   "address": "آدرس",
-  "postal code": "کد پستی"
+  "postal code": "کد پستی",
+  "confrim to edit address": "آیا مایل به ویرایش آدرس هستید ؟",
+  "confrim to delete address": "آیا مایل به حذف آدرس هستید ؟",
+  "confrim": "تایید",
+  "cancel": "انصراف"
 }
