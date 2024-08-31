@@ -89,3 +89,18 @@ export const validateEmail = (param) => {
     };
   }
 };
+
+export const validatepostalCode = (param) => {
+  const reg = /^[13-9]{4}[1346-9][013-9]{5}$/;
+  if (reg.test(param)) {
+    return {
+      state: false,
+      message: "",
+    };
+  } else {
+    return {
+      state: true,
+      message: "کد پستی اشتباه است",
+    };
+  }
+};
