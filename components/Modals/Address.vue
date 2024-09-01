@@ -7,8 +7,18 @@
   >
     <template #content>
       <div class="app-flex app-flex-column app-px-4 app-py-8">
-        <AppInput :label="$t('name')" v-model="form.name" />
-        <AppInput :label="$t('address')" v-model="form.address" />
+        <AppInput
+          :label="$t('name')"
+          v-model="form.name"
+          :error="error.name.state"
+          :message-error="error.name.message"
+        />
+        <AppInput
+          :label="$t('address')"
+          v-model="form.address"
+          :error="error.address.state"
+          :message-error="error.address.message"
+        />
         <AppInput
           :label="$t('postal code')"
           v-model="form.postal_code"
@@ -31,18 +41,35 @@
 
 <script setup>
 import { useAddressStore } from "@/store/address/index";
-import { validatepostalCode } from "@/utils/validate.js";
+import {
+  ValidateName,
+  ValidateAddress,
+  validatepostalCode,
+} from "@/utils/validate.js";
 
 const adddressStore = useAddressStore();
 const emit = defineEmits(["close"]);
 
-const form = ref({ address: "", name: "", postal_code: "" });
-const error = ref({ postal_code: { state: false, message: "" } });
+const form = ref({ name: "", address: "", postal_code: "" });
+
+const error = ref({
+  name: { state: false, message: "" },
+  address: { state: false, message: "" },
+  postal_code: { state: false, message: "" },
+});
+
 const loading = ref(false);
 
 const add = async () => {
+  error.value.name = ValidateName(form.value.name);
+  error.value.address = ValidateAddress(form.value.address);
   error.value.postal_code = validatepostalCode(form.value.postal_code);
-  if (!error.value.postal_code.state) {
+
+  if (
+    !error.value.postal_code.state &&
+    !error.value.name.state &&
+    !error.value.address.state
+  ) {
     loading.value = true;
     await adddressStore
       .add(form.value)

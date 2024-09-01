@@ -104,3 +104,18 @@ export const validatepostalCode = (param) => {
     };
   }
 };
+
+export const ValidateAddress = (param) => {
+  if (param == "") {
+    return { state: true, message: "آدرس پستی خود را کامل وارد کنید" };
+  } else if (param.length < 20) {
+    return { state: true, message: "آدرس شما خیلی کوتاه است !!!" };
+  } else if (param.length > 120) {
+    return { state: true, message: "آدرس شما طولانی است !!!" };
+  } else {
+    return {
+      state: false,
+      message: "",
+    };
+  }
+};
