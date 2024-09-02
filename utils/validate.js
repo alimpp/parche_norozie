@@ -49,16 +49,28 @@ export const ValidateJob = (param) => {
 
 export const ValidateCardNumber = (param) => {
   if (isNaN(param)) {
-    return { state: true, message: " کد ملی خود را وارد کنید" };
+    return { state: true, message: "فقط عدد بصورت لاتین وارد کنید" };
   } else if (param == "") {
-    return { state: true, message: "کد ملی وارده اشتباه است" };
+    return { state: true, message: "کد ملی خودرا وارد کنید" };
   } else if (param.length < 10) {
-    return { state: true, message: "نباید کمتر از ۱۰ عدد باشد" };
+    return { state: true, message: "کد نباید کمتر از ۱۰ عدد باشد" };
   } else {
-    return {
-      state: false,
-      message: "",
-    };
+    var yy = 0;
+    var yv = parseInt(yv);
+    for (let i = 0; i < param.length; i++) {
+      yv = param[i] * (param.length - i);
+      yy += yv;
+    }
+    var x = yy % 11;
+    if (x === 0) {
+      return {
+        state: false,
+        message: "",
+      };
+    } else {
+      return { state: true, message: "کد ملی اشتباه است" };
+    }
+    yy = 0;
   }
 };
 
@@ -74,6 +86,36 @@ export const validateEmail = (param) => {
     return {
       state: true,
       message: "ایمیل اشتباه است",
+    };
+  }
+};
+
+export const validatepostalCode = (param) => {
+  const reg = /^[13-9]{4}[1346-9][013-9]{5}$/;
+  if (reg.test(param)) {
+    return {
+      state: false,
+      message: "",
+    };
+  } else {
+    return {
+      state: true,
+      message: "کد پستی اشتباه است",
+    };
+  }
+};
+
+export const ValidateAddress = (param) => {
+  if (param == "") {
+    return { state: true, message: "آدرس پستی خود را کامل وارد کنید" };
+  } else if (param.length < 20) {
+    return { state: true, message: "آدرس شما خیلی کوتاه است !!!" };
+  } else if (param.length > 120) {
+    return { state: true, message: "آدرس شما طولانی است !!!" };
+  } else {
+    return {
+      state: false,
+      message: "",
     };
   }
 };
