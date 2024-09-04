@@ -91,16 +91,30 @@ export const validateEmail = (param) => {
 };
 
 export const validatepostalCode = (param) => {
-  const reg = /^[13-9]{4}[1346-9][013-9]{5}$/;
-  if (reg.test(param)) {
+  if (isNaN(param)) {
     return {
-      state: false,
-      message: "",
+      state: true,
+      message: "فقط عدد بصورت لاتین وارد کنید",
+    };
+  } else if (param == "") {
+    return {
+      state: true,
+      message: "کد پستی خود را وارک کنید",
+    };
+  } else if (param.length < 10) {
+    return {
+      state: true,
+      message: "کدپستی نباید کمتر از ۱۰ عدد باشد",
+    };
+  } else if (param.length > 10) {
+    return {
+      state: true,
+      message: "کدپستی نباید بیشتر از ۱۰ عدد باشد",
     };
   } else {
     return {
-      state: true,
-      message: "کد پستی اشتباه است",
+      state: false,
+      message: "",
     };
   }
 };
