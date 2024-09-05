@@ -12,7 +12,11 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
 
-  css: ["@/assets/scss/main.scss", "vuetify/lib/styles/main.sass"],
+  css: [
+    "@/assets/scss/main.scss",
+    "vuetify/lib/styles/main.sass",
+    "vuetify/styles",
+  ],
 
   modules: [
     "nuxt-feather-icons",

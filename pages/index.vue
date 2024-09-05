@@ -3,7 +3,7 @@
     <div class="banner-content">
       <div class="new-products-container">
         <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
-          <AppDivider name="محصولات جدید" width="120px" />
+          <AppDivider :name="$t('new products')" width="120px" />
           <NewProductsCarousel
             class="slid-right-animation-8 app-mt-2"
             :dataSource="newProducts"
@@ -13,7 +13,7 @@
       </div>
       <div class="discount-container">
         <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
-          <AppDivider name="تخفیفات شگفت انگیز" width="160px" />
+          <AppDivider :name="$t('discount')" width="160px" />
           <DiscountCarousel
             class="slid-left-animation-5 app-mt-2"
             :dataSource="discount"
@@ -22,7 +22,15 @@
         </div>
       </div>
     </div>
-    <CardsProducts />
+    <div class="app-flex app-flex-column app-mt-5">
+      <AppDivider
+        class="app-mx-3"
+        :name="$t('best seller')"
+        width="165px"
+        :hasLine="true"
+      />
+      <BestSellerSection class="app-mt-1" />
+    </div>
   </div>
 </template>
 

@@ -33,6 +33,7 @@
               class="app-bg-white app-border-radius"
             ></div>
             <span class="app-font-size-14 app-font-weight-600">روشن</span>
+            <CheckCircleIcon v-if="themeStore.theme == 'light'" />
           </div>
           <div
             @click="changeThemeState('dark')"
@@ -43,6 +44,7 @@
               class="app-bg-dark app-border-radius app-border"
             ></div>
             <span class="app-font-size-14 app-font-weight-600">تیره</span>
+            <CheckCircleIcon v-if="themeStore.theme == 'dark'" />
           </div>
           <div
             @click="changeThemeState('custom')"
@@ -53,10 +55,136 @@
               class="app-bg-secondary-custom app-border-radius"
             ></div>
             <span class="app-font-size-14 app-font-weight-600">کاستوم</span>
+            <CheckCircleIcon v-if="themeStore.theme == 'custom'" />
           </div>
         </div>
         <div class="app-w-100 app-mt-5">
           <AppDivider name="حالت کارت ها" :hasLine="true" width="88px" />
+          <div class="app-flex app-mt-2">
+            <div
+              class="app-flex app-flex-column app-justify-center app-align-center"
+            >
+              <div
+                @click="setWighetCard('hasBorder')"
+                class="app-flex app-flex-column app-px-2 app-py-2 primary-border has-border-default"
+              >
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius"
+                  style="height: 130px"
+                ></div>
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  style="height: 25px"
+                ></div>
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  style="height: 25px"
+                ></div>
+              </div>
+              <CheckCircleIcon
+                class="app-mt-2"
+                v-if="themeStore.wighet.baseCard.border == 'hasBorder'"
+              />
+            </div>
+            <div
+              class="app-flex app-flex-column app-justify-center app-align-center"
+            >
+              <div
+                @click="setWighetCard('hasShadow')"
+                class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 primary-shadow has-shadow-default"
+              >
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius"
+                  style="height: 130px"
+                ></div>
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  style="height: 25px"
+                ></div>
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  style="height: 25px"
+                ></div>
+              </div>
+              <CheckCircleIcon
+                class="app-mt-2"
+                v-if="themeStore.wighet.baseCard.border == 'hasShadow'"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="app-w-100 app-mt-5">
+          <AppDivider name="حالت نمایش کارت ها" :hasLine="true" width="130px" />
+          <div
+            class="app-flex app-flex-column app-justify-center app-align-center app-mt-5"
+          >
+            <div
+              class="app-flex app-flex-column app-justify-center app-align-center"
+            >
+              <div
+                @click="setDisplayCard('row')"
+                class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 app-border"
+                style="width: 150px; height: 200px; border-radius: 6px"
+              >
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius"
+                  style="height: 130px"
+                ></div>
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  style="height: 25px"
+                ></div>
+                <div
+                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  style="height: 25px"
+                ></div>
+              </div>
+              <CheckCircleIcon
+                class="app-mt-2"
+                v-if="themeStore.wighet.product.display == 'row'"
+              />
+            </div>
+            <div
+              class="app-flex app-flex-column app-justify-center app-align-center app-mt-2"
+            >
+              <div
+                @click="setDisplayCard('column')"
+                class="app-flex app-mx-2 app-px-2 app-py-2 app-border"
+                style="width: 300px; height: 120px; border-radius: 6px"
+              >
+                <div
+                  class="app-bg-gray app-border-radius"
+                  style="height: 100px; width: 130px"
+                ></div>
+
+                <div
+                  class="app-flex app-flex-column app-px-2"
+                  style="width: 160px; height: 100px"
+                >
+                  <div
+                    class="app-w-100 app-bg-gray app-border-radius"
+                    style="height: 19px"
+                  ></div>
+                  <div
+                    class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                    style="height: 19px"
+                  ></div>
+                  <div
+                    class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                    style="height: 19px"
+                  ></div>
+                  <div
+                    class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                    style="height: 19px"
+                  ></div>
+                </div>
+              </div>
+              <CheckCircleIcon
+                class="app-mt-2"
+                v-if="themeStore.wighet.product.display == 'column'"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -85,11 +213,17 @@ const props = defineProps({
 
 const changeThemeState = (val) => {
   if (userStore.user) {
-    if (userStore.user.theme) {
-      userStore.sendProfile({ ...userStore.user, theme: val });
-    }
+    userStore.sendProfile({ ...userStore.user, theme: val });
   }
   themeStore.updateThemeState(val);
+};
+
+const setWighetCard = (val) => {
+  themeStore.wighet.baseCard.border = val;
+};
+
+const setDisplayCard = (val) => {
+  themeStore.wighet.product.display = val;
 };
 </script>
 
@@ -109,5 +243,19 @@ const changeThemeState = (val) => {
   height: 100vh;
   position: absolute;
   z-index: 1;
+  overflow-y: scroll;
+}
+
+.has-shadow-default {
+  border: 1px solid #787878;
+  width: 150px;
+  height: 200px;
+  border-radius: 6px;
+}
+
+.has-border-default {
+  width: 150px;
+  height: 200px;
+  border-radius: 6px;
 }
 </style>
