@@ -2,7 +2,7 @@
   <div
     class="app-w-100 app-flex app-justify-center app-align-center app-flex-wrap"
   >
-    <CardsProducts class="app-mx-5 app-mt-4" v-for="n in 15" :key="n" />
+    <CardsProducts class="app-mx-5 app-mt-7" v-for="n in 9" :key="n" />
   </div>
 </template>
 

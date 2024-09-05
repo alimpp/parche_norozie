@@ -122,7 +122,7 @@
               class="app-flex app-flex-column app-justify-center app-align-center"
             >
               <div
-                @click="setDisplayCard('row')"
+                @click="setDisplayCard('column')"
                 class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 app-border"
                 style="width: 150px; height: 200px; border-radius: 6px"
               >
@@ -141,14 +141,14 @@
               </div>
               <CheckCircleIcon
                 class="app-mt-2"
-                v-if="themeStore.wighet.product.display == 'row'"
+                v-if="themeStore.wighet.product.display == 'column'"
               />
             </div>
             <div
               class="app-flex app-flex-column app-justify-center app-align-center app-mt-2"
             >
               <div
-                @click="setDisplayCard('column')"
+                @click="setDisplayCard('row')"
                 class="app-flex app-mx-2 app-px-2 app-py-2 app-border"
                 style="width: 300px; height: 120px; border-radius: 6px"
               >
@@ -181,7 +181,7 @@
               </div>
               <CheckCircleIcon
                 class="app-mt-2"
-                v-if="themeStore.wighet.product.display == 'column'"
+                v-if="themeStore.wighet.product.display == 'row'"
               />
             </div>
           </div>
