@@ -19,8 +19,17 @@
         />
       </div>
     </div>
-    <div class="app-w-100 app-flex app-flex-wrap">
+    <div class="app-w-100 app-flex app-flex-wrap app-justify-center">
+      <div
+        class="app-flex app-justify-center app-align-center app-flex-column app-h-80"
+        v-if="allAddress.length == 0"
+      >
+        <span class="app-font-size-16 app-font-weight-600">
+          {{ $t("empty address") }}</span
+        >
+      </div>
       <CardsAddress
+        v-else
         class="app-mt-5"
         v-for="address in allAddress"
         :key="address.uuid"

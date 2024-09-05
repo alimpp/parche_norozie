@@ -8,14 +8,16 @@
       />
       <ModalsConfrim
         :state="confrimModalState"
-        :title="$t('confrim to edit address')"
+        :title="$t('edit address')"
+        :text="$t('confrim to edit address')"
         @confrim="openEditModal"
         @cancel="confrimModalState = false"
         @close="confrimModalState = false"
       />
       <ModalsConfrim
         :state="confrimDeleteModalState"
-        :title="$t('confrim to delete address')"
+        :title="$t('delete address')"
+        :text="$t('confrim to delete address')"
         @confrim="deleteAddress"
         @cancel="confrimDeleteModalState = false"
         @close="confrimDeleteModalState = false"

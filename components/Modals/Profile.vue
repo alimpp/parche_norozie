@@ -2,7 +2,7 @@
   <AppModal :state="state" @close="emit('close')">
     <template #content>
       <div class="app-w-100 app-flex app-flex-column app-px-3 app-py-8">
-        <div class="app-flex app-w-100 app-mb-5">
+        <div class="app-flex app-w-100 app-mb-5" v-if="userStore.user.name">
           <AppAvatar :name="userStore.user.name[0]" />
           <div class="app-flex app-flex-column app-justify-center app-px-2">
             <span class="app-font-size-16 app-font-weight-600"

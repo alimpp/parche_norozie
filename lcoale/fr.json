@@ -25,5 +25,7 @@
   "confrim to edit address": "آیا مایل به ویرایش آدرس هستید ؟",
   "confrim to delete address": "آیا مایل به حذف آدرس هستید ؟",
   "confrim": "تایید",
-  "cancel": "انصراف"
+  "cancel": "انصراف",
+  "empty address": "هیح آدرسی برای شما ثبت نشده",
+  "delete address": "حذف آدرس"
 }
