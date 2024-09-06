@@ -52,11 +52,11 @@ const props = defineProps({
   cursor: pointer;
 }
 
-.custom-border-danger {
+.custom-border-primary {
   background: none;
-  border: 1px solid #ff3333;
+  border: 1px solid #ffa500;
   border-radius: 30px;
-  color: #ff3333;
+  color: #ffa500;
 }
 
 .app-border-light {
