@@ -13,19 +13,23 @@
           }"
         >
           <v-carousel
-            height="210"
+            height="190"
             hide-delimiters
             cycle
-            :interval="3000"
+            :interval="6000"
             :show-arrows="false"
           >
-            <v-carousel-item v-for="i in 5" :key="i">
+            <v-carousel-item v-for="image in data.images" :key="i">
               <v-sheet height="100%">
                 <img
                   class="app-w-100"
-                  style="height: 210px"
-                  src="@/assets/images/about-us/IMG_5185.jpg"
+                  :class="{
+                    'card-w-200': themeStore.wighet.product.display == 'row',
+                  }"
+                  style="height: 190px"
+                  :src="image.url"
                   alt="image"
+                  loading="lazy"
                 />
               </v-sheet>
             </v-carousel-item>
@@ -33,46 +37,51 @@
         </div>
 
         <div
-          class="app-flex app-flex-column app-justify-center app-px-2 app-py-2"
+          class="app-flex app-flex-column app-px-2 app-py-2"
           :class="{
             'card-w-200': themeStore.wighet.product.display == 'row',
             'card-w-290': themeStore.wighet.product.display == 'column',
           }"
         >
-          <span class="app-font-size-14 app-font-weight-600"
-            >رو تختی طرح رز</span
-          >
-          <span class="app-font-size-12 app-font-weight-600 app-color-gray"
-            >کالای خواب</span
-          >
-          <div class="app-flex app-w-100">
+          <span class="app-font-size-12 app-font-weight-600">{{
+            data.name
+          }}</span>
+          <span class="app-font-size-12 app-font-weight-600 app-color-gray">{{
+            data.category
+          }}</span>
+          <div class="app-flex app-w-100" v-if="data.hasDiscount">
             <div class="app-w-50">
-              <span class="app-font-size-12 app-font-weight-600">قیمت :</span>
+              <span class="app-font-size-12 app-font-weight-600">40%</span>
             </div>
             <div class="app-w-50 app-flex app-justify-end">
-              <del>
-                <span class="app-font-size-14 app-font-weight-600"
-                  >2,100,000</span
+              <div class="app-flex app-flex-column">
+                <span
+                  class="app-font-size-12 app-font-weight-600 app-color-primary"
+                  >{{ data.discountPrice }} {{ $t("toman") }}</span
                 >
-              </del>
-              <!-- <span class="app-font-size-14 app-font-weight-600"
-                >2,100,000</span
-              > -->
+                <del class="app-color-gray">
+                  <span class="app-font-size-10 app-font-weight-600"
+                    >{{ data.price }} {{ $t("toman") }}</span
+                  >
+                </del>
+              </div>
             </div>
           </div>
-          <div class="app-flex app-flex-column app-w-100">
-            <span class="app-font-size-12 app-font-weight-600"
-              >قیمت با تخفیف :</span
-            >
-            <span class="app-font-size-14 app-font-weight-600 app-color-primary"
-              >1,100,000</span
-            >
-          </div>
+          <span class="app-font-size-12 app-font-weight-600 app-py-2" v-else
+            >{{ data.price }} {{ $t("toman") }}</span
+          >
+          <span
+            class="app-font-size-10 app-font-weight-600"
+            :class="{ 'app-pt-2': data.hasDiscount == false }"
+            >{{ $t("score product") }}</span
+          >
+          <span class="app-font-size-10 app-font-weight-600">5/5</span>
           <AppButton
             background="app-bg-primary"
+            icon="shopping cart"
+            width="100%"
             height="37px"
             :name="$t('add to shopping card')"
-            class="app-mt-2"
           />
         </div>
       </div> </template

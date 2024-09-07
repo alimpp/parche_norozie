@@ -2,12 +2,250 @@
   <div
     class="app-w-100 app-flex app-justify-center app-align-center app-flex-wrap"
   >
-    <CardsProducts class="app-mx-5 app-mt-7" v-for="n in 9" :key="n" />
+    <CardsProducts
+      class="app-mx-5 app-mt-7"
+      :data="data"
+      v-for="data in dataSource"
+      :key="n"
+    />
   </div>
 </template>
 
 <script setup>
-const model = ref(null);
+const dataSource = computed(() => {
+  return [
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "روتختی",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+  ];
+});
 
 const props = defineProps({
   data: {
@@ -16,12 +254,3 @@ const props = defineProps({
   },
 });
 </script>
-
-<style scoped>
-.best-seller-section {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-</style>

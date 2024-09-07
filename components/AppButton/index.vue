@@ -6,9 +6,14 @@
     :disabled="disabled"
   >
     <v-progress-circular indeterminate v-if="loading"></v-progress-circular>
-    <span v-else>
-      {{ name }}
-    </span>
+    <div class="app-flex app-align-center" v-else>
+      <span class="app-font-size-14"> {{ name }}</span>
+      <ShoppingCartIcon
+        v-if="icon == 'shopping cart'"
+        size="1x"
+        class="custom-class app-pointer app-mx-2"
+      ></ShoppingCartIcon>
+    </div>
   </button>
 </template>
 
@@ -35,6 +40,10 @@ const props = defineProps({
     default: "",
   },
   height: {
+    type: String,
+    default: "",
+  },
+  icon: {
     type: String,
     default: "",
   },

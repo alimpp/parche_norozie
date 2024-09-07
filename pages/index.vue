@@ -31,6 +31,7 @@
       />
       <BestSellerSection class="app-mt-1" />
     </div>
+
     <div class="app-flex app-flex-column app-mt-5">
       <AppDivider
         class="app-mx-3"
