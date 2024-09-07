@@ -78,11 +78,21 @@ import { useThemeStore } from "@/store/theme/index";
 const themeStore = useThemeStore();
 
 const logoColor = computed(() => {
-  if (themeStore.theme == "dark" || themeStore.theme == "custom") {
+  if (props.theme == "dark") {
     return "#fff";
   } else {
-    return "#000000";
+    if (themeStore.theme == "dark" || themeStore.theme == "custom") {
+      return "#fff";
+    } else {
+      return "#000000";
+    }
   }
+});
+
+const props = defineProps({
+  theme: {
+    type: String,
+  },
 });
 
 onMounted(() => {

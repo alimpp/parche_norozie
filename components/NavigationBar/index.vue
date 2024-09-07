@@ -74,7 +74,6 @@
             class="custom-class app-pointer"
           ></ShoppingCartIcon
         ></span>
-
         <AppLogo />
       </div>
     </div>

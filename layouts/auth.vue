@@ -38,13 +38,4 @@ const { locale } = useI18n();
   justify-content: center;
   align-items: center;
 }
-
-@media (max-width: 900px) {
-  .image-bar {
-    display: none;
-  }
-  .form {
-    width: 100%;
-  }
-}
 </style>

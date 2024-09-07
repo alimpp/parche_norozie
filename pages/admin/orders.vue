@@ -1,5 +1,4 @@
-<template>index admin</template>
-
+<template>orders</template>
 <script setup>
 definePageMeta({
   layout: "admin",

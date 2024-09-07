@@ -1,0 +1,168 @@
+<template>
+  <div
+    class="admin-sidebar app-bg-dark"
+    :class="{
+      'sidebar-close-state': sidebarState == 'close',
+      'sidebar-open-state': sidebarState == 'open',
+    }"
+  >
+    <div class="app-w-100 app-flex app-justify-end">
+      <span
+        class="app-px-3 app-py-3 app-pointer"
+        v-if="sidebarState == 'open'"
+        @click="sidebarState = 'close'"
+      >
+        <XIcon size="1x"></XIcon>
+      </span>
+      <span
+        class="app-px-3 app-py-3 app-pointer"
+        @click="sidebarState = 'open'"
+        v-else
+      >
+        <ArrowLeftIcon size="1x"></ArrowLeftIcon>
+      </span>
+    </div>
+
+    <div class="app-flex app-w-100 app-px-3">
+      <AppAvatar background="app-bg-white" name="A" />
+      <div
+        class="app-flex app-flex-column app-justify-center app-px-2"
+        v-if="sidebarState == 'open'"
+      >
+        <span class="app-font-size-14 app-font-weight-500">ali_norozie</span>
+        <span class="app-font-size-10 app-font-weight-500 app-color-gray">{{
+          $t("role admin")
+        }}</span>
+      </div>
+    </div>
+
+    <div
+      class="app-w-100 app-h-80 app-flex app-flex-column app-align-center app-mt-9 app-px-4"
+    >
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/dashboard',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/dashboard')"
+      >
+        <BarChartIcon size="1.5x"></BarChartIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("dashboard") }}</span
+        >
+      </div>
+
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-3 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/catgory',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/catgory')"
+      >
+        <ArchiveIcon size="1.5x"></ArchiveIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("category") }}</span
+        >
+      </div>
+
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/property',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/property')"
+      >
+        <ActivityIcon size="1.5x"></ActivityIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("property") }}</span
+        >
+      </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/property-value',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/property-value')"
+      >
+        <CloudLightningIcon size="1.5x"></CloudLightningIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("property value") }}</span
+        >
+      </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/products',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/products')"
+      >
+        <CodesandboxIcon size="1.5x"></CodesandboxIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("products") }}</span
+        >
+      </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/orders',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/orders')"
+      >
+        <ShoppingCartIcon size="1.5x"></ShoppingCartIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("orders") }}</span
+        >
+      </div>
+    </div>
+
+    <div
+      class="app-flex app-w-100 app-justify-center app-align-center"
+      style="height: 120px"
+      v-if="sidebarState == 'open'"
+    >
+      <AppLogo theme="dark" />
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+const sidebarState = ref("open");
+</script>
+
+<style scoped>
+.sidebar-close-state {
+  width: 90px;
+}
+.sidebar-open-state {
+  width: 230px;
+}
+.admin-sidebar {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px 0 0 30px;
+  transition: 0.5s;
+}
+</style>

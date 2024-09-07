@@ -1,9 +1,10 @@
 <
 <template>
   <div
-    class="app-bg-primary app-avatar app-flex app-justify-center app-align-center"
+    class="app-avatar app-flex app-justify-center app-align-center"
+    :class="[background]"
   >
-    <span>{{ name }}</span>
+    <span class="app-font-size-16 app-font-weight-900">{{ name }}</span>
   </div>
 </template>
 
@@ -12,6 +13,10 @@ const props = defineProps({
   name: {
     type: String,
     default: "",
+  },
+  background: {
+    type: String,
+    default: "app-bg-primary",
   },
 });
 </script>
