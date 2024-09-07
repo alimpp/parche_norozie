@@ -6,7 +6,7 @@
       class="app-mx-5 app-mt-7"
       :data="data"
       v-for="data in dataSource"
-      :key="n"
+      :key="data"
     />
   </div>
 </template>

@@ -10,7 +10,7 @@ export const useThemeStore = defineStore("useThemeStore", {
         border: "default",
       },
       product: {
-        display: "column",
+        display: "row",
       },
     },
   }),
