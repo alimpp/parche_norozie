@@ -66,7 +66,7 @@
             >
               <div
                 @click="setWighetCard('hasBorder')"
-                class="app-flex app-flex-column app-px-2 app-py-2 primary-border has-border-default"
+                class="app-flex app-flex-column app-px-2 app-py-2 primary-border has-border-default app-pointer"
               >
                 <div
                   class="app-w-100 app-bg-gray app-border-radius"
@@ -91,7 +91,7 @@
             >
               <div
                 @click="setWighetCard('hasShadow')"
-                class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 primary-shadow has-shadow-default"
+                class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 primary-shadow has-shadow-default app-pointer"
               >
                 <div
                   class="app-w-100 app-bg-gray app-border-radius"
@@ -123,7 +123,7 @@
             >
               <div
                 @click="setDisplayCard('column')"
-                class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 app-border"
+                class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 app-border app-pointer"
                 style="width: 150px; height: 200px; border-radius: 6px"
               >
                 <div
@@ -149,7 +149,7 @@
             >
               <div
                 @click="setDisplayCard('row')"
-                class="app-flex app-mx-2 app-px-2 app-py-2 app-border"
+                class="app-flex app-mx-2 app-px-2 app-py-2 app-border app-pointer"
                 style="width: 300px; height: 120px; border-radius: 6px"
               >
                 <div

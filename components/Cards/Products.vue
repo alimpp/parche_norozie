@@ -2,7 +2,7 @@
   <AppCard>
     <template #content>
       <div
-        class="app-flex"
+        class="app-flex cursor-pointer"
         :class="{
           'app-flex-column': themeStore.wighet.product.display == 'column',
         }"
@@ -24,7 +24,7 @@
                 <img
                   class="app-w-100"
                   :class="{
-                    'card-w-200': themeStore.wighet.product.display == 'row',
+                    'card-w-150': themeStore.wighet.product.display == 'row',
                   }"
                   style="height: 190px"
                   :src="image.url"
@@ -37,10 +37,10 @@
         </div>
 
         <div
-          class="app-flex app-flex-column app-px-2 app-py-2"
+          class="app-flex app-flex-column app-pt-1 app-px-2"
           :class="{
-            'card-w-200': themeStore.wighet.product.display == 'row',
-            'card-w-290': themeStore.wighet.product.display == 'column',
+            'card-w-150': themeStore.wighet.product.display == 'row',
+            'card-w-220': themeStore.wighet.product.display == 'column',
           }"
         >
           <span class="app-font-size-12 app-font-weight-600">{{
@@ -49,23 +49,15 @@
           <span class="app-font-size-12 app-font-weight-600 app-color-gray">{{
             data.category
           }}</span>
-          <div class="app-flex app-w-100" v-if="data.hasDiscount">
-            <div class="app-w-50">
-              <span class="app-font-size-12 app-font-weight-600">40%</span>
-            </div>
-            <div class="app-w-50 app-flex app-justify-end">
-              <div class="app-flex app-flex-column">
-                <span
-                  class="app-font-size-12 app-font-weight-600 app-color-primary"
-                  >{{ data.discountPrice }} {{ $t("toman") }}</span
-                >
-                <del class="app-color-gray">
-                  <span class="app-font-size-10 app-font-weight-600"
-                    >{{ data.price }} {{ $t("toman") }}</span
-                  >
-                </del>
-              </div>
-            </div>
+          <div class="app-flex app-flex-column" v-if="data.hasDiscount">
+            <span class="app-font-size-12 app-font-weight-600 app-color-primary"
+              >{{ data.discountPrice }} {{ $t("toman") }}</span
+            >
+            <del class="app-color-gray">
+              <span class="app-font-size-10 app-font-weight-600"
+                >{{ data.price }} {{ $t("toman") }}</span
+              >
+            </del>
           </div>
           <span class="app-font-size-12 app-font-weight-600 app-py-2" v-else
             >{{ data.price }} {{ $t("toman") }}</span
@@ -76,13 +68,13 @@
             >{{ $t("score product") }}</span
           >
           <span class="app-font-size-10 app-font-weight-600">5/5</span>
-          <AppButton
-            background="app-bg-primary"
-            icon="shopping cart"
-            width="100%"
-            height="37px"
-            :name="$t('add to shopping card')"
-          />
+          <div
+            class="app-w-100 app-flex app-justify-end app-py-2"
+            :class="{ 'app-mt-5': themeStore.wighet.product.display == 'row' }"
+          >
+            <HeartIcon size="1x" class="app-pointer app-mx-2"></HeartIcon>
+            <ShoppingCartIcon size="1x" class="app-pointer"></ShoppingCartIcon>
+          </div>
         </div>
       </div> </template
   ></AppCard>
@@ -102,10 +94,10 @@ const props = defineProps({
 </script>
 
 <style scoped>
-.card-w-200 {
-  width: 200px;
+.card-w-150 {
+  width: 150px;
 }
-.card-w-290 {
-  width: 290px;
+.card-w-220 {
+  width: 250px;
 }
 </style>
