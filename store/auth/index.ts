@@ -37,7 +37,8 @@ export const useAuthStore = defineStore("useAuthStore", {
           method: "POST",
           body: param,
         });
-        const cookie = setCookie("token", data.value?.data.token);
+        setCookie("token", data.value?.data.token);
+        localStorage.setItem("token", data.value?.data.token);
         if (data.value?.status == 200) {
           userStore.userProfile();
           this.isAuthenticated = true;

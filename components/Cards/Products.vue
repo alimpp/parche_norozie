@@ -99,6 +99,6 @@ const props = defineProps({
   width: 150px;
 }
 .card-w-220 {
-  width: 250px;
+  width: 220px;
 }
 </style>
