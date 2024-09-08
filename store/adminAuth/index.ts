@@ -7,22 +7,22 @@ export const useAuthAdminStore = defineStore("useAuthAdminStore", {
   }),
   actions: {
     async login(param: any) {
-      try {
-        const data = await $fetch("/api/v1/admin", {
-          method: "POST",
-          body: param,
-        });
-        console.log(data);
-      } catch (err: any) {
-        console.log(err);
-      }
+      const { setCookie } = useCookie();
+      await $fetch("/api/v1/admin", {
+        method: "POST",
+        body: param,
+      }).then((res) => {
+        localStorage.setItem("token_admin", res.data.token);
+        setCookie("token_admin", res.data.token);
+        navigateTo("/admin/dashboard");
+      });
     },
 
     logOut() {
       const { deleteCookie } = useCookie();
-      deleteCookie("token");
-      this.isAuthenticated = false;
-      location.reload();
+      deleteCookie("token_admin");
+      localStorage.clear();
+      navigateTo("/admin/login");
     },
   },
 });

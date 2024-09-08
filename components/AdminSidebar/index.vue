@@ -1,6 +1,6 @@
 <template>
   <div
-    class="admin-sidebar app-bg-dark"
+    class="admin-sidebar app-bg-element-dark"
     :class="{
       'sidebar-close-state': sidebarState == 'close',
       'sidebar-open-state': sidebarState == 'open',
@@ -131,6 +131,65 @@
           >{{ $t("orders") }}</span
         >
       </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/blogs',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/blogs')"
+      >
+        <AlignLeftIcon size="1.5x"></AlignLeftIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("blogs") }}</span
+        >
+      </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/costumers',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/costumers')"
+      >
+        <UserIcon size="1.5x"></UserIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("costumers") }}</span
+        >
+      </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-white': route.path == '/admin/tickets',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/tickets')"
+      >
+        <FileTextIcon size="1.5x"></FileTextIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("tickets") }}</span
+        >
+      </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="logOut()"
+      >
+        <ArrowRightIcon size="1.5x"></ArrowRightIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("exit") }}</span
+        >
+      </div>
     </div>
 
     <div
@@ -144,9 +203,15 @@
 </template>
 
 <script setup>
+import { useAuthAdminStore } from "~/store/adminAuth";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
+const authAdminStore = useAuthAdminStore();
+
+const logOut = () => {
+  authAdminStore.logOut();
+};
 
 const sidebarState = ref("open");
 </script>
@@ -164,5 +229,6 @@ const sidebarState = ref("open");
   flex-direction: column;
   border-radius: 30px 0 0 30px;
   transition: 0.5s;
+  border-left: 1px solid #ffffff41;
 }
 </style>

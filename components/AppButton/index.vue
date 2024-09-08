@@ -13,6 +13,7 @@
         size="1x"
         class="custom-class app-pointer app-mx-2"
       ></ShoppingCartIcon>
+      <ArrowLeftIcon size="1x" v-if="icon == 'arrow left'"></ArrowLeftIcon>
     </div>
   </button>
 </template>

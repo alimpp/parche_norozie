@@ -1,4 +1,4 @@
-<template>category</template>
+<template>costumers</template>
 <script setup>
 definePageMeta({
   middleware: ["admin-auth"],

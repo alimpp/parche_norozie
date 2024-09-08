@@ -38,6 +38,7 @@ const loading = ref(false);
 const disabled = ref(false);
 
 definePageMeta({
+  // middleware: ["admin-auth"],
   layout: "login-admin",
 });
 

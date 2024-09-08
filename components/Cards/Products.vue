@@ -13,7 +13,7 @@
           }"
         >
           <v-carousel
-            height="190"
+            height="150"
             hide-delimiters
             cycle
             :interval="6000"
@@ -26,7 +26,7 @@
                   :class="{
                     'card-w-150': themeStore.wighet.product.display == 'row',
                   }"
-                  style="height: 190px"
+                  style="height: 150px"
                   :src="image.url"
                   alt="image"
                   loading="lazy"
@@ -68,16 +68,17 @@
             >{{ $t("score product") }}</span
           >
           <span class="app-font-size-10 app-font-weight-600">5/5</span>
-          <div
+          <!-- <div
             class="app-w-100 app-flex app-justify-end app-py-2"
             :class="{ 'app-mt-5': themeStore.wighet.product.display == 'row' }"
           >
             <HeartIcon size="1x" class="app-pointer app-mx-2"></HeartIcon>
             <ShoppingCartIcon size="1x" class="app-pointer"></ShoppingCartIcon>
-          </div>
+          </div> -->
         </div>
-      </div> </template
-  ></AppCard>
+      </div>
+    </template></AppCard
+  >
 </template>
 
 <script setup>

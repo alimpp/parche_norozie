@@ -1,11 +1,16 @@
 <template>
   <div
-    class="app-w-100 app-flex app-bg-admin"
+    class="app-w-100 app-flex app-bg-dark overflow-hidden"
     :dir="locale == 'fr' ? 'rtl' : 'ltr'"
   >
     <NuxtLoadingIndicator color="#fd7403" />
     <AdminSidebar />
-    <slot />
+    <div class="app-flex app-flex-column app-align-center app-w-100">
+      <AdminHeader />
+      <div class="router-content">
+        <slot />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,3 +22,11 @@ import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
 </script>
+
+<style scoped>
+.router-content {
+  width: 95%;
+  height: 85vh;
+  overflow-y: scroll;
+}
+</style>
