@@ -8,7 +8,7 @@
     :show-arrows="false"
   >
     <v-carousel-item v-for="(slide, i) in dataSource" :key="i">
-      <v-sheet height="100%">
+      <v-sheet height="80%">
         <div class="d-flex fill-height justify-center align-center">
           <div
             class="content"
