@@ -427,6 +427,8 @@ const dataSource = computed(() => {
 }
 .filter-content {
   width: 25%;
+  height: 80vh;
+  overflow-y: scroll;
 }
 .products {
   width: 75%;

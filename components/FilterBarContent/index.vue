@@ -1,5 +1,5 @@
 <template>
-  <div class="app-flex app-align-center">
+  <div class="app-flex app-align-center filter-bar-content">
     <FilterIcon size="1x" />
     <span class="app-font-size-14 app-font-weight-600 app-px-2">{{
       $t("filter by")
