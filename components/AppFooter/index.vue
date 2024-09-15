@@ -1,17 +1,17 @@
 <template>
-  <div class="app-flex app-w-100 container app-bg-primary">
+  <div class="app-flex app-w-100 container ">
     <div
-      class="app-flex app-flex-column app-w-33 app-align-center folowUs_container"
+      class="app-flex app-flex-column app-w-33 app-align-start mx-4 folowUs_container"
     >
       <span
-        class="app-font-size-16 app-font-weight-600 app-color-secondary app-mx-2 "
+        class="app-font-size-16 app-font-weight-600 app-color-gray  "
         >{{ $t("folow us") }}</span
       >
     <div class="icon_container app-align-start">
       <div class="app-mt-2">
-        <span class="app-font-size-16 app-font-weight-400 app-mx-2 "
+        <!-- <span class="app-font-size-16 app-font-weight-400 app-mx-2 "
           >instagram</span
-        >
+        > -->
         <span>
           <InstagramIcon
             size="1.5x"
@@ -20,10 +20,10 @@
         </span>
       </div>
 
-      <div class="app-mt-2 mr-2">
-        <span class="app-font-size-16 app-font-weight-400 app-mx-2"
+      <div class="app-mt-2 ">
+        <!-- <span class="app-font-size-16 app-font-weight-400 app-mx-2"
           >telegram</span
-        >
+        > -->
         <span>
           <InstagramIcon
             size="1.5x"
@@ -31,10 +31,10 @@
           ></InstagramIcon>
         </span>
       </div>
-      <div class="app-mt-2">
-        <span class="app-font-size-16 app-font-weight-400 app-mx-2"
+      <div class="app-mt-2 ">
+        <!-- <span class="app-font-size-16 app-font-weight-400 app-mx-2"
           >whatsApp</span
-        >
+        > -->
         <span>
           <InstagramIcon
             size="1.5x"
@@ -45,10 +45,10 @@
     </div>
     </div>
     <div
-      class="app-flex app-flex-column app-w-33 app-align-center contactUs_container"
+      class="app-flex app-flex-column app-w-33 app-align-start mx-2 contactUs_container"
     >
       <span
-        class="app-font-size-16 app-font-weight-600 app-color-secondary mx-2"
+        class="app-font-size-16 app-font-weight-600 app-color-gray mx-2"
         >{{ $t("contactUs") }}</span
       >
       <span
@@ -66,10 +66,10 @@
       >
     </div>
     <div
-      class="app-flex app-flex-column app-w-33 app-align-center premissions_container {"
+      class="app-flex app-flex-column app-w-33 app-align-start mx-2 premissions_container {"
     >
       <span
-        class="app-font-size-16 app-font-weight-600 app-color-secondary mx-2"
+        class="app-font-size-16 app-font-weight-600 app-color-gray mx-2"
         >{{ $t("permissions") }}</span
       >
       <div class="app-w-33">
@@ -87,6 +87,7 @@ const { t } = useI18n();
 <style scoped>
 .container {
   height: 210px;
+  border-top: 1px solid rgb(106, 117, 117);
 }
 img {
   width: 150px;
