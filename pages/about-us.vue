@@ -8,7 +8,7 @@
         }}</span>
 
         <span class="app-font-size-12 app-font-weight-100 app-mt-2"
-          >{{ $t("about us part one") }}
+          >{{ $t("about us part two") }}
           <span
             class="app-font-size-12 app-font-weight-100 app-color-primary"
             >{{ $t("about us part tree") }}</span

@@ -1,5 +1,11 @@
 <template>
-  <div class="app-flex app-w-100 footer-container">
+  <div 
+      :class="{
+      'app-bg-white': themeStore.theme == 'light',
+      'app-bg-element-dark': themeStore.theme == 'dark',
+      'app-bg-secondary-custom': themeStore.theme == 'custom'
+    }"
+  class="app-flex app-w-100 footer-container">
     <div
       class="app-flex app-flex-column app-w-33 app-align-start app-mx-4 folow-us-container"
     >
@@ -56,16 +62,18 @@
         $t("permissions")
       }}</span>
       <div class="app-w-33">
-        <img src="/assets/images/about-us/enamad-logo.png" class="app-w-100" />
+        <IconsEnamad />
       </div>
     </div>
   </div>
 </template>
-
+<script setup>
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+</script>
 <style scoped>
 .footer-container {
   overflow: hidden;
-  border-top: 1px solid #ffffff56;
   padding: 30px 30px;
   border-radius: 30px 30px 0 0;
 }
