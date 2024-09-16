@@ -3,9 +3,11 @@
     <div
       class="app-flex app-flex-column app-w-33 app-align-start app-mx-4 folow-us-container"
     >
-      <span class="app-font-size-16 app-font-weight-600 app-color-gray">{{
-        $t("contactUs")
-      }}</span>
+      <span
+        @click="navigateTo('/contact-us')"
+        class="app-font-size-16 app-font-weight-600 app-color-gray app-pointer"
+        >{{ $t("contactUs") }}</span
+      >
       <div class="icon_container app-align-start">
         <div class="app-mt-2 app-flex app-pointer app-mt-5">
           <IconsInstagram />
@@ -34,17 +36,18 @@
     >
       <span
         class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"
-        >شماره تماس: 09373709687</span
+      >
+        {{ $t("call number") + ":" + " " + $t("phone number") }}
+      </span>
+      <span
+        class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"
+        >{{ $t("email address") + ":" + " " + $t("email") }}</span
       >
       <span
         class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"
-        >ایمیل: parche.norozi@gmail.com</span
       >
-      <span
-        class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"
-        >آدرس برای مراجعه حضوری: تهران اسلامشهر خیابان امام حسین (باغ فیض)
-        ابتدای کوچه 27 پارچه سرای و کالای خواب نوروزی</span
-      >
+        {{ $t("purchase in person address") + ":" + " " + $t("shop address" ) }}
+      </span>
     </div>
     <div
       class="app-flex app-flex-column app-w-33 app-align-start mx-2 premissions_container"
