@@ -71,6 +71,7 @@
           background="custom-border-primary"
           width="130px"
           class="app-mt-5"
+          @click="navigateTo('/contact-us')"
         />
       </div>
     </div>
