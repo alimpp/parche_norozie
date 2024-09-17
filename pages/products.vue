@@ -51,7 +51,7 @@ const dataSource = computed(() => {
   return [
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -74,7 +74,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: false,
       discountPrice: "1,950,000",
@@ -97,7 +97,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -120,7 +120,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: false,
       discountPrice: "1,950,000",
@@ -143,7 +143,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -166,7 +166,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -189,7 +189,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -212,7 +212,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: false,
       discountPrice: "1,950,000",
@@ -235,7 +235,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: false,
       discountPrice: "1,950,000",
@@ -258,7 +258,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -281,7 +281,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: false,
       discountPrice: "1,950,000",
@@ -304,7 +304,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -327,7 +327,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: false,
       discountPrice: "1,950,000",
@@ -350,7 +350,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",
@@ -373,7 +373,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: false,
       discountPrice: "1,950,000",
@@ -396,7 +396,7 @@ const dataSource = computed(() => {
     },
     {
       name: "رو تختی طرح کهکشان",
-      category: "روتختی",
+      category: "کالای خواب",
       price: "2,050,000",
       hasDiscount: true,
       discountPrice: "1,950,000",

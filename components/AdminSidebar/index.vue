@@ -23,19 +23,6 @@
       </span>
     </div>
 
-    <div class="app-flex app-w-100 app-px-3">
-      <AppAvatar background="app-bg-white" name="A" />
-      <div
-        class="app-flex app-flex-column app-justify-center app-px-2"
-        v-if="sidebarState == 'open'"
-      >
-        <span class="app-font-size-14 app-font-weight-500">ali_norozie</span>
-        <span class="app-font-size-10 app-font-weight-500 app-color-gray">{{
-          $t("role admin")
-        }}</span>
-      </div>
-    </div>
-
     <div
       class="app-w-100 app-h-80 app-flex app-flex-column app-align-center app-mt-9 app-px-4"
     >

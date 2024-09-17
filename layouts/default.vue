@@ -81,10 +81,10 @@ onMounted(async () => {
     if (userStore.user.theme) {
       themeStore.updateThemeState(userStore.user.theme);
     } else {
-      themeStore.updateThemeState("light");
+      themeStore.updateThemeState("dark");
     }
   } else {
-    themeStore.updateThemeState("light");
+    themeStore.updateThemeState("dark");
   }
 });
 </script>

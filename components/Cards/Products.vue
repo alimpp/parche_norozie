@@ -1,19 +1,14 @@
 <template>
-  <AppCard>
+  <AppCard
+    class="app-mx-3 app-mt-3"
+    width="350px"
+    v-if="themeStore.wighet.product.display == 'row'"
+  >
     <template #content>
-      <div
-        class="app-flex cursor-pointer"
-        :class="{
-          'app-flex-column': themeStore.wighet.product.display == 'column',
-        }"
-      >
-        <div
-          :calss="{
-            'app-w-100': themeStore.wighet.product.display == 'row',
-          }"
-        >
+      <div class="app-flex">
+        <div style="width: 150px">
           <v-carousel
-            height="150"
+            height="160"
             hide-delimiters
             cycle
             :interval="6000"
@@ -23,10 +18,7 @@
               <v-sheet height="100%">
                 <img
                   class="app-w-100"
-                  :class="{
-                    'card-w-150': themeStore.wighet.product.display == 'row',
-                  }"
-                  style="height: 150px"
+                  style="height: 160px"
                   :src="image.url"
                   alt="image"
                   loading="lazy"
@@ -35,50 +27,128 @@
             </v-carousel-item>
           </v-carousel>
         </div>
-
         <div
-          class="app-flex app-flex-column app-pt-1 app-px-2"
-          :class="{
-            'card-w-150': themeStore.wighet.product.display == 'row',
-            'card-w-220': themeStore.wighet.product.display == 'column',
-          }"
+          class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
+          style="width: 200px"
         >
-          <span class="app-font-size-12 app-font-weight-600">{{
+          <span class="app-font-size-12 app-font-weight-100">{{
             data.name
           }}</span>
-          <span class="app-font-size-12 app-font-weight-600 app-color-gray">{{
-            data.category
-          }}</span>
-          <div class="app-flex app-flex-column" v-if="data.hasDiscount">
-            <span class="app-font-size-12 app-font-weight-600 app-color-primary"
+          <div class="app-flex">
+            <span class="app-font-size-10 app-font-weight-100 app-color-gray">{{
+              data.category
+            }}</span>
+            <span
+              v-if="data.hasDiscount"
+              class="app-font-size-10 app-font-weight-100 app-bg-danger app-mx-2 app-px-2 app-border-radius"
+              >40% {{ $t("discount card") }}</span
+            >
+          </div>
+          <div class="app-flex app-mt-1">
+            <IconsStar v-for="n in 5" />
+          </div>
+          <div
+            v-if="data.hasDiscount"
+            class="app-flex app-flex-column app-align-end app-mt-1 app-w-100 bg-discount app-border-radius app-px-1"
+          >
+            <span class="app-font-size-12 app-font-weight-100"
               >{{ data.discountPrice }} {{ $t("toman") }}</span
             >
-            <del class="app-color-gray">
-              <span class="app-font-size-10 app-font-weight-600"
-                >{{ data.price }} {{ $t("toman") }}</span
-              >
-            </del>
+            <span class="app-font-size-10 app-font-weight-100 discount-style"
+              >{{ data.price }} {{ $t("toman") }}</span
+            >
           </div>
-          <span class="app-font-size-12 app-font-weight-600 app-py-2" v-else
-            >{{ data.price }} {{ $t("toman") }}</span
+          <div v-else class="app-flex app-justify-end app-mt-5 app-w-100">
+            <span class="app-font-size-12 app-font-weight-100"
+              >{{ data.price }} {{ $t("toman") }}</span
+            >
+          </div>
+          <AppButton
+            :name="$t('order product')"
+            background="app-bg-primary"
+            height="30px"
+            class="app-mt-2"
+            icon="shopping cart"
+          ></AppButton>
+        </div>
+      </div> </template
+  ></AppCard>
+
+  <AppCard
+    class="app-mx-3 app-mt-3"
+    width="240px"
+    v-if="themeStore.wighet.product.display == 'column'"
+  >
+    <template #content>
+      <div class="app-flex flex-column">
+        <div style="width: 240px">
+          <v-carousel
+            height="220"
+            hide-delimiters
+            cycle
+            :interval="6000"
+            :show-arrows="false"
           >
-          <span
-            class="app-font-size-10 app-font-weight-600"
-            :class="{ 'app-pt-2': data.hasDiscount == false }"
-            >{{ $t("score product") }}</span
+            <v-carousel-item v-for="image in data.images" :key="i">
+              <v-sheet height="100%">
+                <img
+                  class="app-w-100"
+                  style="height: 220px"
+                  :src="image.url"
+                  alt="image"
+                  loading="lazy"
+                />
+              </v-sheet>
+            </v-carousel-item>
+          </v-carousel>
+        </div>
+        <div
+          class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
+          style="width: 240px; height: 165px"
+        >
+          <span class="app-font-size-12 app-font-weight-100">{{
+            data.name
+          }}</span>
+          <div class="app-flex">
+            <span class="app-font-size-10 app-font-weight-100 app-color-gray">{{
+              data.category
+            }}</span>
+            <span
+              v-if="data.hasDiscount"
+              class="app-font-size-10 app-font-weight-100 app-bg-danger app-mx-2 app-px-2 app-border-radius"
+              >40% {{ $t("discount card") }}</span
+            >
+          </div>
+          <div class="app-flex app-mt-1">
+            <IconsStar v-for="n in 5" />
+          </div>
+          <div
+            v-if="data.hasDiscount"
+            class="app-flex app-flex-column app-align-end app-mt-1 app-w-100 bg-discount app-border-radius app-px-1"
           >
-          <span class="app-font-size-10 app-font-weight-600">5/5</span>
-          <!-- <div
-            class="app-w-100 app-flex app-justify-end app-py-2"
-            :class="{ 'app-mt-5': themeStore.wighet.product.display == 'row' }"
-          >
-            <HeartIcon size="1x" class="app-pointer app-mx-2"></HeartIcon>
-            <ShoppingCartIcon size="1x" class="app-pointer"></ShoppingCartIcon>
-          </div> -->
+            <span class="app-font-size-12 app-font-weight-100"
+              >{{ data.discountPrice }} {{ $t("toman") }}</span
+            >
+            <span class="app-font-size-10 app-font-weight-100 discount-style"
+              >{{ data.price }} {{ $t("toman") }}</span
+            >
+          </div>
+          <div v-else class="app-flex app-justify-end app-mt-5 app-w-100">
+            <span class="app-font-size-12 app-font-weight-100"
+              >{{ data.price }} {{ $t("toman") }}</span
+            >
+          </div>
+          <AppButton
+            :name="$t('order product')"
+            background="app-bg-primary"
+            height="30px"
+            class="app-mt-2"
+            icon="shopping cart"
+          ></AppButton>
         </div>
       </div>
-    </template></AppCard
-  >
+    </template>
+  </AppCard>
 </template>
 
 <script setup>
@@ -95,10 +165,11 @@ const props = defineProps({
 </script>
 
 <style scoped>
-.card-w-150 {
-  width: 150px;
+.bg-discount {
+  background: #9999992c;
 }
-.card-w-220 {
-  width: 220px;
+.discount-style {
+  color: #666666;
+  position: relative;
 }
 </style>
