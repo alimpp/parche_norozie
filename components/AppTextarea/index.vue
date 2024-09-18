@@ -64,9 +64,9 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
-input {
+textarea {
   width: 100%;
-  height: 44px;
+  height: 144px;
   padding: 0 7px;
   background: #fff;
   outline: none;
@@ -77,8 +77,8 @@ input {
   color: #f50000;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+textarea::-webkit-outer-spin-button,
+textarea::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
