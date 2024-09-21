@@ -47,7 +47,7 @@
       </span>
       <span
         class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"
-        >{{ $t("email address") + ":" + " " + $t("email") }}</span
+        >{{ $t("email address") + ":" + " " + "parche.norozie@gmail.com" }}</span
       >
       <span
         class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"

@@ -3,15 +3,18 @@
     <div class="row-content">
       <div class="section-right app-flex app-flex-column app-py-2 app-px-5">
         <AppDivider :name="$t('contactUs')" :hasLine="true" width="65px" />
-        <AppInput :label="$t('ticket subject')" />
         <AppInput
-          :error="error.email.state"
-          :message-error="error.email.message"
-          v-model="form.email"
-          label="ایمیل"
-          :label="$t('email address')"
+          :error="error.subject.state"
+          :message-error="error.subject.message"
+          v-model="form.subject"
+          label="موضوع"
         />
-        <AppTextarea :label="$t('explans')" />
+        <AppTextarea
+          :error="error.title.state"
+          :message-error="error.title.message"
+          v-model="form.title"
+          :label="$t('explans')"
+        />
         <div class="row-content">
           <AppButton
             :name="$t('send')"
@@ -32,38 +35,37 @@
       </div>
     </div>
   </div>
-  <AppFooter></AppFooter>
 </template>
 
 <script setup>
 import { useUserStore } from "@/store/user/index";
-import {
-  ValidateName,
-  ValidateLastName,
-  ValidateJob,
-  ValidateCardNumber,
-  validateEmail,
-} from "@/utils/validate";
+import { validateEmpty } from "@/utils/validate";
 const userStore = useUserStore();
 const loading = ref(false);
 
 const form = ref({
-  ticketSubject: "",
-  email: "",
-  ticketExpalns: "",
+  subject: "",
+  title: "",
 });
 
 const error = ref({
-  email: { state: false, message: "" },
+  subject: { state: false, message: "" },
+  title: { state: false, message: "" },
 });
 
+const sendTicket = async () => {
+  const userStore = useUserStore();
 
-onMounted(() => {
-  userStore.userProfile();
-  setTimeout(() => {
-    form.value = userStore.user;
-  }, 500);
-});
+  error.value.subject = validateEmpty(form.value.subject);
+   error.value.title = validateEmpty(form.value.title);
+
+  if (!error.value.subject.state && !error.value.title.state) {
+    loading.value = true;
+
+    await userStore;
+  }
+};
+
 </script>
 
 <style scoped>

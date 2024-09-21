@@ -79,7 +79,6 @@
       </div>
     </div>
   </div>
-  <AppFooter></AppFooter>
 </template>
 
 <script setup>
