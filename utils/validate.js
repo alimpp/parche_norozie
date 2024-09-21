@@ -133,3 +133,14 @@ export const ValidateAddress = (param) => {
     };
   }
 };
+
+export const validateEmpty = (param) => {
+  if (param == "") {
+    return { state: true, message:"این قسمت نباید خالی باشد" };
+  } else {
+    return {
+      state: false,
+      message: "",
+    };
+  }
+};

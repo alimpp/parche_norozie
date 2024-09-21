@@ -98,22 +98,8 @@ export const useAddressStore = defineStore("useAddressStore", {
     async delete(param: any) {
       const cookie = useCookie("token");
 
-      // await $fetch(`/api/v1/address/${param.uuid}`, {
-      //   method: "DELETE",
-      // })
-      //   .then((res) => {
-      //     this.getAddress();
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-
-      await $fetch(`https://parche-go.liara.run/api/v1/address/${param.uuid}`, {
+      await $fetch(`/api/v1/address/${param.uuid}`, {
         method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${cookie.value}`,
-          "Content-Type": "application/json",
-        },
       })
         .then((res) => {
           this.getAddress();
@@ -121,6 +107,20 @@ export const useAddressStore = defineStore("useAddressStore", {
         .catch((err) => {
           console.log(err);
         });
+
+      // await $fetch(`https://parche-go.liara.run/api/v1/address/${param.uuid}`, {
+      //   method: "DELETE",
+      //   headers: {
+      //     Authorization: `Bearer ${cookie.value}`,
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      //   .then((res) => {
+      //     this.getAddress();
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     },
   },
 });
