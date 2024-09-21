@@ -25,6 +25,7 @@
       }"
     >
       <slot />
+      <AppFooter />
       <div
         class="wighet-button app-bg-primary app-pointer"
         v-if="wighetState"

@@ -1,11 +1,12 @@
 <template>
-  <div 
-      :class="{
+  <div
+    :class="{
       'app-bg-white': themeStore.theme == 'light',
       'app-bg-element-dark': themeStore.theme == 'dark',
-      'app-bg-secondary-custom': themeStore.theme == 'custom'
+      'app-bg-secondary-custom': themeStore.theme == 'custom',
     }"
-  class="app-flex app-w-100 footer-container">
+    class="app-flex app-w-100 footer-container"
+  >
     <div
       class="app-flex app-flex-column app-w-33 app-align-start app-mx-4 folow-us-container"
     >
@@ -47,12 +48,12 @@
       </span>
       <span
         class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"
-        >{{ $t("email address") + ":" + " " + "parche.norozie@gmail.com" }}</span
+        >{{ $t("email address") + ":" + " " + email }}</span
       >
       <span
         class="app-font-size-14 app-font-weight-400 app-color-gray mt-2 mx-2"
       >
-        {{ $t("purchase in person address") + ":" + " " + $t("shop address" ) }}
+        {{ $t("purchase in person address") + ":" + " " + $t("shop address") }}
       </span>
     </div>
     <div
@@ -70,6 +71,8 @@
 <script setup>
 import { useThemeStore } from "@/store/theme/index";
 const themeStore = useThemeStore();
+
+const email = ref("parche.norozie@gmail.com");
 </script>
 <style scoped>
 .footer-container {
