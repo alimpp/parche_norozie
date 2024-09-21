@@ -2,11 +2,7 @@
   <div class="app-container fade_animations">
     <AppDivider :name="$t('account')" width="82px" :hasLine="true" />
     <div class="app-flex app-flex-column app-w-100 app-mt-5">
-      <AppInput
-        :disabled="true"
-        v-model="form.phone"
-        label="شماره تلفن"
-      />
+      <AppInput :disabled="true" v-model="form.phone" label="شماره تلفن" />
       <AppInput
         :error="error.name.state"
         :message-error="error.name.message"
@@ -113,7 +109,6 @@ const sendProfile = async () => {
     loading.value = true;
 
     await userStore
-
       .sendProfile({
         ...form.value,
         theme: form.value.theme ? form.value.theme : "light",

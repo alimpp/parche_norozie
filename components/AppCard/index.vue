@@ -28,7 +28,7 @@ const wighetCard = computed(() => {
 const props = defineProps({
   width: {
     type: String,
-    default: "",
+    default: "100%",
   },
 });
 </script>

@@ -1,5 +1,7 @@
 <template>
-  <div class="admin-header-content app-flex mt-4 app-bg-element-dark">
+  <div
+    class="admin-header-content app-flex mt-4 app-bg-element-dark app-border-radius"
+  >
     <div class="app-w-50 app-flex app-flex app-align-center">
       <div class="app-mx-3 app-mt-2 app-pointer app-mx-4">
         <ShoppingCartIcon size="1.5x"></ShoppingCartIcon>
@@ -29,6 +31,5 @@
   width: 95%;
   height: 80px;
   border: 1px solid #ffffff41;
-  border-radius: 6px;
 }
 </style>

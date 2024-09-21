@@ -1,29 +1,38 @@
 <template>
   <div class="app-modal-content" v-if="state">
-    <AppCard :width="width" class="fade_animations">
-      <template #content>
-        <div class="app-flex app-w-100">
-          <div
-            class="app-w-50 app-flex app-justify-start app-px-1 app-py-3 app-px-3"
-          >
-            <span class="app-font-size-16 app-font-weight-600">{{
-              title
-            }}</span>
-          </div>
-          <div
-            class="app-w-50 app-flex app-justify-end app-px-1 app-py-3 app-px-3"
-            @click="emit('close')"
-          >
-            <XIcon size="1.5x" class="custom-class app-pointer"></XIcon>
-          </div>
+    <div
+      class="fade_animations app-border-radius"
+      :style="{
+        width: `${width}`,
+      }"
+      :class="{
+        'app-bg-white': themeStore.theme == 'light',
+        'app-bg-element-dark': themeStore.theme == 'dark',
+        'app-bg-secondary-custom': themeStore.theme == 'custom',
+      }"
+    >
+      <div class="app-flex app-w-100">
+        <div
+          class="app-w-50 app-flex app-justify-start app-px-1 app-py-3 app-px-3"
+        >
+          <span class="app-font-size-16 app-font-weight-600">{{ title }}</span>
         </div>
-        <slot name="content"></slot>
-      </template>
-    </AppCard>
+        <div
+          class="app-w-50 app-flex app-justify-end app-px-1 app-py-3 app-px-3"
+          @click="emit('close')"
+        >
+          <XIcon size="1.5x" class="custom-class app-pointer"></XIcon>
+        </div>
+      </div>
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+
 const emit = defineEmits(["close"]);
 const props = defineProps({
   state: {
