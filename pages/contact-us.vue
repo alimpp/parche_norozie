@@ -38,9 +38,9 @@
 </template>
 
 <script setup>
-import { useUserStore } from "@/store/user/index";
+import { useTicketStore } from "@/store/ticket/index";
 import { validateEmpty } from "@/utils/validate";
-const userStore = useUserStore();
+const ticketStore = useTicketStore();
 const loading = ref(false);
 
 const form = ref({
@@ -54,16 +54,18 @@ const error = ref({
 });
 
 const sendTicket = async () => {
-  const userStore = useUserStore();
+
+  loading.value = true;
 
   error.value.subject = validateEmpty(form.value.subject);
    error.value.title = validateEmpty(form.value.title);
 
   if (!error.value.subject.state && !error.value.title.state) {
-    loading.value = true;
-
-    await userStore;
+    await ticketStore.addTicket({
+      ...form.value,
+    })
   }
+  loading.value = false;
 };
 
 </script>
