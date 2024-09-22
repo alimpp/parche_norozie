@@ -33,6 +33,7 @@
         :loading="loading"
         width="100%"
         :disabled="disabled"
+        height="35px"
       />
     </div>
   </div>

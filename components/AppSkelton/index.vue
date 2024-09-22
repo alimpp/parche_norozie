@@ -5,7 +5,9 @@
       :style="{
         width: `${width}`,
       }"
-    ></div>
+    >
+      <div class="animation-content"></div>
+    </div>
   </div>
 </template>
 
@@ -26,15 +28,25 @@ const props = defineProps({
 .skeleton-content {
   height: 24px;
   background-color: #e0e0e0;
-  animation: shimmer 1.2s infinite;
+  display: flex;
+  justify-content: end;
 }
 
-@keyframes shimmer {
+.animation-content {
+  width: 1px;
+  height: 24px;
+  background: rgb(255, 255, 255);
+  box-shadow: 15px 20px 30px 30px #fff;
+  animation: 1.2s skelton infinite;
+  margin-left: 100px;
+}
+
+@keyframes skelton {
   0% {
-    background-color: #e0e0e00c;
+    margin-left: 0;
   }
   100% {
-    background-color: #e0e0e0;
+    margin-left: 400px;
   }
 }
 </style>

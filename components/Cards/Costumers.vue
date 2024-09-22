@@ -1,5 +1,5 @@
 <template>
-  <AppAdminCard>
+  <AppCard>
     <template #content>
       <div class="app-flex app-flex-column app-px-2 app-py-2">
         <div class="app-flex">
@@ -30,7 +30,7 @@
         </div>
       </div>
     </template>
-  </AppAdminCard>
+  </AppCard>
 </template>
 
 <script setup>

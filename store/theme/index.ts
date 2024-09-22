@@ -4,7 +4,7 @@ import { display } from "virtual:nuxt-pwa-configuration";
 
 export const useThemeStore = defineStore("useThemeStore", {
   state: (): any => ({
-    theme: "dark",
+    theme: "light",
     wighet: {
       baseCard: {
         border: "default",

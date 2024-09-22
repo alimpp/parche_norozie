@@ -66,7 +66,7 @@ const props = defineProps({
 <style scoped lang="scss">
 input {
   width: 100%;
-  height: 44px;
+  height: 35px;
   padding: 0 7px;
   background: #fff;
   outline: none;

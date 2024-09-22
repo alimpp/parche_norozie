@@ -3,7 +3,7 @@
     <div
       class="app-flex app-align-center app-justify-center app-w-100 app-h-10"
     >
-      <AppLogo theme="dark" />
+      <AppLogo />
     </div>
     <div class="app-px-4 app-py-4">
       <AppInput :label="t('username')" v-model="form.phone" />
@@ -11,7 +11,7 @@
     </div>
     <div class="app-px-4 app-py-4">
       <AppButton
-        background="app-border-light"
+        background="app-bg-primary"
         :name="t('send')"
         @click="handleLogin"
         :loading="loading"

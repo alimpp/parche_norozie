@@ -19,7 +19,9 @@ export default defineEventHandler(async (event) => {
   const query = {};
   // ?name=${""}&lastname=${""}&id_card_number=${""}&email=${""}&phone=${""}&job=${""}
   const response: any = await $fetch(
-    `${config.public.BASE_URL}/api/v1/profile/list`,
+    `${
+      config.public.BASE_URL
+    }/api/v1/profile/list?name=${""}&lastname=${""}&id_card_number=${""}&email=${""}&phone=${""}&job=${""}`,
     {
       method: "GET",
       headers: headers,

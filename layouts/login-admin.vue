@@ -1,7 +1,12 @@
 <template>
   <div
     :dir="locale == 'fr' ? 'rtl' : 'ltr'"
-    class="auth-layout app-bg-admin app-bg-dark"
+    class="auth-layout app-bg-admin"
+    :class="{
+      'app-bg-secondary': themeStore.theme == 'light',
+      'app-bg-dark': themeStore.theme == 'dark',
+      'app-bg-primary-custom': themeStore.theme == 'custom',
+    }"
   >
     <div class="form app-w-100">
       <slot />
@@ -10,6 +15,9 @@
 </template>
 
 <script setup>
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+
 import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
