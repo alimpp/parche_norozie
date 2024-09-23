@@ -224,6 +224,7 @@ const setWighetCard = (val) => {
 
 const setDisplayCard = (val) => {
   themeStore.wighet.product.display = val;
+  themeStore.wighet.blog.display = val;
 };
 </script>
 
