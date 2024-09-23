@@ -5,11 +5,15 @@
         <div class="app-flex app-flex-column app-px-2 app-py-2">
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('costumers')" />
           <div class="app-flex app-w-100">
-            <AppInput :label="$t('phoneNumber')" />
-            <AppInput :label="$t('name')" class="app-mx-2" />
-            <AppInput :label="$t('family name')" />
-            <AppInput :label="$t('email address')" class="app-mx-2" />
-            <AppInput :label="$t('id card')" />
+            <AppInput height="35px" :label="$t('phoneNumber')" />
+            <AppInput height="35px" :label="$t('name')" class="app-mx-2" />
+            <AppInput height="35px" :label="$t('family name')" />
+            <AppInput
+              height="35px"
+              :label="$t('email address')"
+              class="app-mx-2"
+            />
+            <AppInput height="35px" :label="$t('id card')" />
             <AppButton
               class="app-mx-2 app-mt-11"
               :name="$t('search')"

@@ -1,27 +1,25 @@
 <template>
-  <div class="app-container">
-    <div class="banner-content">
-      <div class="new-products-container">
-        <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
-          <AppDivider :name="$t('new products')" width="120px" />
-          <NewProductsCarousel
-            class="slid-right-animation-8 app-mt-2"
-            :dataSource="newProducts"
-            :cycleTime="cycleTime.two"
-          />
-        </div>
-      </div>
-      <div class="discount-container">
-        <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
-          <AppDivider :name="$t('discount')" width="160px" />
-          <DiscountCarousel
-            class="slid-left-animation-5 app-mt-2"
-            :dataSource="discount"
-            :cycleTime="cycleTime.one"
-          />
-        </div>
+  <div class="banner-content">
+    <div class="new-products-container">
+      <div class="app-w-100 app-py-2 app-flex app-flex-column">
+        <NewProductsCarousel
+          class="slid-right-animation-8 app-mt-2"
+          :dataSource="newProducts"
+          :cycleTime="cycleTime.two"
+        />
       </div>
     </div>
+    <div class="discount-container">
+      <div class="app-w-100 app-py-2 app-flex app-flex-column">
+        <DiscountCarousel
+          class="slid-left-animation-5 app-mt-2"
+          :dataSource="discount"
+          :cycleTime="cycleTime.one"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="app-container">
     <div class="app-flex app-flex-column app-mt-5">
       <AppDivider
         class="app-mx-3"
@@ -202,13 +200,15 @@ const dataSource = ref([
 
 .banner-content .new-products-container {
   width: 60%;
+  padding: 0 15px;
 }
 
 .banner-content .discount-container {
   width: 40%;
+  padding: 0 15px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .banner-content {
     display: flex;
     flex-direction: column;
@@ -216,10 +216,12 @@ const dataSource = ref([
 
   .banner-content .new-products-container {
     width: 100%;
+    padding: 0;
   }
 
   .banner-content .discount-container {
     width: 100%;
+    padding: 0;
   }
 }
 
