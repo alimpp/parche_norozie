@@ -4,6 +4,9 @@
       {{ label }}
     </span>
     <input
+      :style="{
+        height: `${height}`,
+      }"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :type="type"
@@ -60,13 +63,16 @@ const props = defineProps({
     default: "",
     required: false,
   },
+  height: {
+    type: String,
+    default: "45px",
+  },
 });
 </script>
 
 <style scoped lang="scss">
 input {
   width: 100%;
-  height: 35px;
   padding: 0 7px;
   background: #fff;
   outline: none;
