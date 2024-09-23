@@ -136,7 +136,33 @@ export const ValidateAddress = (param) => {
 
 export const validateEmpty = (param) => {
   if (param == "") {
-    return { state: true, message:"این قسمت نباید خالی باشد" };
+    return { state: true, message: "این قسمت نباید خالی باشد" };
+  } else {
+    return {
+      state: false,
+      message: "",
+    };
+  }
+};
+
+export const validateAdminUsername = (param) => {
+  if (param == "") {
+    return { state: true, message: "این قسمت نباید خالی باشد" };
+  } else if (param != "norozie") {
+    return { state: true, message: "نام کاربری اشتباه است" };
+  } else {
+    return {
+      state: false,
+      message: "",
+    };
+  }
+};
+
+export const validateAdminPassword = (param) => {
+  if (param == "") {
+    return { state: true, message: "این قسمت نباید خالی باشد" };
+  } else if (param != "A1234@#5678bc") {
+    return { state: true, message: "نام کاربری اشتباه است" };
   } else {
     return {
       state: false,
