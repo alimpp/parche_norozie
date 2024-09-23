@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { type ITheme } from "@/dataModel/theme/model";
-import { display } from "virtual:nuxt-pwa-configuration";
 
 export const useThemeStore = defineStore("useThemeStore", {
   state: (): any => ({
@@ -10,6 +9,9 @@ export const useThemeStore = defineStore("useThemeStore", {
         border: "default",
       },
       product: {
+        display: "row",
+      },
+      blog: {
         display: "row",
       },
     },

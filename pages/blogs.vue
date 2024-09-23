@@ -1,3 +1,414 @@
-<template>blogs
-<div class="app-container app-h-100"></div>
+<template>
+  <div class="app-container fade_animations">
+    <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
+      <AppDivider :name="$t('blogs')" :hasLine="true" width="30px" />
+      <div
+        class="blogs app-flex app-justify-center app-align-center app-flex-wrap"
+      >
+        <CardsBlogs
+          class="app-mx-5 app-mt-7"
+          :data="data"
+          v-for="data in dataSource"
+          :key="data"
+        />
+      </div>
+    </div>
+  </div>
 </template>
+
+<script setup>
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+
+const filterModalState = ref(false);
+
+const dataSource = computed(() => {
+  return [
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: false,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+    {
+      name: "رو تختی طرح کهکشان",
+      category: "کالای خواب",
+      price: "2,050,000",
+      hasDiscount: true,
+      discountPrice: "1,950,000",
+      images: [
+        { id: 1, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 2,
+          url: "https://roomgraphy.ir/wp-content/uploads/2023/01/IMG-20210921-WA0022.jpg",
+        },
+        { id: 3, url: "https://coverlet.ir/wp-content/uploads/15.jpg" },
+        {
+          id: 4,
+          url: "https://chidary.com/wp-content/uploads/2022/09/%D8%B1%D9%88%D8%AA%D8%AE%D8%AA%DB%8C-%D9%85%D8%B4%DA%A9%DB%8C-%D8%B7%D9%88%D8%B3%DB%8C-%D8%AA%DB%8C%D8%B1%D9%87.webp",
+        },
+        {
+          id: 5,
+          url: "https://aradrotakhti.ir/storage/media/GsEdZdPNPXQkgKfWybHc51y9g4eWSjvN21Arvu4X.webp",
+        },
+      ],
+    },
+  ];
+});
+</script>
+
+<style scoped>
+
+.blogs {
+  width: 100%;
+  height: 85vh;
+  overflow-y: scroll;
+  padding: 10px 0;
+}
+@media (max-width: 900px) {
+
+  .blogs {
+    width: 100%;
+  }
+
+}
+</style>
