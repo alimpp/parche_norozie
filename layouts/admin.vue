@@ -1,6 +1,11 @@
 <template>
   <div
-    class="app-w-100 app-flex app-bg-dark overflow-hidden"
+    class="app-w-100 app-flex overflow-hidden"
+    :class="{
+      'app-bg-secondary': themeStore.theme == 'light',
+      'app-bg-dark': themeStore.theme == 'dark',
+      'app-bg-primary-custom': themeStore.theme == 'custom',
+    }"
     :dir="locale == 'fr' ? 'rtl' : 'ltr'"
   >
     <NuxtLoadingIndicator color="#fd7403" />

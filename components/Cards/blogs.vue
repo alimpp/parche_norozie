@@ -23,7 +23,7 @@
               1403/07/07
             </span>
           </div>
-          <span class="app-color-primary app-font-size-14 app-py-2 app-pointer">{{$t("read more")}}</span>
+          <span class="app-color-primary app-font-size-14 app-py-2 app-pointer">{{$t("read more blog")}}</span>
         </div>
       </div>
     </template>

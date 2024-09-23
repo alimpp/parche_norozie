@@ -13,6 +13,11 @@
         size="1x"
         class="custom-class app-pointer app-mx-2"
       ></ShoppingCartIcon>
+      <SearchIcon
+        v-if="icon == 'search'"
+        size="1x"
+        class="custom-class app-pointer app-mx-1"
+      ></SearchIcon>
       <ArrowLeftIcon size="1x" v-if="icon == 'arrow left'"></ArrowLeftIcon>
     </div>
   </button>

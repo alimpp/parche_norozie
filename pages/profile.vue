@@ -108,7 +108,8 @@ const sendProfile = async () => {
   ) {
     loading.value = true;
 
-    await userStore.sendProfile({
+    await userStore
+      .sendProfile({
         ...form.value,
         theme: form.value.theme ? form.value.theme : "light",
       })

@@ -1,9 +1,12 @@
 <template>
   <div
-    class="admin-sidebar app-bg-element-dark"
+    class="admin-sidebar"
     :class="{
       'sidebar-close-state': sidebarState == 'close',
       'sidebar-open-state': sidebarState == 'open',
+      'app-bg-white': themeStore.theme == 'light',
+      'app-bg-element-dark': themeStore.theme == 'dark',
+      'app-bg-secondary-custom': themeStore.theme == 'custom',
     }"
   >
     <div class="app-w-100 app-flex app-justify-end">
@@ -29,7 +32,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/dashboard',
+          'app-bg-primary': route.path == '/admin/dashboard',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/dashboard')"
@@ -45,7 +48,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-3 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/catgory',
+          'app-bg-primary': route.path == '/admin/catgory',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/catgory')"
@@ -61,7 +64,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/property',
+          'app-bg-primary': route.path == '/admin/property',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/property')"
@@ -76,7 +79,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/property-value',
+          'app-bg-primary': route.path == '/admin/property-value',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/property-value')"
@@ -91,7 +94,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/products',
+          'app-bg-primary': route.path == '/admin/products',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/products')"
@@ -106,7 +109,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/orders',
+          'app-bg-primary': route.path == '/admin/orders',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/orders')"
@@ -121,7 +124,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/blogs',
+          'app-bg-primary': route.path == '/admin/blogs',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/blogs')"
@@ -136,7 +139,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/costumers',
+          'app-bg-primary': route.path == '/admin/costumers',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/costumers')"
@@ -151,7 +154,7 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-white': route.path == '/admin/tickets',
+          'app-bg-primary': route.path == '/admin/tickets',
           'app-justify-center': sidebarState == 'close',
         }"
         @click="navigateTo('/admin/tickets')"
@@ -161,6 +164,21 @@
           class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("tickets") }}</span
+        >
+      </div>
+      <div
+        class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+        :class="{
+          'app-bg-primary': route.path == '/admin/setting',
+          'app-justify-center': sidebarState == 'close',
+        }"
+        @click="navigateTo('/admin/setting')"
+      >
+        <SettingsIcon size="1.5x"></SettingsIcon>
+        <span
+          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          v-if="sidebarState == 'open'"
+          >{{ $t("setting") }}</span
         >
       </div>
       <div
@@ -184,12 +202,15 @@
       style="height: 120px"
       v-if="sidebarState == 'open'"
     >
-      <AppLogo theme="dark" />
+      <AppLogo />
     </div>
   </div>
 </template>
 
 <script setup>
+import { useThemeStore } from "@/store/theme/index";
+const themeStore = useThemeStore();
+
 import { useAuthAdminStore } from "~/store/adminAuth";
 import { useRoute } from "vue-router";
 
@@ -216,6 +237,5 @@ const sidebarState = ref("open");
   flex-direction: column;
   border-radius: 30px 0 0 30px;
   transition: 0.5s;
-  border-left: 1px solid #ffffff41;
 }
 </style>
