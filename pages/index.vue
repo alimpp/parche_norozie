@@ -19,6 +19,11 @@
       </div>
     </div>
   </div>
+
+  <div class="information-section app-mt-15">
+    <div class="glass"></div>
+  </div>
+
   <div class="app-container">
     <div class="app-flex app-flex-column app-mt-5">
       <AppDivider
@@ -206,6 +211,20 @@ const dataSource = ref([
 .banner-content .discount-container {
   width: 40%;
   padding: 0 15px;
+}
+
+.information-section {
+  background-image: url(@/assets/images/room.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 700px;
+}
+
+.information-section .glass {
+  width: 100%;
+  height: 700px;
+  background: #000000bb;
 }
 
 @media (max-width: 900px) {

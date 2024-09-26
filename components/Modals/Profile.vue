@@ -37,6 +37,14 @@
           >
         </div>
         <div class="line"></div>
+        <div class="app-flex app-align-center app-pointer" @click="toTickets">
+          <FileTextIcon size="1.5x" class="custom-class"></FileTextIcon>
+          <span
+            class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
+            >{{ $t("all tickets for user") }}</span
+          >
+        </div>
+        <div class="line"></div>
         <div
           class="app-flex app-align-center app-color-danger app-mb-5 app-pointer"
           @click="logOut"
@@ -72,6 +80,11 @@ const toProfile = () => {
 
 const toAddress = () => {
   navigateTo("/address");
+  emit("close");
+};
+
+const toTickets = () => {
+  navigateTo("/tickets");
   emit("close");
 };
 

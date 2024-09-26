@@ -36,7 +36,7 @@ const props = defineProps({
   width: 1px;
   height: 24px;
   background: rgb(255, 255, 255);
-  box-shadow: 15px 20px 30px 30px #fff;
+  box-shadow: 15px 20px 30px 30px #ffffff8e;
   animation: 1.2s skelton infinite;
   margin-left: 100px;
 }
