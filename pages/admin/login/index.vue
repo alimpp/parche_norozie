@@ -6,8 +6,18 @@
       <AppLogo />
     </div>
     <div class="app-px-4 app-py-4">
-      <AppInput :label="t('username')" v-model="form.phone" />
-      <AppInput :label="t('password')" v-model="form.password" />
+      <AppInput
+        :label="t('username')"
+        v-model="form.phone"
+        :error="error.phone.state"
+        :message-error="error.phone.message"
+      />
+      <AppInput
+        :label="t('password')"
+        v-model="form.password"
+        :error="error.password.state"
+        :message-error="error.password.message"
+      />
     </div>
     <div class="app-px-4 app-py-4">
       <AppButton
@@ -25,12 +35,21 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { useAuthAdminStore } from "~/store/adminAuth";
+import {
+  validateAdminUsername,
+  validateAdminPassword,
+} from "@/utils/validate.js";
 
 const authAdminStore = useAuthAdminStore();
 
 const form = ref({
   phone: "",
   password: "",
+});
+
+const error = ref({
+  phone: { state: false, message: "" },
+  password: { state: false, message: "" },
 });
 
 const { t } = useI18n();
@@ -44,8 +63,14 @@ definePageMeta({
 
 const handleLogin = async () => {
   loading.value = true;
-  authAdminStore.login(form.value);
-  loading.value = false;
+
+  error.value.phone = validateAdminUsername(form.value.phone);
+  error.value.password = validateAdminPassword(form.value.password);
+
+  if (!error.value.phone.state && !error.value.password.state) {
+    await authAdminStore.login(form.value);
+    loading.value = false;
+  }
 };
 </script>
 

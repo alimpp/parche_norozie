@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div ref="scrollToTop" class="app-container">
     <div class="row-content">
       <div class="section-right app-flex app-flex-column app-py-4 app-px-5">
         <AppDivider :name="$t('aboutUs')" :hasLine="true" width="65px" />
@@ -77,7 +77,12 @@
     </div>
   </div>
 </template>
-
+<script setup>
+const scrollToTop = ref(null);
+onMounted(() => {
+  scrollToTop.value.scrollIntoView();
+});
+</script>
 <style scoped>
 .row-content {
   width: 100%;

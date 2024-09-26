@@ -1,5 +1,5 @@
 <template>
-  <div class="banner-content">
+  <div ref="scrollToTop" class="banner-content">
     <div class="new-products-container">
       <div class="app-w-100 app-py-2 app-flex app-flex-column">
         <NewProductsCarousel
@@ -195,6 +195,10 @@ const dataSource = ref([
       "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
   },
 ]);
+const scrollToTop = ref(null);
+onMounted(() => {
+  scrollToTop.value.scrollIntoView();
+});
 </script>
 
 <style scoped>

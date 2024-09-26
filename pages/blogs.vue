@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container fade_animations">
+  <div ref="scrollToTop" class="app-container fade_animations">
     <div class="app-w-100 app-px-2 app-py-2 app-flex app-flex-column">
       <AppDivider :name="$t('blogs')" :hasLine="true" width="30px" />
       <div
@@ -393,6 +393,11 @@ const dataSource = computed(() => {
       ],
     },
   ];
+});
+
+const scrollToTop = ref(null);
+onMounted(() => {
+  scrollToTop.value.scrollIntoView();
 });
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div ref="scrollToTop" class="app-container">
     <div class="row-content">
       <div class="section-right app-flex app-flex-column app-py-2 app-px-5">
         <AppDivider :name="$t('contactUs')" :hasLine="true" width="65px" />
@@ -54,20 +54,23 @@ const error = ref({
 });
 
 const sendTicket = async () => {
-
   loading.value = true;
 
   error.value.subject = validateEmpty(form.value.subject);
-   error.value.title = validateEmpty(form.value.title);
+  error.value.title = validateEmpty(form.value.title);
 
   if (!error.value.subject.state && !error.value.title.state) {
     await ticketStore.addTicket({
       ...form.value,
-    })
+    });
   }
   loading.value = false;
 };
 
+const scrollToTop = ref(null);
+onMounted(() => {
+  scrollToTop.value.scrollIntoView();
+});
 </script>
 
 <style scoped>
