@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container fade_animations">
+  <div ref="scrollToTop" class="app-container fade_animations">
     <ModalsFilter :state="filterModalState" @close="filterModalState = false" />
     <div class="app-flex">
       <AppDivider :name="$t('products')" :hasLine="true" width="65px" />
@@ -418,6 +418,10 @@ const dataSource = computed(() => {
       ],
     },
   ];
+});
+const scrollToTop = ref(null);
+onMounted(() => {
+  scrollToTop.value.scrollIntoView();
 });
 </script>
 
