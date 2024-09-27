@@ -69,7 +69,7 @@
   "permissions": "مجوز ها",
   "order product": "سفارش محصول",
   "visit": "بازدید",
-  "read more blog":"مطالعه بیشتر...  ",
+  "read more blog": "مطالعه بیشتر...  ",
 
   "search": "جستجو",
   "setting": "تنظیمات",
@@ -91,5 +91,12 @@
   "about us part nine": " اغلب اجناس هم طبق سلیقه خودمون  طراحی و به انحصار فروشگاه تولید میشوند. همینطور ما نماینده لوکس ترین و با کیفیت ترین شرکت های داخلی و خارجی هستیم",
   "about us part ten": "ما اینجا آرامش شمارا ضمانت میکنیم",
   "about us part end": "میتوانید مارا در اینستاگرام و فروشگاه حضوری هم دنبال کنید",
-  "all tickets for user": "تیکت های ارسالی"
+  "all tickets for user": "تیکت های ارسالی",
+  "new message": "پیام خوانده نشده",
+  "chat input placeholder": "متن پیام",
+  "online sell": "خرید آنلاین",
+  "best performance": "بالاترین کیفیت",
+  "online support": "پشتیبانی آنلاین",
+  "sell person": "امکان خرید حضوری",
+  "guarantee products": "ضمانت محصولات"
 }

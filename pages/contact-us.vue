@@ -65,6 +65,9 @@ const sendTicket = async () => {
     });
   }
   loading.value = false;
+  for (let key in form.value) {
+    form.value[key] = "";
+  }
 };
 
 const scrollToTop = ref(null);

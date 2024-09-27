@@ -10,6 +10,7 @@
       @close="handleChangeStateShoppingCard"
       :isOpen="isOpenShoppingCard"
     />
+    <Toast />
     <NuxtLoadingIndicator color="#fd7403" />
     <NavigationBar
       @openHamburgerMenu="handleChangeStateMenu"
@@ -30,7 +31,7 @@
       <AppFooter class="app-mt-16" v-if="showFooter" />
       <div
         class="wighet-button app-bg-primary app-pointer"
-        v-if="wighetState"
+        v-if="wighetState && !route.params.ulid"
         @click="handleChangeStateWighetBar"
       >
         <SettingsIcon size="1.5x" class="custom-class"></SettingsIcon>
