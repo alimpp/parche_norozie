@@ -63,14 +63,12 @@ definePageMeta({
 
 const handleLogin = async () => {
   loading.value = true;
-
   error.value.phone = validateAdminUsername(form.value.phone);
   error.value.password = validateAdminPassword(form.value.password);
-
   if (!error.value.phone.state && !error.value.password.state) {
     await authAdminStore.login(form.value);
-    loading.value = false;
   }
+  loading.value = false;
 };
 </script>
 
