@@ -27,7 +27,7 @@
     </div>
 
     <div
-      class="app-w-100 app-h-80 app-flex app-flex-column app-align-center app-mt-9 app-px-4"
+      class="app-w-100 app-h-80 app-flex app-flex-column app-align-center app-mt-9 app-px-4 content"
     >
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
@@ -225,6 +225,9 @@ const sidebarState = ref("open");
 </script>
 
 <style scoped>
+.content {
+  overflow-y: scroll;
+}
 .sidebar-close-state {
   width: 90px;
 }
