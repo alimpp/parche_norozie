@@ -9,7 +9,7 @@ export const useCustomersStore = defineStore("useCustomersStore", {
   actions: {
     async getAllCustomers(param: any) {
       this.loading = true;
-      const cookie = useCookie("token_admin");
+      const cookie = useCookie("token");
       await $fetch(
         `/api/v1/profile/list?phone=${param.phone}&name=${param.name}&lastname=${param.lastname}&email=${param.email}&id_card_number=${param.id_card_number}`,
         {

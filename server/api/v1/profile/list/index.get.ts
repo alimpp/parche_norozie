@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   const token = event.req.headers["authorization"];
 
   const headers = {
-    Authorization: `Bearer ${token?.slice(7) || ""}`,
+    Authorization: `${token}`,
     "Content-Type": "application/json",
   };
 

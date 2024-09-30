@@ -10,21 +10,32 @@ export const useTicketStore = defineStore("useTicketStore", {
   getters: {},
   actions: {
     async allTickets() {
-      const res = await $fetch("/api/v1/ticketing");
+      const cookie = useCookie("token");
+      const res = await $fetch("/api/v1/ticketing", {
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      });
       this.tickets = res.data;
     },
 
     async getSingleTicket(ulid: string) {
+      const cookie = useCookie("token");
       await this.allTickets();
       const targetTicket = this.tickets.find((item: any) => {
         return item.ULID == ulid;
       });
       this.ticket.data = targetTicket;
-      const res = await $fetch(`/api/v1/ticketing/retrieve?ulid=${ulid}`);
+      const res = await $fetch(`/api/v1/ticketing/retrieve/${ulid}`, {
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      });
       this.ticket.messages = res.data;
     },
 
     async sendMessage(messge: string) {
+      const cookie = useCookie("token");
       const msg = {
         msg: messge,
         ticket_id: this.ticket.data.ULID,
@@ -33,6 +44,9 @@ export const useTicketStore = defineStore("useTicketStore", {
       const res = await $fetch("/api/v1/ticketing/msg", {
         method: "POST",
         body: msg,
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
       });
       this.getSingleTicket(this.ticket.data.ULID);
     },
@@ -43,6 +57,9 @@ export const useTicketStore = defineStore("useTicketStore", {
       await $fetch("/api/v1/ticketing/add", {
         method: "POST",
         body: param,
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
       })
         .then((res: any) => {
           if (res.status == 200) {
@@ -57,19 +74,6 @@ export const useTicketStore = defineStore("useTicketStore", {
         .catch((err) => {
           err;
         });
-      // await $fetch("https://parche-go.liara.run/api/v1/ticketing/add", {
-      //   method: "POST",
-      //   body: param,
-      //   headers: {
-      //     Authorization: `Bearer ${cookie.value}`,
-      //     "Content-Type": "application/json",
-      //   },
-      // })
-      //   .then((res: any) => {
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
     },
   },
 });
