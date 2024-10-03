@@ -69,9 +69,9 @@ const props = defineProps({
 
 .custom-border-primary {
   background: none;
-  border: 1px solid #ffa500;
+  border: 1px solid #7b7be3;
   border-radius: 30px;
-  color: #ffa500;
+  color: #7b7be3;
 }
 
 .app-border-light {

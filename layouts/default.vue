@@ -19,7 +19,7 @@
       v-if="!route.params.ulid"
     />
     <div
-      class="content app-h-90"
+      class="content"
       :class="{
         'app-bg-secondary': themeStore.theme == 'light',
         'app-bg-dark': themeStore.theme == 'dark',

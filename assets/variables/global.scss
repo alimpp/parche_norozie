@@ -34,7 +34,7 @@
 }
 
 .app-container {
-  padding: 20px 80px;
+  padding: 100px 80px;
 }
 
 .app-line {
@@ -44,19 +44,17 @@
 }
 
 .primary-border {
-  border: 1px solid #ffa6004c;
+  border: 1px solid #543fdf2c;
 }
 .primary-shadow {
-  box-shadow: 2px 1px 20px 1px #ffa6006a;
+  box-shadow: 2px 1px 20px 1px #543fdf6a;
 }
 
 @media (max-width: 600px) {
   .app-container {
-    padding: 20px 15px;
+    padding: 100px 15px;
   }
 }
-
-// ** custom scrollbar ** //
 
 ::-webkit-scrollbar {
   width: 0px;

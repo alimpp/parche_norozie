@@ -14,19 +14,7 @@
       </div>
     </div>
 
-    <div class="app-w-100 products-content">
-      <div class="filter-content">
-        <div
-          :class="{
-            'app-bg-white': themeStore.theme == 'light',
-            'app-bg-element-dark': themeStore.theme == 'dark',
-            'app-bg-secondary-custom': themeStore.theme == 'custom',
-          }"
-          class="app-w-100 app-flex app-flex-column app-border-radius app-px-2 app-py-4 app-mt-9"
-        >
-          <FilterBarContent />
-        </div>
-      </div>
+    <div class="app-w-100">
       <div
         class="products app-flex app-justify-center app-align-center app-flex-wrap"
       >
@@ -419,6 +407,7 @@ const dataSource = computed(() => {
     },
   ];
 });
+
 const scrollToTop = ref(null);
 onMounted(() => {
   scrollToTop.value.scrollIntoView();
@@ -426,35 +415,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.products-content {
-  display: flex;
-}
-.filter-content {
-  width: 25%;
-  height: 80vh;
-  overflow-y: scroll;
-}
-.products {
-  width: 75%;
-  height: 85vh;
-  overflow-y: scroll;
-  padding: 10px 0;
-}
 .filter-modal {
   display: none;
-}
-
-@media (max-width: 900px) {
-  .filter-content {
-    display: none;
-  }
-
-  .products {
-    width: 100%;
-  }
-
-  .filter-modal {
-    display: flex;
-  }
 }
 </style>

@@ -100,6 +100,6 @@ const navigateTo = (path) => {
   z-index: 1;
 }
 .active-route-main-theme {
-  border-bottom: 2px solid #ffa500;
+  border-bottom: 2px solid #7b7be3;
 }
 </style>
