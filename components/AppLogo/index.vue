@@ -78,7 +78,7 @@ import { useThemeStore } from "@/store/theme/index";
 const themeStore = useThemeStore();
 
 const logoColor = computed(() => {
-  if (props.theme == "dark") {
+  if (props.theme) {
     return "#fff";
   } else {
     if (themeStore.theme == "dark" || themeStore.theme == "custom") {

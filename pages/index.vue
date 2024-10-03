@@ -1,25 +1,7 @@
 <template>
-  <div ref="scrollToTop" class="banner-content">
-    <div class="new-products-container">
-      <div class="app-w-100 app-py-2 app-flex app-flex-column">
-        <NewProductsCarousel
-          class="slid-right-animation-8 app-mt-2"
-          :dataSource="newProducts"
-          :cycleTime="cycleTime.two"
-        />
-      </div>
-    </div>
-    <div class="discount-container">
-      <div class="app-w-100 app-py-2 app-flex app-flex-column">
-        <DiscountCarousel
-          class="slid-left-animation-5 app-mt-2"
-          :dataSource="discount"
-          :cycleTime="cycleTime.one"
-        />
-      </div>
-    </div>
+  <div class="app-w-100 app-flex">
+    <MainPageBanner />
   </div>
-
   <div class="information-section app-mt-15">
     <div class="glass">
       <div class="app-flex app-mt-4">
@@ -120,111 +102,6 @@ const cycleTime = ref({
   two: 5000,
   tree: 8000,
   four: 4000,
-});
-
-const discount = ref([
-  {
-    id: 1,
-    title: "Rose Gold",
-    name: "رو تختی تک نفره",
-    price: "2,100,000",
-    newPrice: "1,200,000",
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2023/01/platform-bed-frames-2048px-6229.jpg",
-  },
-  {
-    id: 2,
-    title: "Rose Gold",
-    name: "رو تختی دو نفره",
-    price: "4,100,000",
-    newPrice: "1,200,000",
-    image:
-      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
-  },
-  {
-    id: 3,
-    title: "Rose Gold",
-    name: "رو تختی تک نفره",
-    price: "2,100,000",
-    newPrice: "1,200,000",
-    image:
-      "https://i1.adis.ws/i/dreams/251-00325_main-shot_01_hart-upholstered-bed?w=750&h=549&sm=c",
-  },
-  {
-    id: 4,
-    title: "Rose Gold",
-    name: "رو تختی دو نفره",
-    price: "5,100,000",
-    newPrice: "1,200,000",
-    image:
-      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
-  },
-]);
-
-const newProducts = ref([
-  {
-    id: 1,
-    title: "Rose Gold",
-    name: "رو تختی تک نفره",
-    price: "2,100,000",
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2023/01/platform-bed-frames-2048px-6229.jpg",
-  },
-  {
-    id: 2,
-    title: "Rose Gold",
-    name: "رو تختی دو نفره",
-    price: "4,100,000",
-    image:
-      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
-  },
-  {
-    id: 3,
-    title: "Rose Gold",
-    name: "رو تختی تک نفره",
-    price: "2,100,000",
-    image:
-      "https://i1.adis.ws/i/dreams/251-00325_main-shot_01_hart-upholstered-bed?w=750&h=549&sm=c",
-  },
-  {
-    id: 4,
-    title: "Rose Gold",
-    name: "رو تختی دو نفره",
-    price: "5,100,000",
-    image:
-      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
-  },
-]);
-
-const dataSource = ref([
-  {
-    id: 1,
-    title: "لورم ایپسوم متن ساختگی با نامفراحان گرافیک است. چاپگرها د",
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2023/01/platform-bed-frames-2048px-6229.jpg",
-  },
-  {
-    id: 2,
-    title: "لورم ایپسوم متن ساختگی با  اون بلکه روزنامه و مجلهدی می باشد",
-    image:
-      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
-  },
-  {
-    id: 3,
-    title: "لورم ایپسوم متن ساختگی باون  و سطرآبهبود ابزارهای کاربردی می باشد",
-    image:
-      "https://i1.adis.ws/i/dreams/251-00325_main-shot_01_hart-upholstered-bed?w=750&h=549&sm=c",
-  },
-  {
-    id: 4,
-    title: "لورم ایپسوم متن ساولیافیک اسان که لازم است دی می باشد",
-    image:
-      "https://furniturepalacekenya.com/wp-content/uploads/2023/05/CF-9148-N-HARMONY.jpg.jpg",
-  },
-]);
-const scrollToTop = ref(null);
-onMounted(() => {
-  scrollToTop.value.scrollIntoView();
 });
 </script>
 
