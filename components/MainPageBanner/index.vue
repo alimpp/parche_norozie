@@ -69,7 +69,6 @@ onMounted(() => {
   overflow: hidden;
   white-space: nowrap;
   margin: 0 auto;
-  letter-spacing: 2px;
   animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
