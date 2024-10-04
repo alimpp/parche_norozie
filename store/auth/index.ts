@@ -43,6 +43,7 @@ export const useAuthStore = defineStore("useAuthStore", {
           userStore.userProfile();
           this.isAuthenticated = true;
           this.isAccessToOtpPage = false;
+          localStorage.setItem("role", "user");
         }
       } catch (err: any) {
         console.log(err);
@@ -53,6 +54,7 @@ export const useAuthStore = defineStore("useAuthStore", {
       const { deleteCookie } = useCookie();
       deleteCookie("token");
       this.isAuthenticated = false;
+      localStorage.clear();
       location.reload();
     },
   },

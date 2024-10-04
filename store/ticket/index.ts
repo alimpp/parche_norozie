@@ -9,6 +9,16 @@ export const useTicketStore = defineStore("useTicketStore", {
 
   getters: {},
   actions: {
+    async adminAllTickets() {
+      const cookie = useCookie("token");
+      const res = await $fetch("/api/v1/ticketing/all", {
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      });
+      this.tickets = res.data;
+    },
+
     async allTickets() {
       const cookie = useCookie("token");
       const res = await $fetch("/api/v1/ticketing", {
@@ -19,6 +29,20 @@ export const useTicketStore = defineStore("useTicketStore", {
       this.tickets = res.data;
     },
 
+    async getAdminSingleTicket(ticket: any) {
+      const cookie = useCookie("token");
+      this.ticket.data = ticket;
+      const res = await $fetch(
+        `/api/v1/ticketing/retrieve/?ulid=${ticket.ULID}`,
+        {
+          headers: {
+            Authorization: `Bearer ${cookie.value}`,
+          },
+        }
+      );
+      this.ticket.messages = TicketMessageDataModel(res.data);
+    },
+
     async getSingleTicket(ulid: string) {
       const cookie = useCookie("token");
       await this.allTickets();
@@ -26,15 +50,15 @@ export const useTicketStore = defineStore("useTicketStore", {
         return item.ULID == ulid;
       });
       this.ticket.data = targetTicket;
-      const res = await $fetch(`/api/v1/ticketing/retrieve/${ulid}`, {
+      const res = await $fetch(`/api/v1/ticketing/retrieve/?ulid=${ulid}`, {
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.ticket.messages = res.data;
+      this.ticket.messages = TicketMessageDataModel(res.data);
     },
 
-    async sendMessage(messge: string) {
+    async sendMessage(messge: string, role: string) {
       const cookie = useCookie("token");
       const msg = {
         msg: messge,
@@ -48,7 +72,11 @@ export const useTicketStore = defineStore("useTicketStore", {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.getSingleTicket(this.ticket.data.ULID);
+      if (role == "user") {
+        this.getSingleTicket(this.ticket.data.ULID);
+      } else {
+        this.getAdminSingleTicket(this.ticket.data);
+      }
     },
 
     async addTicket(param: any) {
@@ -77,3 +105,20 @@ export const useTicketStore = defineStore("useTicketStore", {
     },
   },
 });
+
+export const TicketMessageDataModel = (messages: any) => {
+  let list: any = [];
+  messages.forEach((msg: any) => {
+    let itsMe = false;
+    const role = localStorage.getItem("role");
+    if (msg.role == role) {
+      itsMe = true;
+    }
+    const messageObject = {
+      itsMe,
+      ...msg,
+    };
+    list.push(messageObject);
+  });
+  return list;
+};

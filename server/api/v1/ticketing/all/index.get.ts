@@ -1,6 +1,5 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  const ulid = getQuery(event);
 
   const token = event.req.headers["authorization"];
 
@@ -10,7 +9,7 @@ export default defineEventHandler(async (event) => {
   };
 
   const response: any = await $fetch(
-    `${config.public.BASE_URL}/api/v1/ticketing/retrieve/${ulid.ulid}`,
+    `${config.public.BASE_URL}/api/v1/ticketing/all`,
     {
       method: "GET",
       headers: headers,

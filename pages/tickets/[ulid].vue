@@ -22,7 +22,7 @@ const messages = computed(() => {
 });
 
 const sendMessage = (value) => {
-  ticketStore.sendMessage(value);
+  ticketStore.sendMessage(value, "user");
 };
 
 const back = () => {

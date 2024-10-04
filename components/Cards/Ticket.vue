@@ -13,10 +13,10 @@
             >{{ $t("new message") }}</span
           >
         </div>
-        <span class="app-font-size-12 app-font-weight-500">{{
+        <span class="app-font-size-10 app-font-weight-600 app-color-gray">{{
           data.CreatedAt.slice(0, 10)
         }}</span>
-        <span class="app-font-size-12 app-font-weight-500 app-color-gray">{{
+        <span class="app-font-size-12 app-font-weight-600">{{
           data.title
         }}</span>
       </div>

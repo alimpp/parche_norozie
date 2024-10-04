@@ -1,5 +1,8 @@
 <template>
-  <div class="app-flex w-100 app-border-radius">
+  <div
+    class="app-flex w-100 app-border-radius"
+    :dir="data.itsMe ? 'rtl' : 'ltr'"
+  >
     <div>
       <AppAvatar name="A" width="30px" height="30px" />
     </div>
