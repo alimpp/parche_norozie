@@ -2,16 +2,20 @@
   <div class="app-w-100 main-page-banner">
     <div class="content">
       <div class="glass">
-        <div class="typewriter">
-          <h1 class="app-font-size-18 app-font-weight-100">پارچه نوروزی</h1>
-        </div>
-        <div class="typewriter" v-if="title">
-          <h1 class="app-font-size-14 app-font-weight-100">
-            وارد کننده انواع کالای خواب با بالاترین کیفیت
+        <div class="typewriter1">
+          <h1 class="app-font-size-18 app-font-weight-100">
+            {{ $t("norozi shop") }}
           </h1>
         </div>
-        <div class="typewriter" v-if="subtitle">
-          <h1 class="app-font-size-12 app-font-weight-100">زیر قیمت بازار</h1>
+        <div class="typewriter2" v-if="title">
+          <h1 class="app-font-size-14 app-font-weight-100">
+            {{ $t("main page banner title") }}
+          </h1>
+        </div>
+        <div class="typewriter3" v-if="subtitle">
+          <h1 class="app-font-size-12 app-font-weight-100">
+            {{ $t("main page banner subtitle") }}
+          </h1>
         </div>
         <AppLogo theme="light" class="fade_animations" v-if="logo" />
         <AppButton
@@ -34,13 +38,13 @@ const logo = ref(false);
 onMounted(() => {
   setTimeout(() => {
     title.value = true;
-  }, 4500);
+  }, 2100);
   setTimeout(() => {
     subtitle.value = true;
-  }, 8500);
+  }, 6400);
   setTimeout(() => {
     logo.value = true;
-  }, 14500);
+  }, 10000);
 });
 </script>
 
@@ -64,12 +68,28 @@ onMounted(() => {
   color: #fff;
 }
 
-.typewriter h1 {
+.typewriter1 h1 {
+  border-left: 3px solid white;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+.typewriter2 h1 {
   border-left: 3px solid white;
   overflow: hidden;
   white-space: nowrap;
   margin: 0 auto;
   animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+.typewriter3 h1 {
+  border-left: 3px solid white;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {

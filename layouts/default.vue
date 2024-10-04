@@ -11,7 +11,7 @@
       :isOpen="isOpenShoppingCard"
     />
     <Toast />
-    <NuxtLoadingIndicator color="#fd7403" />
+    <NuxtLoadingIndicator color="#7b7be3" />
     <NavigationBar
       @openHamburgerMenu="handleChangeStateMenu"
       @openHamburgerShoppingCard="handleChangeStateShoppingCard"
