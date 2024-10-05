@@ -1,5 +1,6 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  const token = localStorage.getItem("token_admin");
+  const token = localStorage.getItem("token");
+
   if (!token) {
     return navigateTo("/admin/login");
   }

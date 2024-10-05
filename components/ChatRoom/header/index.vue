@@ -19,7 +19,10 @@
       </div>
     </div>
     <div class="app-w-5 app-flex app-align-center app-justify-end app-pointer">
-      <span class="app-mt-2" @click="emit('back')"
+      <span class="app-mt-2" @click="emit('more')">
+        <MoreVerticalIcon size="1x"></MoreVerticalIcon>
+      </span>
+      <span class="app-mt-2 app-mx-2" @click="emit('back')"
         ><ArrowLeftIcon size="1x"></ArrowLeftIcon
       ></span>
     </div>
@@ -30,7 +33,7 @@
 import { useThemeStore } from "@/store/theme/index";
 const themeStore = useThemeStore();
 
-const emit = defineEmits(["back"]);
+const emit = defineEmits(["back", "more"]);
 
 const props = defineProps({
   data: {

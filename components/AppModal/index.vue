@@ -4,6 +4,7 @@
       class="fade_animations app-border-radius"
       :style="{
         width: `${width}`,
+        height: `${height}`,
       }"
       :class="{
         'app-bg-white': themeStore.theme == 'light',
@@ -11,7 +12,7 @@
         'app-bg-secondary-custom': themeStore.theme == 'custom',
       }"
     >
-      <div class="app-flex app-w-100">
+      <div class="app-flex app-w-100" v-if="header">
         <div
           class="app-w-50 app-flex app-justify-start app-px-1 app-py-3 app-px-3"
         >
@@ -35,6 +36,10 @@ const themeStore = useThemeStore();
 
 const emit = defineEmits(["close"]);
 const props = defineProps({
+  header: {
+    type: Boolean,
+    default: true,
+  },
   state: {
     type: Boolean,
     default: false,
@@ -42,6 +47,10 @@ const props = defineProps({
   width: {
     type: String,
     default: "380px",
+  },
+  height: {
+    type: String,
+    default: "auto",
   },
   title: {
     type: String,

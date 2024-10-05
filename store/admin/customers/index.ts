@@ -7,25 +7,23 @@ export const useCustomersStore = defineStore("useCustomersStore", {
     loading: false,
   }),
   actions: {
-    async getAllCustomers() {
+    async getAllCustomers(param: any) {
       this.loading = true;
-      const cookie = useCookie("token_admin");
-      await $fetch("/api/v1/profile/list")
+      const cookie = useCookie("token");
+      await $fetch(
+        `/api/v1/profile/list?phone=${param.phone}&name=${param.name}&lastname=${param.lastname}&email=${param.email}&id_card_number=${param.id_card_number}`,
+        {
+          headers: {
+            Authorization: `Bearer ${cookie.value}`,
+          },
+        }
+      )
         .then((res: any) => {
           this.customers = CostumersDataModel(res.data);
         })
         .catch((err) => {
           console.log(err);
         });
-
-      //   await $fetch("https://parche-go.liara.run/api/v1/profile", {
-      //     headers: {
-      //       Authorization: `Bearer ${cookie.value}`,
-      //       "Content-Type": "application/json",
-      //     },
-      //   })
-      //     .then((res: any) => {this.customers = res.data;})
-      //     .catch((err) => {});
       this.loading = false;
     },
   },

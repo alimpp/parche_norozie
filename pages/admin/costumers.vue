@@ -5,21 +5,40 @@
         <div class="app-flex app-flex-column app-px-2 app-py-2">
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('costumers')" />
           <div class="app-flex app-w-100">
-            <AppInput height="35px" :label="$t('phoneNumber')" />
-            <AppInput height="35px" :label="$t('name')" class="app-mx-2" />
-            <AppInput height="35px" :label="$t('family name')" />
+            <AppInput
+              height="35px"
+              :label="$t('phoneNumber')"
+              v-model="filter.phone"
+            />
+            <AppInput
+              height="35px"
+              :label="$t('name')"
+              class="app-mx-2"
+              v-model="filter.name"
+            />
+            <AppInput
+              height="35px"
+              :label="$t('family name')"
+              v-model="filter.lastname"
+            />
             <AppInput
               height="35px"
               :label="$t('email address')"
               class="app-mx-2"
+              v-model="filter.email"
             />
-            <AppInput height="35px" :label="$t('id card')" />
+            <AppInput
+              height="35px"
+              :label="$t('id card')"
+              v-model="filter.id_card_number"
+            />
             <AppButton
               class="app-mx-2 app-mt-11"
               :name="$t('search')"
               background="app-bg-primary"
               icon="search"
               height="35px"
+              @click="search"
             />
           </div>
         </div>
@@ -69,8 +88,21 @@ definePageMeta({
   layout: "admin",
 });
 
+const filter = ref({
+  name: "",
+  lastname: "",
+  id_card_number: "",
+  email: "",
+  phone: "",
+  job: "",
+});
+
+const search = () => {
+  customersStore.getAllCustomers(filter.value);
+};
+
 onMounted(async () => {
-  await customersStore.getAllCustomers();
+  await customersStore.getAllCustomers(filter.value);
 });
 </script>
 

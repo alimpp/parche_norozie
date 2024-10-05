@@ -1,6 +1,6 @@
 <template>
   <div
-    class="app-w-100 app-h-10 app-flex app-align-center"
+    class="app-w-100 app-h-10 app-flex app-align-center navigation"
     :class="{
       'app-bg-secondary': themeStore.theme == 'light',
       'app-bg-dark': themeStore.theme == 'dark',
@@ -20,7 +20,13 @@
         class="app-h-10 app-flex app-align-center app-mx-2"
         v-if="!authStore.isAuthenticated || !detectToken"
       >
-        <LoginButton @click="navigateTo('/auth/login')" />
+        <AppButton
+          :name="$t('login and register')"
+          background="app-bg-primary"
+          height="35px"
+          @click="navigateTo('/auth/login')"
+        />
+        <!-- <LoginButton @click="navigateTo('/auth/login')" /> -->
       </div>
       <div class="app-mr-30">
         <span
@@ -117,6 +123,10 @@ const detectToken = computed(() => {
 </script>
 
 <style scoped>
+.navigation {
+  position: fixed;
+  z-index: 1;
+}
 .mobile-size {
   display: none;
 }
@@ -138,7 +148,7 @@ const detectToken = computed(() => {
 }
 
 .active-route-main-theme {
-  border-bottom: 2px solid #ffa500;
+  border-bottom: 2px solid #7b7be3;
 }
 
 @media (max-width: 900px) {

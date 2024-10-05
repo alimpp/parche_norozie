@@ -12,15 +12,16 @@ export const useAuthAdminStore = defineStore("useAuthAdminStore", {
         method: "POST",
         body: param,
       }).then((res) => {
-        localStorage.setItem("token_admin", res.data.token);
-        setCookie("token_admin", res.data.token);
+        localStorage.setItem("role", "admin");
+        localStorage.setItem("token", res.data.token);
+        setCookie("token", res.data.token);
         navigateTo("/admin/dashboard");
       });
     },
 
     logOut() {
       const { deleteCookie } = useCookie();
-      deleteCookie("token_admin");
+      deleteCookie("token");
       localStorage.clear();
       navigateTo("/admin/login");
     },

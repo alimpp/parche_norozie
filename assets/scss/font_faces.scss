@@ -1,21 +1,33 @@
-@import "../variables/font_faces.scss";
-
-.font-shabnam-thin {
-  font-family: "shabnam-thin", sans-serif;
+@font-face {
+  font-family: "yekanBakh";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+  // url('/public/fonts/iranyekan.eot') format('eot'),
+  // url('/public/fonts/iranyekan.woff') format('woff'),
+  // url('/public/fonts/iranyekan.ttf') format('truetype'),
+    url("/public/fonts/YekanBakhFaNum-Regular.woff2") format("woff2");
 }
-
-.font-shabnam-light {
-  font-family: "shabnam-light", sans-serif;
+@font-face {
+  font-family: "yekanBakh";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+  // url('/public/fonts/iranyekan.eot') format('eot'),
+  // url('/public/fonts/iranyekan.woff') format('woff'),
+  // url('/public/fonts/iranyekan.ttf') format('truetype'),
+    url("/public/fonts/YekanBakhFaNum-Regular.woff2") format("woff2");
 }
-
-.font-shabnam {
-  font-family: "shabnam", sans-serif;
-}
-
-.font-shabnam-medium {
-  font-family: "shabnam-medium", sans-serif;
-}
-
-.font-shabnam-bold {
-  font-family: "shabnam-bold", sans-serif;
+@font-face {
+  font-family: "yekanBakh";
+  font-style: bold;
+  font-weight: 600;
+  font-display: swap;
+  src: 
+  // url('/public/fonts/iranyekanbold.eot') format('eot'),
+  // url('/public/fonts/iranyekanbold.woff') format('woff'),
+  // url('/public/fonts/iranyekanbold.ttf') format('truetype'),
+    url("/public/fonts/YekanBakhFaNum-Bold.woff2") format("woff2");
 }

@@ -234,7 +234,7 @@ const setDisplayCard = (val) => {
   height: 100vh;
   background: rgba(5, 5, 5, 0.816);
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   display: flex;
   justify-content: end;
 }
@@ -243,7 +243,7 @@ const setDisplayCard = (val) => {
   width: 350px;
   height: 100vh;
   position: absolute;
-  z-index: 1;
+  z-index: 100;
   overflow-y: scroll;
 }
 

@@ -11,7 +11,7 @@
       :isOpen="isOpenShoppingCard"
     />
     <Toast />
-    <NuxtLoadingIndicator color="#fd7403" />
+    <NuxtLoadingIndicator color="#7b7be3" />
     <NavigationBar
       @openHamburgerMenu="handleChangeStateMenu"
       @openHamburgerShoppingCard="handleChangeStateShoppingCard"
@@ -19,7 +19,7 @@
       v-if="!route.params.ulid"
     />
     <div
-      class="content app-h-90"
+      class="content"
       :class="{
         'app-bg-secondary': themeStore.theme == 'light',
         'app-bg-dark': themeStore.theme == 'dark',

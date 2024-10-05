@@ -1,13 +1,13 @@
 <template>
   <div class="chat-room">
-    <ChatRoomHeader :data="header" @back="emit('back')" />
+    <ChatRoomHeader :data="header" @back="emit('back')" @more="emit('more')" />
     <ChatRoomContent :messages="messages" />
     <ChatRoomInput @sendMessage="sendMessage" />
   </div>
 </template>
 
 <script setup>
-const emit = defineEmits(["sendMessage", "back"]);
+const emit = defineEmits(["sendMessage", "back", "more"]);
 
 const sendMessage = (event) => {
   emit("sendMessage", event);
