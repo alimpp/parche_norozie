@@ -1,5 +1,6 @@
 <template>
   <AppCard
+    data-aos="zoom-in-left"
     class="app-mx-3 app-mt-3"
     width="350px"
     v-if="themeStore.wighet.product.display == 'row'"
@@ -75,6 +76,7 @@
   ></AppCard>
 
   <AppCard
+    data-aos="zoom-in-left"
     class="app-mx-3 app-mt-3"
     width="240px"
     v-if="themeStore.wighet.product.display == 'column'"

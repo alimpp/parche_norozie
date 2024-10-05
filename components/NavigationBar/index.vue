@@ -25,6 +25,8 @@
           background="app-bg-primary"
           height="35px"
           @click="navigateTo('/auth/login')"
+          fontSize="app-font-size-12"
+          width="110px"
         />
         <!-- <LoginButton @click="navigateTo('/auth/login')" /> -->
       </div>
