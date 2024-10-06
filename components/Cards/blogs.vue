@@ -1,5 +1,5 @@
 <template>
-  <AppCard class="app-mx-3 app-mt-3" width="300px">
+  <AppCard class="app-mx-3 app-mt-3" width="300px" data-aos="zoom-in-left">
     <template #content>
       <div class="app-flex flex-column">
         <div style="width: 300px">
@@ -23,7 +23,10 @@
               1403/07/07
             </span>
           </div>
-          <span class="app-color-primary app-font-size-14 app-py-2 app-pointer">{{$t("read more blog")}}</span>
+          <span
+            class="app-color-primary app-font-size-14 app-py-2 app-pointer"
+            >{{ $t("read more blog") }}</span
+          >
         </div>
       </div>
     </template>

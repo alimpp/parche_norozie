@@ -1,6 +1,8 @@
 <template>
-  <div class="app-w-100 app-flex">
-    <MainPageBanner />
+  <MainPageBanner />
+  <div class="app-container">
+    <AppDivider :name="$t('services')" :hasLine="true" width="55px" />
+    <ServicesSection class="app-mt-5" />
   </div>
   <div class="app-container">
     <div class="app-flex app-flex-column app-mt-5">
@@ -21,63 +23,6 @@
         :hasLine="true"
       />
       <AuctionSection class="app-mt-1" />
-    </div>
-  </div>
-  <div class="information-section">
-    <div class="glass">
-      <!-- <div class="services-content">
-        <AppDivider :name="$t('services')" :hasLine="true" width="55px" />
-        <div class="app-flex app-mt-4 app-w-100">
-          <div
-            class="app-w-50 app-flex app-align-center app-justify-end app-px-2"
-          >
-            <CheckCircleIcon size="1.5x" />
-          </div>
-          <div class="app-w-50">
-            <span class="app-font-size-16">{{ $t("online sell") }}</span>
-          </div>
-        </div>
-        <div class="app-flex app-mt-4 app-w-100">
-          <div
-            class="app-w-50 app-flex app-align-center app-justify-end app-px-2"
-          >
-            <CheckCircleIcon size="1.5x" />
-          </div>
-          <div class="app-w-50">
-            <span class="app-font-size-16">{{ $t("sell person") }}</span>
-          </div>
-        </div>
-        <div class="app-flex app-mt-4 app-w-100">
-          <div
-            class="app-w-50 app-flex app-align-center app-justify-end app-px-2"
-          >
-            <CheckCircleIcon size="1.5x" />
-          </div>
-          <div class="app-w-50">
-            <span class="app-font-size-16">{{ $t("best performance") }}</span>
-          </div>
-        </div>
-        <div class="app-flex app-mt-4 app-w-100">
-          <div
-            class="app-w-50 app-flex app-align-center app-justify-end app-px-2"
-          >
-            <CheckCircleIcon size="1.5x" />
-          </div>
-          <div class="app-w-50">
-            <span class="app-font-size-16">{{ $t("guarantee products") }}</span>
-          </div>
-        </div>
-        <div class="app-flex app-mt-4 app-w-100">
-          <div
-            class="app-w-50 app-flex app-align-center app-justify-end app-px-2"
-          >
-            <CheckCircleIcon size="1.5x" />
-          </div>
-          <div class="app-w-50">
-            <span class="app-font-size-16">{{ $t("online support") }}</span>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 
@@ -134,39 +79,6 @@ const cycleTime = ref({
 </script>
 
 <style scoped>
-.information-section {
-  background-image: url(@/assets/images/room.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100dvh;
-}
-
-.information-section .glass {
-  width: 100%;
-  height: 100dvh;
-  background: #000000c8;
-  display: flex;
-  color: #fff;
-}
-
-.glass .services-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .glass {
-    flex-direction: column;
-  }
-  .glass .services-content {
-    width: 100%;
-  }
-}
-
 .about-us-content {
   display: flex;
   width: 100%;
