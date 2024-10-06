@@ -6,19 +6,60 @@
     :title="$t('create new blog')"
   >
     <template #content>
-      <div class="app-flex app-flex-column app-px-2 app-py-2">
+      <div class="app-flex app-flex-column app-px-2 app-py-2 container">
         <div class="app-flex app-flex-column app-w-100">
-          <AppInput height="35px" :label="$t('title')" />
-          <AppInput height="35px" :label="$t('upload img')" class="" />
-          <AppInput height="35px" :label="$t('subject')" />
-          <AppTextarea :label="$t('text')" />
+          <AppInput
+            height="35px"
+            :label="$t('title') + ' ' + $t('main')"
+            v-model="form.title"
+            :error="error.title.state"
+            :message-error="error.title.message"
+          />
+          <AppTextarea
+            :label="$t('text') + ' ' + $t('main')"
+            v-model="form.description"
+            :error="error.description.state"
+            :message-error="error.description.message"
+          />
+          <AppInput
+            height="35px"
+            :label="$t('upload img') + ' ' + $t('main')"
+            v-model="form.img"
+            :error="error.img.state"
+            :message-error="error.img.message"
+          />
           <AppButton
             width="150px"
-            class="app-mx-2 app-mt-11"
-            :name="$t('create')"
+            class="app-mt-4"
+            :name="$t('create section')"
             background="app-bg-primary"
+            :loading="loading"
             height="35px"
+            @click="addSection"
           />
+        </div>
+        <div
+          class="app-flex app-flex-column app-w-100"
+          v-for="(section, index) in form.sections"
+        >
+          <AppDivider
+            class="app-mt-8 app-font-size-16 app-color-primary"
+            :name="$t('section') + ' ' + (index + 1)"
+            width="40px"
+            :hasLine="true"
+          />
+          <AppInput
+            height="35px"
+            :label="$t('title')"
+            :error="error.title.state"
+            :message-error="error.title.message"
+          />
+          <AppTextarea
+            :label="$t('text')"
+            :error="error.description.state"
+            :message-error="error.description.message"
+          />
+          <AppInput height="35px" :label="$t('upload img')" />
         </div>
       </div>
     </template>
@@ -26,7 +67,48 @@
 </template>
 
 <script setup>
+import { validateEmpty } from "@/utils/validate.js";
 const emit = defineEmits(["close"]);
+
+const form = ref({
+  description: "",
+  img: "",
+  title: "",
+  sections: [
+    {
+      description: "",
+      img: "",
+      title: "",
+    },
+  ],
+});
+
+const error = ref({
+  description: { state: false, message: "" },
+  img: { state: false, message: "" },
+  title: { state: false, message: "" },
+});
+
+const loading = ref(false);
+
+const addSection = async () => {
+  error.value.title = validateEmpty(form.value.title);
+  error.value.description = validateEmpty(form.value.description);
+  error.value.img = validateEmpty(form.value.img);
+  if (
+    !error.value.title.state &&
+    !error.value.description.state &&
+    !error.value.img.state
+  ) {
+    loading.value = true;
+    await form.value.sections.push({
+      description: "",
+      img: "",
+      title: "",
+    });
+    loading.value = false;
+  }
+};
 
 const props = defineProps({
   state: {
@@ -35,3 +117,10 @@ const props = defineProps({
   },
 });
 </script>
+
+<style scoped>
+.container {
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+</style>

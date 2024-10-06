@@ -32,7 +32,6 @@
  
 </template>
 <script setup>
-import Address from '~/components/Cards/Address.vue';
 
 definePageMeta({
   middleware: ["admin-auth"],
