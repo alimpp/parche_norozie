@@ -22,20 +22,27 @@
         }}</span>
 
         <div
-          class="app-flex app-align-center app-mt-5 app-pointer app-color-danger"
+          class="app-flex app-flex-column app-bg-gray app-px-2 app-border-radius app-mt-5 app-py-5"
         >
-          <TrashIcon size="1x"></TrashIcon>
-          <span
-            class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
-            >{{ $t("remove ticket") }}</span
+          <div
+            class="app-flex app-align-center app-pointer app-color-danger"
+            @click="removeTicket"
           >
-        </div>
-        <div class="app-flex app-align-center app-pointer app-color-danger">
-          <XIcon size="1x"></XIcon>
-          <span
-            class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
-            >{{ $t("block ticket") }}</span
+            <TrashIcon size="1x"></TrashIcon>
+            <span
+              class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
+              >{{ $t("remove ticket") }}</span
+            >
+          </div>
+          <div
+            class="app-flex app-align-center app-pointer app-color-danger app-mt-1"
           >
+            <XIcon size="1x"></XIcon>
+            <span
+              class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
+              >{{ $t("block ticket") }}</span
+            >
+          </div>
         </div>
       </div>
     </template>
@@ -43,6 +50,7 @@
 </template>
 
 <script setup>
+import { useTicketStore } from "~/store/ticket";
 const emit = defineEmits(["close"]);
 
 const props = defineProps({
@@ -55,4 +63,9 @@ const props = defineProps({
     default: {},
   },
 });
+
+const removeTicket = () => {
+  const ticketStore = useTicketStore();
+  ticketStore.deleteTicket(props.data);
+};
 </script>
