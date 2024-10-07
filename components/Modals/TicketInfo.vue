@@ -8,6 +8,18 @@
   >
     <template #content>
       <div class="app-flex app-flex-column app-w-100 app-px-3 app-py-8">
+        <span class="app-font-size-12 app-font-weight-600"
+          >{{ $t("name") }} {{ $t("family name") }}</span
+        >
+        <span class="app-font-size-14 app-font-weight-600"
+          >{{ data.user.name }} {{ data.user.lastname }}</span
+        >
+        <span class="app-font-size-12 app-font-weight-600">{{
+          $t("phoneNumber")
+        }}</span>
+        <span class="app-font-size-14 app-font-weight-600">{{
+          data.user.phone
+        }}</span>
         <span class="app-font-size-12 app-font-weight-600">{{
           $t("ticket subject")
         }}</span>

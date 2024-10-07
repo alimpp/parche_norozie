@@ -4,7 +4,12 @@
     :dir="data.itsMe ? 'rtl' : 'ltr'"
   >
     <div>
-      <AppAvatar name="A" width="30px" height="30px" />
+      <AppAvatar
+        :name="data.name[0]"
+        width="30px"
+        height="30px"
+        v-if="!data.itsMe"
+      />
     </div>
     <div
       class="message-card app-border-radius app-mx-2 app-flex app-align-center app-px-2"

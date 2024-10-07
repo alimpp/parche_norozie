@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="app-w-5 app-flex app-align-center app-justify-end app-pointer">
-      <span class="app-mt-2" @click="emit('more')">
+      <span class="app-mt-2" @click="emit('more')" v-if="role == 'admin'">
         <MoreVerticalIcon size="1x"></MoreVerticalIcon>
       </span>
       <span class="app-mt-2 app-mx-2" @click="emit('back')"
@@ -34,6 +34,11 @@ import { useThemeStore } from "@/store/theme/index";
 const themeStore = useThemeStore();
 
 const emit = defineEmits(["back", "more"]);
+
+const role = computed(() => {
+  const role = localStorage.getItem("role");
+  return role ? role : "";
+});
 
 const props = defineProps({
   data: {
