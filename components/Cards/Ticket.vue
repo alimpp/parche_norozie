@@ -9,7 +9,7 @@
           >
           <span
             class="app-font-size-10 app-font-weight-500 app-bg-danger app-flex app-align-center app-border-radius app-mx-2 app-px-2"
-            v-if="!data.seen_by_user"
+            v-if="!data.seen_by_admin || !data.seen_by_user"
             >{{ $t("new message") }}</span
           >
         </div>
