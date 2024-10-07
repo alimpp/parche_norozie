@@ -1,8 +1,11 @@
 <template>
   <AppCard
+    data-aos="zoom-in-left"
     class="app-mx-3 app-mt-3"
     width="350px"
-    v-if="themeStore.wighet.product.display == 'row'"
+    v-if="
+      themeStore.wighet.product.display == 'row' && themeStore.refresh == false
+    "
   >
     <template #content>
       <div class="app-flex">
@@ -75,9 +78,13 @@
   ></AppCard>
 
   <AppCard
+    data-aos="zoom-in-left"
     class="app-mx-3 app-mt-3"
     width="240px"
-    v-if="themeStore.wighet.product.display == 'column'"
+    v-if="
+      themeStore.wighet.product.display == 'column' &&
+      themeStore.refresh == false
+    "
   >
     <template #content>
       <div class="app-flex flex-column">

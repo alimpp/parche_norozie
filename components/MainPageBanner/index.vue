@@ -113,25 +113,25 @@ onMounted(() => {
 
 @keyframes animation {
   0% {
-    background-image: url("/public/banner/5.jpg");
+    background-image: url("/public/banner/11.jpg");
   }
   20% {
-    background-image: url("/public/banner/6.jpg");
+    background-image: url("/public/banner/12.jpg");
   }
   30% {
-    background-image: url("/public/banner/7.jpg");
+    background-image: url("/public/banner/13.jpg");
   }
   40% {
     background-image: url("/public/banner/4.jpg");
   }
   45% {
-    background-image: url("/public/banner/1.jpg");
+    background-image: url("/public/banner/5.jpg");
   }
   50% {
-    background-image: url("/public/banner/2.jpg");
+    background-image: url("/public/banner/6.jpg");
   }
   55% {
-    background-image: url("/public/banner/3.jpg");
+    background-image: url("/public/banner/7.jpg");
   }
   60% {
     background-image: url("/public/banner/8.jpg");

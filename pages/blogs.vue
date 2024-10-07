@@ -401,19 +401,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-
-.blogs {
-  width: 100%;
-  height: 85vh;
-  overflow-y: scroll;
-  padding: 10px 0;
-}
-@media (max-width: 900px) {
-
-  .blogs {
-    width: 100%;
-  }
-
-}
-</style>
+<style scoped></style>

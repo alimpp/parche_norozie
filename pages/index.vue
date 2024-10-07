@@ -1,38 +1,9 @@
 <template>
-  <div class="app-w-100 app-flex">
-    <MainPageBanner />
+  <MainPageBanner />
+  <div class="app-container">
+    <AppDivider :name="$t('services')" :hasLine="true" width="55px" />
+    <ServicesSection class="app-mt-5" />
   </div>
-  <div class="information-section app-mt-15">
-    <div class="glass">
-      <div class="app-flex app-mt-4">
-        <CheckCircleIcon size="1.5x" />
-        <span class="app-px-2 app-font-size-16">{{ $t("online sell") }}</span>
-      </div>
-      <div class="app-flex app-mx-3 app-mt-4">
-        <CheckCircleIcon size="1.5x" />
-        <span class="app-px-2 app-font-size-16">{{
-          $t("best performance")
-        }}</span>
-      </div>
-      <div class="app-flex app-mt-4">
-        <CheckCircleIcon size="1.5x" />
-        <span class="app-px-2 app-font-size-16">{{ $t("sell person") }}</span>
-      </div>
-      <div class="app-flex app-mx-3 app-mt-4">
-        <CheckCircleIcon size="1.5x" />
-        <span class="app-px-2 app-font-size-16">{{
-          $t("guarantee products")
-        }}</span>
-      </div>
-      <div class="app-flex app-mt-4">
-        <CheckCircleIcon size="1.5x" />
-        <span class="app-px-2 app-font-size-16">{{
-          $t("online support")
-        }}</span>
-      </div>
-    </div>
-  </div>
-
   <div class="app-container">
     <div class="app-flex app-flex-column app-mt-5">
       <AppDivider
@@ -53,9 +24,11 @@
       />
       <AuctionSection class="app-mt-1" />
     </div>
+  </div>
 
-    <div class="about-us-content app-mt-8">
-      <div class="about-us-info app-flex app-flex-column">
+  <div class="app-container">
+    <div class="about-us-content">
+      <div class="about-us-info app-flex app-flex-column" data-aos="fade-left">
         <AppDivider
           class="app-mx-3"
           :name="$t('aboutUs')"
@@ -82,7 +55,7 @@
           @click="navigateTo('/about-us')"
         />
       </div>
-      <div class="image-content">
+      <div class="image-content" data-aos="fade-right">
         <img
           src="@/assets/images/about-us/1.jpg"
           alt="image"
@@ -106,60 +79,6 @@ const cycleTime = ref({
 </script>
 
 <style scoped>
-.banner-content {
-  display: flex;
-  width: 100%;
-}
-
-.banner-content .new-products-container {
-  width: 60%;
-  padding: 0 15px;
-}
-
-.banner-content .discount-container {
-  width: 40%;
-  padding: 0 15px;
-}
-
-.information-section {
-  background-image: url(@/assets/images/room.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 500px;
-}
-
-.information-section .glass {
-  width: 100%;
-  height: 500px;
-  background: #000000bb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-
-@media (max-width: 900px) {
-  .banner-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .banner-content .new-products-container {
-    width: 100%;
-    padding: 0;
-  }
-
-  .banner-content .discount-container {
-    width: 100%;
-    padding: 0;
-  }
-
-  .glass {
-    flex-direction: column;
-  }
-}
-
 .about-us-content {
   display: flex;
   width: 100%;

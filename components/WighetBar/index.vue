@@ -212,19 +212,31 @@ const props = defineProps({
 });
 
 const changeThemeState = (val) => {
+  themeStore.refresh = true;
   if (userStore.user) {
     userStore.sendProfile({ ...userStore.user, theme: val });
   }
   themeStore.updateThemeState(val);
+  setTimeout(() => {
+    themeStore.refresh = false;
+  }, 1);
 };
 
 const setWighetCard = (val) => {
+  themeStore.refresh = true;
   themeStore.wighet.baseCard.border = val;
+  setTimeout(() => {
+    themeStore.refresh = false;
+  }, 1);
 };
 
 const setDisplayCard = (val) => {
+  themeStore.refresh = true;
   themeStore.wighet.product.display = val;
   themeStore.wighet.blog.display = val;
+  setTimeout(() => {
+    themeStore.refresh = false;
+  }, 1);
 };
 </script>
 
