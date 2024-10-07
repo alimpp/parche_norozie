@@ -106,15 +106,14 @@ export const useTicketStore = defineStore("useTicketStore", {
 
     async deleteTicket(param: any) {
       const cookie = useCookie("token");
-      console.log(param);
-      await $fetch(`/api/v1/ticketing/?id=${param.ULID}`, {
+      await $fetch(`/api/v1/ticketing/${param.ULID}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
       })
         .then((res) => {
-          console.log(res);
+          this.adminAllTickets();
         })
         .catch((err) => {
           console.log(err);

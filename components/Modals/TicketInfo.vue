@@ -64,8 +64,9 @@ const props = defineProps({
   },
 });
 
-const removeTicket = () => {
+const removeTicket = async () => {
   const ticketStore = useTicketStore();
-  ticketStore.deleteTicket(props.data);
+  await ticketStore.deleteTicket(props.data);
+  emit("close");
 };
 </script>
