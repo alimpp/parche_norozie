@@ -43,7 +43,7 @@
           v-for="(section, index) in form.sections"
         >
           <AppDivider
-            class="app-mt-8 app-font-size-16 app-color-primary"
+            class="app-mt-8 app-font-size-16"
             :name="$t('section') + ' ' + (index + 1)"
             width="40px"
             :hasLine="true"
@@ -51,16 +51,20 @@
           <AppInput
             height="35px"
             :label="$t('title')"
-            :error="error.title.state"
-            :message-error="error.title.message"
+            v-model="section.title"
           />
-          <AppTextarea
-            :label="$t('text')"
-            :error="error.description.state"
-            :message-error="error.description.message"
-          />
+          <AppTextarea :label="$t('text')" v-model="section.description" />
           <AppInput height="35px" :label="$t('upload img')" />
         </div>
+        <AppButton
+          width="80px"
+          class="app-mt-4"
+          :name="$t('submit')"
+          background="app-bg-primary"
+          :loading="loading"
+          height="35px"
+          @click="submit"
+        />
       </div>
     </template>
   </AppModal>
@@ -95,13 +99,16 @@ const addSection = async () => {
   error.value.title = validateEmpty(form.value.title);
   error.value.description = validateEmpty(form.value.description);
   error.value.img = validateEmpty(form.value.img);
+
   if (
     !error.value.title.state &&
     !error.value.description.state &&
-    !error.value.img.state
+    !error.value.img.state &&
+    form.value.sections[form.value.sections.length - 1].title != "" &&
+    form.value.sections[form.value.sections.length - 1].description != ""
   ) {
     loading.value = true;
-    await form.value.sections.push({
+    form.value.sections.push({
       description: "",
       img: "",
       title: "",
