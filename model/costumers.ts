@@ -8,6 +8,7 @@ export const CostumersDataModel = (data: any) => {
       email: element.email ? element.email : "---",
       id_card_number: element.id_card_number ? element.id_card_number : "---",
       job: element.job ? element.job : "---",
+      address: element.addresses ? element.addresses : [],
     };
     list.push(costumer);
   });

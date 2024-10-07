@@ -40,6 +40,15 @@
           >
           <span class="app-font-size-14 app-px-2"> {{ data.job }}</span>
         </div>
+        <div class="app-flex" v-for="(address, index) in data.address">
+          <span class="app-font-size-14 app-font-weight-600"
+            >{{ $t("address") }}{{ index + 1 }} :</span
+          >
+          <span class="app-font-size-14 app-px-2"> {{ address.address }} </span>
+          <span class="app-font-size-14 app-px-2">
+            {{ $t("postal code") }} {{ address.postal_code }}
+          </span>
+        </div>
       </div>
     </template>
   </AppCard>
