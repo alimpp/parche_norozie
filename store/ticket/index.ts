@@ -103,6 +103,23 @@ export const useTicketStore = defineStore("useTicketStore", {
           err;
         });
     },
+
+    async deleteTicket(param: any) {
+      const cookie = useCookie("token");
+      console.log(param);
+      await $fetch(`/api/v1/ticketing/?id=${param.ULID}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 });
 
