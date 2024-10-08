@@ -1,7 +1,7 @@
 <template>
   <div ref="scrollToTop" class="app-container">
     <div class="row-content">
-      <div class="section-right app-flex app-flex-column app-py-4 app-px-5">
+      <div class="section-right app-flex app-flex-column app-py-4 app-px-5 " data-aos="fade-left">
         <AppDivider :name="$t('aboutUs')" :hasLine="true" width="65px" />
         <span class="app-mt-3 app-font-size-16 app-font-weight-600">{{
           $t("about us part one")
@@ -23,7 +23,7 @@
           $t("about us part five")
         }}</span>
       </div>
-      <div class="section-left">
+      <div class="section-left " data-aos="fade-right">
         <img
           src="@/assets/images/about-us/2.jpg"
           alt="image"
@@ -32,15 +32,15 @@
       </div>
     </div>
 
-    <div class="row-content app-mt-5">
-      <div class="section-right app-flex app-flex-column">
+    <div class="row-content app-mt-5" >
+      <div class="section-right app-flex app-flex-column" data-aos="fade-up-left">
         <img
           src="@/assets/images/about-us/1.jpg"
           alt="image"
           class="app-w-100 app-border-radius"
         />
       </div>
-      <div class="section-left app-flex app-flex-column app-py-4 app-px-5">
+      <div class="section-left app-flex app-flex-column app-py-4 app-px-5" data-aos="fade-up-right">
         <span
           class="app-mt-3 app-font-size-16 app-font-weight-100 app-color-primary"
           >{{ $t("about us part six") }}</span
