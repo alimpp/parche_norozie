@@ -17,7 +17,7 @@
         }"
       >
         <ChatRoom
-          :header="{ name: 'User 1', avatar: 'U', role: 'user' }"
+          :header="ticketinfo"
           :messages="messages"
           @sendMessage="sendMessage"
           @back="emit('close')"
@@ -43,6 +43,18 @@ const emit = defineEmits(["close", "more"]);
 
 const themeStore = useThemeStore();
 const ticketStore = useTicketStore();
+
+const ticketinfo = computed(() => {
+  const user = {
+    name:
+      ticketStore.ticket.data.user.name + ticketStore.ticket.data.user.lastname,
+    avatar:
+      ticketStore.ticket.data.user.name[0] +
+      ticketStore.ticket.data.user.lastname[0],
+    role: "user",
+  };
+  return user;
+});
 
 const messages = computed(() => {
   return ticketStore.ticket.messages;

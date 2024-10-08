@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { useCookie, useFetch } from "#app";
 import { useToastStore } from "../toast";
+import { TicketMessageDataModel } from "@/model/tickets";
+
 export const useTicketStore = defineStore("useTicketStore", {
   state: (): any => ({
     tickets: [],
@@ -40,7 +42,7 @@ export const useTicketStore = defineStore("useTicketStore", {
           },
         }
       );
-      this.ticket.messages = TicketMessageDataModel(res.data);
+      this.ticket.messages = TicketMessageDataModel(res.data, this.ticket.data);
     },
 
     async getSingleTicket(ulid: string) {
@@ -55,7 +57,7 @@ export const useTicketStore = defineStore("useTicketStore", {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.ticket.messages = TicketMessageDataModel(res.data);
+      this.ticket.messages = TicketMessageDataModel(res.data, this.ticket.data);
     },
 
     async sendMessage(messge: string, role: string) {
@@ -106,15 +108,14 @@ export const useTicketStore = defineStore("useTicketStore", {
 
     async deleteTicket(param: any) {
       const cookie = useCookie("token");
-      console.log(param);
-      await $fetch(`/api/v1/ticketing/?id=${param.ULID}`, {
+      await $fetch(`/api/v1/ticketing/${param.ULID}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
       })
         .then((res) => {
-          console.log(res);
+          this.adminAllTickets();
         })
         .catch((err) => {
           console.log(err);
@@ -122,20 +123,3 @@ export const useTicketStore = defineStore("useTicketStore", {
     },
   },
 });
-
-export const TicketMessageDataModel = (messages: any) => {
-  let list: any = [];
-  messages.forEach((msg: any) => {
-    let itsMe = false;
-    const role = localStorage.getItem("role");
-    if (msg.role == role) {
-      itsMe = true;
-    }
-    const messageObject = {
-      itsMe,
-      ...msg,
-    };
-    list.push(messageObject);
-  });
-  return list;
-};

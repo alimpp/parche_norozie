@@ -1,5 +1,8 @@
 <template>
-  <div class="app-container fade_animations app-flex app-flex-column">
+  <div
+    class="app-container fade_animations app-flex app-flex-column"
+    style="min-height: 100dvh"
+  >
     <AppDivider
       :name="$t('all tickets for user')"
       width="110px"

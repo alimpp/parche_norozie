@@ -25,7 +25,7 @@
     />
     <ModalsTicketInfo
       :state="ticketInfoState"
-      @close="ticketInfoState = false"
+      @close="closeTicketInfo"
       :data="ticketinfo"
     />
   </div>
@@ -57,6 +57,11 @@ const openTicket = async (ticket) => {
   const ticketStore = useTicketStore();
   await ticketStore.getAdminSingleTicket(ticket);
   modalState.value = true;
+};
+
+const closeTicketInfo = () => {
+  ticketInfoState.value = false;
+  modalState.value = false;
 };
 
 onMounted(async () => {
