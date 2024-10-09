@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useCookie, useFetch } from "#app";
+import { addressDataModel } from "@/model/address";
 
 import { useAuthStore } from "../auth";
 export const useAddressStore = defineStore("useAddressStore", {
@@ -17,7 +18,7 @@ export const useAddressStore = defineStore("useAddressStore", {
         },
       })
         .then((res: any) => {
-          this.address = res.data;
+          this.address = addressDataModel(res.data);
         })
         .catch((err) => {
           console.log(err);
