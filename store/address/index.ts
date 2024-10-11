@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { useCookie, useFetch } from "#app";
 import { addressDataModel } from "@/model/address";
+import { type IAddress } from "~/dataModel/address/model";
 
 import { useAuthStore } from "../auth";
 export const useAddressStore = defineStore("useAddressStore", {
@@ -25,7 +26,7 @@ export const useAddressStore = defineStore("useAddressStore", {
         });
     },
 
-    async add(param: any) {
+    async add(param: IAddress) {
       const cookie = useCookie("token");
       await $fetch("/api/v1/address/add", {
         method: "POST",
@@ -42,7 +43,7 @@ export const useAddressStore = defineStore("useAddressStore", {
         });
     },
 
-    async update(param: any) {
+    async update(param: IAddress) {
       const cookie = useCookie("token");
       await $fetch("/api/v1/address/update", {
         method: "PUT",
@@ -59,7 +60,7 @@ export const useAddressStore = defineStore("useAddressStore", {
         });
     },
 
-    async delete(param: any) {
+    async delete(param: IAddress) {
       const cookie = useCookie("token");
       await $fetch(`/api/v1/address/${param.uuid}`, {
         method: "DELETE",
