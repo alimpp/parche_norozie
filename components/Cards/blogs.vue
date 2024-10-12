@@ -1,5 +1,5 @@
 <template>
-  <AppCard class="app-mx-3 app-mt-3" width="300px" data-aos="zoom-in-left">
+  <AppCard class="app-mx-3 app-mt-3" width="300px" data-aos="fade-up">
     <template #content>
       <div class="app-flex flex-column">
         <div style="width: 300px">

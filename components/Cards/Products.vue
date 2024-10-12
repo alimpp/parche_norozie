@@ -1,6 +1,6 @@
 <template>
   <AppCard
-    data-aos="zoom-in-left"
+    data-aos="fade-up"
     class="app-mx-3 app-mt-3"
     width="350px"
     v-if="
