@@ -1,7 +1,7 @@
 <template>
   <div ref="scrollToTop" class="app-container">
     <div class="row-content">
-      <div class="section-right app-flex app-flex-column app-py-2 app-px-5">
+      <div class="section-right app-flex app-flex-column app-py-2 app-px-5" data-aos="fade-left">
         <AppDivider :name="$t('contactUs')" :hasLine="true" width="65px" />
         <AppInput
           :error="error.subject.state"
@@ -26,7 +26,7 @@
           />
         </div>
       </div>
-      <div class="section-left mt-10 pt-10">
+      <div class="section-left mt-10 pt-10" data-aos="fade-right">
         <img
           src="@/assets/images/contact-us/contact3.jpg"
           alt="image"
