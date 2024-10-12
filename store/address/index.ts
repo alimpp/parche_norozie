@@ -1,9 +1,8 @@
 import { defineStore } from "pinia";
-import { useCookie, useFetch } from "#app";
+import { useCookie } from "#app";
 import { addressDataModel } from "@/model/address";
 import { type IAddress } from "~/dataModel/address/model";
 
-import { useAuthStore } from "../auth";
 export const useAddressStore = defineStore("useAddressStore", {
   state: (): any => ({
     address: [],
