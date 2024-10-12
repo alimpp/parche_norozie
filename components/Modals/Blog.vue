@@ -2,11 +2,11 @@
   <AppModal
     width="90%"
     :state="state"
-    @close="emit('close')"
+    @close="close"
     :title="$t('create new blog')"
   >
     <template #content>
-      <div class="app-flex app-flex-column app-px-2 app-py-2 container">
+      <div class="app-flex app-flex-column app-px-4 app-py-2 container">
         <div class="app-flex app-flex-column app-w-100">
           <AppInput
             height="35px"
@@ -86,6 +86,17 @@ const form = ref({
     },
   ],
 });
+
+const close = () => {
+  form.value.sections = [
+    {
+      description: "",
+      img: "",
+      title: "",
+    },
+  ];
+  emit("close");
+};
 
 const error = ref({
   description: { state: false, message: "" },
