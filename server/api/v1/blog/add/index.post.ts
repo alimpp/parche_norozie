@@ -1,23 +1,16 @@
-import { readFile } from "fs/promises";
-import path from "path";
-
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body = await readBody(event);
-  const filename = getQuery(event);
 
   const token = event.req.headers["authorization"];
-  const contentLength = event.req.headers["content-length"];
-  const contentType = event.req.headers["content-type"];
 
   const headers = {
     Authorization: `${token}`,
-    "Content-Length": contentLength,
-    "Content-Type": contentType,
+    "Content-Type": "application/json",
   };
 
   const response: any = await $fetch(
-    `${config.public.BASE_URL}/api/v1/upload/${filename.filename}}`,
+    `${config.public.BASE_URL}/api/v1/blog/add`,
     {
       method: "POST",
       body: body,

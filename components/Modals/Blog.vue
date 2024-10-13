@@ -48,7 +48,7 @@
             v-model="section.title"
           />
           <AppTextarea :label="$t('text')" v-model="section.description" />
-          <AppInput height="35px" :label="$t('upload img')" />
+          <FileImage class="app-mt-5" />
         </div>
         <div>
           <AppButton
@@ -56,7 +56,7 @@
             :name="$t('submit')"
             background="app-bg-primary"
             :loading="loading"
-            @click="addSection"
+            @click="createBlog"
           />
         </div>
       </div>
@@ -65,8 +65,18 @@
 </template>
 
 <script setup>
+import { useBlogsStore } from "~/store/admin/blogs";
 import { validateEmpty } from "@/utils/validate.js";
 const emit = defineEmits(["close"]);
+
+const props = defineProps({
+  state: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const blogsStore = useBlogsStore();
 
 const form = ref({
   description: "",
@@ -117,12 +127,12 @@ const addSection = async () => {
   }
 };
 
-const props = defineProps({
-  state: {
-    type: Boolean,
-    default: false,
-  },
-});
+const createBlog = async () => {
+  loading.value = true;
+  await blogsStore.createBlog(form.value);
+  loading.value = false;
+  emit("close");
+};
 </script>
 
 <style scoped>
