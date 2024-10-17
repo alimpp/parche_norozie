@@ -4,28 +4,7 @@
     <AppDivider :name="$t('services')" :hasLine="true" width="55px" />
     <ServicesSection class="app-mt-5" />
   </div>
-  <div class="app-container">
-    <div class="app-flex app-flex-column app-mt-5">
-      <AppDivider
-        class="app-mx-3"
-        :name="$t('best seller')"
-        width="165px"
-        :hasLine="true"
-      />
-      <BestSellerSection class="app-mt-1" />
-    </div>
-
-    <div class="app-flex app-flex-column app-mt-5">
-      <AppDivider
-        class="app-mx-3"
-        :name="$t('auction')"
-        width="90px"
-        :hasLine="true"
-      />
-      <AuctionSection class="app-mt-1" />
-    </div>
-  </div>
-
+  <AxonGifs />
   <div class="app-container">
     <div class="about-us-content">
       <div class="about-us-info app-flex app-flex-column" data-aos="fade-left">

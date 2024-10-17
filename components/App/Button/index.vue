@@ -7,7 +7,7 @@
   >
     <v-progress-circular indeterminate v-if="loading"></v-progress-circular>
     <div class="app-flex app-align-center" v-else>
-      <span :class="[fontSize]"> {{ name }}</span>
+      <span :class="[fontSize, fontWight]"> {{ name }}</span>
       <ShoppingCartIcon
         v-if="icon == 'shopping cart'"
         size="1x"
@@ -28,6 +28,10 @@ const props = defineProps({
   fontSize: {
     type: String,
     default: "app-font-size-14",
+  },
+  fontWight: {
+    type: String,
+    default: "app-font-weight-500",
   },
   name: {
     type: String,
