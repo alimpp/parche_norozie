@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { useCookie, useFetch } from "#app";
 import { useToastStore } from "../toast";
 import { TicketMessageDataModel } from "@/model/tickets";
+import { useRouter } from "#app";
 
 export const useTicketStore = defineStore("useTicketStore", {
   state: (): any => ({
@@ -82,6 +83,8 @@ export const useTicketStore = defineStore("useTicketStore", {
     },
 
     async addTicket(param: any) {
+      const router = useRouter();
+
       const toastStore = useToastStore();
       const cookie = useCookie("token");
       await $fetch("/api/v1/ticketing/add", {
@@ -102,7 +105,8 @@ export const useTicketStore = defineStore("useTicketStore", {
           }
         })
         .catch((err) => {
-          err;
+          localStorage.setItem("lastRoute", "/contact-us");
+          router.push("/auth/login");
         });
     },
 
@@ -117,9 +121,7 @@ export const useTicketStore = defineStore("useTicketStore", {
         .then((res) => {
           this.adminAllTickets();
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
   },
 });
