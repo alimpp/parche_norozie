@@ -84,7 +84,6 @@ export const useTicketStore = defineStore("useTicketStore", {
 
     async addTicket(param: any) {
       const router = useRouter();
-
       const toastStore = useToastStore();
       const cookie = useCookie("token");
       await $fetch("/api/v1/ticketing/add", {
