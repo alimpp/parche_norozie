@@ -43,6 +43,11 @@ const tagetFile = (event) => {
   const fileStore = useFileStore();
   file.value = event.target.files[0];
   urlImage.value = URL.createObjectURL(file.value);
-  console.log(urlImage.value);
+  const formData = new FormData();
+  formData.append("image", file.value);
+  console.log(file.value);
+  console.log(formData);
+
+  fileStore.upload(formData, "888");
 };
 </script>
