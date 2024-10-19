@@ -1,6 +1,14 @@
 <template>
   <AppCard>
     <template #content>
+      <ModalsConfrim
+        :state="deleteState"
+        :title="$t('delete blog')"
+        :text="$t('confrim delete blog')"
+        @confrim="deleteBlog"
+        @cancel="deleteState = false"
+        @close="deleteState = false"
+      />
       <div class="app-w-100 app-flex">
         <div class="app-w-30 app-flex">
           <img
@@ -29,10 +37,13 @@
             {{ data.CreatedAt }}</span
           >
           <div class="app-flex app-mt-4">
-            <span class="app-pointer app-color-primary">
+            <span class="app-pointer app-color-primary" @click="editBlog">
               <EditIcon size="1x"></EditIcon>
             </span>
-            <span class="app-color-danger app-pointer app-px-2">
+            <span
+              class="app-color-danger app-pointer app-px-2"
+              @click="deleteState = true"
+            >
               <TrashIcon size="1x"></TrashIcon>
             </span>
           </div>
@@ -43,12 +54,25 @@
 </template>
 
 <script setup>
+const emit = defineEmits(["deleteBlog", "editBlog"]);
+
+const deleteState = ref(false);
+
 const props = defineProps({
   data: {
     type: Object,
     default: {},
   },
 });
+
+const editBlog = () => {
+  emit("editBlog", props.data);
+};
+
+const deleteBlog = () => {
+  deleteState.value = false;
+  emit("deleteBlog", props.data);
+};
 </script>
 
 <style scoped>

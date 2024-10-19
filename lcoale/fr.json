@@ -118,5 +118,7 @@
   "services": "خدمات",
   "upload image": "آپلود تصویر",
   "created at": "ایجاد شده در تاریخ",
-  "view products": "مشاهده محصولات"
+  "view products": "مشاهده محصولات",
+  "delete blog": "حذف بلاگ",
+  "confrim delete blog": "آیا مایل به حذف این بلاگ هستید؟"
 }

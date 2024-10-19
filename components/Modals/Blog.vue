@@ -70,9 +70,17 @@ import { validateEmpty } from "@/utils/validate.js";
 const emit = defineEmits(["close"]);
 
 const props = defineProps({
+  modalType: {
+    type: String,
+    default: "add",
+  },
   state: {
     type: Boolean,
     default: false,
+  },
+  data: {
+    type: Object,
+    default: {},
   },
 });
 
@@ -131,8 +139,31 @@ const createBlog = async () => {
   loading.value = true;
   await blogsStore.createBlog(form.value);
   loading.value = false;
+  form.value = {
+    description: "",
+    img: "",
+    title: "",
+    sections: [
+      {
+        description: "",
+        img: "",
+        title: "",
+      },
+    ],
+  };
   emit("close");
 };
+
+watch(
+  () => props.modalType,
+  () => {
+    console.log("props ==>> ", props.data);
+
+    form.value = props.data;
+
+    console.log("form value ==>> ", form.value);
+  }
+);
 </script>
 
 <style scoped>
