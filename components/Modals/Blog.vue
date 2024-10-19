@@ -142,7 +142,11 @@ const addSection = async () => {
 
 const submit = async () => {
   loading.value = true;
-  await blogsStore.createBlog(form.value);
+  if (props.modalType == "edit") {
+    await blogsStore.updateBlog(form.value);
+  } else {
+    await blogsStore.createBlog(form.value);
+  }
   loading.value = false;
   form.value = {
     description: "",

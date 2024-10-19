@@ -5,6 +5,7 @@ export const useBlogsStore = defineStore("useBlogsStore", {
   state: (): any => ({
     blogsList: [],
     singleBlog: {},
+    lastSelectedBlogId: null,
     loading: false,
   }),
   actions: {
@@ -30,6 +31,7 @@ export const useBlogsStore = defineStore("useBlogsStore", {
     },
 
     async getBlogById(id: number | string) {
+      this.lastSelectedBlogId = id;
       const cookie = useCookie("token");
       const res: any = await $fetch(`/api/v1/blog/post/${id}`, {
         method: "GET",
@@ -40,6 +42,18 @@ export const useBlogsStore = defineStore("useBlogsStore", {
       console.log(res.data);
       this.singleBlog = res.data;
       console.log(this.singleBlog);
+    },
+
+    async updateBlog(param: any) {
+      const cookie = useCookie("token");
+      await $fetch(`/api/v1/blog/update/${this.lastSelectedBlogId}`, {
+        method: "PUT",
+        body: param,
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      });
+      this.blogList();
     },
 
     async deleteBlog(id: number | string) {
