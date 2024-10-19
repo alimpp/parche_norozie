@@ -1,22 +1,42 @@
 <template>
   <div class="content">
-    <div class="card app-flex app-flex-column" data-aos="fade-up">
+    <div
+      class="card app-flex app-flex-column"
+      data-aos="fade-up"
+      data-aos-duration="1500"
+    >
       <IconsBasket width="80px" height="80px" />
       <span class="app-font-weight-600">{{ $t("online sell") }}</span>
     </div>
-    <div class="card app-flex app-flex-column" data-aos="fade-down">
+    <div
+      class="card app-flex app-flex-column"
+      data-aos="fade-up"
+      data-aos-duration="1600"
+    >
       <IconsDubbleCheck width="80px" height="80px" />
       <span class="app-font-weight-600">{{ $t("guarantee products") }}</span>
     </div>
-    <div class="card app-flex app-flex-column" data-aos="fade-right">
+    <div
+      class="card app-flex app-flex-column"
+      data-aos="fade-up"
+      data-aos-duration="1700"
+    >
       <IconsSupport width="80px" height="80px" />
       <span class="app-font-weight-600">{{ $t("online support") }}</span>
     </div>
-    <div class="card app-flex app-flex-column" data-aos="fade-up-right">
+    <div
+      class="card app-flex app-flex-column"
+      data-aos="fade-up"
+      data-aos-duration="1800"
+    >
       <IconsBuy width="80px" height="80px" />
       <span class="app-font-weight-600">{{ $t("sell person") }}</span>
     </div>
-    <div class="card app-flex app-flex-column" data-aos="fade-up-left">
+    <div
+      class="card app-flex app-flex-column"
+      data-aos="fade-up"
+      data-aos-duration="1900"
+    >
       <IconsPerformance width="80px" height="80px" />
       <span class="app-font-weight-600">{{ $t("best performance") }}</span>
     </div>

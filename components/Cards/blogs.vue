@@ -1,5 +1,10 @@
 <template>
-  <AppCard class="app-mx-3 app-mt-3" width="300px" data-aos="fade-up">
+  <AppCard
+    class="app-mx-3 app-mt-3"
+    width="300px"
+    data-aos="fade-up"
+    v-if="themeStore.refresh == false"
+  >
     <template #content>
       <div class="app-flex flex-column">
         <div style="width: 300px">
@@ -15,12 +20,18 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 300px"
         >
+          <span class="app-font-size-14 app-font-weight-600"
+            >{{ data.Title }}
+          </span>
           <span class="app-font-size-12 app-font-weight-100"
-            >راهنمای خرید تخت خواب دونفره
+            >{{ data.Description.slice(0, 50) }}...
+          </span>
+          <span class="app-font-size-12 app-font-weight-600 app-color-gray"
+            >{{ $t("autor") }}: نوروزی
           </span>
           <div class="app-flex">
             <span class="app-font-size-14 app-font-weight-100 app-color-gray">
-              1403/07/07
+              {{ data.CreatedAt }}
             </span>
           </div>
           <span

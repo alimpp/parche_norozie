@@ -57,10 +57,10 @@ const singleBlog = computed(() => {
   return blogsStore.singleBlog;
 });
 
-const editBlog = (data) => {
+const editBlog = async (data) => {
+  await blogsStore.getBlogById(data.ID);
   modalType.value = "edit";
   blogModalState.value = true;
-  blogsStore.getBlogById(data.ID);
 };
 
 const deleteBlog = async (data) => {

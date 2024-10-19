@@ -56,7 +56,7 @@
             :name="$t('submit')"
             background="app-bg-primary"
             :loading="loading"
-            @click="createBlog"
+            @click="submit"
           />
         </div>
       </div>
@@ -100,13 +100,18 @@ const form = ref({
 });
 
 const close = () => {
-  form.value.sections = [
-    {
-      description: "",
-      img: "",
-      title: "",
-    },
-  ];
+  form.value = {
+    description: "",
+    img: "",
+    title: "",
+    sections: [
+      {
+        description: "",
+        img: "",
+        title: "",
+      },
+    ],
+  };
   emit("close");
 };
 
@@ -135,7 +140,7 @@ const addSection = async () => {
   }
 };
 
-const createBlog = async () => {
+const submit = async () => {
   loading.value = true;
   await blogsStore.createBlog(form.value);
   loading.value = false;

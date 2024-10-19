@@ -1,5 +1,9 @@
 <template>
-  <div ref="scrollToTop" class="app-container fade_animations">
+  <div
+    ref="scrollToTop"
+    class="app-container fade_animations"
+    style="min-height: 100dvh"
+  >
     <ModalsFilter :state="filterModalState" @close="filterModalState = false" />
     <div class="app-flex">
       <AppDivider :name="$t('products')" :hasLine="true" width="65px" />
@@ -14,7 +18,8 @@
       </div>
     </div>
 
-    <div class="app-w-100">
+    <CategorySlide class="app-mt-5" />
+    <div class="app-w-100 app-mt-8">
       <div
         class="products app-flex app-justify-center app-align-center app-flex-wrap"
       >
@@ -30,9 +35,6 @@
 </template>
 
 <script setup>
-import { useThemeStore } from "@/store/theme/index";
-const themeStore = useThemeStore();
-
 const filterModalState = ref(false);
 
 const dataSource = computed(() => {

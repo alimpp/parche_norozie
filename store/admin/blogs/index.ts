@@ -9,14 +9,12 @@ export const useBlogsStore = defineStore("useBlogsStore", {
   }),
   actions: {
     async blogList() {
-      const cookie = useCookie("token");
+      this.loading = !this.loading;
       const res = await $fetch("/api/v1/blog/list", {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${cookie.value}`,
-        },
       });
       this.blogsList = res.data;
+      this.loading = !this.loading;
     },
 
     async createBlog(param: any) {

@@ -2,6 +2,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
   ssr: false,
+  purgecss: {
+    safelist: {
+      greedy: [/w-/, /h-/, /\[/, /swiper/, /!/],
+    },
+  },
   runtimeConfig: {
     public: {
       BASE_URL: process.env.BASE_URL,

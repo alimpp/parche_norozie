@@ -34,7 +34,7 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 200px"
         >
-          <span class="app-font-size-12 app-font-weight-100">{{
+          <span class="app-font-size-12 app-font-weight-600">{{
             data.name
           }}</span>
           <div class="app-flex">
@@ -54,14 +54,14 @@
             v-if="data.hasDiscount"
             class="app-flex app-flex-column app-align-end app-mt-1 app-w-100 bg-discount app-border-radius app-px-1"
           >
-            <span class="app-font-size-12 app-font-weight-100"
+            <span class="app-font-size-12 app-font-weight-600"
               >{{ data.discountPrice }} {{ $t("toman") }}</span
             >
             <span class="app-font-size-10 app-font-weight-100 discount-style"
               >{{ data.price }} {{ $t("toman") }}</span
             >
           </div>
-          <div v-else class="app-flex app-justify-end app-mt-5 app-w-100">
+          <div v-else class="app-flex app-justify-end app-mt-5 app-w-600">
             <span class="app-font-size-12 app-font-weight-100"
               >{{ data.price }} {{ $t("toman") }}</span
             >
@@ -78,7 +78,7 @@
   ></AppCard>
 
   <AppCard
-    data-aos="zoom-in-left"
+    data-aos="fade-up"
     class="app-mx-3 app-mt-3"
     width="240px"
     v-if="
