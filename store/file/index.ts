@@ -5,6 +5,7 @@ export const useFileStore = defineStore("useFileStore", {
   state: (): any => ({}),
 
   getters: {},
+
   actions: {
     async upload(file: any, name: string) {
       const cookie = useCookie("token");

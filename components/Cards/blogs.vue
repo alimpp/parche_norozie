@@ -20,22 +20,23 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 300px"
         >
-          <span class="app-font-size-14 app-font-weight-600"
+          <div class="app-flex">
+            <AppAvatar width="40px" height="40px" name="ع" />
+            <div class="app-flex app-flex-column app-px-2">
+              <span class="app-font-size-10">علیرضا نوروزی</span>
+              <span class="app-font-size-10">ادمین فروشگاه نوروزی</span>
+            </div>
+          </div>
+          <span
+            class="app-font-size-14 app-font-weight-600 app-color-primary app-pt-5"
             >{{ data.Title }}
           </span>
           <span class="app-font-size-12 app-font-weight-100"
             >{{ data.Description.slice(0, 50) }}...
           </span>
-          <span class="app-font-size-12 app-font-weight-600 app-color-gray"
-            >{{ $t("autor") }}: نوروزی
-          </span>
-          <div class="app-flex">
-            <span class="app-font-size-14 app-font-weight-100 app-color-gray">
-              {{ data.CreatedAt }}
-            </span>
-          </div>
           <span
-            class="app-color-primary app-font-size-14 app-py-2 app-pointer"
+            class="app-color-primary app-font-size-12 app-py-2 app-pointer"
+            @click="read"
             >{{ $t("read more blog") }}</span
           >
         </div>
@@ -49,12 +50,18 @@ import { useThemeStore } from "@/store/theme/index";
 
 const themeStore = useThemeStore();
 
+const emit = defineEmits(["read"]);
+
 const props = defineProps({
   data: {
     default: {},
     type: Object,
   },
 });
+
+const read = () => {
+  emit("read", props.data);
+};
 </script>
 
 <style scoped>
