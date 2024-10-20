@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container fade_animations">
+  <div class="app-container fade_animations" style="min-height: 100dvh">
     <AppDivider :name="$t('account')" width="82px" :hasLine="true" />
     <div class="app-flex app-flex-column app-w-100 app-mt-5">
       <AppInput :disabled="true" v-model="form.phone" label="شماره تلفن" />

@@ -7,7 +7,7 @@
   <AxonGifs />
   <div class="app-container">
     <div class="about-us-content">
-      <div class="about-us-info app-flex app-flex-column" data-aos="fade-left">
+      <div class="about-us-info app-flex app-flex-column" data-aos="fade-up">
         <AppDivider
           class="app-mx-3"
           :name="$t('aboutUs')"
@@ -34,7 +34,7 @@
           @click="navigateTo('/about-us')"
         />
       </div>
-      <div class="image-content" data-aos="fade-right">
+      <div class="image-content" data-aos="fade-up">
         <img
           src="@/assets/images/about-us/1.jpg"
           alt="image"

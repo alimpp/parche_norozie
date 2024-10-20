@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container fade_animations">
+  <div class="app-container fade_animations" style="min-height: 100dvh">
     <ModalsAddress :state="state" @close="state = false" />
     <div class="app-w-100 app-flex app-flex app-align-center">
       <div class="app-w-50">

@@ -56,7 +56,7 @@
             :name="$t('submit')"
             background="app-bg-primary"
             :loading="loading"
-            @click="createBlog"
+            @click="submit"
           />
         </div>
       </div>
@@ -70,9 +70,17 @@ import { validateEmpty } from "@/utils/validate.js";
 const emit = defineEmits(["close"]);
 
 const props = defineProps({
+  modalType: {
+    type: String,
+    default: "add",
+  },
   state: {
     type: Boolean,
     default: false,
+  },
+  data: {
+    type: Object,
+    default: {},
   },
 });
 
@@ -92,13 +100,18 @@ const form = ref({
 });
 
 const close = () => {
-  form.value.sections = [
-    {
-      description: "",
-      img: "",
-      title: "",
-    },
-  ];
+  form.value = {
+    description: "",
+    img: "",
+    title: "",
+    sections: [
+      {
+        description: "",
+        img: "",
+        title: "",
+      },
+    ],
+  };
   emit("close");
 };
 
@@ -127,12 +140,39 @@ const addSection = async () => {
   }
 };
 
-const createBlog = async () => {
+const submit = async () => {
   loading.value = true;
-  await blogsStore.createBlog(form.value);
+  if (props.modalType == "edit") {
+    await blogsStore.updateBlog(form.value);
+  } else {
+    await blogsStore.createBlog(form.value);
+  }
   loading.value = false;
+  form.value = {
+    description: "",
+    img: "",
+    title: "",
+    sections: [
+      {
+        description: "",
+        img: "",
+        title: "",
+      },
+    ],
+  };
   emit("close");
 };
+
+watch(
+  () => props.modalType,
+  () => {
+    console.log("props ==>> ", props.data);
+
+    form.value = props.data;
+
+    console.log("form value ==>> ", form.value);
+  }
+);
 </script>
 
 <style scoped>

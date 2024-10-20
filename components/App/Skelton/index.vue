@@ -4,6 +4,7 @@
       class="skeleton-content app-border-radius"
       :style="{
         width: `${width}`,
+        height: `${height}`,
       }"
     >
       <div class="animation-content"></div>
@@ -14,6 +15,10 @@
 <script setup>
 const props = defineProps({
   width: {
+    type: String,
+    default: "",
+  },
+  height: {
     type: String,
     default: "",
   },
