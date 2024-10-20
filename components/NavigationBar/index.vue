@@ -127,7 +127,7 @@ const detectToken = computed(() => {
 <style scoped>
 .navigation {
   position: fixed;
-  z-index: 1;
+  z-index: 30;
 }
 .mobile-size {
   display: none;

@@ -1,8 +1,20 @@
 <template>
-  <div class="app-w-100 app-h-75 app-flex app-justify-center app-align-center">
+  <div
+    class="app-w-100 app-flex app-justify-center app-align-center"
+    :style="{ height: height }"
+  >
     <div class="loader"></div>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({
+  height: {
+    type: String,
+    default: "75dvh",
+  },
+});
+</script>
 
 <style scoped>
 .loader {

@@ -1,7 +1,7 @@
 <template>
   <div class="app-container fade_animations" style="min-height: 100dvh">
     <ModalsAddress :state="state" @close="state = false" />
-    <div class="app-w-100 app-flex app-flex app-align-center">
+    <div class="app-w-100 app-flex app-flex app-align-center app-py-5">
       <div class="app-w-50">
         <AppDivider
           :name="$t('address and submit address')"
@@ -14,8 +14,7 @@
           class="app-mt-2"
           :name="$t('new address')"
           background="app-bg-primary"
-          height="35px"
-          @click="state = true"
+          @click="openModalAddress"
         />
       </div>
     </div>
@@ -44,6 +43,10 @@ import { useAddressStore } from "@/store/address/index";
 
 const addressStore = useAddressStore();
 const state = ref(false);
+
+const openModalAddress = () => {
+  state.value = !state.value;
+};
 
 const allAddress = computed(() => {
   return addressStore.address;
