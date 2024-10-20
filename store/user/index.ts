@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useCookie, useFetch } from "#app";
-
+import { useToastStore } from "../toast";
 import { useAuthStore } from "../auth";
 export const useUserStore = defineStore("useUserStore", {
   state: (): any => ({
@@ -32,6 +32,8 @@ export const useUserStore = defineStore("useUserStore", {
 
     async sendProfile(param: any) {
       const cookie = useCookie("token");
+      const toastStore = useToastStore();
+
       await useFetch("/api/v1/profile/update", {
         method: "PUT",
         body: param,
@@ -39,8 +41,16 @@ export const useUserStore = defineStore("useUserStore", {
           Authorization: `Bearer ${cookie.value}`,
         },
       })
-        .then((res) => {
+        .then((res: any) => {
           this.userProfile();
+          if (res.data.value.status == 200) {
+            toastStore.state = true;
+            toastStore.title = res.data.value.message;
+            toastStore.text = "اطلاعات حساب کاربری شما با موفقیت ویرایش شد";
+            setTimeout(() => {
+              toastStore.reset();
+            }, 2000);
+          }
         })
         .catch((err) => {
           err;

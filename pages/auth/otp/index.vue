@@ -97,7 +97,13 @@ const handleSendOtp = async () => {
   if (authStore.isAuthenticated) {
     loading.value = false;
     otpError.value = false;
-    navigateTo("/");
+    const lastRoute = localStorage.getItem("lastRoute");
+    if (lastRoute) {
+      navigateTo(lastRoute);
+      localStorage.removeItem("lastRoute");
+    } else {
+      navigateTo("/");
+    }
   } else {
     loading.value = false;
     otpError.value = true;
