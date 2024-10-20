@@ -18,18 +18,17 @@
       </div>
     </template>
   </AppCard>
-  <ModalsBlog
-    :state="blogModalState"
-    :modalType="modalType"
-    :data="singleBlog"
-    @close="blogModalState = false"
+  <ModalsUpdateBlog
+    :state="blogUpdateModalState"
+    @close="blogUpdateModalState = false"
   />
+  <ModalsBlog :state="blogModalState" @close="blogModalState = false" />
   <CardsAdminBlog
     v-for="(data, index) in dataSource"
     :key="index"
     :data="data"
     @deleteBlog="deleteBlog"
-    @editBlog="editBlog"
+    @editBlog="openUpdateModalBlog"
     class="app-mt-3 fade_animations"
   />
 </template>
@@ -42,7 +41,6 @@ definePageMeta({
 });
 
 const blogsStore = useBlogsStore();
-const modalType = ref("add");
 
 const blogModalState = ref(false);
 const openBlogModal = () => {
@@ -53,14 +51,10 @@ const dataSource = computed(() => {
   return blogsStore.blogsList;
 });
 
-const singleBlog = computed(() => {
-  return blogsStore.singleBlog;
-});
-
-const editBlog = async (data) => {
+const blogUpdateModalState = ref(false);
+const openUpdateModalBlog = async (data) => {
   await blogsStore.getBlogById(data.ID);
-  modalType.value = "edit";
-  blogModalState.value = true;
+  blogUpdateModalState.value = true;
 };
 
 const deleteBlog = async (data) => {

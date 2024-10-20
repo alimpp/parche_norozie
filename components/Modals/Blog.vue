@@ -67,13 +67,10 @@
 <script setup>
 import { useBlogsStore } from "~/store/admin/blogs";
 import { validateEmpty } from "@/utils/validate.js";
+
 const emit = defineEmits(["close"]);
 
 const props = defineProps({
-  modalType: {
-    type: String,
-    default: "add",
-  },
   state: {
     type: Boolean,
     default: false,
@@ -142,37 +139,10 @@ const addSection = async () => {
 
 const submit = async () => {
   loading.value = true;
-  if (props.modalType == "edit") {
-    await blogsStore.updateBlog(form.value);
-  } else {
-    await blogsStore.createBlog(form.value);
-  }
+  await blogsStore.createBlog(form.value);
   loading.value = false;
-  form.value = {
-    description: "",
-    img: "",
-    title: "",
-    sections: [
-      {
-        description: "",
-        img: "",
-        title: "",
-      },
-    ],
-  };
-  emit("close");
+  close();
 };
-
-watch(
-  () => props.modalType,
-  () => {
-    console.log("props ==>> ", props.data);
-
-    form.value = props.data;
-
-    console.log("form value ==>> ", form.value);
-  }
-);
 </script>
 
 <style scoped>

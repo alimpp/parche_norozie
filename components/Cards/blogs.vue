@@ -36,6 +36,7 @@
           </div>
           <span
             class="app-color-primary app-font-size-14 app-py-2 app-pointer"
+            @click="read"
             >{{ $t("read more blog") }}</span
           >
         </div>
@@ -49,12 +50,18 @@ import { useThemeStore } from "@/store/theme/index";
 
 const themeStore = useThemeStore();
 
+const emit = defineEmits(["read"]);
+
 const props = defineProps({
   data: {
     default: {},
     type: Object,
   },
 });
+
+const read = () => {
+  emit("read", props.data);
+};
 </script>
 
 <style scoped>
