@@ -51,6 +51,33 @@
           <FileImage class="app-mt-5" />
         </div>
         <div>
+          <div>
+            <AppInput
+              height="35px"
+              width="60px"
+              :label="$t('tag')"
+              v-model="inputTag"
+            />
+            <AppButton
+              class="app-mt-4 app-w-20"
+              :name="$t('addTag')"
+              background="app-bg-primary"
+              :loading="loading"
+              @click="addTag"
+            />
+          </div>
+          <div class="app-flex app-w-20" v-for="(tag, index) in form.tags">
+            <div @click="removeTag(index)">
+              <XIcon
+                size="1.2x"
+                class="custom-class app-pointer app-mx-2"
+              ></XIcon>
+            </div>
+            <span></span>
+            <span>{{ index + 1 }}- {{ tag }}</span>
+          </div>
+        </div>
+        <div>
           <AppButton
             class="app-mt-4"
             :name="$t('submit')"
@@ -94,7 +121,9 @@ const form = ref({
       title: "",
     },
   ],
+  tags: [],
 });
+const inputTag = ref("");
 
 const close = () => {
   form.value = {
@@ -108,6 +137,7 @@ const close = () => {
         title: "",
       },
     ],
+    tags: [],
   };
   emit("close");
 };
@@ -137,6 +167,16 @@ const addSection = async () => {
   }
 };
 
+const addTag = () => {
+  if (inputTag.value) {
+    form.value.tags.push(inputTag.value);
+    inputTag.value = "";
+  }
+};
+
+const removeTag = (index) => {
+  form.value.tags.splice(index, 1);
+};
 const submit = async () => {
   loading.value = true;
   await blogsStore.createBlog(form.value);
