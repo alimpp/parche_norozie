@@ -211,10 +211,14 @@ const props = defineProps({
   },
 });
 
+const isThemeChanges = ref(false);
+
 const changeThemeState = (val) => {
   themeStore.refresh = true;
+  isThemeChanges.value = true;
+
   if (userStore.user) {
-    userStore.sendProfile({ ...userStore.user, theme: val });
+    userStore.sendProfile({ ...userStore.user, theme: val }, isThemeChanges);
   }
   themeStore.updateThemeState(val);
   setTimeout(() => {

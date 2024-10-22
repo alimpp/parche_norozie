@@ -30,7 +30,7 @@ export const useUserStore = defineStore("useUserStore", {
       }
     },
 
-    async sendProfile(param: any) {
+    async sendProfile(param: any, isThemeChanges: any) {
       const cookie = useCookie("token");
       const toastStore = useToastStore();
 
@@ -43,7 +43,7 @@ export const useUserStore = defineStore("useUserStore", {
       })
         .then((res: any) => {
           this.userProfile();
-          if (res.data.value.status == 200) {
+          if (res.data.value.status == 200 && isThemeChanges.value == false) {
             toastStore.state = true;
             toastStore.title = res.data.value.message;
             toastStore.text = "اطلاعات حساب کاربری شما با موفقیت ویرایش شد";

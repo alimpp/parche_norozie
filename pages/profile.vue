@@ -78,6 +78,8 @@ const error = ref({
   name: { state: false, message: "" },
 });
 
+const isThemeChanges = ref(false);
+
 const sendProfile = async () => {
   const userStore = useUserStore();
 
@@ -97,10 +99,13 @@ const sendProfile = async () => {
     loading.value = true;
 
     await userStore
-      .sendProfile({
-        ...form.value,
-        theme: form.value.theme ? form.value.theme : "light",
-      })
+      .sendProfile(
+        {
+          ...form.value,
+          theme: form.value.theme ? form.value.theme : "light",
+        },
+        isThemeChanges
+      )
       .then((res) => {
         loading.value = false;
       })
