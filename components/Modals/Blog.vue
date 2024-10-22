@@ -57,6 +57,7 @@
               width="60px"
               :label="$t('tag')"
               v-model="inputTag"
+              @keyup.enter="addTag"
             />
             <AppButton
               class="app-mt-4 app-w-20"
@@ -66,15 +67,18 @@
               @click="addTag"
             />
           </div>
-          <div class="app-flex app-w-20" v-for="(tag, index) in form.tags">
-            <div @click="removeTag(index)">
-              <XIcon
-                size="1.2x"
-                class="custom-class app-pointer app-mx-2"
-              ></XIcon>
+          <div class="app-flex app-flex-wrap app-my-2">
+            <div
+              class="app-w-20 app-border app-border-radius app-mx-2 app-my-2 app-pt-1 app-bg-light"
+              v-for="(tag, index) in form.tags"
+            >
+              <div class="app-flex">
+                <div class="app-pt-1" @click="removeTag(index)">
+                  <XIcon size="0.9x" class="app-pointer"></XIcon>
+                </div>
+                <span class="app-px-2">{{ tag }}</span>
+              </div>
             </div>
-            <span></span>
-            <span>{{ index + 1 }}- {{ tag }}</span>
           </div>
         </div>
         <div>
@@ -187,6 +191,10 @@ const submit = async () => {
 
 <style scoped>
 .container {
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+.tags-container {
   max-height: 90vh;
   overflow-y: scroll;
 }
