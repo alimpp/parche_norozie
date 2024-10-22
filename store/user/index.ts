@@ -53,12 +53,14 @@ export const useUserStore = defineStore("useUserStore", {
           }
         })
         .catch((err) => {
-          toastStore.state = true;
-          toastStore.title = "خطا در انجام عملیات";
-          toastStore.text = "اطلاعات ویرایش نشد !!!";
-          setTimeout(() => {
-            toastStore.reset();
-          }, 2000);
+          if (isThemeChanges.value == false) {
+            toastStore.state = true;
+            toastStore.title = "خطا در انجام عملیات";
+            toastStore.text = "اطلاعات ویرایش نشد !!!";
+            setTimeout(() => {
+              toastStore.reset();
+            }, 2000);
+          }
         });
     },
   },
