@@ -17,7 +17,7 @@
             alt="image"
           />
         </div>
-        <div class="app-flex app-flex-column app-px-4 app-py-4">
+        <div class="app-flex app-flex-column app-px-4 app-py-4 app-w-70">
           <span class="app-font-size-12 app-font-weight-600"
             >{{ $t("title") }} :</span
           >
