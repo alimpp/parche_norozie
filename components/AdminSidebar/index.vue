@@ -139,16 +139,16 @@
       <div
         class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
         :class="{
-          'app-bg-primary': route.path == '/admin/costumers',
+          'app-bg-primary': route.path == '/admin/customers',
           'app-justify-center': sidebarState == 'close',
         }"
-        @click="navigateTo('/admin/costumers')"
+        @click="navigateTo('/admin/customers')"
       >
         <UserIcon size="1.5x"></UserIcon>
         <span
           class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
-          >{{ $t("costumers") }}</span
+          >{{ $t("customers") }}</span
         >
       </div>
       <div

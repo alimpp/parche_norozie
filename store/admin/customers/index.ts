@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
-import { CostumersDataModel } from "@/model/costumers";
+import { CustomersDataModel } from "~/model/customers";
 export const useCustomersStore = defineStore("useCustomersStore", {
   state: (): any => ({
     customers: [],
@@ -19,7 +19,7 @@ export const useCustomersStore = defineStore("useCustomersStore", {
         }
       )
         .then((res: any) => {
-          this.customers = CostumersDataModel(res.data);
+          this.customers = CustomersDataModel(res.data);
         })
         .catch((err) => {
           console.log(err);

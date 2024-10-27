@@ -1,4 +1,4 @@
-export const CostumersDataModel = (data: any) => {
+export const CustomersDataModel = (data: any) => {
   let list: any = [];
   data.forEach((element: any) => {
     const costumer = {
