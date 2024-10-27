@@ -1,5 +1,5 @@
 <template>
-  <div class="app-w-100">
+  <div class="app-flex app-flex-column app-w-100">
     <AppCard class="app-mt-3">
       <template #content>
         <div class="app-flex app-align-center app-px-2 app-py-4">
@@ -35,19 +35,18 @@
       </template>
     </AppCard>
 
-    <CardsCustomers
-      v-else
-      v-for="customer in customersDataSource"
-      :data="customer"
-      class="app-mt-3 fade_animations"
-    />
-    <div v-if="customersDataSource.length == 0"
-     class="app-flex app-align-center app-justify-center app-mt-15">
-      <span
-        class="app-font-size-16 app-font-weight-300"
-        
-        >{{ $t("no items found") }}</span
+    <div v-else>
+      <CardsCustomers
+        v-for="customer in customersDataSource"
+        :data="customer"
+        class="app-mt-3 fade_animations"
+      />
+      <div
+        v-if="customersDataSource.length == 0"
+        class="app-flex app-h-70 app-align-center app-justify-center"
       >
+        <AppEmptyContent />
+      </div>
     </div>
   </div>
 </template>
