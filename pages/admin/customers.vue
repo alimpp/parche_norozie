@@ -17,7 +17,7 @@
         </div>
       </template>
     </AppCard>
-    <ModalsCustomers :state="modalState" @close="modalState = false"/>
+    <ModalsCustomers :state="modalState" @close="modalState = false" />
     <AppCard
       v-if="customersLoading"
       v-for="n in 20"
@@ -41,6 +41,14 @@
       :data="customer"
       class="app-mt-3 fade_animations"
     />
+    <div v-if="customersDataSource.length == 0"
+     class="app-flex app-align-center app-justify-center app-mt-15">
+      <span
+        class="app-font-size-16 app-font-weight-300"
+        
+        >{{ $t("no items found") }}</span
+      >
+    </div>
   </div>
 </template>
 <script setup>
@@ -66,4 +74,3 @@ const openModal = () => {
   modalState.value = true;
 };
 </script>
-
