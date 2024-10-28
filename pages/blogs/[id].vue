@@ -47,19 +47,19 @@
           loading="lazy"
         />
       </div>
-    </div>
-    <div class="app-w-100 app-flex app-flex-column app-mt-5 app-px-10">
-      <AppDivider :name="$t('other blogs')" :hasLine="true" width="100px" />
-      <div
-        class="app-w-100 app-flex app-flex-wrap app-justify-center app-align-center"
-      >
-        <CardsBlogs
-          class="app-mx-5 app-mt-7"
-          :data="data"
-          v-for="data in blogsList"
-          :key="data"
-          @read="read"
-        />
+      <div class="app-w-100 app-flex app-flex-column app-mt-5">
+        <AppDivider :name="$t('other blogs')" :hasLine="true" width="100px" />
+        <div
+          class="app-w-100 app-flex app-flex-wrap app-justify-center app-align-center"
+        >
+          <CardsBlogs
+            class="app-mx-5 app-mt-7"
+            :data="data"
+            v-for="data in blogsList"
+            :key="data"
+            @read="read"
+          />
+        </div>
       </div>
     </div>
   </div>
