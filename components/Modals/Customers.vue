@@ -13,28 +13,33 @@
               height="35px"
               :label="$t('phoneNumber')"
               v-model="filter.phone"
+              @keyup.enter="search"
             />
             <AppInput
               height="35px"
               :label="$t('name')"
               class=""
               v-model="filter.name"
+              @keyup.enter="search"
             />
             <AppInput
               height="35px"
               :label="$t('family name')"
               v-model="filter.lastname"
+              @keyup.enter="search"
             />
             <AppInput
               height="35px"
               :label="$t('email address')"
               class=""
               v-model="filter.email"
+              @keyup.enter="search"
             />
             <AppInput
               height="35px"
               :label="$t('id card')"
               v-model="filter.id_card_number"
+              @keyup.enter="search"
             />
             <AppButton
               class="app-mt-4"
@@ -65,7 +70,6 @@ const props = defineProps({
   },
 });
 
-
 const filter = ref({
   name: "",
   lastname: "",
@@ -78,6 +82,14 @@ const filter = ref({
 const search = () => {
   customersStore.getAllCustomers(filter.value);
   emit("close");
+  filter.value = {
+    name: "",
+    lastname: "",
+    id_card_number: "",
+    email: "",
+    phone: "",
+    job: "",
+  };
 };
 
 onMounted(async () => {

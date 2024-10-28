@@ -18,18 +18,12 @@
       </template>
     </AppCard>
     <ModalsCustomers :state="modalState" @close="modalState = false" />
-    <AppCard
+    <div
       v-if="customersLoading"
-      v-for="n in 20"
-      class="app-mt-3 fade_animations"
+      class="app-flex app-flex-column app-px-2 app-py-2"
     >
-      <template #content>
-        <div class="app-flex app-flex-column app-px-2 app-py-2">
-          <AppLoading height="70vh"/>
-        </div>
-      </template>
-    </AppCard>
-
+      <AppLoading height="70vh" />
+    </div>
     <div v-else>
       <CardsCustomers
         v-for="customer in customersDataSource"
