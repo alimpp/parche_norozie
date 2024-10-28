@@ -12,6 +12,7 @@
             height="35px"
             :label="$t('title')"
             v-model="form.title"
+            @keyup.enter="submit"
           />
         </div>
         <div>
@@ -20,7 +21,7 @@
             :name="$t('submit')"
             background="app-bg-primary"
             :loading="loading"
-            @click=""
+            @click="submit"
           />
         </div>
       </div>
@@ -29,13 +30,32 @@
 </template>
 
 <script setup>
+import { useCategoryStore } from "~/store/admin/category";
+const categoryStore = useCategoryStore();
+
+const emit = defineEmits(["close"]);
+
+const close = () => {
+  form.value = {
+    parent_id: null,
+    title: "",
+  };
+  emit("close");
+};
 
 const form = ref({
-  parent_id: 0,
+  parent_id: null,
   title: "",
 });
 
 const loading = ref(false);
+
+const submit = async () => {
+  loading.value = true;
+  await categoryStore.createCategory(form.value);
+  loading.value = false;
+  close();
+};
 </script>
 
 <style scoped>

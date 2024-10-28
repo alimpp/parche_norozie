@@ -18,16 +18,43 @@
       </div>
     </template>
   </AppCard>
-  <ModalsCategory :state="categoryModalState" @close="categoryModalState = false" />
+  <ModalsCategory
+    :state="categoryModalState"
+    @close="categoryModalState = false"
+  />
+  <span>test delete</span>
+  <div class="app-pointer app-flex" v-for="(data, index) in dataSource">
+    <div class="app-pt-1" @click="deleteCategory(data)">
+      <XIcon size="1.0x" class="app-pointer"></XIcon>
+    </div>
+    /
+    <span>{{ data.ID }} {{ data.Title }}</span>
+  </div>
 </template>
 <script setup>
+import { useCategoryStore } from "~/store/admin/category";
+
+const categoryStore = useCategoryStore();
+
 definePageMeta({
   middleware: ["admin-auth"],
   layout: "admin",
 });
 
+const dataSource = computed(() => {
+  return categoryStore.categories;
+});
+
+const deleteCategory = async (data) => {
+  await categoryStore.deleteCategory(data.ID);
+};
+
 const categoryModalState = ref(false);
 const openCategoryModal = () => {
   categoryModalState.value = true;
 };
+
+onMounted(() => {
+  categoryStore.categoryList();
+});
 </script>
