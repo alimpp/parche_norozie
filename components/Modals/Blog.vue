@@ -22,6 +22,13 @@
             :message-error="error.description.message"
           />
           <FileImage class="app-mt-5" />
+          <AppInput
+            height="35px"
+            :label="$t('reading time')"
+            v-model="form.reading_time"
+            :error="error.reading_time.state"
+            :message-error="error.reading_time.message"
+          />
           <div>
             <AppButton
               class="app-mt-4"
@@ -118,6 +125,7 @@ const form = ref({
   description: "",
   img: "",
   title: "",
+  reading_time: "",
   sections: [
     {
       description: "",
@@ -134,6 +142,7 @@ const close = () => {
     description: "",
     img: "",
     title: "",
+    reading_time: "",
     sections: [
       {
         description: "",
@@ -150,6 +159,7 @@ const error = ref({
   description: { state: false, message: "" },
   img: { state: false, message: "" },
   title: { state: false, message: "" },
+  reading_time: { state: false, message: "" },
 });
 
 const loading = ref(false);
@@ -157,9 +167,11 @@ const loading = ref(false);
 const addSection = async () => {
   error.value.title = validateEmpty(form.value.title);
   error.value.description = validateEmpty(form.value.description);
+  error.value.reading_time = validateNumber(form.value.reading_time);
   if (
     !error.value.title.state &&
     !error.value.description.state &&
+    !error.value.reading_time.state &&
     form.value.sections[form.value.sections.length - 1].title != "" &&
     form.value.sections[form.value.sections.length - 1].description != ""
   ) {

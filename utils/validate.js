@@ -170,3 +170,11 @@ export const validateAdminPassword = (param) => {
     };
   }
 };
+
+export const validateNumber = (param) => {
+  if (isNaN(param)) {
+    return { state: true, message: "فقط عدد وارد کنید !!!" };
+  } else {
+    return { state: false, message: "" };
+  }
+};
