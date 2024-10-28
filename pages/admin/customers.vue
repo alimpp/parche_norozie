@@ -25,12 +25,7 @@
     >
       <template #content>
         <div class="app-flex app-flex-column app-px-2 app-py-2">
-          <AppSkelton width="300px" />
-          <AppSkelton width="150px" />
-          <AppSkelton width="350px" />
-          <AppSkelton width="250px" />
-          <AppSkelton width="210px" />
-          <AppSkelton width="150px" />
+          <AppLoading height="70vh"/>
         </div>
       </template>
     </AppCard>
