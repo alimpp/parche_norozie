@@ -92,7 +92,4 @@ const search = () => {
   };
 };
 
-onMounted(async () => {
-  await customersStore.getAllCustomers(filter.value);
-});
 </script>

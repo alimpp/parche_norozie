@@ -7,6 +7,11 @@
             <AppBeardCrumb :route="$t('dashboard')" :child="$t('customers')" />
           </div>
           <div class="app-w-50 app-flex app-justify-end">
+            <IconsRefresh
+              width="15px"
+              class="app-mx-4 app-pointer"
+              @click="getAllCustomers"
+            />
             <AppButton
               :name="$t('search') + ' ' + $t('customers')"
               background="app-bg-primary"
@@ -61,4 +66,29 @@ const modalState = ref(false);
 const openModal = () => {
   modalState.value = true;
 };
+
+const getAllCustomers = async () => {
+  filter.value = {
+    name: "",
+    lastname: "",
+    id_card_number: "",
+    email: "",
+    phone: "",
+    job: "",
+  };
+  await customersStore.getAllCustomers(filter.value);
+};
+
+const filter = ref({
+  name: "",
+  lastname: "",
+  id_card_number: "",
+  email: "",
+  phone: "",
+  job: "",
+});
+
+onMounted(async () => {
+  await customersStore.getAllCustomers(filter.value);
+});
 </script>
