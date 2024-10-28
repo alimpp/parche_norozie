@@ -37,9 +37,9 @@
         }"
         @click="navigateTo('/admin/dashboard')"
       >
-        <BarChartIcon size="1.5x"></BarChartIcon>
+        <BarChartIcon size="1x"></BarChartIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("dashboard") }}</span
         >
@@ -53,9 +53,9 @@
         }"
         @click="navigateTo('/admin/catgory')"
       >
-        <ArchiveIcon size="1.5x"></ArchiveIcon>
+        <ArchiveIcon size="1x"></ArchiveIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("category") }}</span
         >
@@ -69,9 +69,9 @@
         }"
         @click="navigateTo('/admin/property')"
       >
-        <ActivityIcon size="1.5x"></ActivityIcon>
+        <ActivityIcon size="1x"></ActivityIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("property") }}</span
         >
@@ -84,9 +84,9 @@
         }"
         @click="navigateTo('/admin/property-value')"
       >
-        <CloudLightningIcon size="1.5x"></CloudLightningIcon>
+        <CloudLightningIcon size="1x"></CloudLightningIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("property value") }}</span
         >
@@ -99,9 +99,9 @@
         }"
         @click="navigateTo('/admin/products')"
       >
-        <CodesandboxIcon size="1.5x"></CodesandboxIcon>
+        <CodesandboxIcon size="1x"></CodesandboxIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("products") }}</span
         >
@@ -114,9 +114,9 @@
         }"
         @click="navigateTo('/admin/orders')"
       >
-        <ShoppingCartIcon size="1.5x"></ShoppingCartIcon>
+        <ShoppingCartIcon size="1x"></ShoppingCartIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("orders") }}</span
         >
@@ -129,9 +129,9 @@
         }"
         @click="navigateTo('/admin/blogs')"
       >
-        <AlignLeftIcon size="1.5x"></AlignLeftIcon>
+        <AlignLeftIcon size="1x"></AlignLeftIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("blogs") }}</span
         >
@@ -144,9 +144,9 @@
         }"
         @click="navigateTo('/admin/customers')"
       >
-        <UserIcon size="1.5x"></UserIcon>
+        <UserIcon size="1x"></UserIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("customers") }}</span
         >
@@ -159,9 +159,9 @@
         }"
         @click="navigateTo('/admin/tickets')"
       >
-        <FileTextIcon size="1.5x"></FileTextIcon>
+        <FileTextIcon size="1x"></FileTextIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("tickets") }}</span
         >
@@ -174,9 +174,9 @@
         }"
         @click="navigateTo('/admin/setting')"
       >
-        <SettingsIcon size="1.5x"></SettingsIcon>
+        <SettingsIcon size="1x"></SettingsIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("setting") }}</span
         >
@@ -188,9 +188,9 @@
         }"
         @click="logOut()"
       >
-        <ArrowRightIcon size="1.5x"></ArrowRightIcon>
+        <ArrowRightIcon size="1x"></ArrowRightIcon>
         <span
-          class="app-font-size-14 app-font-weight-600 app-px-2 app-pt-1"
+          class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
           v-if="sidebarState == 'open'"
           >{{ $t("exit") }}</span
         >

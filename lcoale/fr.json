@@ -130,5 +130,8 @@
   "addTag": "اضافه کردن تگ",
   "no items found": "موردی یافت نشد !!!",
   "reading time": "زمان مطالعه",
-  "create category": "ایجاد دسته بندی"
+  "create category": "ایجاد دسته بندی",
+  "category name": "نام دسته بندی",
+  "sub catgory": "دسته بندی مرجع",
+  "branch category": "زیر شاخه ها"
 }

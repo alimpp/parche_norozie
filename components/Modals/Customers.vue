@@ -45,8 +45,8 @@
               class="app-mt-4"
               :name="$t('search')"
               background="app-bg-primary"
-              icon="search"
-              height="35px"
+              height="32px"
+              fontSize="app-font-size-12"
               @click="search"
             />
           </div>
@@ -91,5 +91,4 @@ const search = () => {
     job: "",
   };
 };
-
 </script>

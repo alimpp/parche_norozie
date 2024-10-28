@@ -13,12 +13,12 @@ const props = defineProps({
 
 <style scoped>
 .app-badge {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 10px;
+  font-size: 12px;
 }
 </style>

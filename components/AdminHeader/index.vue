@@ -9,11 +9,11 @@
   >
     <div class="app-w-50 app-flex app-flex app-align-center">
       <div class="app-mx-3 app-mt-2 app-pointer app-mx-4 app-flex">
-        <ShoppingCartIcon size="1.5x"></ShoppingCartIcon>
-        <AppBadge badge="9" />
+        <ShoppingCartIcon size="1x"></ShoppingCartIcon>
+        <AppBadge badge="25" />
       </div>
       <div class="app-mx-3 app-mt-2 app-pointer app-flex">
-        <FileTextIcon size="1.5x"></FileTextIcon>
+        <FileTextIcon size="1x"></FileTextIcon>
         <AppBadge badge="19" />
       </div>
     </div>

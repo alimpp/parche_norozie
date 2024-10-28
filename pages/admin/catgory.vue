@@ -9,27 +9,26 @@
           <AppButton
             :name="$t('create category')"
             background="app-bg-primary"
-            height="35px"
-            width="150px"
+            height="32px"
+            fontSize="app-font-size-12"
             @click="openCategoryModal"
-            class="app-mx-4"
           />
         </div>
       </div>
     </template>
   </AppCard>
+
+  <CardsCategory
+    v-for="(data, index) in dataSource"
+    :key="index"
+    :data="data"
+    class="app-mt-2"
+  />
+
   <ModalsCategory
     :state="categoryModalState"
     @close="categoryModalState = false"
   />
-  <span>test delete</span>
-  <div class="app-pointer app-flex" v-for="(data, index) in dataSource">
-    <div class="app-pt-1" @click="deleteCategory(data)">
-      <XIcon size="1.0x" class="app-pointer"></XIcon>
-    </div>
-    /
-    <span>{{ data.ID }} {{ data.Title }}</span>
-  </div>
 </template>
 <script setup>
 import { useCategoryStore } from "~/store/admin/category";
@@ -44,10 +43,6 @@ definePageMeta({
 const dataSource = computed(() => {
   return categoryStore.categories;
 });
-
-const deleteCategory = async (data) => {
-  await categoryStore.deleteCategory(data.ID);
-};
 
 const categoryModalState = ref(false);
 const openCategoryModal = () => {

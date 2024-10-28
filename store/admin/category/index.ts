@@ -14,9 +14,6 @@ export const useCategoryStore = defineStore("useCategoryStore", {
       });
       this.categories = res.data;
       this.loading = !this.loading;
-      console.log(res.data);
-      
-      
     },
 
     async createCategory(param: any) {
@@ -29,11 +26,9 @@ export const useCategoryStore = defineStore("useCategoryStore", {
         },
       });
       this.categoryList();
-      
     },
 
-
-    async deleteCategory(id: number | string) {
+    async removeCategory(id: number | string) {
       const cookie = useCookie("token");
       await $fetch(`/api/v1/category/${id}`, {
         method: "DELETE",

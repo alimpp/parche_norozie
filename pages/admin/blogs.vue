@@ -9,10 +9,9 @@
           <AppButton
             :name="$t('create new blog')"
             background="app-bg-primary"
-            height="35px"
-            width="150px"
+            height="32px"
+            fontSize="app-font-size-12"
             @click="openBlogModal"
-            class="app-mx-4"
           />
         </div>
       </div>
