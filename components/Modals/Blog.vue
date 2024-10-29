@@ -76,15 +76,16 @@
           </div>
           <div class="app-flex app-flex-wrap app-my-2">
             <div
-              class="app-w-20 app-border app-border-radius app-mx-2 app-my-2 app-pt-1 app-bg-light"
+              class="app-border app-border-radius app-px-2 app-py-1 app-flex app-pointer app-mx-1"
               v-for="(tag, index) in form.tags"
+              @click="removeTag(index)"
             >
-              <div class="app-flex">
-                <div class="app-pt-1" @click="removeTag(index)">
-                  <XIcon size="0.9x" class="app-pointer"></XIcon>
-                </div>
-                <span class="app-px-2">{{ tag }}</span>
+              <div class="app-color-white">
+                <AppIconContent color="danger">
+                  <TrashIcon size="1x"></TrashIcon>
+                </AppIconContent>
               </div>
+              <span class="app-px-2 app-pt-1">{{ tag }}</span>
             </div>
           </div>
         </div>
