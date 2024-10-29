@@ -17,30 +17,27 @@
       </div>
     </template>
   </AppCard>
-  <div>
-    <div v-if="loading" class="app-flex app-flex-column app-px-2 app-py-2">
-      <AppLoading height="70vh" />
-    </div>
-    <div
-      v-if="dataSource.length == 0"
-      class="app-flex app-h-70 app-align-center app-justify-center"
-    >
-      <AppEmptyContent />
-    </div>
+
+  <AppLoading height="70vh" v-if="loading" />
+
+  <div v-else>
+    <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
+    <CardsCategory
+      v-else
+      v-for="(data, index) in dataSource"
+      :key="index"
+      :data="data"
+      class="app-mt-2"
+      @deleteCategory="deleteCategory"
+    />
   </div>
-  <CardsCategory
-    v-for="(data, index) in dataSource"
-    :key="index"
-    :data="data"
-    class="app-mt-2"
-    @deleteCategory="deleteCategory"
-  />
 
   <ModalsCategory
     :state="categoryModalState"
     @close="categoryModalState = false"
   />
 </template>
+
 <script setup>
 import { useCategoryStore } from "~/store/admin/category";
 

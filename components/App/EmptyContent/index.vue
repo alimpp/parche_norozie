@@ -1,5 +1,8 @@
 <template>
-  <div class="app-flex app-flex-column">
+  <div
+    class="app-flex app-flex-column app-justify-center app-align-center"
+    :style="{ height: height }"
+  >
     <div>
       <IconsEmpty
         width="80px"
@@ -14,3 +17,12 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({
+  height: {
+    type: String,
+    default: "100dvh",
+  },
+});
+</script>
