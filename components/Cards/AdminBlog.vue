@@ -37,14 +37,18 @@
             {{ data.CreatedAt }}</span
           >
           <div class="app-flex app-mt-4">
-            <span class="app-pointer app-color-primary" @click="editBlog">
-              <EditIcon size="1x"></EditIcon>
+            <span class="app-pointer app-color-white" @click="editBlog">
+              <AppIconContent color="success">
+                <EditIcon size="1x"></EditIcon>
+              </AppIconContent>
             </span>
             <span
-              class="app-color-danger app-pointer app-px-2"
+              class="app-color-white app-pointer app-px-2"
               @click="deleteState = true"
             >
-              <TrashIcon size="1x"></TrashIcon>
+              <AppIconContent color="danger">
+                <TrashIcon size="1x"></TrashIcon>
+              </AppIconContent>
             </span>
           </div>
         </div>

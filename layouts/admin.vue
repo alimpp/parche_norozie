@@ -1,6 +1,6 @@
 <template>
   <div
-    class="app-w-100 app-flex overflow-hidden"
+    class="app-w-100 app-h-100 app-flex overflow-hidden"
     :class="{
       'app-bg-secondary': themeStore.theme == 'light',
       'app-bg-dark': themeStore.theme == 'dark',
