@@ -17,12 +17,23 @@
       </div>
     </template>
   </AppCard>
-
+  <div>
+    <div v-if="loading" class="app-flex app-flex-column app-px-2 app-py-2">
+      <AppLoading height="70vh" />
+    </div>
+    <div
+      v-if="dataSource.length == 0"
+      class="app-flex app-h-70 app-align-center app-justify-center"
+    >
+      <AppEmptyContent />
+    </div>
+  </div>
   <CardsCategory
     v-for="(data, index) in dataSource"
     :key="index"
     :data="data"
     class="app-mt-2"
+    @deleteCategory="deleteCategory"
   />
 
   <ModalsCategory
@@ -44,9 +55,17 @@ const dataSource = computed(() => {
   return categoryStore.categories;
 });
 
+const loading = computed(() => {
+  return categoryStore.loading;
+});
+
 const categoryModalState = ref(false);
 const openCategoryModal = () => {
   categoryModalState.value = true;
+};
+
+const deleteCategory = async (data) => {
+  await categoryStore.removeCategory(data.ID);
 };
 
 onMounted(() => {

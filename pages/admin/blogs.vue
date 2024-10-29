@@ -17,6 +17,17 @@
       </div>
     </template>
   </AppCard>
+  <div>
+    <div v-if="loading" class="app-flex app-flex-column app-px-2 app-py-2">
+      <AppLoading height="70vh" />
+    </div>
+    <div
+      v-if="dataSource.length == 0"
+      class="app-flex app-h-70 app-align-center app-justify-center"
+    >
+      <AppEmptyContent />
+    </div>
+  </div>
   <ModalsUpdateBlog
     :state="blogUpdateModalState"
     @close="blogUpdateModalState = false"
@@ -48,6 +59,10 @@ const openBlogModal = () => {
 
 const dataSource = computed(() => {
   return blogsStore.blogsList;
+});
+
+const loading = computed(() => {
+  return blogsStore.loading;
 });
 
 const blogUpdateModalState = ref(false);

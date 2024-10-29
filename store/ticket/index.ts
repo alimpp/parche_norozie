@@ -8,11 +8,13 @@ export const useTicketStore = defineStore("useTicketStore", {
   state: (): any => ({
     tickets: [],
     ticket: { data: {}, messages: [] },
+    loading: false,
   }),
 
   getters: {},
   actions: {
     async adminAllTickets() {
+      this.loading = !this.loading;
       const cookie = useCookie("token");
       const res = await $fetch("/api/v1/ticketing/all", {
         headers: {
@@ -20,6 +22,7 @@ export const useTicketStore = defineStore("useTicketStore", {
         },
       });
       this.tickets = res.data;
+      this.loading = !this.loading;
     },
 
     async allTickets() {

@@ -133,5 +133,12 @@
   "create category": "ایجاد دسته بندی",
   "category name": "نام دسته بندی",
   "sub catgory": "دسته بندی مرجع",
-  "branch category": "زیر شاخه ها"
+  "branch category": "زیر شاخه ها",
+  "delete category": "حذف دسته بندی",
+  "confirm delete category": "آیا مایل به حذف این دسته بندی هستید؟",
+  "create property": "ایجاد ویژگی",
+  "property name": "نام ویژگی",
+  "delete property": "حذف ویژگی",
+  "confirm delete property": "آیا مایل به حذف این ویژگی هستید؟"
+
 }

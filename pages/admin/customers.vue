@@ -26,7 +26,7 @@
     </AppCard>
     <ModalsCustomers :state="modalState" @close="modalState = false" />
     <div
-      v-if="customersLoading"
+      v-if="loading"
       class="app-flex app-flex-column app-px-2 app-py-2"
     >
       <AppLoading height="70vh" />
@@ -55,7 +55,7 @@ const customersDataSource = computed(() => {
   return customersStore.customers;
 });
 
-const customersLoading = computed(() => {
+const loading = computed(() => {
   return customersStore.loading;
 });
 

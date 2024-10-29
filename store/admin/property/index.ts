@@ -1,69 +1,69 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
 
-export const useBlogsStore = defineStore("useBlogsStore", {
+export const usePropertyStore = defineStore("usePropertyStore", {
   state: (): any => ({
-    blogsList: [],
-    singleBlog: {},
-    lastSelectedBlogId: null,
+    properties: [],
     loading: false,
   }),
   actions: {
-    async blogList() {
+    async propertyList() {
+      const cookie = useCookie("token");
       this.loading = !this.loading;
-      const res = await $fetch("/api/v1/blog/list", {
+      const res = await $fetch("/api/v1/property/list", {
         method: "GET",
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
       });
-      this.blogsList = res.data;
+      this.properties = res.data;
       this.loading = !this.loading;
     },
 
-    async createBlog(param: any) {
+    async createProperty(param: any) {
       const cookie = useCookie("token");
-      const res = await $fetch("/api/v1/blog/add", {
+      const res = await $fetch("/api/v1/property/add", {
         method: "POST",
         body: param,
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.blogList();
+      this.propertyList();
     },
 
-    async getBlogById(id: number | string) {
-      this.lastSelectedBlogId = id;
+    async removeProperty(id: number | string) {
       const cookie = useCookie("token");
-      const res: any = await $fetch(`/api/v1/blog/post/${id}`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${cookie.value}`,
-        },
-      });
-      this.singleBlog = res.data;
-      console.log(this.singleBlog);
-    },
-
-    async updateBlog(param: any) {
-      const cookie = useCookie("token");
-      await $fetch(`/api/v1/blog/update/${this.lastSelectedBlogId}`, {
-        method: "PUT",
-        body: param,
-        headers: {
-          Authorization: `Bearer ${cookie.value}`,
-        },
-      });
-      this.blogList();
-    },
-
-    async deleteBlog(id: number | string) {
-      const cookie = useCookie("token");
-      await $fetch(`/api/v1/blog/${id}`, {
+      await $fetch(`/api/v1/property/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.blogList();
+      this.propertyList();
+    },
+
+    async createPropertyValue(param: any) {
+      const cookie = useCookie("token");
+      const res = await $fetch("/api/v1/property/value/add", {
+        method: "POST",
+        body: param,
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      });
+      this.propertyList();
+    },
+
+    async removePropertyValue(id: number | string) {
+      const cookie = useCookie("token");
+      await $fetch(`/api/v1/property/value/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      });
+      this.propertyList();
     },
   },
 });

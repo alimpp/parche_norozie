@@ -1,18 +1,27 @@
 <template>
   <div class="app-w-100">
-    <AppCard v-for="n in 20" class="app-mt-3 fade_animations" v-if="loading">
-      <template #content>
-        <div class="app-flex app-flex-column app-px-2 app-py-2">
-          <AppSkelton width="170px" />
-          <AppSkelton width="100px" />
-          <AppSkelton width="350px" />
+  <AppCard class="app-mt-3">
+    <template #content>
+      <div class="app-flex app-align-center app-px-2 app-py-4">
+        <div class="app-w-50">
+          <AppBeardCrumb :route="$t('dashboard')" :child="$t('tickets')" />
         </div>
-      </template>
-    </AppCard>
-
+      </div>
+    </template>
+  </AppCard>
+    <div>
+      <div v-if="loading" class="app-flex app-flex-column app-px-2 app-py-2">
+        <AppLoading height="70vh" />
+      </div>
+      <div
+        v-if="dataSource.length == 0"
+        class="app-flex app-h-70 app-align-center app-justify-center"
+      >
+        <AppEmptyContent />
+      </div>
+    </div>
     <CardsTicket
-      v-else
-      v-for="ticket in tickets"
+      v-for="ticket in dataSource"
       :key="ticket.ULID"
       :data="ticket"
       class="app-mt-5 fade_animations app-pointer"
@@ -43,9 +52,11 @@ definePageMeta({
   layout: "admin",
 });
 
-const loading = ref(false);
+const loading = computed(() => {
+  return ticketStore.loading;
+});
 
-const tickets = computed(() => {
+const dataSource = computed(() => {
   return ticketStore.tickets;
 });
 
@@ -65,8 +76,6 @@ const closeTicketInfo = () => {
 };
 
 onMounted(async () => {
-  loading.value = true;
   await ticketStore.adminAllTickets();
-  loading.value = false;
 });
 </script>
