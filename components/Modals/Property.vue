@@ -35,13 +35,11 @@ const propertyStore = usePropertyStore();
 
 const emit = defineEmits(["close"]);
 
-
 const form = ref({
   title: "",
 });
 
 const loading = ref(false);
-
 
 const close = () => {
   form.value = {
@@ -51,9 +49,11 @@ const close = () => {
 };
 
 const submit = async () => {
-  loading.value = true;
-  await propertyStore.createProperty(form.value);
-  loading.value = false;
-  close();
+  if (form.value.title) {
+    loading.value = true;
+    await propertyStore.createProperty(form.value);
+    loading.value = false;
+    close();
+  }
 };
 </script>

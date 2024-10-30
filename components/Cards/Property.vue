@@ -21,10 +21,12 @@
 
         <div class="app-w-50 app-flex app-justify-end app-align-center">
           <span
-            class="app-color-danger app-pointer app-pt-2"
+            class="app-color-white app-pointer app-px-2"
             @click="opeConfirm"
           >
-            <TrashIcon size="1x"></TrashIcon>
+            <AppIconContent color="danger">
+              <TrashIcon size="1x"></TrashIcon>
+            </AppIconContent>
           </span>
         </div>
       </div>

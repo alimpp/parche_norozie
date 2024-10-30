@@ -88,13 +88,15 @@ const close = () => {
 };
 
 const submit = async () => {
-  loading.value = true;
-  if (subCategory.value.ID) {
-    form.value.parent_id = subCategory.value.ID;
+  if (form.value.title) {
+    loading.value = true;
+    if (subCategory.value.ID) {
+      form.value.parent_id = subCategory.value.ID;
+    }
+    await categoryStore.createCategory(form.value);
+    loading.value = false;
+    close();
   }
-  await categoryStore.createCategory(form.value);
-  loading.value = false;
-  close();
 };
 </script>
 
