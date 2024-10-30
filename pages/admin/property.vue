@@ -17,24 +17,18 @@
       </div>
     </template>
   </AppCard>
-  <div>
-    <div v-if="loading" class="app-flex app-flex-column app-px-2 app-py-2">
-      <AppLoading height="70vh" />
-    </div>
-    <div
-      v-if="dataSource.length == 0"
-      class="app-flex app-h-70 app-align-center app-justify-center"
-    >
-      <AppEmptyContent />
-    </div>
+  <AppLoading v-if="loading" height="70dvh" />
+  <div v-else>
+    <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
+    <CardsProperty
+      v-else
+      v-for="(data, index) in dataSource"
+      :key="index"
+      :data="data"
+      class="app-mt-2"
+      @deleteProperty="deleteProperty"
+    />
   </div>
-  <CardsProperty
-    v-for="(data, index) in dataSource"
-    :key="index"
-    :data="data"
-    class="app-mt-2"
-    @deleteProperty="deleteProperty"
-  />
   <ModalsProperty
     :state="propertyModalState"
     @close="propertyModalState = false"
@@ -64,8 +58,8 @@ const openPropertyModal = () => {
   propertyModalState.value = true;
 };
 
-const deleteProperty = (data) => {
-  propertyStore.removeProperty(data.ID);
+const deleteProperty = async (data) => {
+  await propertyStore.removeProperty(data.ID);
 };
 
 onMounted(() => {

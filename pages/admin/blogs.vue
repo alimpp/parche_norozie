@@ -17,29 +17,23 @@
       </div>
     </template>
   </AppCard>
-  <div>
-    <div v-if="loading" class="app-flex app-flex-column app-px-2 app-py-2">
-      <AppLoading height="70vh" />
-    </div>
-    <div
-      v-if="dataSource.length == 0"
-      class="app-flex app-h-70 app-align-center app-justify-center"
-    >
-      <AppEmptyContent />
-    </div>
+  <AppLoading v-if="loading" height="70dvh" />
+  <div v-else>
+    <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
+    <CardsAdminBlog
+      v-else
+      v-for="(data, index) in dataSource"
+      :key="index"
+      :data="data"
+      @deleteBlog="deleteBlog"
+      @editBlog="openUpdateModalBlog"
+      class="app-mt-3 fade_animations"
+    />
   </div>
+  <ModalsBlog :state="blogModalState" @close="blogModalState = false" />
   <ModalsUpdateBlog
     :state="blogUpdateModalState"
     @close="blogUpdateModalState = false"
-  />
-  <ModalsBlog :state="blogModalState" @close="blogModalState = false" />
-  <CardsAdminBlog
-    v-for="(data, index) in dataSource"
-    :key="index"
-    :data="data"
-    @deleteBlog="deleteBlog"
-    @editBlog="openUpdateModalBlog"
-    class="app-mt-3 fade_animations"
   />
 </template>
 <script setup>

@@ -20,24 +20,16 @@
       </div>
     </template>
   </AppCard>
-
-  <div>
-    <AppLoading height="70vh" v-if="loading" />
+  <AppLoading height="70dvh" v-if="loading" />
+  <div v-else>
+    <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
     <CardsCustomers
       v-else
-      v-for="customer in customersDataSource"
+      v-for="customer in dataSource"
       :data="customer"
       class="app-mt-3 fade_animations"
     />
   </div>
-
-  <div
-    v-if="customersDataSource.length == 0"
-    class="app-flex app-h-70 app-align-center app-justify-center"
-  >
-    <AppEmptyContent />
-  </div>
-
   <ModalsCustomers :state="modalState" @close="modalState = false" />
 </template>
 
@@ -46,7 +38,7 @@ import { useCustomersStore } from "@/store/admin/customers/index";
 
 const customersStore = useCustomersStore();
 
-const customersDataSource = computed(() => {
+const dataSource = computed(() => {
   return customersStore.customers;
 });
 

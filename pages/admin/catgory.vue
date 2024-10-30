@@ -17,9 +17,7 @@
       </div>
     </template>
   </AppCard>
-
-  <AppLoading height="70vh" v-if="loading" />
-
+  <AppLoading height="70dvh" v-if="loading" />
   <div v-else>
     <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
     <CardsCategory
@@ -31,7 +29,6 @@
       @deleteCategory="deleteCategory"
     />
   </div>
-
   <ModalsCategory
     :state="categoryModalState"
     @close="categoryModalState = false"

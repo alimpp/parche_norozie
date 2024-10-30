@@ -1,5 +1,4 @@
 <template>
-  <div class="app-w-100">
   <AppCard class="app-mt-3">
     <template #content>
       <div class="app-flex app-align-center app-px-2 app-py-4">
@@ -9,18 +8,11 @@
       </div>
     </template>
   </AppCard>
-    <div>
-      <div v-if="loading" class="app-flex app-flex-column app-px-2 app-py-2">
-        <AppLoading height="70vh" />
-      </div>
-      <div
-        v-if="dataSource.length == 0"
-        class="app-flex app-h-70 app-align-center app-justify-center"
-      >
-        <AppEmptyContent />
-      </div>
-    </div>
+  <AppLoading v-if="loading" height="70dvh" />
+  <div v-else>
+    <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
     <CardsTicket
+      v-else
       v-for="ticket in dataSource"
       :key="ticket.ULID"
       :data="ticket"
@@ -32,12 +24,12 @@
       @close="modalState = false"
       @more="ticketInfoState = true"
     />
-    <ModalsTicketInfo
-      :state="ticketInfoState"
-      @close="closeTicketInfo"
-      :data="ticketinfo"
-    />
   </div>
+  <ModalsTicketInfo
+    :state="ticketInfoState"
+    @close="closeTicketInfo"
+    :data="ticketinfo"
+  />
 </template>
 
 <script setup>
