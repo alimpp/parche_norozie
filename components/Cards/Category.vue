@@ -20,7 +20,7 @@
           <span
             class="app-font-size-14 app-font-weight-600"
             v-if="data.subcategories[0]"
-            >{{ $t("branch category") }} :</span
+            >{{ $t("branches") }} :</span
           >
           <span
             class="app-font-size-12 app-font-weight-600"
