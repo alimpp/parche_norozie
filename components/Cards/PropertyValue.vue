@@ -11,19 +11,21 @@
       />
       <div class="app-flex app-w-100 app-py-2 app-px-4">
         <div class="app-w-100 app-flex app-flex-column">
-          <div class="app-w-50 app-flex app-flex-column">
+          <div class="app-w-100 app-flex app-flex-column">
             <span class="app-font-size-14 app-font-weight-600"
               >{{ $t("property name") }} :</span
             >
-            <span class="app-font-size-12 app-font-weight-600">{{
-              data.Title
-            }}</span>
+            <div class="app-border-radius app-py-2 app-flex">
+              <span class="app-font-size-12 app-font-weight-600">{{
+                data.Title
+              }}</span>
+            </div>
           </div>
           <span class="app-font-size-14 app-font-weight-600" v-if="data"
             >{{ $t("property value") }} :</span
           >
           <div
-            class="app-px-2 app-py-1 app-flex app-pointer app-mx-1 app-my-1"
+            class="app-py-1 app-flex app-align-center app-pointer app-mt-2 app-border-radius"
             v-for="(sub, index) in data.values"
             :key="index"
           >
@@ -46,11 +48,7 @@
 </template>
 
 <script setup>
-import { usePropertyStore } from "~/store/admin/property";
-
 const emit = defineEmits(["deleteProperty"]);
-
-const propertyStore = usePropertyStore();
 
 const deleteState = ref(false);
 

@@ -1,7 +1,7 @@
 <template>
   <div class="app-modal-content" v-if="state">
     <div
-      class="fade_animations app-border-radius"
+      class="fade_animations app-border-radius app-overflow-hidden"
       :style="{
         width: `${width}`,
         height: `${height}`,

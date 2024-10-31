@@ -20,10 +20,7 @@
         </div>
 
         <div class="app-w-50 app-flex app-justify-end app-align-center">
-          <span
-            class="app-color-white app-pointer app-px-2"
-            @click="opeConfirm"
-          >
+          <span class="app-color-white app-pointer" @click="opeConfirm">
             <AppIconContent color="danger">
               <TrashIcon size="1x"></TrashIcon>
             </AppIconContent>

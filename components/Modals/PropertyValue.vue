@@ -1,7 +1,6 @@
 <template>
   <AppModal
     width="380px"
-    height="95dvh"
     :state="state"
     @close="close"
     :title="$t('create property value')"
@@ -38,7 +37,7 @@
           class="app-font-size-14 app-font-weight-600 app-mt-5"
           >{{ $t("property") }}</span
         >
-        <div class="app-w-100 app-flex app-flex-column  container">
+        <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectProperty(data)"
             class="deactive-style"
@@ -104,7 +103,7 @@ const submit = async () => {
 
 <style scoped>
 .container {
-  max-height: 40vh;
+  max-height: 50dvh;
   overflow-y: scroll;
 }
 

@@ -1,7 +1,6 @@
 <template>
   <AppModal
     width="380px"
-    height="95dvh"
     :state="state"
     @close="close"
     :title="$t('create category')"
@@ -34,9 +33,11 @@
             @click="submit"
           />
         </div>
-        <span v-if="categoryList.length != 0" class="app-font-size-14 app-font-weight-600 app-mt-5">{{
-          $t("category")
-        }}</span>
+        <span
+          v-if="categoryList.length != 0"
+          class="app-font-size-14 app-font-weight-600 app-mt-5"
+          >{{ $t("category") }}</span
+        >
         <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectSubCategory(data)"
@@ -103,7 +104,7 @@ const submit = async () => {
 
 <style scoped>
 .container {
-  max-height: 40vh;
+  max-height: 50dvh;
   overflow-y: scroll;
 }
 

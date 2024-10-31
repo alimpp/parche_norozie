@@ -33,7 +33,7 @@
           <span class="app-font-size-12 app-font-weight-600"
             >{{ $t("created at") }} :</span
           >
-          <span class="app-font-size-12 app-font-weight-600 app-color-gray">
+          <span class="app-font-size-12 app-font-weight-600">
             {{ data.CreatedAt }}</span
           >
           <div class="app-flex app-mt-4">
