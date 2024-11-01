@@ -41,7 +41,7 @@
         <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectSubCategory(data)"
-            class="deactive-style"
+            class="app-flex app-pointer app-py-2 app-border app-border-radius app-mb-2 app-px-2 app-font-size-14 app-font-weight-600"
             :class="{ 'active-style': data.ID == subCategory.ID }"
             v-for="(data, index) in categoryList"
             :key="index"
@@ -108,24 +108,11 @@ const submit = async () => {
   overflow-y: scroll;
 }
 
-.deactive-style {
-  padding: 5px 5px;
-  border: 1px solid #7b7be33c;
-  background: #7b7be30e;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px 1px;
-  transition: 0.5s;
-}
-
 .active-style {
-  padding: 5px 5px;
-  border: 1px solid #7b7be368;
-  background: #7b7be3c1;
-  color: #fff;
+  border: 1px solid #98989835;
+  background: #9898985c;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px 1px;
-  transition: 0.5s;
+  transition: 1s;
 }
 </style>
