@@ -10,14 +10,10 @@
         @close="deleteState = false"
       />
       <div class="app-w-100 app-flex">
-        <div class="app-w-30 app-flex">
-          <img
-            class="image-style"
-            src="https://nicholasrossis.me/wp-content/uploads/2017/04/BLOG01.jpg"
-            alt="image"
-          />
+        <div class="app-flex">
+          <img class="image-style" :src="imageUrl" alt="image" />
         </div>
-        <div class="app-flex app-flex-column app-px-4 app-py-4 app-w-70">
+        <div class="app-flex app-flex-column app-px-4 app-py-4">
           <span class="app-font-size-12 app-font-weight-600"
             >{{ $t("title") }} :</span
           >
@@ -58,9 +54,13 @@
 </template>
 
 <script setup>
+import { useFileStore } from "~/store/file";
+const fileStore = useFileStore();
+
 const emit = defineEmits(["deleteBlog", "editBlog"]);
 
 const deleteState = ref(false);
+const imageUrl = ref(null);
 
 const props = defineProps({
   data: {
@@ -77,11 +77,15 @@ const deleteBlog = () => {
   deleteState.value = false;
   emit("deleteBlog", props.data);
 };
+
+onMounted(async () => {
+  imageUrl.value = await fileStore.download(props.data.Image);
+});
 </script>
 
 <style scoped>
 .image-style {
-  width: 100%;
+  width: 300px;
   height: auto;
 }
 </style>

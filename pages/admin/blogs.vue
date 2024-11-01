@@ -70,7 +70,7 @@ const deleteBlog = async (data) => {
 };
 
 onMounted(async () => {
-  await blogsStore.blogList();
+  await await blogsStore.blogList();
 });
 </script>
 

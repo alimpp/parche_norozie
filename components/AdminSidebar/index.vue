@@ -1,7 +1,7 @@
 <template>
   <div class="app-flex app-h-100 app-justify-center app-align-center">
     <div
-      class="admin-sidebar"
+      class="admin-sidebar app-border-radius"
       :class="{
         'sidebar-close-state': sidebarState == 'close',
         'sidebar-open-state': sidebarState == 'open',
@@ -240,7 +240,6 @@ const sidebarState = ref("open");
   height: 97dvh;
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
   transition: 0.5s;
   margin-right: 20px;
 }

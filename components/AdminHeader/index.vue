@@ -1,6 +1,6 @@
 <template>
   <div
-    class="admin-header-content app-flex mt-4 app-border-radius"
+    class="admin-header-content app-flex mt-3 app-border-radius"
     :class="{
       'app-bg-white': themeStore.theme == 'light',
       'app-bg-element-dark': themeStore.theme == 'dark',
