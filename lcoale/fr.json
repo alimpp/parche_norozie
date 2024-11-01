@@ -146,5 +146,6 @@
   "create new product": "ساخت محصول جدید",
   "product name": "نام محصول",
   "discount_": "تخفیف",
-  "select category": "انتخاب دسته بندی"
+  "select category": "انتخاب دسته بندی",
+  "labels": "بر چسب ها"
 }
