@@ -38,8 +38,6 @@ const openFile = () => {
 const tagetFile = async (event) => {
   const fileName = generateUid(30);
   file.value = event.target.files[0];
-  // const formData = new FormData();
-  // formData.append("image", file.value);
   const urlImage = URL.createObjectURL(file.value);
   await fileStore.upload(file.value, `${fileName}.png`);
   emit("fileInformation", { fileName: `${fileName}.png`, urlImage });

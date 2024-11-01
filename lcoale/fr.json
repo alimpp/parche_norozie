@@ -145,8 +145,6 @@
   "confirm delete property value": "آیا مایل به حذف این مفدار ویژگی هستید؟",
   "create new product": "ساخت محصول جدید",
   "product name": "نام محصول",
-  "discount_": "تخفیف"
-  
-  
-
+  "discount_": "تخفیف",
+  "select category": "انتخاب دسته بندی"
 }

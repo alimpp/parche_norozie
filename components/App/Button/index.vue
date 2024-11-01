@@ -55,7 +55,7 @@ const props = defineProps({
   },
   height: {
     type: String,
-    default: "39px",
+    default: "37px",
   },
   icon: {
     type: String,

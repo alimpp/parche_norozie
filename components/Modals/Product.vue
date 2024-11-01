@@ -22,6 +22,36 @@
           :error="error.description.state"
           :message-error="error.description.message"
         />
+        <div class="app-mt-3">
+          <AppButton
+            :name="$t('select category')"
+            background="app-bg-primary"
+            @click="selecCategoryModal = true"
+          />
+        </div>
+        <div
+          v-if="selectedCategoryData"
+          class="app-w-100 app-flex app-flex-column app-border-radius app-py-2 app-mt-2"
+        >
+          <span class="app-font-size-14 app-font-weight-600">{{
+            $t("category name")
+          }}</span>
+          <div class="app-flex">
+            <span class="app-font-size-14 app-font-weight-600 app-px-1">{{
+              selectedCategoryData.Title
+            }}</span>
+            <span
+              class="app-font-size-14 app-font-weight-600 app-flex app-px-1"
+              v-for="(sub, index) in selectedCategoryData.subcategories"
+              :key="index"
+            >
+              <span class="app-font-size-14 app-font-weight-600 app-px-1"
+                >/</span
+              >
+              {{ sub.Title }}
+            </span>
+          </div>
+        </div>
         <AppInput height="35px" :label="$t('price')" v-model="form.price" />
         <AppInput
           height="35px"
@@ -35,17 +65,19 @@
           v-model="inputTag"
           @keyup.enter="addTag"
         />
-        <AppButton
-          width="125px"
-          class="app-mt-4 app-w-20"
-          :name="$t('addTag')"
-          background="app-bg-primary"
-          :loading="loading"
-          @click="addTag"
-        />
+        <div>
+          <AppButton
+            width="125px"
+            class="app-mt-4 app-w-20"
+            :name="$t('addTag')"
+            background="app-bg-primary"
+            :loading="loading"
+            @click="addTag"
+          />
+        </div>
         <div class="app-flex app-flex-wrap app-my-2">
           <div
-            class="app-border app-border-radius app-px-2 app-py-1 app-flex app-pointer app-mx-1"
+            class="app-border app-border-radius app-px-2 app-py-1 app-flex app-pointer app-mx-1 app-mt-1"
             v-for="(tag, index) in form.tags"
             @click="removeTag(index)"
           >
@@ -57,22 +89,34 @@
             <span class="app-px-2 app-pt-1">{{ tag }}</span>
           </div>
         </div>
-        <FileImage class="app-mt-5" />
-        <AppButton
-          width="50px"
-          class="app-mt-4"
-          :name="$t('submit')"
-          background="app-bg-primary"
-          :loading="loading"
-          @click="submit"
-        />
+        <div>
+          <AppButton
+            width="100px"
+            class="app-mt-4"
+            :name="$t('submit')"
+            background="app-bg-primary"
+            :loading="loading"
+            @click="submit"
+          />
+        </div>
       </div>
+      <SelecCategory
+        :state="selecCategoryModal"
+        @close="selecCategoryModal = false"
+        @selected="selectedCategory"
+        :title="$t('select category')"
+      />
     </template>
   </AppModal>
 </template>
 
 <script setup>
+import SelecCategory from "./SelecCategory.vue";
+
 const emit = defineEmits(["close"]);
+
+const selecCategoryModal = ref(false);
+const selectedCategoryData = ref(null);
 
 const props = defineProps({
   state: {
@@ -94,7 +138,7 @@ const form = ref({
   property_ids: [],
   media: [],
   tags: [],
-  attributes: {},
+  attributes: [],
 });
 const inputTag = ref("");
 
@@ -130,8 +174,13 @@ const addTag = () => {
 const removeTag = (index) => {
   form.value.tags.splice(index, 1);
 };
+
+const selectedCategory = (data) => {
+  selectedCategoryData.value = data;
+};
+
 const submit = async () => {
-  await close();
+  close();
 };
 </script>
 
