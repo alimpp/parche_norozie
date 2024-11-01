@@ -6,13 +6,6 @@
       ref="fileElement"
       style="display: none"
     />
-    <img
-      v-if="urlImage"
-      :src="urlImage"
-      alt="image"
-      width="500"
-      class="app-border-radius"
-    />
     <div
       @click="openFile"
       :class="{ 'app-mx-4': urlImage }"
@@ -27,27 +20,28 @@
 </template>
 
 <script setup>
+import { generateUid } from "@/utils/uid";
 import { useFileStore } from "@/store/file/index";
+
+const fileStore = useFileStore();
+
 const props = defineProps({});
+const emit = defineEmits(["fileInformation"]);
 
 const file = ref(null);
-const urlImage = ref(null);
-
 const fileElement = ref();
 
 const openFile = () => {
   fileElement.value.click();
 };
 
-const tagetFile = (event) => {
-  const fileStore = useFileStore();
+const tagetFile = async (event) => {
+  const fileName = generateUid(30);
   file.value = event.target.files[0];
-  urlImage.value = URL.createObjectURL(file.value);
-  const formData = new FormData();
-  formData.append("image", file.value);
-  console.log(file.value);
-  console.log(formData);
-
-  fileStore.upload(formData, "888");
+  // const formData = new FormData();
+  // formData.append("image", file.value);
+  const urlImage = URL.createObjectURL(file.value);
+  await fileStore.upload(file.value, `${fileName}.png`);
+  emit("fileInformation", { fileName: `${fileName}.png`, urlImage });
 };
 </script>

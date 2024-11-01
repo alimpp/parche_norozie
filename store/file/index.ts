@@ -9,16 +9,20 @@ export const useFileStore = defineStore("useFileStore", {
   actions: {
     async upload(file: any, name: string) {
       const cookie = useCookie("token");
-      const res = await $fetch(`/api/v1/upload/?${name}.png`, {
+      console.log(file);
+      await $fetch(`/api/v1/upload/${name}`, {
         method: "POST",
-        body: { file },
+        body: file,
         headers: {
           Authorization: `Bearer ${cookie.value}`,
           "Content-Length": file.size,
           "Content-Type": file.type,
         },
       });
-      console.log(res);
+    },
+
+    async download(fileName: string) {
+      return `https://parche-go.liara.run/api/v1/download/${fileName}`;
     },
   },
 });

@@ -15,10 +15,10 @@ const props = defineProps({
 
 <style scoped>
 .success {
-  background: rgba(9, 247, 9, 0.648);
+  background: rgba(0, 255, 0, 0.684);
 }
 .danger {
-  background: rgba(255, 0, 0, 0.607);
+  background: rgba(245, 49, 49, 0.84);
 }
 .style {
   width: 30px;

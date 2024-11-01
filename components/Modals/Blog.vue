@@ -21,7 +21,14 @@
             :error="error.description.state"
             :message-error="error.description.message"
           />
-          <FileImage class="app-mt-5" />
+          <img
+            class="app-mt-2 app-border-radius"
+            v-if="form.imageUrl"
+            :src="form.imageUrl"
+            width="500"
+            alt="image"
+          />
+          <FileImage class="app-mt-5" @fileInformation="handleMainImage" />
           <AppInput
             height="35px"
             :label="$t('reading time')"
@@ -55,7 +62,18 @@
             v-model="section.title"
           />
           <AppTextarea :label="$t('text')" v-model="section.description" />
-          <FileImage class="app-mt-5" />
+          <img
+            class="app-mt-2 app-border-radius"
+            v-if="section.imageUrl"
+            :src="section.imageUrl"
+            width="500"
+            alt="image"
+          />
+          <FileImage
+            @click="lastSectionIndexSelected = index"
+            class="app-mt-5"
+            @fileInformation="handleSectionImage"
+          />
         </div>
         <div>
           <div>
@@ -121,6 +139,8 @@ const props = defineProps({
 });
 
 const blogsStore = useBlogsStore();
+const loading = ref(false);
+const lastSectionIndexSelected = ref(null);
 
 const form = ref({
   description: "",
@@ -141,6 +161,7 @@ const inputTag = ref("");
 const close = () => {
   form.value = {
     description: "",
+    imageUrl: "",
     img: "",
     title: "",
     reading_time: "",
@@ -148,6 +169,7 @@ const close = () => {
       {
         description: "",
         img: "",
+        imageUrl: "",
         title: "",
       },
     ],
@@ -163,8 +185,6 @@ const error = ref({
   reading_time: { state: false, message: "" },
 });
 
-const loading = ref(false);
-
 const addSection = async () => {
   error.value.title = validateEmpty(form.value.title);
   error.value.description = validateEmpty(form.value.description);
@@ -179,6 +199,7 @@ const addSection = async () => {
     form.value.sections.push({
       description: "",
       img: "",
+      imageUrl: "",
       title: "",
     });
   }
@@ -194,6 +215,20 @@ const addTag = () => {
 const removeTag = (index) => {
   form.value.tags.splice(index, 1);
 };
+
+const handleMainImage = (event) => {
+  form.value.img = event.fileName;
+  form.value.imageUrl = event.urlImage;
+};
+
+const handleSectionImage = (event, index) => {
+  console.log(event);
+  console.log(lastSectionIndexSelected.value);
+  form.value.sections[lastSectionIndexSelected.value].img = event.fileName;
+  form.value.sections[lastSectionIndexSelected.value].imageUrl = event.urlImage;
+  console.log(form.value);
+};
+
 const submit = async () => {
   loading.value = true;
   await blogsStore.createBlog(form.value);
