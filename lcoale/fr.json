@@ -147,5 +147,8 @@
   "product name": "نام محصول",
   "discount_": "تخفیف",
   "select category": "انتخاب دسته بندی",
-  "labels": "بر چسب ها"
+  "labels": "بر چسب ها",
+  "attribute name": "نام ویژگی",
+  "attribute value": "مقدار ویژگی",
+  "add Attribute": "اضافه کردن ویژگی"
 }
