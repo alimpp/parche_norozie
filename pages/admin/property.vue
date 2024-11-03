@@ -2,24 +2,41 @@
   <AppCard class="app-mt-3">
     <template #content>
       <div class="app-flex app-align-center app-px-2 app-py-4">
-        <div class="app-w-50">
-          <AppBeardCrumb :route="$t('dashboard')" :child="$t('property')" />
+        <div class="app-w-50 app-flex app-flex-column">
+          <span class="app-font-size-16 app-font-weight-600">
+            {{ $t("property") }}
+          </span>
+          <span class="app-font-size-12 app-font-weight-500 app-color-gray">
+            {{ $t("property admin title") }}
+          </span>
         </div>
         <div class="app-w-50 app-flex app-justify-end app-align-center">
           <span class="app-pointer app-mx-1" @click="getAllDataSourc">
-            <AppIconContent color="app-bg-wariningapp-bg-green"
-              ><RefreshCcwIcon size="1x"></RefreshCcwIcon
-            ></AppIconContent>
+            <v-tooltip :text="$t('refresh')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent color="app-bg-green" v-bind="props"
+                  ><RefreshCcwIcon size="1x"></RefreshCcwIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
           </span>
           <span class="app-pointer app-mx-1" @click="openSearch">
-            <AppIconContent color="app-bg-info"
-              ><SearchIcon size="1x"></SearchIcon
-            ></AppIconContent>
+            <v-tooltip :text="$t('search')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent color="app-bg-info" v-bind="props"
+                  ><SearchIcon size="1x"></SearchIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
           </span>
           <span class="app-pointer app-mx-1" @click="openPropertyModal">
-            <AppIconContent color="app-bg-primary"
-              ><PlusIcon size="1x"></PlusIcon
-            ></AppIconContent>
+            <v-tooltip :text="$t('create')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent color="app-bg-primary" v-bind="props"
+                  ><PlusIcon size="1x"></PlusIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
           </span>
         </div>
       </div>
