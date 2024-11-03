@@ -5,14 +5,20 @@
         <div class="app-w-50">
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('blogs')" />
         </div>
-        <div class="app-w-50 app-flex app-justify-end">
-          <AppButton
-            :name="$t('create new blog')"
-            background="app-bg-primary"
-            height="32px"
-            fontSize="app-font-size-12"
-            @click="openBlogModal"
-          />
+        <div class="app-w-50 app-flex app-justify-end app-align-center">
+          <span class="app-pointer app-mx-1" @click="getAllDataSourc">
+            <AppIconContent color="app-bg-refresh"
+              ><RefreshCcwIcon size="1x"></RefreshCcwIcon
+            ></AppIconContent>
+          </span>
+          <span class="app-pointer app-mx-1" @click="openSearch">
+            <AppIconContent color="app-bg-search"><SearchIcon size="1x"></SearchIcon></AppIconContent>
+          </span>
+          <span class="app-pointer app-mx-1" @click="openBlogModal">
+            <AppIconContent color="app-bg-primary"
+              ><PlusIcon size="1x"></PlusIcon
+            ></AppIconContent>
+          </span>
         </div>
       </div>
     </template>
@@ -31,6 +37,11 @@
     />
   </div>
   <ModalsBlog :state="blogModalState" @close="blogModalState = false" />
+  <ModalsSearch
+    :state="searchState"
+    @close="searchState = false"
+    @search="searchData"
+  />
   <ModalsUpdateBlog
     :state="blogUpdateModalState"
     @close="blogUpdateModalState = false"
@@ -69,8 +80,22 @@ const deleteBlog = async (data) => {
   await blogsStore.deleteBlog(data.ID);
 };
 
+const searchState = ref(false);
+
+const openSearch = () => {
+  searchState.value = true;
+};
+
+const searchData = async (data) => {
+  await blogsStore.searchBlog(data);
+};
+
+const getAllDataSourc = () => {
+  blogsStore.blogList();
+};
+
 onMounted(async () => {
-  await await blogsStore.blogList();
+  await blogsStore.blogList();
 });
 </script>
 

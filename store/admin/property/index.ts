@@ -65,5 +65,11 @@ export const usePropertyStore = defineStore("usePropertyStore", {
       });
       this.propertyList();
     },
+    async searchProperty(param: any) {
+      await this.propertyList();
+      this.properties = this.properties.filter((property: any) => {
+        return property.Title.match(param);
+      });
+    },
   },
 });

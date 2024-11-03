@@ -5,14 +5,22 @@
         <div class="app-w-50">
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('property')" />
         </div>
-        <div class="app-w-50 app-flex app-justify-end">
-          <AppButton
-            :name="$t('create property')"
-            background="app-bg-primary"
-            height="32px"
-            fontSize="app-font-size-12"
-            @click="openPropertyModal"
-          />
+        <div class="app-w-50 app-flex app-justify-end app-align-center">
+          <span class="app-pointer app-mx-1" @click="getAllDataSourc">
+            <AppIconContent color="app-bg-refresh"
+              ><RefreshCcwIcon  size="1x"></RefreshCcwIcon
+            ></AppIconContent>
+          </span>
+          <span class="app-pointer app-mx-1" @click="openSearch">
+            <AppIconContent color="app-bg-search"
+              ><SearchIcon size="1x"></SearchIcon
+            ></AppIconContent>
+          </span>
+          <span class="app-pointer app-mx-1" @click="openPropertyModal">
+            <AppIconContent color="app-bg-primary"
+              ><PlusIcon size="1x"></PlusIcon
+            ></AppIconContent>
+          </span>
         </div>
       </div>
     </template>
@@ -32,6 +40,11 @@
   <ModalsProperty
     :state="propertyModalState"
     @close="propertyModalState = false"
+  />
+  <ModalsSearch
+    :state="searchState"
+    @close="searchState = false"
+    @search="searchData"
   />
 </template>
 
@@ -60,6 +73,20 @@ const openPropertyModal = () => {
 
 const deleteProperty = async (data) => {
   await propertyStore.removeProperty(data.ID);
+};
+
+const searchState = ref(false);
+
+const openSearch = () => {
+  searchState.value = true;
+};
+
+const searchData = async (param) => {
+  await propertyStore.searchProperty(param);
+};
+
+const getAllDataSourc = () => {
+  propertyStore.propertyList();
 };
 
 onMounted(() => {

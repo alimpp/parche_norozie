@@ -38,5 +38,13 @@ export const useCategoryStore = defineStore("useCategoryStore", {
       });
       this.categoryList();
     },
+
+    async searchCategory(param: any) {
+     await this.categoryList();
+      this.categories = this.categories.filter((category: any) => {
+        return category.Title.match(param);
+      });
+    },
+    
   },
 });

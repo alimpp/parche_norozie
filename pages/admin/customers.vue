@@ -6,16 +6,14 @@
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('customers')" />
         </div>
         <div class="app-w-50 app-flex app-justify-end app-align-center">
-          <span class="app-mx-4 app-pointer app-mt-3" @click="getAllCustomers">
-            <RefreshCcwIcon size="1x"></RefreshCcwIcon>
+          <span class="app-pointer app-mx-1" @click="getAllCustomers">
+            <AppIconContent color="app-bg-refresh"
+              ><RefreshCcwIcon size="1x"></RefreshCcwIcon
+            ></AppIconContent>
           </span>
-          <AppButton
-            :name="$t('search') + ' ' + $t('customers')"
-            background="app-bg-primary"
-            height="32px"
-            fontSize="app-font-size-12"
-            @click="openModal"
-          />
+          <span class="app-pointer app-mx-1" @click="openModal">
+            <AppIconContent color="app-bg-search"><SearchIcon size="1x"></SearchIcon></AppIconContent>
+          </span>
         </div>
       </div>
     </template>

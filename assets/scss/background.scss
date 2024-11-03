@@ -39,6 +39,16 @@
   color: var(--white-);
   transition: 0.5s;
 }
+.app-bg-refresh {
+  background: var(--refresh-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+.app-bg-search {
+  background: var(--search-);
+  color: var(--white-);
+  transition: 0.5s;
+}
 .app-bg-warning {
   background: var(--warning-);
   color: var(--dark-);

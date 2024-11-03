@@ -65,5 +65,13 @@ export const useBlogsStore = defineStore("useBlogsStore", {
       });
       this.blogList();
     },
+
+    async searchBlog(param: any) {
+      await this.blogList();
+      this.blogsList = this.blogsList.filter((blog: any) => {
+        return blog.Title.match(param);
+      });
+    },
+    
   },
 });

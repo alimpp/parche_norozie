@@ -22,6 +22,12 @@
           :error="error.description.state"
           :message-error="error.description.message"
         />
+        <AppInput height="35px" :label="$t('price')" v-model="form.price" />
+        <AppInput
+          height="35px"
+          :label="$t('discount_')"
+          v-model="form.discount"
+        />
         <div class="app-mt-3">
           <AppButton
             :name="$t('select category')"
@@ -52,12 +58,50 @@
             </span>
           </div>
         </div>
-        <AppInput height="35px" :label="$t('price')" v-model="form.price" />
-        <AppInput
-          height="35px"
-          :label="$t('discount_')"
-          v-model="form.discount"
-        />
+        <div class="app-flex">
+          <AppInput
+            class="app-pl-2"
+            height="35px"
+            width="60px"
+            :label="$t('attribute name')"
+            v-model="inputAttributes.key"
+            @keyup.enter="addAttribiute"
+          />
+          <AppInput
+            class="app-pr-2"
+            height="35px"
+            width="60px"
+            :label="$t('attribute value')"
+            v-model="inputAttributes.value"
+            @keyup.enter="addAttribiute"
+          />
+        </div>
+        <div>
+          <AppButton
+            width="145px"
+            class="app-mt-4 app-w-20"
+            :name="$t('add Attribute')"
+            background="app-bg-primary"
+            :loading="loading"
+            @click="addAttribiute"
+          />
+        </div>
+        <div class="app-flex app-flex-wrap app-my-2">
+          <div
+            class="app-border app-border-radius app-px-2 app-py-1 app-flex app-pointer app-mx-1 app-mt-1"
+            v-for="(attr, index) in form.attributes"
+            @click="removeAttribute(index)"
+          >
+            <div class="app-color-white">
+              <AppIconContent color="danger">
+                <TrashIcon size="1x"></TrashIcon>
+              </AppIconContent>
+            </div>
+            <span class="app-px-1 app-pt-1">{{ attr.key }} :</span>
+            <span class="app-px-1 app-pt-1">{{ attr.value }}</span>
+          </div>
+        </div>
+
         <AppInput
           height="35px"
           width="60px"
@@ -140,6 +184,11 @@ const form = ref({
   tags: [],
   attributes: [],
 });
+
+const inputAttributes = ref({
+  key: "",
+  value: "",
+});
 const inputTag = ref("");
 
 const close = () => {
@@ -173,6 +222,20 @@ const addTag = () => {
 
 const removeTag = (index) => {
   form.value.tags.splice(index, 1);
+};
+
+const addAttribiute = () => {
+  if (inputAttributes.value.key && inputAttributes.value.value) {
+    form.value.attributes.push(inputAttributes.value);
+    inputAttributes.value = {
+      key: "",
+      value: "",
+    };
+  }
+};
+
+const removeAttribute = (index) => {
+  form.value.attributes.splice(index, 1);
 };
 
 const selectedCategory = (data) => {
