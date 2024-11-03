@@ -7,12 +7,14 @@
         </div>
         <div class="app-w-50 app-flex app-justify-end app-align-center">
           <span class="app-pointer app-mx-1" @click="getAllDataSourc">
-            <AppIconContent color="app-bg-refresh"
+            <AppIconContent color="app-bg-green"
               ><RefreshCcwIcon size="1x"></RefreshCcwIcon
             ></AppIconContent>
           </span>
           <span class="app-pointer app-mx-1" @click="openSearch">
-            <AppIconContent color="app-bg-search"><SearchIcon size="1x"></SearchIcon></AppIconContent>
+            <AppIconContent color="app-bg-info"
+              ><SearchIcon size="1x"></SearchIcon
+            ></AppIconContent>
           </span>
           <span class="app-pointer app-mx-1" @click="openBlogModal">
             <AppIconContent color="app-bg-primary"

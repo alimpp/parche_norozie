@@ -39,22 +39,16 @@
   color: var(--white-);
   transition: 0.5s;
 }
-.app-bg-refresh {
-  background: var(--refresh-);
-  color: var(--white-);
-  transition: 0.5s;
-}
-.app-bg-search {
-  background: var(--search-);
-  color: var(--white-);
-  transition: 0.5s;
-}
-.app-bg-warning {
+.app-bg-warining {
   background: var(--warning-);
-  color: var(--dark-);
+  color: var(--black-);
   transition: 0.5s;
 }
-
+.app-bg-green {
+  background: var(--green-);
+  color: var(--white-);
+  transition: 0.5s;
+}
 .app-bg-primary-custom {
   background: var(--primary-custom-);
   color: var(--white-);
