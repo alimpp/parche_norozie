@@ -6,24 +6,17 @@
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('category')" />
         </div>
         <div class="app-w-50 app-flex app-justify-end app-align-center">
-          <span class="app-pointer app-mt-3" @click="getAllDataSourc">
-            <RefreshCcwIcon size="1x"></RefreshCcwIcon>
+          <span class="app-pointer app-mx-1" @click="getAllDataSourc">
+            <AppIconContent color="app-bg-refresh"
+              ><RefreshCcwIcon size="1x"></RefreshCcwIcon
+            ></AppIconContent>
           </span>
-          <AppButton
-            class="app-mx-2"
-            :name="$t('search')"
-            background="app-bg-primary"
-            height="32px"
-            fontSize="app-font-size-12"
-            @click="openSearch"
-          />
-          <AppButton
-            :name="$t('create category')"
-            background="app-bg-primary"
-            height="32px"
-            fontSize="app-font-size-12"
-            @click="openCategoryModal"
-          />
+          <span class="app-pointer app-mx-1" @click="openSearch">
+            <AppIconContent color="app-bg-search"><SearchIcon size="1x"></SearchIcon></AppIconContent>
+          </span>
+          <span class="app-pointer app-mx-1" @click="openCategoryModal">
+            <AppIconContent color="app-bg-primary"><PlusIcon size="1x"></PlusIcon></AppIconContent>
+          </span>
         </div>
       </div>
     </template>

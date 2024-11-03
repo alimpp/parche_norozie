@@ -45,7 +45,6 @@
               class="app-mt-4"
               :name="$t('search')"
               background="app-bg-primary"
-              height="32px"
               fontSize="app-font-size-12"
               @click="search"
             />
