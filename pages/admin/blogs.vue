@@ -5,7 +5,18 @@
         <div class="app-w-50">
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('blogs')" />
         </div>
-        <div class="app-w-50 app-flex app-justify-end">
+        <div class="app-w-50 app-flex app-justify-end app-align-center">
+          <span class="app-pointer app-mt-3" @click="getAllDataSourc">
+            <RefreshCcwIcon size="1x"></RefreshCcwIcon>
+          </span>
+          <AppButton
+            class="app-mx-2"
+            :name="$t('search')"
+            background="app-bg-primary"
+            height="32px"
+            fontSize="app-font-size-12"
+            @click="openSearch"
+          />
           <AppButton
             :name="$t('create new blog')"
             background="app-bg-primary"
@@ -31,6 +42,11 @@
     />
   </div>
   <ModalsBlog :state="blogModalState" @close="blogModalState = false" />
+  <ModalsSearch
+    :state="searchState"
+    @close="searchState = false"
+    @search="searchData"
+  />
   <ModalsUpdateBlog
     :state="blogUpdateModalState"
     @close="blogUpdateModalState = false"
@@ -69,8 +85,22 @@ const deleteBlog = async (data) => {
   await blogsStore.deleteBlog(data.ID);
 };
 
+const searchState = ref(false);
+
+const openSearch = () => {
+  searchState.value = true;
+};
+
+const searchData = async (data) => {
+  await blogsStore.searchBlog(data);
+};
+
+const getAllDataSourc = () => {
+  blogsStore.blogList();
+};
+
 onMounted(async () => {
-  await await blogsStore.blogList();
+  await blogsStore.blogList();
 });
 </script>
 

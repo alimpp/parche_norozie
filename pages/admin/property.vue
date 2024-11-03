@@ -5,7 +5,18 @@
         <div class="app-w-50">
           <AppBeardCrumb :route="$t('dashboard')" :child="$t('property')" />
         </div>
-        <div class="app-w-50 app-flex app-justify-end">
+        <div class="app-w-50 app-flex app-justify-end app-align-center">
+          <span class="app-pointer app-mt-3" @click="getAllDataSourc">
+            <RefreshCcwIcon size="1x"></RefreshCcwIcon>
+          </span>
+          <AppButton
+            class="app-mx-2"
+            :name="$t('search')"
+            background="app-bg-primary"
+            height="32px"
+            fontSize="app-font-size-12"
+            @click="openSearch"
+          />
           <AppButton
             :name="$t('create property')"
             background="app-bg-primary"
@@ -32,6 +43,11 @@
   <ModalsProperty
     :state="propertyModalState"
     @close="propertyModalState = false"
+  />
+  <ModalsSearch
+    :state="searchState"
+    @close="searchState = false"
+    @search="searchData"
   />
 </template>
 
@@ -60,6 +76,20 @@ const openPropertyModal = () => {
 
 const deleteProperty = async (data) => {
   await propertyStore.removeProperty(data.ID);
+};
+
+const searchState = ref(false);
+
+const openSearch = () => {
+  searchState.value = true;
+};
+
+const searchData = async (param) => {
+  await propertyStore.searchProperty(param);
+};
+
+const getAllDataSourc = () => {
+  propertyStore.propertyList();
 };
 
 onMounted(() => {
