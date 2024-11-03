@@ -1,7 +1,7 @@
 <template>
   <div class="app-flex app-w-100">
     <input
-      @change="tagetFile"
+      @change="upload"
       type="file"
       ref="fileElement"
       style="display: none"
@@ -35,7 +35,7 @@ const openFile = () => {
   fileElement.value.click();
 };
 
-const tagetFile = async (event) => {
+const upload = async (event) => {
   const fileName = generateUid(30);
   file.value = event.target.files[0];
   const urlImage = URL.createObjectURL(file.value);
