@@ -38,19 +38,19 @@
       data-aos="fade-up"
     >
       <div class="content">
-        <h2 class="app-font-size-14 app-font-weight-600">
+        <h3 class="app-font-size-14 app-font-weight-600">
           {{ dataSource.description }}
-        </h2>
+        </h3>
         <div
           class="app-flex app-flex-column app-py-5"
           v-for="section in dataSource.sections"
         >
-          <h3 class="app-font-size-18 app-font-weight-600">
+          <h2 class="app-font-size-18 app-font-weight-600">
             {{ section.title }}
-          </h3>
-          <h5 class="app-font-size-12 app-font-weight-600">
+          </h2>
+          <h3 class="app-font-size-12 app-font-weight-600">
             {{ section.description }}
-          </h5>
+          </h3>
           <img
             v-if="section.img"
             class="app-w-100 app-border-radius app-mt-5"
@@ -69,11 +69,11 @@
             }}</span>
           </div>
           <div class="app-w-100 app-flex app-flex-wrap">
-            <span
+            <h6
               class="app-font-size-14 app-font-weight-600 app-px-1"
               v-for="(tag, index) in dataSource.tags"
               :key="index"
-              >#{{ tag }}</span
+              >#{{ tag }}</h6
             >
           </div>
         </div>
