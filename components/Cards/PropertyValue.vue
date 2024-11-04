@@ -36,9 +36,13 @@
               class="app-color-white app-w-50 app-flex app-justify-end app-align-center"
               @click="opeConfirm(sub)"
             >
-              <AppIconContent color="danger">
-                <TrashIcon size="1.0x"></TrashIcon>
-              </AppIconContent>
+              <v-tooltip :text="$t('remove')" location="bottom">
+                <template v-slot:activator="{ props }">
+                  <AppIconContent color="danger" v-bind="props"
+                    ><TrashIcon size="1x"></TrashIcon
+                  ></AppIconContent>
+                </template>
+              </v-tooltip>
             </div>
           </div>
         </div>

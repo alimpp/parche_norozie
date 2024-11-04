@@ -34,17 +34,25 @@
           >
           <div class="app-flex app-mt-4">
             <span class="app-pointer app-color-white" @click="editBlog">
-              <AppIconContent color="success">
-                <EditIcon size="1x"></EditIcon>
-              </AppIconContent>
+              <v-tooltip :text="$t('edit')" location="bottom">
+                <template v-slot:activator="{ props }">
+                  <AppIconContent color="success" v-bind="props"
+                    ><EditIcon size="1x"></EditIcon
+                  ></AppIconContent>
+                </template>
+              </v-tooltip>
             </span>
             <span
               class="app-color-white app-pointer app-px-2"
               @click="deleteState = true"
             >
-              <AppIconContent color="danger">
-                <TrashIcon size="1x"></TrashIcon>
-              </AppIconContent>
+              <v-tooltip :text="$t('remove')" location="bottom">
+                <template v-slot:activator="{ props }">
+                  <AppIconContent color="danger" v-bind="props"
+                    ><TrashIcon size="1x"></TrashIcon
+                  ></AppIconContent>
+                </template>
+              </v-tooltip>
             </span>
           </div>
         </div>

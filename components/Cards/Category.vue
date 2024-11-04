@@ -32,9 +32,13 @@
 
         <div class="app-w-50 app-flex app-justify-end app-align-center">
           <span class="app-color-white app-pointer" @click="opeConfirm">
-            <AppIconContent color="danger">
-              <TrashIcon size="1x"></TrashIcon>
-            </AppIconContent>
+            <v-tooltip :text="$t('remove')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent color="danger" v-bind="props"
+                  ><TrashIcon size="1x"></TrashIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
           </span>
         </div>
       </div>
