@@ -159,5 +159,11 @@
   "products admin title": "ایجاد محصول جدید با قابلیت حذف و ویرایش آن ها",
   "property value admin title": "ایجاد مقدار برای ویژگی های موجود با قابلیت حذف آن ها",
   "remove": "حذف",
-  "edit": "ویرایش"
+  "edit": "ویرایش",
+  "tickets admin title": "مشاهده و پاسگویی به پیام های مشتریان",
+  "setting admin title": "تنظیمات پنل ادمین",
+  "warehouse": "انبار",
+  "warehouse admin title": "مشاهده و مدیریت موجودی کالاها",
+  "dashboard admin title": "مدیریت و آنالیز فروشگاه",
+  "order admin title": "مشاهده و مدیریت سفارش های مشتریان"
 }

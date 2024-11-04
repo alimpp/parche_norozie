@@ -170,6 +170,22 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
+            'app-bg-primary': route.path == '/admin/warehouse',
+            'app-justify-center': sidebarState == 'close',
+          }"
+          @click="navigateTo('/admin/warehouse')"
+        >
+          <LayersIcon size="1x"></LayersIcon>
+          <span
+            class="app-font-size-12 app-font-weight-600 app-px-2 app-pt-1"
+            v-if="sidebarState == 'open'"
+            >{{ $t("warehouse") }}</span
+          >
+        </div>
+
+        <div
+          class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+          :class="{
             'app-bg-primary': route.path == '/admin/setting',
             'app-justify-center': sidebarState == 'close',
           }"
