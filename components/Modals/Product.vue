@@ -28,6 +28,21 @@
           :label="$t('discount_')"
           v-model="form.discount"
         />
+        <FileImage class="app-mt-5" @fileInformation="handleImage" />
+        <div
+          class="app-flex app-flex-wrap app-w-100 app-justify-center app-align-center app-mt-2"
+        >
+          <img
+            v-for="(image, index) in images"
+            :key="index"
+            class="app-border-radius app-mx-2 app-my-1"
+            v-if="images"
+            :src="image"
+            width="130"
+            height="130"
+            alt="image"
+          />
+        </div>
         <div class="app-mt-3">
           <AppButton
             :name="$t('select category')"
@@ -242,8 +257,16 @@ const selectedCategory = (data) => {
   selectedCategoryData.value = data;
 };
 
-const submit = async () => {
+const submit = () => {
+  console.log(form.value);
   close();
+};
+
+const images = ref([]);
+
+const handleImage = (data) => {
+  images.value.push(data.urlImage);
+  form.value.media.push(data.fileName);
 };
 </script>
 
