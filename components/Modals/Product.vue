@@ -73,6 +73,29 @@
             </span>
           </div>
         </div>
+        <div class="app-mt-3">
+          <AppButton
+            :name="$t('select property')"
+            background="app-bg-primary"
+            @click="selectPropertyModal = true"
+          />
+        </div>
+        <div
+          class="app-flex app-mx-1 app-my-1"
+          v-for="(data, index) in propertyData"
+          :key="index"
+        >
+          <span
+            class="app-font-size-14 app-font-weight-600 app-px-1 app-py-1"
+            >{{ data.property }} : </span
+          >
+          <span
+            class="app-font-size-14 app-font-weight-600 app-px-1 app-py-1"
+            v-for="(sub, index) in data.propertyValue"
+            :key="index"
+            >/ {{ sub }}</span
+          >
+        </div>
         <div class="app-flex">
           <AppInput
             class="app-pl-2"
@@ -93,8 +116,8 @@
         </div>
         <div>
           <AppButton
-            width="145px"
-            class="app-mt-4 app-w-20"
+            width="170px"
+            class="app-mt-4"
             :name="$t('add Attribute')"
             background="app-bg-primary"
             :loading="loading"
@@ -159,19 +182,23 @@
           />
         </div>
       </div>
-      <SelecCategory
+      <ModalsSelecCategory
         :state="selecCategoryModal"
         @close="selecCategoryModal = false"
         @selected="selectedCategory"
         :title="$t('select category')"
+      />
+      <ModalsSelectProperty
+        :state="selectPropertyModal"
+        @close="selectPropertyModal = false"
+        @selected="selectedProperty"
+        :title="$t('select property')"
       />
     </template>
   </AppModal>
 </template>
 
 <script setup>
-import SelecCategory from "./SelecCategory.vue";
-
 const emit = defineEmits(["close"]);
 
 const selecCategoryModal = ref(false);
@@ -191,10 +218,10 @@ const props = defineProps({
 const form = ref({
   name: "",
   description: "",
-  category_id: null,
+  category_id: 0,
   price: 0,
   discount: 0,
-  property_ids: [],
+  properties: [],
   media: [],
   tags: [],
   attributes: [],
@@ -213,7 +240,7 @@ const close = () => {
     price: null,
     category_id: null,
     discount: null,
-    property_ids: [],
+    properties: [],
     media: [],
     tags: [],
     attributes: {},
@@ -258,7 +285,8 @@ const selectedCategory = (data) => {
 };
 
 const submit = () => {
-  console.log(form.value);
+  console.log(form.value.properties);
+
   close();
 };
 
@@ -267,6 +295,14 @@ const images = ref([]);
 const handleImage = (data) => {
   images.value.push(data.urlImage);
   form.value.media.push(data.fileName);
+};
+
+const selectPropertyModal = ref(false);
+const propertyData = ref([]);
+
+const selectedProperty = (data) => {
+  form.value.properties.push(data.ids);
+  propertyData.value = data.values;
 };
 </script>
 

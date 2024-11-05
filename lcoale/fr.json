@@ -148,9 +148,9 @@
   "discount_": "تخفیف",
   "select category": "انتخاب دسته بندی",
   "labels": "بر چسب ها",
-  "attribute name": "نام ویژگی",
-  "attribute value": "مقدار ویژگی",
-  "add Attribute": "اضافه کردن ویژگی",
+  "attribute name": "نام مشخصات",
+  "attribute value": "مقدار مشخصات",
+  "add Attribute": "اضافه کردن مشخصات",
   "refresh": "بازگردانی",
   "blogs admin title": "قابلیت ایجاد ویرایش  حذف بلاگ و مقالات را در این صفحه دارید",
   "category admin title": "ایجاد دسته بندی برای تمام محصولات در فروشگاه",
@@ -165,5 +165,7 @@
   "warehouse": "انبار",
   "warehouse admin title": "مشاهده و مدیریت موجودی کالاها",
   "dashboard admin title": "مدیریت و آنالیز فروشگاه",
-  "order admin title": "مشاهده و مدیریت سفارش های مشتریان"
+  "order admin title": "مشاهده و مدیریت سفارش های مشتریان",
+  "select property": "انتخاب ویژگی",
+  "properties": "ویژگی ها"
 }
