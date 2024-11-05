@@ -285,11 +285,6 @@ const selectedCategory = (data) => {
   selectedCategoryData.value = data;
 };
 
-const submit = () => {
-  console.log(form.value.properties);
-  close();
-};
-
 const images = ref([]);
 
 const handleImage = (data) => {
@@ -305,11 +300,9 @@ const selectedProperty = (data) => {
   for (let key of data.values) {
     result.value_ids.push(key.ID);
   }
-
   const targetProperty = selectedProperttyPreview.value.find((item) => {
     return item.ID == data.ID;
   });
-
   if (targetProperty) {
     const index = selectedProperttyPreview.value.indexOf(targetProperty);
     selectedProperttyPreview.value[index] = data;
@@ -321,6 +314,11 @@ const selectedProperty = (data) => {
     selectedProperttyPreview.value.push(data);
     form.value.properties.push(result);
   }
+};
+
+const submit = () => {
+  console.log(form.value);
+  close();
 };
 </script>
 
