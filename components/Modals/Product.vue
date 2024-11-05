@@ -82,18 +82,17 @@
         </div>
         <div
           class="app-flex app-mx-1 app-my-1"
-          v-for="(data, index) in propertyData"
+          v-for="(data, index) in selectedProperttyPreview"
           :key="index"
         >
+          <span class="app-font-size-14 app-font-weight-600 app-px-1 app-py-1"
+            >{{ data.Title }} :
+          </span>
           <span
             class="app-font-size-14 app-font-weight-600 app-px-1 app-py-1"
-            >{{ data.property }} : </span
-          >
-          <span
-            class="app-font-size-14 app-font-weight-600 app-px-1 app-py-1"
-            v-for="(sub, index) in data.propertyValue"
+            v-for="(sub, index) in data.values"
             :key="index"
-            >/ {{ sub }}</span
+            >/ {{ sub.Value }}</span
           >
         </div>
         <div class="app-flex">
@@ -199,10 +198,12 @@
 </template>
 
 <script setup>
-const emit = defineEmits(["close"]);
-
 const selecCategoryModal = ref(false);
 const selectedCategoryData = ref(null);
+const selectPropertyModal = ref(false);
+const selectedProperttyPreview = ref([]);
+
+const emit = defineEmits(["close"]);
 
 const props = defineProps({
   state: {
@@ -286,7 +287,6 @@ const selectedCategory = (data) => {
 
 const submit = () => {
   console.log(form.value.properties);
-
   close();
 };
 
@@ -297,12 +297,30 @@ const handleImage = (data) => {
   form.value.media.push(data.fileName);
 };
 
-const selectPropertyModal = ref(false);
-const propertyData = ref([]);
-
 const selectedProperty = (data) => {
-  form.value.properties.push(data.ids);
-  propertyData.value = data.values;
+  const result = {
+    id: data.ID,
+    value_ids: [],
+  };
+  for (let key of data.values) {
+    result.value_ids.push(key.ID);
+  }
+
+  const targetProperty = selectedProperttyPreview.value.find((item) => {
+    return item.ID == data.ID;
+  });
+
+  if (targetProperty) {
+    const index = selectedProperttyPreview.value.indexOf(targetProperty);
+    selectedProperttyPreview.value[index] = data;
+    form.value.properties = form.value.properties.filter((item) => {
+      return item.id != targetProperty.ID;
+    });
+    form.value.properties.push(result);
+  } else {
+    selectedProperttyPreview.value.push(data);
+    form.value.properties.push(result);
+  }
 };
 </script>
 
