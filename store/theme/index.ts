@@ -3,7 +3,7 @@ import { type ITheme } from "@/dataModel/theme/model";
 
 export const useThemeStore = defineStore("useThemeStore", {
   state: (): any => ({
-    theme: "light",
+    theme: "dark",
     refresh: false,
     wighet: {
       baseCard: {
