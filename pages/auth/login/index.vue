@@ -11,7 +11,7 @@
       :hasLine="true"
       width="90px"
     />
-    <!-- <span class="f-s--18 f-w-600 app-px-4 app-py-2">
+    <!-- <span class="f-s-18 f-w-600 app-px-4 app-py-2">
       {{ t("login") }} | {{ t("register") }}</span
     > -->
     <div class="app-px-4 app-py-4">

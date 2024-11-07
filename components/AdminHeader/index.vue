@@ -16,8 +16,8 @@
           height="50px"
         />
         <div class="app-flex app-flex-column app-justify-center app-px-2">
-          <span class="f-s--14 f-w-600">norozie</span>
-          <span class="f-s--12 f-w-600 color-primary">{{
+          <span class="f-s-14 f-w-600">norozie</span>
+          <span class="f-s-12 f-w-600 color-primary">{{
             $t("role admin")
           }}</span>
         </div>

@@ -20,25 +20,25 @@
           class="app-flex app-flex-column app-w-100 app-px-3"
           style="width: 300px"
         >
-          <span class="f-s--14 f-w-600 color-primary app-pt-1"
+          <span class="f-s-14 f-w-600 color-primary app-pt-1"
             >{{ data.Title }}
           </span>
-          <span class="f-s--12 f-w-100"
+          <span class="f-s-12 f-w-100"
             >{{ data.Description.slice(0, 40) }}...
           </span>
           <div class="app-flex app-w-100">
-            <span class="f-s--10"
+            <span class="f-s-10"
               >{{ $t("reading time") }} {{ data.ReadingTime }}
               {{ $t("minute") }}</span
             >
           </div>
           <div class="app-flex app-flex-column">
-            <span class="f-s--12">{{ $t("autor") }} :</span>
-            <span class="f-s--10">علیرضا نوروزی</span>
+            <span class="f-s-12">{{ $t("autor") }} :</span>
+            <span class="f-s-10">علیرضا نوروزی</span>
           </div>
           <div class="app-w-100 app-flex app-justify-end">
             <span
-              class="color-primary f-s--12 app-pointer app-py-2"
+              class="color-primary f-s-12 app-pointer app-py-2"
               @click="read"
               >{{ $t("read more blog") }}</span
             >

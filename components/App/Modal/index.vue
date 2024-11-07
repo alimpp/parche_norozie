@@ -16,7 +16,7 @@
         <div
           class="app-w-50 app-flex app-justify-start app-px-1 app-py-3 app-px-3"
         >
-          <span class="f-s--16 f-w-600">{{ title }}</span>
+          <span class="f-s-16 f-w-600">{{ title }}</span>
         </div>
         <div
           class="app-w-50 app-flex app-justify-end app-px-1 app-py-3 app-px-3"

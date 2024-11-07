@@ -19,7 +19,7 @@
         'bg-secondary-custom': themeStore.theme == 'custom',
       }"
     >
-      <span class="f-s--12"> {{ data.msg }}</span>
+      <span class="f-s-12"> {{ data.msg }}</span>
     </div>
   </div>
 </template>

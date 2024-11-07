@@ -12,12 +12,12 @@
       <div class="app-flex app-w-100 app-py-2 app-px-4">
         <div class="app-w-100 app-flex app-flex-column">
           <div class="app-w-100 app-flex app-flex-column">
-            <span class="f-s--14 f-w-600">{{ $t("property name") }} :</span>
+            <span class="f-s-14 f-w-600">{{ $t("property name") }} :</span>
             <div class="app-border-radius app-py-2 app-flex">
-              <span class="f-s--12 f-w-600">{{ data.Title }}</span>
+              <span class="f-s-12 f-w-600">{{ data.Title }}</span>
             </div>
           </div>
-          <span class="f-s--14 f-w-600" v-if="data"
+          <span class="f-s-14 f-w-600" v-if="data"
             >{{ $t("property value") }} :</span
           >
           <div
@@ -25,7 +25,7 @@
             v-for="(sub, index) in data.values"
             :key="index"
           >
-            <span class="f-s--12 app-w-50 f-w-600">{{ sub.Value }}</span>
+            <span class="f-s-12 app-w-50 f-w-600">{{ sub.Value }}</span>
             <div
               class="color-white app-w-50 app-flex app-justify-end app-align-center"
               @click="opeConfirm(sub)"

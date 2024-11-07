@@ -4,7 +4,7 @@
       <div
         class="app-w-100 app-flex app-flex-column app-justify-center app-align-center app-py-8"
       >
-        <span class="f-s--16 f-w-600">{{ title }}</span>
+        <span class="f-s-16 f-w-600">{{ title }}</span>
         <span>{{ text }}</span>
         <div class="app-w-100 app-flex app-justify-center app-mt-5 app-mb-5">
           <AppButton

@@ -54,17 +54,17 @@
           v-if="selectedCategoryData"
           class="app-w-100 app-flex app-flex-column app-border-radius app-py-2 app-mt-2"
         >
-          <span class="f-s--14 f-w-600">{{ $t("category name") }}</span>
+          <span class="f-s-14 f-w-600">{{ $t("category name") }}</span>
           <div class="app-flex">
-            <span class="f-s--14 f-w-600 app-px-1">{{
+            <span class="f-s-14 f-w-600 app-px-1">{{
               selectedCategoryData.Title
             }}</span>
             <span
-              class="f-s--14 f-w-600 app-flex app-px-1"
+              class="f-s-14 f-w-600 app-flex app-px-1"
               v-for="(sub, index) in selectedCategoryData.subcategories"
               :key="index"
             >
-              <span class="f-s--14 f-w-600 app-px-1">/</span>
+              <span class="f-s-14 f-w-600 app-px-1">/</span>
               {{ sub.Title }}
             </span>
           </div>
@@ -81,11 +81,11 @@
           v-for="(data, index) in selectedProperttyPreview"
           :key="index"
         >
-          <span class="f-s--14 f-w-600 app-px-1 app-py-1"
+          <span class="f-s-14 f-w-600 app-px-1 app-py-1"
             >{{ data.Title }} :
           </span>
           <span
-            class="f-s--14 f-w-600 app-px-1 app-py-1"
+            class="f-s-14 f-w-600 app-px-1 app-py-1"
             v-for="(sub, index) in data.values"
             :key="index"
             >/ {{ sub.Value }}</span

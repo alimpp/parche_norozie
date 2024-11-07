@@ -8,7 +8,7 @@
     }"
     :class="[background]"
   >
-    <span class="f-s--16 f-w-900">{{ name }}</span>
+    <span class="f-s-16 f-w-900">{{ name }}</span>
   </div>
 </template>
 

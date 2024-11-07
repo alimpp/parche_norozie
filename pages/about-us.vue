@@ -6,22 +6,22 @@
         data-aos="fade-left"
       >
         <AppDivider :name="$t('aboutUs')" :hasLine="true" width="65px" />
-        <span class="app-mt-3 f-s--16 f-w-600">{{
+        <span class="app-mt-3 f-s-16 f-w-600">{{
           $t("about us part one")
         }}</span>
 
-        <span class="f-s--12 f-w-100 app-mt-2"
+        <span class="f-s-12 f-w-100 app-mt-2"
           >{{ $t("about us part two") }}
-          <span class="f-s--12 f-w-100 color-primary">{{
+          <span class="f-s-12 f-w-100 color-primary">{{
             $t("about us part tree")
           }}</span></span
         >
 
-        <span class="app-mt-3 f-s--12 f-w-500">{{
+        <span class="app-mt-3 f-s-12 f-w-500">{{
           $t("about us part four")
         }}</span>
 
-        <span class="app-mt-3 f-s--12 f-w-500">{{
+        <span class="app-mt-3 f-s-12 f-w-500">{{
           $t("about us part five")
         }}</span>
       </div>
@@ -49,24 +49,24 @@
         class="section-left app-flex app-flex-column app-py-4 app-px-5"
         data-aos="fade-up-right"
       >
-        <span class="app-mt-3 f-s--16 f-w-100 color-primary">{{
+        <span class="app-mt-3 f-s-16 f-w-100 color-primary">{{
           $t("about us part six")
         }}</span>
-        <span class="app-mt-3 f-s--12 f-w-500">{{
+        <span class="app-mt-3 f-s-12 f-w-500">{{
           $t("about us part seven")
         }}</span>
 
-        <span class="f-s--14 f-w-100 color-primary app-pt-3">{{
+        <span class="f-s-14 f-w-100 color-primary app-pt-3">{{
           $t("about us part eight")
         }}</span>
 
-        <span class="f-s--12 f-w-500">{{ $t("about us part nine") }}</span>
+        <span class="f-s-12 f-w-500">{{ $t("about us part nine") }}</span>
 
-        <span class="f-s--14 f-w-600 app-pt-4">{{
+        <span class="f-s-14 f-w-600 app-pt-4">{{
           $t("about us part ten")
         }}</span>
 
-        <span class="f-s--14 f-w-600">{{ $t("about us part end") }}</span>
+        <span class="f-s-14 f-w-600">{{ $t("about us part end") }}</span>
 
         <AppButton
           :name="$t('contactUs')"

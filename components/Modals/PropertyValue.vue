@@ -32,11 +32,9 @@
             @click="submit"
           />
         </div>
-        <span
-          v-if="propertyList.length != 0"
-          class="f-s--14 f-w-600 app-mt-5"
-          >{{ $t("property") }}</span
-        >
+        <span v-if="propertyList.length != 0" class="f-s-14 f-w-600 app-mt-5">{{
+          $t("property")
+        }}</span>
         <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectProperty(data)"

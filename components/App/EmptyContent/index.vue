@@ -11,7 +11,7 @@
       />
     </div>
     <div>
-      <span class="f-s--14 f-w-600">{{ $t("no items found") }}</span>
+      <span class="f-s-14 f-w-600">{{ $t("no items found") }}</span>
     </div>
   </div>
 </template>

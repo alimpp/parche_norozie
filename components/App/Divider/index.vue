@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column">
-    <span class="f-s--14 f-w-600">
+    <span class="f-s-14 f-w-600">
       {{ name }}
     </span>
     <div

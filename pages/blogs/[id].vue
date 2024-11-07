@@ -11,22 +11,22 @@
         />
         <div class="header-info">
           <div class="app-flex app-flex-column app-mb-5">
-            <h1 class="f-s--18 f-w-600">
+            <h1 class="f-s-18 f-w-600">
               {{ dataSource.title }}
             </h1>
-            <span class="f-s--12 f-w-500"
+            <span class="f-s-12 f-w-500"
               >{{ $t("read time") }} 10 {{ $t("minute") }}</span
             >
           </div>
           <div class="app-flex app-px-2">
-            <span class="f-s--12">{{ $t("autor") }} :</span>
-            <span class="f-s--12 app-px-2">علیرضا نوروزی</span>
+            <span class="f-s-12">{{ $t("autor") }} :</span>
+            <span class="f-s-12 app-px-2">علیرضا نوروزی</span>
           </div>
           <div class="share-link-content app-border-radius">
             <span class="app-pt-2" @click="copyLink">
               <CopyIcon size="1.5x"></CopyIcon>
             </span>
-            <span class="f-s--12 app-w-100 app-flex app-justify-end">
+            <span class="f-s-12 app-w-100 app-flex app-justify-end">
               https://parche-go.liara.run {{ route.fullPath }}
             </span>
           </div>
@@ -38,17 +38,17 @@
       data-aos="fade-up"
     >
       <div class="content">
-        <h3 class="f-s--14 f-w-600">
+        <h3 class="f-s-14 f-w-600">
           {{ dataSource.description }}
         </h3>
         <div
           class="app-flex app-flex-column app-py-5"
           v-for="section in dataSource.sections"
         >
-          <h2 class="f-s--18 f-w-600">
+          <h2 class="f-s-18 f-w-600">
             {{ section.title }}
           </h2>
-          <h3 class="f-s--12 f-w-600">
+          <h3 class="f-s-12 f-w-600">
             {{ section.description }}
           </h3>
           <img
@@ -64,11 +64,11 @@
             <span class="app-pt-2">
               <TagIcon size="1.5x"></TagIcon>
             </span>
-            <span class="f-s--18 f-w-600 app-px-2">{{ $t("labels") }}</span>
+            <span class="f-s-18 f-w-600 app-px-2">{{ $t("labels") }}</span>
           </div>
           <div class="app-w-100 app-flex app-flex-wrap">
             <h6
-              class="f-s--14 f-w-600 app-px-1"
+              class="f-s-14 f-w-600 app-px-1"
               v-for="(tag, index) in dataSource.tags"
               :key="index"
             >

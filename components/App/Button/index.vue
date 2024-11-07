@@ -27,7 +27,7 @@
 const props = defineProps({
   fontSize: {
     type: String,
-    default: "f-s--14",
+    default: "f-s-14",
   },
   fontWight: {
     type: String,

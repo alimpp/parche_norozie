@@ -14,12 +14,12 @@
           <img class="image-style" :src="imageUrl" alt="image" />
         </div>
         <div class="app-flex app-flex-column app-px-4 app-py-4">
-          <span class="f-s--12 f-w-600">{{ $t("title") }} :</span>
-          <span class="f-s--14 f-w-600">{{ data.Title }}</span>
-          <span class="f-s--12 f-w-600">{{ $t("explans") }} :</span>
-          <span class="f-s--14 f-w-600">{{ data.Description }}</span>
-          <span class="f-s--12 f-w-600">{{ $t("created at") }} :</span>
-          <span class="f-s--12 f-w-600"> {{ data.CreatedAt }}</span>
+          <span class="f-s-12 f-w-600">{{ $t("title") }} :</span>
+          <span class="f-s-14 f-w-600">{{ data.Title }}</span>
+          <span class="f-s-12 f-w-600">{{ $t("explans") }} :</span>
+          <span class="f-s-14 f-w-600">{{ data.Description }}</span>
+          <span class="f-s-12 f-w-600">{{ $t("created at") }} :</span>
+          <span class="f-s-12 f-w-600"> {{ data.CreatedAt }}</span>
           <div class="app-flex app-mt-4">
             <span class="app-pointer color-white" @click="editBlog">
               <v-tooltip :text="$t('edit')" location="bottom">

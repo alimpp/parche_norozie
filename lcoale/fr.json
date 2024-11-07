@@ -167,5 +167,7 @@
   "dashboard admin title": "مدیریت و آنالیز فروشگاه",
   "order admin title": "مشاهده و مدیریت سفارش های مشتریان",
   "select property": "انتخاب ویژگی",
-  "properties": "ویژگی ها"
+  "properties": "ویژگی ها",
+  "key character typing": "کلمه کلیدی مورد نظررا وارد کنید",
+  "searching item": "آیتم مورد نظر خود را جستجو کنید"
 }

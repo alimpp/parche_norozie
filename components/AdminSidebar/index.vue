@@ -40,7 +40,7 @@
         >
           <BarChartIcon size="1x"></BarChartIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("dashboard") }}</span
           >
@@ -56,7 +56,7 @@
         >
           <ArchiveIcon size="1x"></ArchiveIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("category") }}</span
           >
@@ -72,7 +72,7 @@
         >
           <ActivityIcon size="1x"></ActivityIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("property") }}</span
           >
@@ -87,7 +87,7 @@
         >
           <CloudLightningIcon size="1x"></CloudLightningIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("property value") }}</span
           >
@@ -102,7 +102,7 @@
         >
           <CodesandboxIcon size="1x"></CodesandboxIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("products") }}</span
           >
@@ -117,7 +117,7 @@
         >
           <ShoppingCartIcon size="1x"></ShoppingCartIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("orders") }}</span
           >
@@ -132,7 +132,7 @@
         >
           <AlignLeftIcon size="1x"></AlignLeftIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("blogs") }}</span
           >
@@ -147,7 +147,7 @@
         >
           <UserIcon size="1x"></UserIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("customers") }}</span
           >
@@ -162,7 +162,7 @@
         >
           <FileTextIcon size="1x"></FileTextIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("tickets") }}</span
           >
@@ -177,7 +177,7 @@
         >
           <LayersIcon size="1x"></LayersIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("warehouse") }}</span
           >
@@ -193,7 +193,7 @@
         >
           <SettingsIcon size="1x"></SettingsIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("setting") }}</span
           >
@@ -207,7 +207,7 @@
         >
           <ArrowRightIcon size="1x"></ArrowRightIcon>
           <span
-            class="f-s--12 f-w-600 app-px-2 app-pt-1"
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
             v-if="sidebarState == 'open'"
             >{{ $t("exit") }}</span
           >

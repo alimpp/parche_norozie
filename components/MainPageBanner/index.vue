@@ -2,13 +2,13 @@
   <div class="app-w-100 main-page-banner">
     <div class="content">
       <div class="glass">
-        <h1 class="f-s--18 f-w-600" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="f-s-18 f-w-600" data-aos="fade-up" data-aos-duration="1000">
           {{ $t("kalaye khab norozi") }}
         </h1>
-        <h2 class="f-s--14 f-w-500" data-aos="fade-up" data-aos-duration="1500">
+        <h2 class="f-s-14 f-w-500" data-aos="fade-up" data-aos-duration="1500">
           {{ $t("main page banner title") }}
         </h2>
-        <h2 class="f-s--12 f-w-500" data-aos="fade-up" data-aos-duration="1800">
+        <h2 class="f-s-12 f-w-500" data-aos="fade-up" data-aos-duration="1800">
           {{ $t("main page banner subtitle") }}
         </h2>
         <AppButton
