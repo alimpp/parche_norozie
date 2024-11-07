@@ -27,7 +27,7 @@
           >
             <span class="f-s--12 app-w-50 f-w-600">{{ sub.Value }}</span>
             <div
-              class="app-color-white app-w-50 app-flex app-justify-end app-align-center"
+              class="color-white app-w-50 app-flex app-justify-end app-align-center"
               @click="opeConfirm(sub)"
             >
               <v-tooltip :text="$t('remove')" location="bottom">

@@ -3,7 +3,7 @@
     :style="{
       width: `${width}`,
     }"
-    class="app-border-radius overflow-hidden bgelement-dark border-card"
+    class="app-border-radius overflow-hidden bg-element-dark border-card"
   >
     <slot name="content"></slot>
   </div>

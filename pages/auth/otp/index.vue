@@ -16,9 +16,7 @@
       class="app-flex app-flex-column app-justify-center app-align-center"
       v-if="otpError"
     >
-      <span class="f-s--14 f-w-600 app-color-danger">
-        {{ t("otp error") }}</span
-      >
+      <span class="f-s--14 f-w-600 color-danger"> {{ t("otp error") }}</span>
     </div>
     <div
       class="app-w-100 app-flex app-justify-center app-flex-column app-align-center"

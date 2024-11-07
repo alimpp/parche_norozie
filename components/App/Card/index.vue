@@ -7,8 +7,8 @@
     class="app-card-content app-border-radius overflow-hidden"
     :class="{
       bgwhite: themeStore.theme == 'light',
-      'bgelement-dark': themeStore.theme == 'dark',
-      'bgsecondary-custom': themeStore.theme == 'custom',
+      'bg-element-dark': themeStore.theme == 'dark',
+      'bg-secondary-custom': themeStore.theme == 'custom',
       'primary-border': wighetCard == 'hasBorder',
       'primary-shadow': wighetCard == 'hasShadow',
     }"

@@ -20,7 +20,7 @@
           class="app-flex app-flex-column app-w-100 app-px-3"
           style="width: 300px"
         >
-          <span class="f-s--14 f-w-600 app-color-primary app-pt-1"
+          <span class="f-s--14 f-w-600 color-primary app-pt-1"
             >{{ data.Title }}
           </span>
           <span class="f-s--12 f-w-100"
@@ -38,7 +38,7 @@
           </div>
           <div class="app-w-100 app-flex app-justify-end">
             <span
-              class="app-color-primary f-s--12 app-pointer app-py-2"
+              class="color-primary f-s--12 app-pointer app-py-2"
               @click="read"
               >{{ $t("read more blog") }}</span
             >

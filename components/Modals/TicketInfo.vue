@@ -25,7 +25,7 @@
           class="app-flex app-flex-column bg-gray app-px-2 app-border-radius app-mt-5 app-py-5"
         >
           <div
-            class="app-flex app-align-center app-pointer app-color-danger"
+            class="app-flex app-align-center app-pointer color-danger"
             @click="removeTicket"
           >
             <TrashIcon size="1x"></TrashIcon>
@@ -34,7 +34,7 @@
             }}</span>
           </div>
           <div
-            class="app-flex app-align-center app-pointer app-color-danger app-mt-1"
+            class="app-flex app-align-center app-pointer color-danger app-mt-1"
           >
             <XIcon size="1x"></XIcon>
             <span class="f-s--12 f-w-600 app-px-2 app-pt-1">{{

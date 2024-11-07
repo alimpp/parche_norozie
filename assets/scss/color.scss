@@ -1,38 +1,38 @@
 @import "../variables/theme_colors";
 
-.app-color-primary {
-  color: var(--primary-);
+.color-primary {
+  color: var(--primary-100-);
 }
-.app-color-secondary {
+.color-secondary {
   color: var(--secondary-);
 }
-.app-color-danger {
-  color: var(--danger-);
+.color-danger {
+  color: var(--danger-100-);
 }
-.app-color-gray {
-  color: var(--gray-);
+.color-gray {
+  color: var(--gray-100-);
 }
-.app-color-light {
+.color-light {
   color: var(--light-);
 }
-.app-color-white {
+.color-white {
   color: var(--white-);
 }
-.app-color-dark {
+.color-dark {
   color: var(--dark-);
 }
-.app-color-info {
+.color-info {
   color: var(--info-);
 }
-.app-color-refresh {
+.color-refresh {
   color: var(--refresh-);
 }
-.app-color-search {
+.color-search {
   color: var(--search-);
 }
-.app-color-primary-custom {
+.color-primary-custom {
   color: var(--primary-custom-);
 }
-.app-color-secondary-custom {
-  color: var(--secondary-custom-);
+.color-bg-secondary-custom {
+  color: var(--bg-secondary-custom-);
 }

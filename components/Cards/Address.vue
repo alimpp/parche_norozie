@@ -31,7 +31,7 @@
             <EditIcon size="1x" class="app-pointer"></EditIcon>
           </div>
         </div>
-        <span class="f-s--16 f-w-100 app-color-primary">{{ data.name }}</span>
+        <span class="f-s--16 f-w-100 color-primary">{{ data.name }}</span>
         <span class="f-s--12 f-w-600">{{ data.address }}</span>
         <div class="app-flex">
           <span class="f-s--14 app-mt-1 f-w-100"

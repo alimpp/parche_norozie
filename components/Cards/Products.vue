@@ -36,9 +36,7 @@
         >
           <span class="f-s--12 f-w-600">{{ data.name }}</span>
           <div class="app-flex">
-            <span class="f-s--10 f-w-100 app-color-gray">{{
-              data.category
-            }}</span>
+            <span class="f-s--10 f-w-100 color-gray">{{ data.category }}</span>
             <span
               v-if="data.hasDiscount"
               class="f-s--10 f-w-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
@@ -113,9 +111,7 @@
         >
           <span class="f-s--12 f-w-100">{{ data.name }}</span>
           <div class="app-flex">
-            <span class="f-s--10 f-w-100 app-color-gray">{{
-              data.category
-            }}</span>
+            <span class="f-s--10 f-w-100 color-gray">{{ data.category }}</span>
             <span
               v-if="data.hasDiscount"
               class="f-s--10 f-w-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"

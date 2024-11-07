@@ -7,7 +7,7 @@
             <span class="f-s--16 f-w-600">
               {{ $t("setting") }}
             </span>
-            <span class="f-s--12 f-w-500 app-color-gray">
+            <span class="f-s--12 f-w-500 color-gray">
               {{ $t("setting admin title") }}
             </span>
           </div>
@@ -44,7 +44,7 @@
       >
         <div
           style="width: 60px; height: 60px"
-          class="bgsecondary-custom app-border-radius"
+          class="bg-secondary-custom app-border-radius"
         ></div>
         <span class="f-s--12 f-w-600">کاستوم</span>
         <CheckCircleIcon v-if="themeStore.theme == 'custom'" />

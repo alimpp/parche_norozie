@@ -125,7 +125,7 @@
             v-for="(attr, index) in form.attributes"
             @click="removeAttribute(index)"
           >
-            <div class="app-color-white">
+            <div class="color-white">
               <AppIconContent color="danger">
                 <TrashIcon size="1x"></TrashIcon>
               </AppIconContent>
@@ -158,7 +158,7 @@
             v-for="(tag, index) in form.tags"
             @click="removeTag(index)"
           >
-            <div class="app-color-white">
+            <div class="color-white">
               <AppIconContent color="danger">
                 <TrashIcon size="1x"></TrashIcon>
               </AppIconContent>

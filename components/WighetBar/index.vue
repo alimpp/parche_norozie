@@ -52,7 +52,7 @@
           >
             <div
               style="width: 60px; height: 60px"
-              class="bgsecondary-custom app-border-radius"
+              class="bg-secondary-custom app-border-radius"
             ></div>
             <span class="f-s--14 f-w-600">کاستوم</span>
             <CheckCircleIcon v-if="themeStore.theme == 'custom'" />

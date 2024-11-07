@@ -6,7 +6,7 @@
           <span class="f-s--16 f-w-600">
             {{ $t("category") }}
           </span>
-          <span class="f-s--12 f-w-500 app-color-gray">
+          <span class="f-s--12 f-w-500 color-gray">
             {{ $t("category admin title") }}
           </span>
         </div>

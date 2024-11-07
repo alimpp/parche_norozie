@@ -3,15 +3,15 @@
     class="chat-room-header app-px-3"
     :class="{
       bgwhite: themeStore.theme == 'light',
-      'bgelement-dark': themeStore.theme == 'dark',
-      'bgsecondary-custom': themeStore.theme == 'custom',
+      'bg-element-dark': themeStore.theme == 'dark',
+      'bg-secondary-custom': themeStore.theme == 'custom',
     }"
   >
     <div class="app-flex app-w-95">
       <AppAvatar width="40px" height="40px" :name="data.avatar" />
       <div class="app-flex app-flex-column app-px-2">
         <span class="f-s--12 f-w-500">{{ data.name }}</span>
-        <span class="f-s--10 f-w-100 app-color-gray">{{ data.role }}</span>
+        <span class="f-s--10 f-w-100 color-gray">{{ data.role }}</span>
       </div>
     </div>
     <div class="app-w-5 app-flex app-align-center app-justify-end app-pointer">

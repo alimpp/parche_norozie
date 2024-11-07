@@ -2,8 +2,8 @@
   <div
     :class="{
       bgwhite: themeStore.theme == 'light',
-      'bgelement-dark': themeStore.theme == 'dark',
-      'bgsecondary-custom': themeStore.theme == 'custom',
+      'bg-element-dark': themeStore.theme == 'dark',
+      'bg-secondary-custom': themeStore.theme == 'custom',
     }"
     class="app-flex app-w-100 footer-container"
   >

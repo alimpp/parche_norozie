@@ -41,7 +41,7 @@
         </div>
         <div class="line"></div>
         <div
-          class="app-flex app-align-center app-color-danger app-mb-5 app-pointer"
+          class="app-flex app-align-center color-danger app-mb-5 app-pointer"
           @click="logOut"
         >
           <ArrowRightIcon size="1.5x" class="custom-class"></ArrowRightIcon>

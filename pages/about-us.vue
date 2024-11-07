@@ -12,7 +12,7 @@
 
         <span class="f-s--12 f-w-100 app-mt-2"
           >{{ $t("about us part two") }}
-          <span class="f-s--12 f-w-100 app-color-primary">{{
+          <span class="f-s--12 f-w-100 color-primary">{{
             $t("about us part tree")
           }}</span></span
         >
@@ -49,14 +49,14 @@
         class="section-left app-flex app-flex-column app-py-4 app-px-5"
         data-aos="fade-up-right"
       >
-        <span class="app-mt-3 f-s--16 f-w-100 app-color-primary">{{
+        <span class="app-mt-3 f-s--16 f-w-100 color-primary">{{
           $t("about us part six")
         }}</span>
         <span class="app-mt-3 f-s--12 f-w-500">{{
           $t("about us part seven")
         }}</span>
 
-        <span class="f-s--14 f-w-100 app-color-primary app-pt-3">{{
+        <span class="f-s--14 f-w-100 color-primary app-pt-3">{{
           $t("about us part eight")
         }}</span>
 

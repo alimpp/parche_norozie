@@ -21,7 +21,7 @@
           <span class="f-s--12 f-w-600">{{ $t("created at") }} :</span>
           <span class="f-s--12 f-w-600"> {{ data.CreatedAt }}</span>
           <div class="app-flex app-mt-4">
-            <span class="app-pointer app-color-white" @click="editBlog">
+            <span class="app-pointer color-white" @click="editBlog">
               <v-tooltip :text="$t('edit')" location="bottom">
                 <template v-slot:activator="{ props }">
                   <AppIconContent color="success" v-bind="props"
@@ -31,7 +31,7 @@
               </v-tooltip>
             </span>
             <span
-              class="app-color-white app-pointer app-px-2"
+              class="color-white app-pointer app-px-2"
               @click="deleteState = true"
             >
               <v-tooltip :text="$t('remove')" location="bottom">

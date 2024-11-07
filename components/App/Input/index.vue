@@ -13,13 +13,13 @@
       :class="{
         error: error,
         bgwhite: themeStore.theme == 'light',
-        'app-color-white': themeStore.theme != 'light',
+        'color-white': themeStore.theme != 'light',
       }"
       :disabled="disabled"
       class="app-border-radius app-border"
       :placeholder="placeholder"
     />
-    <span v-if="error" class="f-s--12 f-w-600 app-color-danger app-py-2">
+    <span v-if="error" class="f-s--12 f-w-600 color-danger app-py-2">
       {{ messageError }}
     </span>
   </div>
