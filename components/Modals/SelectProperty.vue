@@ -32,6 +32,11 @@
         />
       </div>
     </template>
+    <template #icon>
+      <AppIconContent color="bg-primary-100">
+        <PlusIcon size="1.5x"></PlusIcon>
+      </AppIconContent>
+    </template>
   </AppModal>
 </template>
 

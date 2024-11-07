@@ -12,11 +12,12 @@
         'bg-secondary-custom': themeStore.theme == 'custom',
       }"
     >
-      <div class="app-flex app-w-100" v-if="header">
+      <div class="app-flex app-w-100 header-style" v-if="header">
         <div
           class="app-w-50 app-flex app-justify-start app-px-1 app-py-3 app-px-3"
         >
-          <span class="f-s-16 f-w-600">{{ title }}</span>
+          <slot name="icon"></slot>
+          <span class="f-s-16 f-w-600 app-px-1">{{ title }}</span>
         </div>
         <div
           class="app-w-50 app-flex app-justify-end app-px-1 app-py-3 app-px-3"
@@ -72,5 +73,10 @@ const props = defineProps({
   align-items: center;
   background: rgba(5, 5, 5, 0.816);
   transition: 1s;
+}
+
+.header-style {
+  background: #7272f512;
+  border-radius: 0 0 20px 20px;
 }
 </style>
