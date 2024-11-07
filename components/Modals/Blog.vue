@@ -1,12 +1,25 @@
 <template>
   <AppModal
-    width="90%"
+    width="70%"
     :state="state"
     @close="close"
     :title="$t('create new blog')"
   >
     <template #content>
       <div class="app-flex app-flex-column app-px-4 app-py-7 container">
+        <div
+          class="bg-primary-transparent app-border-radius app-py-1 app-px-1 app-flex app-flex-column"
+        >
+          <span class="f-s-12 f-w-500 color-primary"
+            >. {{ $t("create blog guide 1") }}</span
+          >
+          <span class="f-s-12 f-w-500 color-primary"
+            >. {{ $t("create blog guide 2") }}</span
+          >
+          <span class="f-s-12 f-w-500 color-primary"
+            >. {{ $t("create blog guide 3") }}</span
+          >
+        </div>
         <div class="app-flex app-flex-column app-w-100">
           <AppInput
             height="35px"
@@ -21,14 +34,22 @@
             :error="error.description.state"
             :message-error="error.description.message"
           />
-          <img
-            class="app-mt-2 app-border-radius"
-            v-if="form.imageUrl"
-            :src="form.imageUrl"
-            width="500"
-            alt="image"
-          />
-          <FileImage class="app-mt-5" @fileInformation="handleMainImage" />
+          <div class="app-w-100 app-flex">
+            <div
+              class="app-w-50 app-flex app-justify-center app-align-center app-px-2"
+              v-if="form.imageUrl"
+            >
+              <img
+                class="app-mt-3 app-border-radius"
+                :src="form.imageUrl"
+                width="500"
+                alt="image"
+              />
+            </div>
+            <div class="app-w-100" :class="{ 'app-w-50': form.imageUrl }">
+              <FileImage class="app-mt-5" @fileInformation="handleMainImage" />
+            </div>
+          </div>
           <AppInput
             height="35px"
             :label="$t('reading time')"
@@ -40,7 +61,9 @@
             <AppButton
               class="app-mt-4"
               :name="$t('create section')"
-              background="bg-primary-100"
+              background="bg-primary-transparent"
+              color="color-primary"
+              font-wight="f-w-600"
               :loading="loading"
               @click="addSection"
             />
@@ -62,18 +85,26 @@
             v-model="section.title"
           />
           <AppTextarea :label="$t('text')" v-model="section.description" />
-          <img
-            class="app-mt-2 app-border-radius"
-            v-if="section.imageUrl"
-            :src="section.imageUrl"
-            width="500"
-            alt="image"
-          />
-          <FileImage
-            @click="lastSectionIndexSelected = index"
-            class="app-mt-5"
-            @fileInformation="handleSectionImage"
-          />
+          <div class="app-w-100 app-flex">
+            <div
+              class="app-w-50 app-flex app-justify-center app-align-center app-px-2"
+              v-if="section.imageUrl"
+            >
+              <img
+                class="app-mt-2 app-border-radius"
+                :src="section.imageUrl"
+                width="500"
+                alt="image"
+              />
+            </div>
+            <div class="app-w-100" :class="{ 'app-w-50': section.imageUrl }">
+              <FileImage
+                @click="lastSectionIndexSelected = index"
+                class="app-mt-5"
+                @fileInformation="handleSectionImage"
+              />
+            </div>
+          </div>
         </div>
         <div>
           <div>
@@ -87,7 +118,9 @@
             <AppButton
               class="app-mt-4 app-w-20"
               :name="$t('addTag')"
-              background="bg-primary-100"
+              background="bg-primary-transparent"
+              color="color-primary"
+              font-wight="f-w-600"
               :loading="loading"
               @click="addTag"
             />
