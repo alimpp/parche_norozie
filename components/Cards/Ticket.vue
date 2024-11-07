@@ -7,11 +7,12 @@
             class="app-font-size-16 app-font-weight-500 app-color-primary"
             >{{ data.subject }}</span
           >
-          <span
-            class="app-font-size-10 app-font-weight-500 app-bg-danger app-flex app-align-center app-border-radius app-mx-2 app-px-2"
+          <AppChip
+            class="app-mx-2"
+            :text="$t('new message')"
+            color="app-bg-danger"
             v-if="!data.seen_by_admin || !data.seen_by_user"
-            >{{ $t("new message") }}</span
-          >
+          ></AppChip>
         </div>
         <span class="app-font-size-10 app-font-weight-600 app-color-gray">{{
           data.CreatedAt.slice(0, 10)
