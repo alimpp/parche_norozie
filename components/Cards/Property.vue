@@ -11,7 +11,16 @@
       />
       <div class="app-flex app-w-100 app-py-2 app-px-4">
         <div class="app-w-50 app-flex app-flex-column">
-          <span class="f-s-14 f-w-600">{{ $t("property name") }} :</span>
+          <span
+            style="width: 60px"
+            class="app-flex app-align-center app-justify-center bg-primary-transparent color-primary app-border-radius"
+          >
+            <HashIcon size="1x"></HashIcon>
+            <span>{{ data.ID }}</span>
+          </span>
+          <span class="f-s-12 f-w-600 color-primary"
+            >{{ $t("property name") }}
+          </span>
           <span class="f-s-12 f-w-600">{{ data.Title }}</span>
         </div>
 

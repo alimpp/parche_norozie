@@ -50,7 +50,7 @@
       v-for="(data, index) in dataSource"
       :key="index"
       :data="data"
-      class="app-mt-2"
+      class="app-mt-2 fade_animations"
       @deleteCategory="deleteCategory"
     />
   </div>
