@@ -11,10 +11,7 @@
           class="bg-primary-transparent app-border-radius app-py-1 app-px-1 app-flex app-flex-column"
         >
           <span class="f-s-12 f-w-500 color-primary"
-            >. {{ $t("create category guide 1") }}</span
-          >
-          <span class="f-s-12 f-w-500 color-primary"
-            >. {{ $t("create category guide 2") }}</span
+            >. {{ $t("create property guide 1") }}</span
           >
         </div>
         <div class="app-flex app-flex-column app-w-100">
