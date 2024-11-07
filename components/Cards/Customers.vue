@@ -2,9 +2,13 @@
   <AppCard>
     <template #content>
       <div class="app-flex app-flex-column app-px-2 app-py-2">
-        <div class="app-flex">
-          <span class="f-s-12 f-w-600">{{ $t("phoneNumber") }} :</span>
-          <span class="f-s-12 app-px-2 f-w-600"> {{ data.phone }}</span>
+        <div class="app-flex color-primary">
+          <span
+            class="f-s-14 app-px-3 app-py-1 f-w-500 bg-primary-transparent app-border-radius app-flex app-align-center"
+          >
+            <HashIcon size="1.4x"></HashIcon>
+            {{ data.phone }}</span
+          >
         </div>
         <div class="app-flex">
           <span class="f-s-12 f-w-600">{{ $t("name") }} :</span>
