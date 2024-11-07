@@ -29,7 +29,7 @@
           class="app-mt-4"
           :name="$t('submit')"
           :loading="loading"
-          background="app-bg-primary"
+          background="bg-primary-100"
           width="120px"
           height="35px"
           @click="add"

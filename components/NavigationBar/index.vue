@@ -4,7 +4,7 @@
     :class="{
       'app-bg-secondary': themeStore.theme == 'light',
       'app-bg-dark': themeStore.theme == 'dark',
-      'app-bg-primary-custom': themeStore.theme == 'custom',
+      'bg-primary-100-custom': themeStore.theme == 'custom',
     }"
   >
     <div class="menu-content">
@@ -22,7 +22,7 @@
       >
         <AppButton
           :name="$t('login and register')"
-          background="app-bg-primary"
+          background="bg-primary-100"
           height="35px"
           @click="navigateTo('/auth/login')"
           fontSize="app-font-size-12"

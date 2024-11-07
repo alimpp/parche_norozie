@@ -35,7 +35,7 @@
           width="100px"
           class="app-my-4"
           :name="$t('submit')"
-          background="app-bg-primary"
+          background="bg-primary-100"
           @click="submit"
         />
       </div>

@@ -20,7 +20,7 @@
               width="100%"
               class="app-mt-4"
               :name="$t('search')"
-              background="app-bg-primary"
+              background="bg-primary-100"
               fontSize="app-font-size-12"
               @click="search"
             />

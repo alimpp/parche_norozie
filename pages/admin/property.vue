@@ -32,7 +32,7 @@
           <span class="app-pointer app-mx-1" @click="openPropertyModal">
             <v-tooltip :text="$t('create')" location="bottom">
               <template v-slot:activator="{ props }">
-                <AppIconContent color="app-bg-primary" v-bind="props"
+                <AppIconContent color="bg-primary-100" v-bind="props"
                   ><PlusIcon size="1x"></PlusIcon
                 ></AppIconContent>
               </template>

@@ -68,7 +68,7 @@
           </div>
           <AppButton
             :name="$t('order product')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             height="30px"
             class="app-mt-2"
             icon="shopping cart"
@@ -147,7 +147,7 @@
           </div>
           <AppButton
             :name="$t('order product')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             height="30px"
             class="app-mt-2"
             icon="shopping cart"

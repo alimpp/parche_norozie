@@ -54,9 +54,9 @@ const themeStore = useThemeStore();
 
 const background = computed(() => {
   if (themeStore.theme == "dark" || themeStore.theme == "dark") {
-    return "app-bg-primary";
+    return "bg-primary-100";
   } else {
-    return "app-bg-primary";
+    return "bg-primary-100";
   }
 });
 import { useAuthStore } from "@/store/auth/index";

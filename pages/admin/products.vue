@@ -2,7 +2,7 @@
   <AppCard class="app-mt-3">
     <template #content>
       <div class="app-flex app-align-center app-px-2 app-py-4">
-        <div class="app-w-50  app-flex app-flex-column">
+        <div class="app-w-50 app-flex app-flex-column">
           <span class="app-font-size-16 app-font-weight-600">
             {{ $t("products") }}
           </span>
@@ -14,7 +14,7 @@
           <span class="app-pointer app-mx-1" @click="openProductModal">
             <v-tooltip :text="$t('create')" location="bottom">
               <template v-slot:activator="{ props }">
-                <AppIconContent color="app-bg-primary" v-bind="props"
+                <AppIconContent color="bg-primary-100" v-bind="props"
                   ><PlusIcon size="1x"></PlusIcon
                 ></AppIconContent>
               </template>

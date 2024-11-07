@@ -21,7 +21,7 @@
     </div>
     <div class="app-px-4 app-py-4">
       <AppButton
-        background="app-bg-primary"
+        background="bg-primary-100"
         :name="t('send')"
         @click="handleLogin"
         :loading="loading"

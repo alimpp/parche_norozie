@@ -13,7 +13,7 @@
         <AppButton
           class="app-mt-2"
           :name="$t('new address')"
-          background="app-bg-primary"
+          background="bg-primary-100"
           @click="openModalAddress"
         />
       </div>

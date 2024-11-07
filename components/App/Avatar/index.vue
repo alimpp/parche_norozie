@@ -28,7 +28,7 @@ const props = defineProps({
   },
   background: {
     type: String,
-    default: "app-bg-primary",
+    default: "bg-primary-100",
   },
 });
 </script>

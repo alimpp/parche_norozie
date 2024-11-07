@@ -4,7 +4,7 @@
       {{ name }}
     </span>
     <div
-      class="app-bg-primary"
+      class="bg-primary-100"
       :class="{ line: hasLine }"
       :style="{ width: `${width}` }"
     ></div>

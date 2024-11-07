@@ -9,7 +9,7 @@
         <div class="app-w-100 app-flex app-justify-center app-mt-5 app-mb-5">
           <AppButton
             :name="$t('confrim')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             @click="emit('confrim')"
             class="app-mx-2"
           />

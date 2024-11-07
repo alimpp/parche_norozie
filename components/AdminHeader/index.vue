@@ -26,7 +26,7 @@
           }}</span>
         </div>
         <AppAvatar
-          background="app-bg-primary"
+          background="bg-primary-100"
           name="N"
           width="50px"
           height="50px"

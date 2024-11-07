@@ -33,7 +33,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/dashboard',
+            'bg-primary-100': route.path == '/admin/dashboard',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/dashboard')"
@@ -49,7 +49,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-3 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/catgory',
+            'bg-primary-100': route.path == '/admin/catgory',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/catgory')"
@@ -65,7 +65,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/property',
+            'bg-primary-100': route.path == '/admin/property',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/property')"
@@ -80,7 +80,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/property-value',
+            'bg-primary-100': route.path == '/admin/property-value',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/property-value')"
@@ -95,7 +95,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/products',
+            'bg-primary-100': route.path == '/admin/products',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/products')"
@@ -110,7 +110,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/orders',
+            'bg-primary-100': route.path == '/admin/orders',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/orders')"
@@ -125,7 +125,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/blogs',
+            'bg-primary-100': route.path == '/admin/blogs',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/blogs')"
@@ -140,7 +140,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/customers',
+            'bg-primary-100': route.path == '/admin/customers',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/customers')"
@@ -155,7 +155,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/tickets',
+            'bg-primary-100': route.path == '/admin/tickets',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/tickets')"
@@ -170,7 +170,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/warehouse',
+            'bg-primary-100': route.path == '/admin/warehouse',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/warehouse')"
@@ -186,7 +186,7 @@
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
-            'app-bg-primary': route.path == '/admin/setting',
+            'bg-primary-100': route.path == '/admin/setting',
             'app-justify-center': sidebarState == 'close',
           }"
           @click="navigateTo('/admin/setting')"

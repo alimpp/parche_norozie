@@ -24,7 +24,7 @@
   <AppInput :label="$t('to')" placeholder="10,000,000" />
   <AppButton
     :name="$t('submit')"
-    background="app-bg-primary"
+    background="bg-primary-100"
     class="app-mt-4"
   />
 </template>

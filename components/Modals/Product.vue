@@ -46,7 +46,7 @@
         <div class="app-mt-3">
           <AppButton
             :name="$t('select category')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             @click="selecCategoryModal = true"
           />
         </div>
@@ -76,7 +76,7 @@
         <div class="app-mt-3">
           <AppButton
             :name="$t('select property')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             @click="selectPropertyModal = true"
           />
         </div>
@@ -118,7 +118,7 @@
             width="170px"
             class="app-mt-4"
             :name="$t('add Attribute')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             :loading="loading"
             @click="addAttribiute"
           />
@@ -151,7 +151,7 @@
             width="125px"
             class="app-mt-4 app-w-20"
             :name="$t('addTag')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             :loading="loading"
             @click="addTag"
           />
@@ -175,7 +175,7 @@
             width="100px"
             class="app-mt-4"
             :name="$t('submit')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             :loading="loading"
             @click="submit"
           />

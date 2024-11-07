@@ -37,7 +37,7 @@
       <div class="app-mt-5" width="200px">
         <AppButton
           name="ثبت"
-          background="app-bg-primary"
+          background="bg-primary-100"
           @click="sendProfile"
           :loading="loading"
         />

@@ -9,7 +9,7 @@
       :class="{
         'app-bg-secondary': themeStore.theme == 'light',
         'app-bg-dark': themeStore.theme == 'dark',
-        'app-bg-primary-custom': themeStore.theme == 'custom',
+        'bg-primary-100-custom': themeStore.theme == 'custom',
       }"
     >
       <div

@@ -40,7 +40,7 @@
             <AppButton
               class="app-mt-4"
               :name="$t('create section')"
-              background="app-bg-primary"
+              background="bg-primary-100"
               :loading="loading"
               @click="addSection"
             />
@@ -87,7 +87,7 @@
             <AppButton
               class="app-mt-4 app-w-20"
               :name="$t('addTag')"
-              background="app-bg-primary"
+              background="bg-primary-100"
               :loading="loading"
               @click="addTag"
             />
@@ -111,7 +111,7 @@
           <AppButton
             class="app-mt-4"
             :name="$t('submit')"
-            background="app-bg-primary"
+            background="bg-primary-100"
             :loading="loading"
             @click="submit"
           />
