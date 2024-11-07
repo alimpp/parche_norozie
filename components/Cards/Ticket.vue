@@ -10,7 +10,7 @@
           <AppChip
             class="app-mx-2"
             :text="$t('new message')"
-            color="app-bg-danger"
+            color="bg-danger-100"
             v-if="!data.seen_by_admin || !data.seen_by_user"
           ></AppChip>
         </div>

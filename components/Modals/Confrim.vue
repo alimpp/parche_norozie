@@ -15,7 +15,7 @@
           />
           <AppButton
             :name="$t('cancel')"
-            background="app-bg-danger"
+            background="bg-danger-100"
             @click="emit('cancel')"
             class="app-mx-2"
           />

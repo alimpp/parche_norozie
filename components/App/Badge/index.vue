@@ -1,5 +1,5 @@
 <template>
-  <div class="app-badge app-bg-danger">{{ badge }}</div>
+  <div class="app-badge bg-danger-100">{{ badge }}</div>
 </template>
 
 <script setup>

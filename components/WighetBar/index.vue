@@ -69,15 +69,15 @@
                 class="app-flex app-flex-column app-px-2 app-py-2 primary-border has-border-default app-pointer"
               >
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius"
+                  class="app-w-100 bg-gray app-border-radius"
                   style="height: 130px"
                 ></div>
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
               </div>
@@ -94,15 +94,15 @@
                 class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 primary-shadow has-shadow-default app-pointer"
               >
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius"
+                  class="app-w-100 bg-gray app-border-radius"
                   style="height: 130px"
                 ></div>
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
               </div>
@@ -127,15 +127,15 @@
                 style="width: 150px; height: 200px; border-radius: 6px"
               >
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius"
+                  class="app-w-100 bg-gray app-border-radius"
                   style="height: 130px"
                 ></div>
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
                 <div
-                  class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
               </div>
@@ -153,7 +153,7 @@
                 style="width: 300px; height: 120px; border-radius: 6px"
               >
                 <div
-                  class="app-bg-gray app-border-radius"
+                  class="bg-gray app-border-radius"
                   style="height: 100px; width: 130px"
                 ></div>
 
@@ -162,19 +162,19 @@
                   style="width: 160px; height: 100px"
                 >
                   <div
-                    class="app-w-100 app-bg-gray app-border-radius"
+                    class="app-w-100 bg-gray app-border-radius"
                     style="height: 19px"
                   ></div>
                   <div
-                    class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                    class="app-w-100 bg-gray app-border-radius app-mt-2"
                     style="height: 19px"
                   ></div>
                   <div
-                    class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                    class="app-w-100 bg-gray app-border-radius app-mt-2"
                     style="height: 19px"
                   ></div>
                   <div
-                    class="app-w-100 app-bg-gray app-border-radius app-mt-2"
+                    class="app-w-100 bg-gray app-border-radius app-mt-2"
                     style="height: 19px"
                   ></div>
                 </div>

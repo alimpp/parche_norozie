@@ -43,7 +43,7 @@
             }}</span>
             <span
               v-if="data.hasDiscount"
-              class="app-font-size-10 app-font-weight-100 app-bg-danger app-mx-2 app-px-2 app-border-radius"
+              class="app-font-size-10 app-font-weight-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
               >40% {{ $t("discount card") }}</span
             >
           </div>
@@ -122,7 +122,7 @@
             }}</span>
             <span
               v-if="data.hasDiscount"
-              class="app-font-size-10 app-font-weight-100 app-bg-danger app-mx-2 app-px-2 app-border-radius"
+              class="app-font-size-10 app-font-weight-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
               >40% {{ $t("discount card") }}</span
             >
           </div>

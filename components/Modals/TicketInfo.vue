@@ -34,7 +34,7 @@
         }}</span>
 
         <div
-          class="app-flex app-flex-column app-bg-gray app-px-2 app-border-radius app-mt-5 app-py-5"
+          class="app-flex app-flex-column bg-gray app-px-2 app-border-radius app-mt-5 app-py-5"
         >
           <div
             class="app-flex app-align-center app-pointer app-color-danger"
