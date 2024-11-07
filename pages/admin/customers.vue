@@ -14,7 +14,7 @@
           <span class="app-pointer app-mx-1" @click="getAllCustomers">
             <v-tooltip :text="$t('refresh')" location="bottom">
               <template v-slot:activator="{ props }">
-                <AppIconContent color="app-bg-green" v-bind="props"
+                <AppIconContent color="bg-primary-100" v-bind="props"
                   ><RefreshCcwIcon size="1x"></RefreshCcwIcon
                 ></AppIconContent>
               </template>
@@ -23,7 +23,7 @@
           <span class="app-pointer app-mx-1" @click="openModal">
             <v-tooltip :text="$t('search')" location="bottom">
               <template v-slot:activator="{ props }">
-                <AppIconContent color="app-bg-info" v-bind="props"
+                <AppIconContent color="bg-primary-100" v-bind="props"
                   ><SearchIcon size="1x"></SearchIcon
                 ></AppIconContent>
               </template>
