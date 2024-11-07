@@ -1,6 +1,6 @@
 <template>
   <AppModal
-    width="90%"
+    width="70%"
     :state="state"
     @close="close"
     :title="$t('create new product')"
@@ -46,7 +46,9 @@
         <div class="app-mt-3">
           <AppButton
             :name="$t('select category')"
-            background="bg-primary-100"
+            background="bg-primary-transparent"
+            color="color-primary"
+            font-wight="f-w-600"
             @click="selecCategoryModal = true"
           />
         </div>
@@ -72,7 +74,9 @@
         <div class="app-mt-3">
           <AppButton
             :name="$t('select property')"
-            background="bg-primary-100"
+            background="bg-primary-transparent"
+            color="color-primary"
+            font-wight="f-w-600"
             @click="selectPropertyModal = true"
           />
         </div>
@@ -114,7 +118,9 @@
             width="170px"
             class="app-mt-4"
             :name="$t('add Attribute')"
-            background="bg-primary-100"
+            background="bg-primary-transparent"
+            color="color-primary"
+            font-wight="f-w-600"
             :loading="loading"
             @click="addAttribiute"
           />
@@ -147,7 +153,9 @@
             width="125px"
             class="app-mt-4 app-w-20"
             :name="$t('addTag')"
-            background="bg-primary-100"
+            background="bg-primary-transparent"
+            color="color-primary"
+            font-wight="f-w-600"
             :loading="loading"
             @click="addTag"
           />
