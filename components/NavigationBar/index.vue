@@ -25,39 +25,39 @@
           background="bg-primary-100"
           height="35px"
           @click="navigateTo('/auth/login')"
-          fontSize="app-font-size-12"
+          fontSize="f-s--12"
           width="110px"
         />
         <!-- <LoginButton @click="navigateTo('/auth/login')" /> -->
       </div>
       <div class="app-mr-30">
         <span
-          class="app-pointer app-font-size-14 app-font-weight-600 desktop-size"
+          class="app-pointer f-s--14 f-w-600 desktop-size"
           :class="{ 'active-route-main-theme': route.path == '/' }"
           @click="navigateTo('/')"
           >{{ t("home") }}</span
         >
       </div>
       <span
-        class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5 desktop-size"
+        class="app-pointer f-s--14 f-w-600 app-mx-5 desktop-size"
         :class="{ 'active-route-main-theme': route.path == '/blogs' }"
         @click="navigateTo('/blogs')"
         >{{ t("blogs") }}</span
       >
       <span
-        class="app-pointer app-font-size-14 app-font-weight-600 desktop-size"
+        class="app-pointer f-s--14 f-w-600 desktop-size"
         :class="{ 'active-route-main-theme': route.path == '/products' }"
         @click="navigateTo('/products')"
         >{{ t("products") }}</span
       >
       <span
-        class="app-pointer app-font-size-14 app-font-weight-600 app-mx-5 desktop-size"
+        class="app-pointer f-s--14 f-w-600 app-mx-5 desktop-size"
         :class="{ 'active-route-main-theme': route.path == '/about-us' }"
         @click="navigateTo('/about-us')"
         >{{ t("aboutUs") }}</span
       >
       <span
-        class="app-pointer app-font-size-14 app-font-weight-600 desktop-size"
+        class="app-pointer f-s--14 f-w-600 desktop-size"
         :class="{ 'active-route-main-theme': route.path == '/contact-us' }"
         @click="navigateTo('/contact-us')"
         >{{ t("contactUs") }}</span

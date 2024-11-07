@@ -1,6 +1,6 @@
 <template>
   <div class="app-w-100 app-flex app-flex-column">
-    <span class="app-font-size-14 app-font-weight-600 app-py-2">
+    <span class="f-s--14 f-w-600 app-py-2">
       {{ label }}
     </span>
     <textarea
@@ -16,10 +16,7 @@
       class="app-border-radius app-border"
       :placeholder="placeholder"
     ></textarea>
-    <span
-      v-if="error"
-      class="app-font-size-12 app-font-weight-600 app-color-danger app-py-2"
-    >
+    <span v-if="error" class="f-s--12 f-w-600 app-color-danger app-py-2">
       {{ messageError }}
     </span>
   </div>

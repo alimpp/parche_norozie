@@ -23,9 +23,7 @@
         class="app-flex app-justify-center app-align-center app-flex-column app-h-80"
         v-if="allAddress.length == 0"
       >
-        <span class="app-font-size-16 app-font-weight-600">
-          {{ $t("empty address") }}</span
-        >
+        <span class="f-s--16 f-w-600"> {{ $t("empty address") }}</span>
       </div>
       <CardsAddress
         v-else

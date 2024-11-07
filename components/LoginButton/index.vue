@@ -1,5 +1,5 @@
 <template>
-  <div class="login-button bg-primary-100 app-font-size-12 app-font-weight-100">
+  <div class="login-button bg-primary-100 f-s--12 f-w-100">
     {{ t("login") }} | {{ t("register") }}
   </div>
 </template>

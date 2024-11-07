@@ -34,16 +34,14 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 200px"
         >
-          <span class="app-font-size-12 app-font-weight-600">{{
-            data.name
-          }}</span>
+          <span class="f-s--12 f-w-600">{{ data.name }}</span>
           <div class="app-flex">
-            <span class="app-font-size-10 app-font-weight-100 app-color-gray">{{
+            <span class="f-s--10 f-w-100 app-color-gray">{{
               data.category
             }}</span>
             <span
               v-if="data.hasDiscount"
-              class="app-font-size-10 app-font-weight-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
+              class="f-s--10 f-w-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
               >40% {{ $t("discount card") }}</span
             >
           </div>
@@ -54,15 +52,15 @@
             v-if="data.hasDiscount"
             class="app-flex app-flex-column app-align-end app-mt-1 app-w-100 bg-discount app-border-radius app-px-1"
           >
-            <span class="app-font-size-12 app-font-weight-600"
+            <span class="f-s--12 f-w-600"
               >{{ data.discountPrice }} {{ $t("toman") }}</span
             >
-            <span class="app-font-size-10 app-font-weight-100 discount-style"
+            <span class="f-s--10 f-w-100 discount-style"
               >{{ data.price }} {{ $t("toman") }}</span
             >
           </div>
           <div v-else class="app-flex app-justify-end app-mt-5 app-w-600">
-            <span class="app-font-size-12 app-font-weight-100"
+            <span class="f-s--12 f-w-100"
               >{{ data.price }} {{ $t("toman") }}</span
             >
           </div>
@@ -113,16 +111,14 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 240px; height: 165px"
         >
-          <span class="app-font-size-12 app-font-weight-100">{{
-            data.name
-          }}</span>
+          <span class="f-s--12 f-w-100">{{ data.name }}</span>
           <div class="app-flex">
-            <span class="app-font-size-10 app-font-weight-100 app-color-gray">{{
+            <span class="f-s--10 f-w-100 app-color-gray">{{
               data.category
             }}</span>
             <span
               v-if="data.hasDiscount"
-              class="app-font-size-10 app-font-weight-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
+              class="f-s--10 f-w-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
               >40% {{ $t("discount card") }}</span
             >
           </div>
@@ -133,15 +129,15 @@
             v-if="data.hasDiscount"
             class="app-flex app-flex-column app-align-end app-mt-1 app-w-100 bg-discount app-border-radius app-px-1"
           >
-            <span class="app-font-size-12 app-font-weight-100"
+            <span class="f-s--12 f-w-100"
               >{{ data.discountPrice }} {{ $t("toman") }}</span
             >
-            <span class="app-font-size-10 app-font-weight-100 discount-style"
+            <span class="f-s--10 f-w-100 discount-style"
               >{{ data.price }} {{ $t("toman") }}</span
             >
           </div>
           <div v-else class="app-flex app-justify-end app-mt-5 app-w-100">
-            <span class="app-font-size-12 app-font-weight-100"
+            <span class="f-s--12 f-w-100"
               >{{ data.price }} {{ $t("toman") }}</span
             >
           </div>

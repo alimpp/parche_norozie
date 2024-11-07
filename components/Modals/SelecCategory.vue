@@ -8,15 +8,13 @@
           :key="index"
           @click="selected(data)"
         >
-          <span class="app-font-size-14 app-font-weight-600">{{
-            data.Title
-          }}</span>
+          <span class="f-s--14 f-w-600">{{ data.Title }}</span>
           <span
-            class="app-font-size-14 app-font-weight-600 app-flex app-px-1"
+            class="f-s--14 f-w-600 app-flex app-px-1"
             v-for="(sub, index) in data.subcategories"
             :key="index"
           >
-            <span class="app-font-size-14 app-font-weight-600">/</span>
+            <span class="f-s--14 f-w-600">/</span>
             {{ sub.Title }}
           </span>
         </div>

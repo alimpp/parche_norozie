@@ -12,9 +12,7 @@
         @click="filterModalState = true"
       >
         <FilterIcon size="1x" />
-        <span class="app-font-size-14 app-font-weight-600 app-px-2">{{
-          $t("filter by")
-        }}</span>
+        <span class="f-s--14 f-w-600 app-px-2">{{ $t("filter by") }}</span>
       </div>
     </div>
 

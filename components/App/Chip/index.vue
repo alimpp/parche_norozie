@@ -10,9 +10,7 @@
     }"
   >
     <slot name="iconRight"></slot>
-    <span class="app-font-weight-500" :style="{ fontSize: fontSize }">{{
-      text
-    }}</span>
+    <span class="f-w-500" :style="{ fontSize: fontSize }">{{ text }}</span>
     <slot name="iconLeft"></slot>
   </div>
 </template>

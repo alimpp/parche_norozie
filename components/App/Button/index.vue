@@ -27,11 +27,11 @@
 const props = defineProps({
   fontSize: {
     type: String,
-    default: "app-font-size-14",
+    default: "f-s--14",
   },
   fontWight: {
     type: String,
-    default: "app-font-weight-500",
+    default: "f-w-500",
   },
   name: {
     type: String,

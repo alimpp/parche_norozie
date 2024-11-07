@@ -3,10 +3,10 @@
     <template #content>
       <div class="app-flex app-align-center app-px-2 app-py-4">
         <div class="app-w-50 app-flex app-flex-column">
-          <span class="app-font-size-16 app-font-weight-600">
+          <span class="f-s--16 f-w-600">
             {{ $t("products") }}
           </span>
-          <span class="app-font-size-12 app-font-weight-500 app-color-gray">
+          <span class="f-s--12 f-w-500 app-color-gray">
             {{ $t("products admin title") }}
           </span>
         </div>

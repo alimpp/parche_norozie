@@ -11,9 +11,7 @@
       :class="{ 'app-mx-4': urlImage }"
       class="app-pointer app-border app-w-100 app-border-radius app-flex app-flex-column app-justify-center app-align-center app-h-300-px"
     >
-      <span class="app-font-size-16 app-font-weight-600">{{
-        $t("upload image")
-      }}</span>
+      <span class="f-s--16 f-w-600">{{ $t("upload image") }}</span>
       <ImageIcon size="1.5x"></ImageIcon>
     </div>
   </div>

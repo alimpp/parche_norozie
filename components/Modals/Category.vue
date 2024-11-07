@@ -35,13 +35,13 @@
         </div>
         <span
           v-if="categoryList.length != 0"
-          class="app-font-size-14 app-font-weight-600 app-mt-5"
+          class="f-s--14 f-w-600 app-mt-5"
           >{{ $t("category") }}</span
         >
         <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectSubCategory(data)"
-            class="app-flex app-pointer app-py-2 app-border app-border-radius app-mb-2 app-px-2 app-font-size-14 app-font-weight-600"
+            class="app-flex app-pointer app-py-2 app-border app-border-radius app-mb-2 app-px-2 f-s--14 f-w-600"
             :class="{ 'active-style': data.ID == subCategory.ID }"
             v-for="(data, index) in categoryList"
             :key="index"

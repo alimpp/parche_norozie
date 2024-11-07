@@ -1,9 +1,7 @@
 <template>
   <div class="app-flex app-align-center filter-bar-content">
     <FilterIcon size="1x" />
-    <span class="app-font-size-14 app-font-weight-600 app-px-2">{{
-      $t("filter by")
-    }}</span>
+    <span class="f-s--14 f-w-600 app-px-2">{{ $t("filter by") }}</span>
   </div>
   <div
     class="app-flex app-align-center app-w-100 app-mt-3 cursor-pointer"
@@ -12,11 +10,11 @@
   >
     <CheckCircleIcon size="1x" v-if="item.active" />
     <PlusIcon size="1x" v-else />
-    <span class="app-font-size-14 app-px-2">{{ item.name }}</span>
+    <span class="f-s--14 app-px-2">{{ item.name }}</span>
   </div>
   <div class="app-flex app-align-center app-mt-2">
     <FilterIcon size="1x" />
-    <span class="app-font-size-14 app-font-weight-600 app-px-2"
+    <span class="f-s--14 f-w-600 app-px-2"
       >{{ $t("filter by") }} {{ $t("price") }}</span
     >
   </div>

@@ -31,19 +31,13 @@
             <EditIcon size="1x" class="app-pointer"></EditIcon>
           </div>
         </div>
-        <span class="app-font-size-16 app-font-weight-100 app-color-primary">{{
-          data.name
-        }}</span>
-        <span class="app-font-size-12 app-font-weight-600">{{
-          data.address
-        }}</span>
+        <span class="f-s--16 f-w-100 app-color-primary">{{ data.name }}</span>
+        <span class="f-s--12 f-w-600">{{ data.address }}</span>
         <div class="app-flex">
-          <span class="app-font-size-14 app-mt-1 app-font-weight-100"
+          <span class="f-s--14 app-mt-1 f-w-100"
             >{{ $t("postal code") }} :</span
           >
-          <span
-            class="app-font-size-14 app-mt-1 app-font-weight-100 app-pb-5 app-px-2"
-          >
+          <span class="f-s--14 app-mt-1 f-w-100 app-pb-5 app-px-2">
             {{ data.postal_code }}</span
           >
         </div>

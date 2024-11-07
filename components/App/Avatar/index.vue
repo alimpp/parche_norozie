@@ -8,7 +8,7 @@
     }"
     :class="[background]"
   >
-    <span class="app-font-size-16 app-font-weight-900">{{ name }}</span>
+    <span class="f-s--16 f-w-900">{{ name }}</span>
   </div>
 </template>
 

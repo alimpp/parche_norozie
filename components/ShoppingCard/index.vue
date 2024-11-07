@@ -21,9 +21,7 @@
         class="app-w-100 app-h-80 app-flex app-flex-column app-justify-center app-align-center"
       >
         <EmptyShoppingCard />
-        <span class="app-font-size-14 app-font-weight-900">{{
-          t("emptyshoppingcard")
-        }}</span>
+        <span class="f-s--14 f-w-900">{{ t("emptyshoppingcard") }}</span>
       </div>
     </div>
   </div>

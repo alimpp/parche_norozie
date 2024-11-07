@@ -10,38 +10,36 @@
     <div class="folow-us-container">
       <span
         @click="navigateTo('/contact-us')"
-        class="app-font-size-16 app-font-weight-600 app-pointer"
+        class="f-s--16 f-w-600 app-pointer"
         >{{ $t("contactUs") }}</span
       >
       <div class="icon_container app-align-start">
         <div class="app-mt-2 app-flex app-pointer app-mt-5">
           <IconsInstagram />
-          <span class="app-font-size-14 app-px-2">{{
-            $t("we instagram")
-          }}</span>
+          <span class="f-s--14 app-px-2">{{ $t("we instagram") }}</span>
         </div>
 
         <div class="app-mt-2 app-flex app-pointer app-mt-5">
           <IconsWhatsUp />
-          <span class="app-font-size-14 app-px-2">{{ $t("we whats up") }}</span>
+          <span class="f-s--14 app-px-2">{{ $t("we whats up") }}</span>
         </div>
         <div class="app-mt-2 app-flex app-pointer app-mt-5">
           <IconsTelegram />
-          <span class="app-font-size-14 app-px-2">{{ $t("we telegram") }}</span>
+          <span class="f-s--14 app-px-2">{{ $t("we telegram") }}</span>
         </div>
       </div>
     </div>
 
     <div class="contact-us-container">
-      <span class="app-font-size-14 app-font-weight-400 mx-2">
+      <span class="f-s--14 f-w-400 mx-2">
         {{ $t("call number") + ":" + " " + $t("phone number") }}
       </span>
-      <span class="app-font-size-14 app-font-weight-400 mt-2 mx-2">{{
+      <span class="f-s--14 f-w-400 mt-2 mx-2">{{
         $t("email address") + ":" + " " + email
       }}</span>
     </div>
     <div class="premissions_container">
-      <span class="app-font-size-14 app-font-weight-400 mx-2">
+      <span class="f-s--14 f-w-400 mx-2">
         {{ $t("purchase in person address") + ":" + " " + $t("shop address") }}
       </span>
     </div>

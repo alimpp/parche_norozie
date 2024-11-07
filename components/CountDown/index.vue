@@ -1,5 +1,5 @@
 <template>
-  <span class="app-font-size-12 app-font-weight-900"
+  <span class="f-s--12 f-w-900"
     ><span v-if="totalSeconds.sec < 10">0</span
     ><span>{{ totalSeconds.sec }}</span> : <span>0{{ totalSeconds.min }}</span>
   </span>

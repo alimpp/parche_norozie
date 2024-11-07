@@ -26,12 +26,8 @@
         class="app-w-100 app-flex app-flex-column app-align-center app-justify-center app-pt-5"
       >
         <CheckCircleIcon size="1.5x" v-if="toastStore.icon == 'success'" />
-        <span class="app-font-size-16 app-font-weight-600">{{
-          toastStore.title
-        }}</span>
-        <span class="app-font-size-12 app-font-weight-100">{{
-          toastStore.text
-        }}</span>
+        <span class="f-s--16 f-w-600">{{ toastStore.title }}</span>
+        <span class="f-s--12 f-w-100">{{ toastStore.text }}</span>
         <v-progress-linear
           class="app-mt-5"
           color="#fd7403"

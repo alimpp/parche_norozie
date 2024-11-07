@@ -20,10 +20,8 @@
     <div class="app-w-50 app-flex app-align-center app-justify-end app-pointer">
       <div class="app-flex app-px-3">
         <div class="app-flex app-flex-column app-justify-center app-px-2">
-          <span class="app-font-size-14 app-font-weight-600">norozie</span>
-          <span class="app-font-size-12 app-font-weight-600">{{
-            $t("role admin")
-          }}</span>
+          <span class="f-s--14 f-w-600">norozie</span>
+          <span class="f-s--12 f-w-600">{{ $t("role admin") }}</span>
         </div>
         <AppAvatar
           background="bg-primary-100"

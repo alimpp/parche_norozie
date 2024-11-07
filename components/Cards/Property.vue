@@ -11,12 +11,8 @@
       />
       <div class="app-flex app-w-100 app-py-2 app-px-4">
         <div class="app-w-50 app-flex app-flex-column">
-          <span class="app-font-size-14 app-font-weight-600"
-            >{{ $t("property name") }} :</span
-          >
-          <span class="app-font-size-12 app-font-weight-600">{{
-            data.Title
-          }}</span>
+          <span class="f-s--14 f-w-600">{{ $t("property name") }} :</span>
+          <span class="f-s--12 f-w-600">{{ data.Title }}</span>
         </div>
 
         <div class="app-w-50 app-flex app-justify-end app-align-center">

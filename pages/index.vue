@@ -14,17 +14,15 @@
           width="60px"
           :hasLine="true"
         />
-        <span class="app-font-size-16 app-font-weight-600 app-px-3 app-py-2">{{
+        <span class="f-s--16 f-w-600 app-px-3 app-py-2">{{
           $t("about us norozi store")
         }}</span>
-        <span
-          class="app-font-size-12 app-font-weight-100 app-px-3 app-py-2 app-color-gray"
-          >{{ $t("home page about us text 1") }}</span
-        >
-        <span
-          class="app-font-size-12 app-font-weight-100 app-px-3 app-py-2 app-color-gray"
-          >{{ $t("home page about us text 2") }}</span
-        >
+        <span class="f-s--12 f-w-100 app-px-3 app-py-2 app-color-gray">{{
+          $t("home page about us text 1")
+        }}</span>
+        <span class="f-s--12 f-w-100 app-px-3 app-py-2 app-color-gray">{{
+          $t("home page about us text 2")
+        }}</span>
         <AppButton
           :name="$t('read more')"
           width="150px"

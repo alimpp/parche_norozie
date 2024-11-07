@@ -32,7 +32,7 @@
               style="width: 60px; height: 60px"
               class="app-bg-white app-border-radius"
             ></div>
-            <span class="app-font-size-14 app-font-weight-600">روشن</span>
+            <span class="f-s--14 f-w-600">روشن</span>
             <CheckCircleIcon v-if="themeStore.theme == 'light'" />
           </div>
           <div
@@ -43,7 +43,7 @@
               style="width: 60px; height: 60px"
               class="app-bg-dark app-border-radius app-border"
             ></div>
-            <span class="app-font-size-14 app-font-weight-600">تیره</span>
+            <span class="f-s--14 f-w-600">تیره</span>
             <CheckCircleIcon v-if="themeStore.theme == 'dark'" />
           </div>
           <div
@@ -54,7 +54,7 @@
               style="width: 60px; height: 60px"
               class="app-bg-secondary-custom app-border-radius"
             ></div>
-            <span class="app-font-size-14 app-font-weight-600">کاستوم</span>
+            <span class="f-s--14 f-w-600">کاستوم</span>
             <CheckCircleIcon v-if="themeStore.theme == 'custom'" />
           </div>
         </div>

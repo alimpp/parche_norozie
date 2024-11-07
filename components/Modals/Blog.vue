@@ -51,7 +51,7 @@
           v-for="(section, index) in form.sections"
         >
           <AppDivider
-            class="app-mt-8 app-font-size-16"
+            class="app-mt-8 f-s--16"
             :name="$t('section') + ' ' + (index + 1)"
             width="40px"
             :hasLine="true"

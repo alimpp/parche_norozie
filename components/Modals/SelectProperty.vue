@@ -2,9 +2,7 @@
   <AppModal width="380px" :state="state" :title="title" @close="emit('close')">
     <template #content>
       <div class="app-w-100 app-flex app-flex-column app-px-3">
-        <span class="app-font-size-16 app-font-weight-600">{{
-          $t("properties")
-        }}</span>
+        <span class="f-s--16 f-w-600">{{ $t("properties") }}</span>
         <div
           class="app-flex app-align-center app-pointer app-py-2 app-border app-border-radius app-mb-2 app-px-2 deactive-style"
           v-for="(data, index) in propertySource"
@@ -12,13 +10,9 @@
           @click="selectedProperty(data)"
           :class="{ 'active-style': data.ID == selectedPropertty.ID }"
         >
-          <span class="app-font-size-14 app-font-weight-600">{{
-            data.Title
-          }}</span>
+          <span class="f-s--14 f-w-600">{{ data.Title }}</span>
         </div>
-        <span class="app-font-size-16 app-font-weight-600">{{
-          $t("property value")
-        }}</span>
+        <span class="f-s--16 f-w-600">{{ $t("property value") }}</span>
         <div
           class="app-flex app-align-center app-pointer app-py-2 app-border app-border-radius app-mb-2 app-px-2 deactive-style"
           v-for="(data, index) in selectedPropertty.values"
@@ -26,9 +20,7 @@
           @click="selectedValues(data)"
           :class="{ 'active-style': selectedProperttyValues.includes(data) }"
         >
-          <span class="app-font-size-14 app-font-weight-600">{{
-            data.Value
-          }}</span>
+          <span class="f-s--14 f-w-600">{{ data.Value }}</span>
         </div>
 
         <AppButton

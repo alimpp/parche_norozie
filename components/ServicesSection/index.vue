@@ -6,7 +6,7 @@
       data-aos-duration="1500"
     >
       <IconsBasket width="80px" height="80px" />
-      <span class="app-font-weight-600">{{ $t("online sell") }}</span>
+      <span class="f-w-600">{{ $t("online sell") }}</span>
     </div>
     <div
       class="card app-flex app-flex-column"
@@ -14,7 +14,7 @@
       data-aos-duration="1600"
     >
       <IconsDubbleCheck width="80px" height="80px" />
-      <span class="app-font-weight-600">{{ $t("guarantee products") }}</span>
+      <span class="f-w-600">{{ $t("guarantee products") }}</span>
     </div>
     <div
       class="card app-flex app-flex-column"
@@ -22,7 +22,7 @@
       data-aos-duration="1700"
     >
       <IconsSupport width="80px" height="80px" />
-      <span class="app-font-weight-600">{{ $t("online support") }}</span>
+      <span class="f-w-600">{{ $t("online support") }}</span>
     </div>
     <div
       class="card app-flex app-flex-column"
@@ -30,7 +30,7 @@
       data-aos-duration="1800"
     >
       <IconsBuy width="80px" height="80px" />
-      <span class="app-font-weight-600">{{ $t("sell person") }}</span>
+      <span class="f-w-600">{{ $t("sell person") }}</span>
     </div>
     <div
       class="card app-flex app-flex-column"
@@ -38,7 +38,7 @@
       data-aos-duration="1900"
     >
       <IconsPerformance width="80px" height="80px" />
-      <span class="app-font-weight-600">{{ $t("best performance") }}</span>
+      <span class="f-w-600">{{ $t("best performance") }}</span>
     </div>
   </div>
 </template>

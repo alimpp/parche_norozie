@@ -7,9 +7,7 @@
     </div>
     <div class="app-flex app-flex-column app-justify-center app-align-center">
       <AppDivider :name="$t('otp')" :hasLine="false" width="160px" />
-      <span class="app-font-size-14 app-font-weight-600">{{
-        authStore.phone
-      }}</span>
+      <span class="f-s--14 f-w-600">{{ authStore.phone }}</span>
     </div>
     <div class="app-px-4 app-py-4" dir="ltr">
       <v-otp-input :loading="loading" v-model="otpCode"></v-otp-input>
@@ -18,7 +16,7 @@
       class="app-flex app-flex-column app-justify-center app-align-center"
       v-if="otpError"
     >
-      <span class="app-font-size-14 app-font-weight-600 app-color-danger">
+      <span class="f-s--14 f-w-600 app-color-danger">
         {{ t("otp error") }}</span
       >
     </div>
@@ -29,7 +27,7 @@
       <span
         v-if="resendState"
         @click="resendCode"
-        class="app-font-size-12 app-font-weight-900 app-pointer"
+        class="f-s--12 f-w-900 app-pointer"
         >{{ t("resendCode") }}</span
       >
     </div>
