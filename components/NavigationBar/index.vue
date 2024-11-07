@@ -2,8 +2,8 @@
   <div
     class="app-w-100 app-h-10 app-flex app-align-center navigation"
     :class="{
-      'app-bg-secondary': themeStore.theme == 'light',
-      'app-bg-dark': themeStore.theme == 'dark',
+      bgsecondary: themeStore.theme == 'light',
+      bgdark: themeStore.theme == 'dark',
       'bg-primary-100-custom': themeStore.theme == 'custom',
     }"
   >

@@ -2,9 +2,9 @@
   <div
     class="admin-header-content app-flex mt-4 app-border-radius"
     :class="{
-      'app-bg-white': themeStore.theme == 'light',
-      'app-bg-element-dark': themeStore.theme == 'dark',
-      'app-bg-secondary-custom': themeStore.theme == 'custom',
+      'bg-white': themeStore.theme == 'light',
+      'bg-element-dark': themeStore.theme == 'dark',
+      'bg-secondary-custom': themeStore.theme == 'custom',
     }"
   >
     <div class="app-w-50 app-flex app-flex app-align-center">

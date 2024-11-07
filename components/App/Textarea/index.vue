@@ -9,7 +9,7 @@
       :type="type"
       :class="{
         error: error,
-        'app-bg-white': themeStore.theme == 'light',
+        bgwhite: themeStore.theme == 'light',
         'app-color-white': themeStore.theme != 'light',
       }"
       :disabled="disabled"

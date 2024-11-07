@@ -14,7 +14,7 @@
         <AppButton
           data-aos="fade-up"
           data-aos-duration="2000"
-          background="app-bg-white"
+          background="bgwhite"
           class="app-mt-4"
           :name="$t('view products')"
           height="33px"

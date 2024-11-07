@@ -51,7 +51,7 @@
   transition: 0.5s;
 }
 
-.app-bg-secondary {
+.bgsecondary {
   background: var(--secondary-);
   color: var(--dark-);
   transition: 0.5s;
@@ -186,30 +186,30 @@
   transition: 0.5s;
 }
 
-.app-bg-light {
+.bglight {
   background: var(--light-);
   color: var(--dark-);
   transition: 0.5s;
 }
 
-.app-bg-white {
+.bgwhite {
   background: var(--white-);
   color: var(--dark-);
   transition: 0.5s;
 }
 
-.app-bg-dark {
+.bgdark {
   background: var(--dark-);
   color: var(--white-);
   transition: 0.5s;
 }
-.app-bg-info {
+.bginfo {
   background: var(--info-);
   color: var(--white-);
   transition: 0.5s;
 }
 
-.app-bg-green {
+.bggreen {
   background: var(--green-);
   color: var(--white-);
   transition: 0.5s;
@@ -221,13 +221,13 @@
   transition: 0.5s;
 }
 
-.app-bg-secondary-custom {
+.bgsecondary-custom {
   background: var(--secondary-custom-);
   color: var(--white-);
   transition: 0.5s;
 }
 
-.app-bg-element-dark {
+.bgelement-dark {
   background: var(--element-dark-);
   color: var(--white-);
   transition: 0.5s;

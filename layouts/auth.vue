@@ -3,8 +3,8 @@
     :dir="locale == 'fr' ? 'rtl' : 'ltr'"
     class="auth-layout"
     :class="{
-      'app-bg-secondary': themeStore.theme == 'light',
-      'app-bg-dark': themeStore.theme == 'dark',
+      bgsecondary: themeStore.theme == 'light',
+      bgdark: themeStore.theme == 'dark',
       'primary-custom': themeStore.theme == 'custom',
     }"
   >

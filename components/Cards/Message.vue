@@ -14,9 +14,9 @@
     <div
       class="message-card app-border-radius app-mx-2 app-flex app-align-center app-px-2"
       :class="{
-        'app-bg-white': themeStore.theme == 'light',
-        'app-bg-element-dark': themeStore.theme == 'dark',
-        'app-bg-secondary-custom': themeStore.theme == 'custom',
+        bgwhite: themeStore.theme == 'light',
+        'bgelement-dark': themeStore.theme == 'dark',
+        'bgsecondary-custom': themeStore.theme == 'custom',
       }"
     >
       <span class="f-s--12"> {{ data.msg }}</span>

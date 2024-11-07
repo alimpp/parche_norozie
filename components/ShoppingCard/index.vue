@@ -7,8 +7,8 @@
     <div
       class="content slid-right-animation-3"
       :class="{
-        'app-bg-secondary': themeStore.theme == 'light',
-        'app-bg-dark': themeStore.theme == 'dark',
+        bgsecondary: themeStore.theme == 'light',
+        bgdark: themeStore.theme == 'dark',
         'bg-primary-100-custom': themeStore.theme == 'custom',
       }"
     >

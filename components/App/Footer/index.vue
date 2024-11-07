@@ -1,9 +1,9 @@
 <template>
   <div
     :class="{
-      'app-bg-white': themeStore.theme == 'light',
-      'app-bg-element-dark': themeStore.theme == 'dark',
-      'app-bg-secondary-custom': themeStore.theme == 'custom',
+      bgwhite: themeStore.theme == 'light',
+      'bgelement-dark': themeStore.theme == 'dark',
+      'bgsecondary-custom': themeStore.theme == 'custom',
     }"
     class="app-flex app-w-100 footer-container"
   >

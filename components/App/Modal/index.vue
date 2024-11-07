@@ -7,9 +7,9 @@
         height: `${height}`,
       }"
       :class="{
-        'app-bg-white': themeStore.theme == 'light',
-        'app-bg-element-dark': themeStore.theme == 'dark',
-        'app-bg-secondary-custom': themeStore.theme == 'custom',
+        bgwhite: themeStore.theme == 'light',
+        'bgelement-dark': themeStore.theme == 'dark',
+        'bgsecondary-custom': themeStore.theme == 'custom',
       }"
     >
       <div class="app-flex app-w-100" v-if="header">

@@ -1,10 +1,10 @@
 <template>
   <div
     :dir="locale == 'fr' ? 'rtl' : 'ltr'"
-    class="auth-layout app-bg-admin"
+    class="auth-layout bgadmin"
     :class="{
-      'app-bg-secondary': themeStore.theme == 'light',
-      'app-bg-dark': themeStore.theme == 'dark',
+      bgsecondary: themeStore.theme == 'light',
+      bgdark: themeStore.theme == 'dark',
       'primary-custom': themeStore.theme == 'custom',
     }"
   >

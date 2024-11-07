@@ -6,9 +6,9 @@
     }"
     class="app-card-content app-border-radius overflow-hidden"
     :class="{
-      'app-bg-white': themeStore.theme == 'light',
-      'app-bg-element-dark': themeStore.theme == 'dark',
-      'app-bg-secondary-custom': themeStore.theme == 'custom',
+      bgwhite: themeStore.theme == 'light',
+      'bgelement-dark': themeStore.theme == 'dark',
+      'bgsecondary-custom': themeStore.theme == 'custom',
       'primary-border': wighetCard == 'hasBorder',
       'primary-shadow': wighetCard == 'hasShadow',
     }"
