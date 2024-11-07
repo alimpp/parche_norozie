@@ -12,32 +12,46 @@
       <div class="app-flex app-w-100 app-py-2 app-px-4">
         <div class="app-w-100 app-flex app-flex-column">
           <div class="app-w-100 app-flex app-flex-column">
-            <span class="f-s-14 f-w-600">{{ $t("property name") }} :</span>
-            <div class="app-border-radius app-py-2 app-flex">
-              <span class="f-s-12 f-w-600">{{ data.Title }}</span>
-            </div>
+            <span
+              style="width: 60px"
+              class="app-flex app-align-center app-justify-center bg-primary-transparent color-primary app-border-radius"
+            >
+              <HashIcon size="1x"></HashIcon>
+              <span>{{ data.ID }}</span>
+            </span>
+            <span class="f-s-12 f-w-600 color-primary"
+              >{{ $t("property name") }}
+            </span>
+            <span class="f-s-12 f-w-600">{{ data.Title }}</span>
+            <LineVertical class="app-mx-2" />
           </div>
-          <span class="f-s-14 f-w-600" v-if="data"
-            >{{ $t("property value") }} :</span
-          >
+
           <div
-            class="app-py-1 app-flex app-align-center app-pointer app-mt-2 app-border-radius"
+            class="app-flex app-flex-column"
             v-for="(sub, index) in data.values"
             :key="index"
           >
-            <span class="f-s-12 app-w-50 f-w-600">{{ sub.Value }}</span>
-            <div
-              class="color-white app-w-50 app-flex app-justify-end app-align-center"
-              @click="opeConfirm(sub)"
-            >
+            <div class="app-flex">
+              <LineHorizontal class="app-mt-3 app-mx-2" />
+              <span
+                class="f-s-12 f-w-600 bg-primary-transparent color-primary app-border-radius app-px-2"
+                >{{ sub.Value }}
+              </span>
               <v-tooltip :text="$t('remove')" location="bottom">
                 <template v-slot:activator="{ props }">
-                  <AppIconContent color="danger" v-bind="props"
+                  <AppIconContent
+                    color="bg-danger-transparent"
+                    class="app-mx-2 color-danger app-pointer"
+                    v-bind="props"
                     ><TrashIcon size="1x"></TrashIcon
                   ></AppIconContent>
                 </template>
               </v-tooltip>
             </div>
+            <LineVertical
+              class="app-mx-2"
+              v-if="data.values.length > index + 1"
+            />
           </div>
         </div>
       </div>
