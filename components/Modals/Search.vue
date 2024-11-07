@@ -70,8 +70,10 @@
               width=""
               class="app-mt-4 app-mx-2"
               :name="$t('cancel')"
-              background="bg-danger-500"
+              background="bg-danger-transparent"
+              color="color-danger"
               fontSize="f-s-14"
+              fontWight="f-w-500"
               @click="emit('close')"
             />
           </div>

@@ -1,5 +1,9 @@
 @import "../variables/theme_colors";
 
+.bg-primary-transparent {
+  background: var(--primary-transparent-);
+  transition: 0.5s;
+}
 .bg-primary-100 {
   background: var(--primary-100-);
   color: var(--white-);
@@ -103,6 +107,10 @@
   transition: 0.5s;
 }
 
+.bg-danger-transparent {
+  background: var(--danger-transparent-);
+  transition: 0.5s;
+}
 .bg-danger-100 {
   background: var(--danger-100-);
   color: var(--white-);
