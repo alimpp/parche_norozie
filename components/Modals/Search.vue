@@ -1,36 +1,3 @@
-<!-- <template>
-  <div>
-    <AppModal
-      width="400px"
-      :state="state"
-      @close="emit('close')"
-      :title="$t('search')"
-    >
-      <template #content>
-        <div class="app-flex app-w-100 app-px-2 app-py-4">
-          <div class="app-w-100">
-            <AppInput
-              height="35px"
-              :label="$t('title')"
-              class=""
-              v-model="filter"
-              @keyup.enter="search"
-            />
-            <AppButton
-              width="100%"
-              class="app-mt-4"
-              :name="$t('search')"
-              background="bg-primary-100"
-              fontSize="f-s-12"
-              @click="search"
-            />
-          </div>
-        </div>
-      </template>
-    </AppModal>
-  </div>
-</template> -->
-
 <template>
   <div class="content" v-if="state">
     <div

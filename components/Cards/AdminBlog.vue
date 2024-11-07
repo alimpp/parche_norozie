@@ -8,7 +8,8 @@
         @confrim="deleteBlog"
         @cancel="deleteState = false"
         @close="deleteState = false"
-      />
+        ><TrashIcon size="1.5x"></TrashIcon>
+      </ModalsConfrim>
       <div class="app-w-100 app-flex">
         <div class="app-flex">
           <img class="image-style" :src="imageUrl" alt="image" />

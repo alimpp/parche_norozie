@@ -8,7 +8,8 @@
         @confrim="deleteProperty"
         @cancel="deleteState = false"
         @close="deleteState = false"
-      />
+        ><TrashIcon class="color-danger" size="1.5x"></TrashIcon>
+      </ModalsConfrim>
       <div class="app-flex app-w-100 app-py-2 app-px-4">
         <div class="app-w-50 app-flex app-flex-column">
           <span
@@ -28,7 +29,10 @@
           <span class="color-white app-pointer" @click="opeConfirm">
             <v-tooltip :text="$t('remove')" location="bottom">
               <template v-slot:activator="{ props }">
-                <AppIconContent color="danger" v-bind="props"
+                <AppIconContent
+                  color="bg-danger-transparent"
+                  class="color-danger app-pointer"
+                  v-bind="props"
                   ><TrashIcon size="1x"></TrashIcon
                 ></AppIconContent>
               </template>
