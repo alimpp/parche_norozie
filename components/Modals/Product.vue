@@ -9,6 +9,19 @@
       <div
         class="app-flex app-flex-column app-w-100 app-px-4 app-py-7 container"
       >
+        <div
+          class="bg-primary-transparent app-border-radius app-py-1 app-px-1 app-flex app-flex-column"
+        >
+          <span class="f-s-12 f-w-500 color-primary"
+            >. {{ $t("create product guide 1") }}</span
+          >
+          <span class="f-s-12 f-w-500 color-primary"
+            >. {{ $t("create product guide 2") }}</span
+          >
+          <span class="f-s-12 f-w-500 color-primary"
+            >. {{ $t("create product guide 3") }}</span
+          >
+        </div>
         <AppInput
           height="35px"
           :label="$t('product name')"
