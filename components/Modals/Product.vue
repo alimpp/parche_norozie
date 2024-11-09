@@ -35,11 +35,17 @@
           :error="error.description.state"
           :message-error="error.description.message"
         />
-        <AppInput height="35px" :label="$t('price')" v-model="form.price" />
+        <AppInput
+          height="35px"
+          :label="$t('price')"
+          v-model="form.price"
+          type="number"
+        />
         <AppInput
           height="35px"
           :label="$t('discount_')"
           v-model="form.discount"
+          type="number"
         />
         <FileImage class="app-mt-5" @fileInformation="handleImage" />
         <div
@@ -220,6 +226,9 @@
 </template>
 
 <script setup>
+import { useProductStore } from "~/store/admin/product";
+
+const productStore = useProductStore();
 const selecCategoryModal = ref(false);
 const selectedCategoryData = ref(null);
 const selectPropertyModal = ref(false);
@@ -239,15 +248,16 @@ const props = defineProps({
 });
 
 const form = ref({
-  name: "",
-  description: "",
-  category_id: 0,
-  price: 0,
-  discount: 0,
-  properties: [],
-  media: [],
-  tags: [],
   attributes: [],
+  category_id: 0,
+  description: "",
+  discount: 0,
+  media: [],
+  name: "",
+  price: 0,
+  properties: [],
+  tags: [],
+  price_after_discount: 0,
 });
 
 const inputAttributes = ref({
@@ -258,15 +268,16 @@ const inputTag = ref("");
 
 const close = () => {
   form.value = {
-    name: "",
+    attributes: [],
+    category_id: 0,
     description: "",
-    price: null,
-    category_id: null,
-    discount: null,
-    properties: [],
+    discount: 0,
     media: [],
+    name: "",
+    price: 0,
+    properties: [],
     tags: [],
-    attributes: {},
+    price_after_discount: 0,
   };
   emit("close");
 };
@@ -305,6 +316,7 @@ const removeAttribute = (index) => {
 
 const selectedCategory = (data) => {
   selectedCategoryData.value = data;
+  form.value.category_id = data.ID;
 };
 
 const images = ref([]);
@@ -339,7 +351,11 @@ const selectedProperty = (data) => {
 };
 
 const submit = () => {
-  console.log(form.value);
+  const product = { ...form.value };
+  product.price = Number(form.value.price);
+  product.discount = Number(form.value.discount);
+  console.log(product);
+  productStore.createProduct(product);
   close();
 };
 </script>
