@@ -353,8 +353,8 @@ const selectedProperty = (data) => {
 const submit = () => {
   const product = { 
     ...form.value,
-    product.price : Number(form.value.price),
-    product.discount : Number(form.value.discount)
+    price : Number(form.value.price),
+    discount : Number(form.value.discount)
   };
   productStore.createProduct(product);
   close();
