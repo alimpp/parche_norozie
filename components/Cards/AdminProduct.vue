@@ -34,33 +34,31 @@
           <div class="app-mt-2">
             <span class="f-s-12 f-w-600">{{ data.name }}</span>
           </div>
-          <div class="app-flex app-mt-2">
+          <div class="app-flex app-mt-3">
             <span class="f-s-14 f-w-600">{{ $t("price") }} </span>
             <span
               class="f-s-14 f-w-600 app-px-4 app-mx-2 bg-primary-transparent color-primary app-border-radius"
               >{{ data.price }} {{ $t("toman") }}</span
             >
           </div>
-          <div class="app-flex app-flex-column app-mt-3">
-            <span class="f-s-12 f-w-600">{{ $t("property") }}</span>
-            <div
-              class="app-flex"
-              v-for="(property, index) in data.properties"
-              :key="index"
+          <div class="app-flex app-mt-3">
+            <span class="f-s-14 f-w-600">{{ $t("discount_") }} </span>
+            <span
+              class="f-s-14 f-w-600 app-px-4 app-mx-2 bg-primary-transparent color-primary app-border-radius"
+              >{{ data.discount }} %</span
             >
-              <span class="f-s-12 f-w-600 color-primary app-border-radius">{{
-                property.Title
-              }}</span>
-              <span
-                class="f-s-12 f-w-600 app-px-4 bg-danger-transparent color-danger app-border-radius app-mx-2"
-                v-for="(val, index) in property.values"
-                :key="index"
-              >
-                {{ val.Value }}
-              </span>
-            </div>
           </div>
-          <div class="app-flex app-flex-column app-mt-2">
+          <div class="app-flex app-mt-3">
+            <span class="f-s-14 f-w-600"
+              >{{ $t("price after discount") }}
+            </span>
+            <span
+              class="f-s-14 f-w-600 app-px-4 app-mx-2 bg-primary-transparent color-primary app-border-radius"
+              >{{ data.price_after_discount }} {{ $t("toman") }}</span
+            >
+          </div>
+
+          <div class="app-flex app-flex-column app-mt-3">
             <span class="f-s-12 f-w-600">{{ $t("category") }}</span>
             <div>
               <span
