@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
 
-export const usePropertyStore = defineStore("usePropertyStore", {
+export const useProductStore = defineStore("useProductStore", {
   state: (): any => ({
     products: [],
     loading: false,
@@ -44,6 +44,21 @@ export const usePropertyStore = defineStore("usePropertyStore", {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
+    },
+
+    async getAllProducts(param: any) {
+      this.loading = true;
+      await $fetch(`/api/v1/search?name=${param}`, {
+        method: "GET",
+      })
+        .then((res: any) => {
+          this.products = res.data;
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.loading = false;
     },
   },
 });

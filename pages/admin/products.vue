@@ -11,6 +11,24 @@
           </span>
         </div>
         <div class="app-w-50 app-flex app-justify-end app-align-center">
+          <span class="app-pointer app-mx-1" @click="getAllProduct">
+            <v-tooltip :text="$t('refresh')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent color="bg-primary-100" v-bind="props"
+                  ><RefreshCcwIcon size="1x"></RefreshCcwIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
+          </span>
+          <span class="app-pointer app-mx-1" @click="searchState = true">
+            <v-tooltip :text="$t('search')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent color="bg-primary-100" v-bind="props"
+                  ><SearchIcon size="1x"></SearchIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
+          </span>
           <span class="app-pointer app-mx-1" @click="openProductModal">
             <v-tooltip :text="$t('create')" location="bottom">
               <template v-slot:activator="{ props }">
@@ -32,8 +50,18 @@
     :state="productModalState"
     @close="productModalState = false"
   />
+  <ModalsSearch
+    :state="searchState"
+    @close="searchState = false"
+    @search="searchData"
+  />
 </template>
 <script setup>
+import { useProductStore } from "~/store/admin/product";
+
+const productStore = useProductStore();
+const searchState = ref(false);
+
 definePageMeta({
   middleware: ["admin-auth"],
   layout: "admin",
@@ -43,6 +71,15 @@ const productModalState = ref(false);
 const openProductModal = () => {
   productModalState.value = true;
 };
+
+const name = ref("");
+const searchData = (data) => {
+  productStore.getAllProducts(data);
+};
+
+onMounted(async () => {
+  await productStore.getAllProducts("");
+});
 </script>
 
 <style scoped></style>
