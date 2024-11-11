@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
+import { createProductListModel } from "@/model/product";
 
 export const useProductStore = defineStore("useProductStore", {
   state: (): any => ({
@@ -52,7 +53,7 @@ export const useProductStore = defineStore("useProductStore", {
         method: "GET",
       })
         .then((res: any) => {
-          this.products = res.data;
+          this.products = createProductListModel(res.data);
         })
         .catch((err) => {
           console.log(err);

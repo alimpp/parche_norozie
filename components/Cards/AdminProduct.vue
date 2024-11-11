@@ -1,23 +1,74 @@
 <template>
   <AppCard class="app-mt-3">
     <template #content>
-      <div class="app-flex flex-column">
-        <div
-          class="app-flex app-flex-column app-w-100 app-px-3"
-          style="width: 300px"
-        >
-          <span class="f-s-14 f-w-600 color-primary app-pt-1"
-            >{{ data.name }}
+      <div class="app-flex app-w-100">
+        <div class="image-slide">
+          <v-carousel
+            height="300"
+            hide-delimiters
+            cycle
+            :interval="6000"
+            :show-arrows="false"
+          >
+            <v-carousel-item v-for="image in data.images" :key="i">
+              <v-sheet height="100%">
+                <img
+                  class="app-w-100"
+                  style="height: 300px; width: 300px"
+                  :src="image"
+                  alt="image"
+                  loading="lazy"
+                />
+              </v-sheet>
+            </v-carousel-item>
+          </v-carousel>
+        </div>
+        <div class="product-info">
+          <span
+            style="width: 60px"
+            class="app-flex app-align-center app-justify-center bg-primary-transparent color-primary app-border-radius"
+          >
+            <HashIcon size="1x"></HashIcon>
+            <span>{{ data.ID }}</span>
           </span>
-          <span class="f-s-12 f-w-100">{{ data.description }} </span>
-          <div class="app-flex app-w-100">
-            <span class="f-s-12">{{ $t("price") }} : {{ data.price }}</span>
+          <div class="app-mt-2">
+            <span class="f-s-12 f-w-600">{{ data.name }}</span>
           </div>
-          <div class="app-flex">
-            <span class="f-s-12"
-              >{{ $t("price after discount") }} :
-              {{ data.price_after_discount }}</span
+          <div class="app-flex app-mt-2">
+            <span class="f-s-14 f-w-600">{{ $t("price") }} </span>
+            <span
+              class="f-s-14 f-w-600 app-px-4 app-mx-2 bg-primary-transparent color-primary app-border-radius"
+              >{{ data.price }} {{ $t("toman") }}</span
             >
+          </div>
+          <div class="app-flex app-flex-column app-mt-3">
+            <span class="f-s-12 f-w-600">{{ $t("property") }}</span>
+            <div
+              class="app-flex"
+              v-for="(property, index) in data.properties"
+              :key="index"
+            >
+              <span class="f-s-12 f-w-600 color-primary app-border-radius">{{
+                property.Title
+              }}</span>
+              <span
+                class="f-s-12 f-w-600 app-px-4 bg-danger-transparent color-danger app-border-radius app-mx-2"
+                v-for="(val, index) in property.values"
+                :key="index"
+              >
+                {{ val.Value }}
+              </span>
+            </div>
+          </div>
+          <div class="app-flex app-flex-column app-mt-2">
+            <span class="f-s-12 f-w-600">{{ $t("category") }}</span>
+            <div>
+              <span
+                class="f-s-12 f-w-600 app-px-4 app-py-1 bg-primary-transparent color-primary app-border-radius"
+              >
+                {{ data.category.Title }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -35,11 +86,13 @@ const props = defineProps({
 </script>
 
 <style scoped>
-.bg-discount {
-  background: #9999992c;
+.image-slide {
+  width: 300px;
+  height: 300px;
 }
-.discount-style {
-  color: #666666;
-  position: relative;
+
+.product-info {
+  width: 90%;
+  padding: 10px 10px;
 }
 </style>
