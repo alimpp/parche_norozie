@@ -30,8 +30,9 @@ export const usePropertyStore = defineStore("usePropertyStore", {
     },
 
     async getProduct(id: number | string) {
-      await $fetch(`/api/v1/product/${id}`, {
-        method: "GET",
+      await $fetch(`/api/v1/product`, {
+        method: "POST",
+        body: { product_id: id },
       });
     },
 

@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  const id = getQuery(event);
+  const body = await readBody(event);
 
   const token = event.req.headers["authorization"];
 
@@ -10,10 +10,10 @@ export default defineEventHandler(async (event) => {
   };
 
   const response: any = await $fetch(
-    `${config.public.BASE_URL}/api/v1/product/${id}`,
+    `${config.public.BASE_URL}/api/v1/product/get`,
     {
-      method: "GET",
-      headers: headers,
+      method: "POST",
+      body: body,
     }
   );
   return response;
