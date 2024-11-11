@@ -53,7 +53,6 @@ export const useProductStore = defineStore("useProductStore", {
       })
         .then((res: any) => {
           this.products = res.data;
-          console.log(res.data);
         })
         .catch((err) => {
           console.log(err);

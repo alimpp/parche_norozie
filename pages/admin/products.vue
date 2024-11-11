@@ -11,7 +11,7 @@
           </span>
         </div>
         <div class="app-w-50 app-flex app-justify-end app-align-center">
-          <span class="app-pointer app-mx-1" @click="getAllProduct">
+          <span class="app-pointer app-mx-1" @click="refreshData">
             <v-tooltip :text="$t('refresh')" location="bottom">
               <template v-slot:activator="{ props }">
                 <AppIconContent color="bg-primary-100" v-bind="props"
@@ -42,10 +42,17 @@
       </div>
     </template>
   </AppCard>
-  <AppLoading v-if="false" height="70dvh" />
+  <AppLoading height="70dvh" v-if="loading" />
   <div v-else>
-    <AppEmptyContent v-if="true" height="70dvh" />
+    <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
+    <CardsAdminProduct
+      v-else
+      v-for="data in dataSource"
+      :data="data"
+      class="app-mt-3 fade_animations"
+    />
   </div>
+
   <ModalsProduct
     :state="productModalState"
     @close="productModalState = false"
@@ -61,6 +68,12 @@ import { useProductStore } from "~/store/admin/product";
 
 const productStore = useProductStore();
 const searchState = ref(false);
+const dataSource = computed(() => {
+  return productStore.products;
+});
+const loading = computed(() => {
+  return productStore.loading;
+});
 
 definePageMeta({
   middleware: ["admin-auth"],
@@ -72,9 +85,12 @@ const openProductModal = () => {
   productModalState.value = true;
 };
 
-const name = ref("");
 const searchData = (data) => {
   productStore.getAllProducts(data);
+};
+
+const refreshData = () => {
+  productStore.getAllProducts("");
 };
 
 onMounted(async () => {

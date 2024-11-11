@@ -47,6 +47,12 @@
           v-model="form.discount"
           type="number"
         />
+        <AppInput
+          height="35px"
+          :label="$t('price after discount')"
+          v-model="form.price_after_discount"
+          type="number"
+        />
         <FileImage class="app-mt-5" @fileInformation="handleImage" />
         <div
           class="app-flex app-flex-wrap app-w-100 app-justify-center app-align-center app-mt-2"
@@ -351,13 +357,15 @@ const selectedProperty = (data) => {
 };
 
 const submit = () => {
-  const product = { 
+  const product = {
     ...form.value,
-    price : Number(form.value.price),
-    discount : Number(form.value.discount)
+    price: Number(form.value.price),
+    discount: Number(form.value.discount),
+    price_after_discount: Number(form.value.price_after_discount),
   };
   productStore.createProduct(product);
   close();
+  console.log(product);
 };
 </script>
 
