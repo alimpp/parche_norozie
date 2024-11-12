@@ -25,7 +25,8 @@
             <span class="app-pointer color-white" @click="editBlog">
               <v-tooltip :text="$t('edit')" location="bottom">
                 <template v-slot:activator="{ props }">
-                  <AppIconContent color="success" v-bind="props"
+                  <AppIconContent color="bg-success-transparent"
+                    class="color-success app-pointer" v-bind="props"
                     ><EditIcon size="1x"></EditIcon
                   ></AppIconContent>
                 </template>
@@ -37,7 +38,10 @@
             >
               <v-tooltip :text="$t('remove')" location="bottom">
                 <template v-slot:activator="{ props }">
-                  <AppIconContent color="danger" v-bind="props"
+                  <AppIconContent
+                    color="bg-danger-transparent"
+                    class="color-danger app-pointer"
+                    v-bind="props"
                     ><TrashIcon size="1x"></TrashIcon
                   ></AppIconContent>
                 </template>

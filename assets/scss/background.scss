@@ -194,6 +194,51 @@
   transition: 0.5s;
 }
 
+.bg-success-transparent {
+  background: var(--success-transparent-);
+  transition: 0.5s;
+}
+.bg-success-100 {
+  background: var(--success-100-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+.bg-success-200 {
+  background: var(--success-300 );
+  color: var(--white-);
+  transition: 0.5s;
+}
+.bg-success-400 {
+  background: var(--success-400-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+.bg-success-500 {
+  background: var(--success-500-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+.bg-success-600 {
+  background: var(--success-600-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+.bg-success-700 {
+  background: var(--success-700-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+.bg-success-800 {
+  background: var(--success-800-);
+  color: var(--white-);
+  transition: 0.5s;
+}
+.bg-success-900 {
+  background: var(--success-900-);
+  color: var(--danger-100-);
+  transition: 0.5s;
+}
+
 .bglight {
   background: var(--light-);
   color: var(--dark-);
