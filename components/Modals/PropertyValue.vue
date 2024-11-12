@@ -48,12 +48,17 @@
         <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectProperty(data)"
-            class="deactive-style"
+            class="deactive-style app-flex app-align-center"
             :class="{ 'active-style': data.ID == property.ID }"
             v-for="(data, index) in propertyList"
             :key="index"
-            >{{ data.Title }}</span
           >
+            <CheckCircleIcon
+              v-if="data.ID == property.ID"
+              size="1x"
+            ></CheckCircleIcon>
+            <span class="app-px-1">{{ data.Title }}</span>
+          </span>
         </div>
       </div>
     </template>
@@ -122,8 +127,7 @@ const submit = async () => {
 
 .deactive-style {
   padding: 5px 5px;
-  border: 1px solid #7b7be33c;
-  background: #7b7be30e;
+  background: #d7d7d751;
   border-radius: 5px;
   cursor: pointer;
   margin: 5px 1px;
@@ -132,9 +136,8 @@ const submit = async () => {
 
 .active-style {
   padding: 5px 5px;
-  border: 1px solid #7b7be368;
-  background: #7b7be3c1;
-  color: #fff;
+  background: #7272f512;
+  color: #7272f5;
   border-radius: 5px;
   cursor: pointer;
   margin: 5px 1px;
