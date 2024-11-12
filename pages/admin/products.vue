@@ -50,6 +50,8 @@
       v-for="data in dataSource"
       :data="data"
       class="app-mt-3 fade_animations"
+      @deleteProduct="removeProduct"
+      @editProduct="editProduct"
     />
   </div>
 
@@ -91,6 +93,14 @@ const searchData = (data) => {
 
 const refreshData = () => {
   productStore.getAllProducts("");
+};
+
+const removeProduct = (data) => {
+  productStore.removeProduct(data.ID);
+};
+
+const editProduct = (data) => {
+  // productStore.updateProduct(data);
 };
 
 onMounted(async () => {
