@@ -365,7 +365,7 @@ const submit = () => {
   };
   productStore.createProduct(product);
   close();
-  console.log(product);
+  productStore.getAllProducts("");
 };
 </script>
 

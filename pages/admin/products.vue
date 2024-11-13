@@ -97,10 +97,12 @@ const refreshData = () => {
 
 const removeProduct = (data) => {
   productStore.removeProduct(data.ID);
+  productStore.getAllProducts("");
 };
 
 const editProduct = (data) => {
   // productStore.updateProduct(data);
+  // productStore.getAllProducts("");
 };
 
 onMounted(async () => {
