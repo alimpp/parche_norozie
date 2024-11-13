@@ -17,7 +17,6 @@ export const useProductStore = defineStore("useProductStore", {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.getAllProducts();
     },
 
     async updateProduct(param: any) {
@@ -29,7 +28,6 @@ export const useProductStore = defineStore("useProductStore", {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.getAllProducts();
     },
 
     async getProduct(id: number | string) {
@@ -47,7 +45,6 @@ export const useProductStore = defineStore("useProductStore", {
           Authorization: `Bearer ${cookie.value}`,
         },
       });
-      this.getAllProducts();
     },
 
     async getAllProducts(param: any) {
