@@ -129,7 +129,7 @@ import { useWarehouseStore } from "~/store/admin/warehouse";
 const stock = ref(0);
 const warehouseStore = useWarehouseStore();
 
-const emit = defineEmits("stockData");
+
 const props = defineProps({
   data: {
     default: {},
