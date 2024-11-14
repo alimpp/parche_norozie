@@ -1,9 +1,9 @@
 <template>
-  <AppModal width="380px" :state="state" :title="title" @close="emit('close')">
+  <AppModal width="500px" :state="state" :title="title" @close="emit('close')">
     <template #content>
-      <div class="app-w-100 app-flex app-flex-column app-px-3">
+      <div class="app-w-100 app-flex app-flex-column app-px-3 py-3">
         <div
-          class="app-flex app-align-center app-pointer app-py-2 app-border app-border-radius app-mb-2 app-px-2"
+          class="app-flex app-align-center app-pointer deactive-style app-border-radius"
           v-for="(data, index) in dataSource"
           :key="index"
           @click="selected(data)"
@@ -58,3 +58,14 @@ onMounted(async () => {
   await categoryStore.categoryList();
 });
 </script>
+
+<style scoped>
+.deactive-style {
+  padding: 5px 5px;
+  background: #d7d7d751;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 1px;
+  transition: 0.5s;
+}
+</style>

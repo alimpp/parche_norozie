@@ -88,6 +88,5 @@ onMounted(async () => {
 .container {
   max-height: 80vh;
   overflow-y: scroll;
-  background-color: rgba(159, 161, 170, 0.151);
 }
 </style>
