@@ -48,7 +48,7 @@
         <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectProperty(data)"
-            class="deactive-style app-flex app-align-center"
+            class="deactive-style app-flex app-align-center app-pointer f-s-14 f-w-600"
             :class="{ 'active-style': data.ID == property.ID }"
             v-for="(data, index) in propertyList"
             :key="index"

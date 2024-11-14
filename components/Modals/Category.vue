@@ -49,11 +49,16 @@
         <div class="app-w-100 app-flex app-flex-column container">
           <span
             @click="selectSubCategory(data)"
-            class="app-flex app-pointer app-py-2 app-border app-border-radius app-mb-2 app-px-2 f-s-14 f-w-600"
+            class="deactive-style app-flex app-align-center app-pointer f-s-14 f-w-600"
             :class="{ 'active-style': data.ID == subCategory.ID }"
             v-for="(data, index) in categoryList"
             :key="index"
-            >{{ data.Title }}</span
+          >
+            <CheckCircleIcon
+              v-if="data.ID == subCategory.ID"
+              size="1x"
+            ></CheckCircleIcon>
+            <span class="app-px-1">{{ data.Title }}</span></span
           >
         </div>
       </div>
@@ -121,11 +126,22 @@ const submit = async () => {
   overflow-y: scroll;
 }
 
-.active-style {
-  border: 1px solid #98989835;
-  background: #9898985c;
+.deactive-style {
+  padding: 5px 5px;
+  background: #d7d7d751;
   border-radius: 5px;
   cursor: pointer;
-  transition: 1s;
+  margin: 5px 1px;
+  transition: 0.5s;
+}
+
+.active-style {
+  padding: 5px 5px;
+  background: #7272f512;
+  color: #7272f5;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 1px;
+  transition: 0.5s;
 }
 </style>
