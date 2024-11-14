@@ -10,6 +10,7 @@
   >
     <NuxtLoadingIndicator color="#fd7403" />
     <AdminSidebar />
+    <Toast />
     <div class="app-flex app-flex-column app-align-center app-w-100">
       <AdminHeader />
       <div class="router-content">

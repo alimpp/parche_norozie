@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { type ITheme } from "@/dataModel/theme/model";
 
 export const useToastStore = defineStore("useToastStore", {
   state: (): any => ({
@@ -13,12 +12,12 @@ export const useToastStore = defineStore("useToastStore", {
 
   actions: {
     reset() {
-      this.state = false
-      this.icon = "success"
-      this.title = ""
-      this.text = ""
-      this.width = "380px"
-      this.hasClose = false
-    }
+      this.state = false;
+      this.icon = "success";
+      this.title = "";
+      this.text = "";
+      this.width = "380px";
+      this.hasClose = false;
+    },
   },
 });
