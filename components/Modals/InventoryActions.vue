@@ -57,6 +57,7 @@
             background="bg-primary-100"
             class="app-mt-2"
             @click="updateStock"
+            :loading="loading"
           ></AppButton>
         </div>
       </div>
@@ -104,11 +105,13 @@ const close = () => {
 };
 
 const updateStock = async () => {
+  loading.value = !loading.value;
   await warehouseStore.updateStock({
     product_id: props.data.ProductID,
     stock: props.data.stock,
   });
   await warehouseStore.storageList();
+  loading.value = !loading.value;
 };
 </script>
 
