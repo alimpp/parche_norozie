@@ -27,12 +27,11 @@
   <AppLoading height="70dvh" v-if="loading" />
   <div v-else>
     <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
-    <CardsWarehouse
-      v-else
-      v-for="data in dataSource"
-      :data="data"
-      class="app-mt-3 fade_animations"
-    />
+    <AppCard class="app-mt-3" v-else>
+      <template #content>
+        <TableWarehouse :items="dataSource" />
+      </template>
+    </AppCard>
   </div>
   <div>
     <ModalsWarehouse :state="modalState" @close="modalState = false" />
@@ -43,9 +42,11 @@
 import { useWarehouseStore } from "~/store/admin/warehouse";
 
 const warehouseStore = useWarehouseStore();
+
 const dataSource = computed(() => {
   return warehouseStore.warehouseList;
 });
+
 const loading = computed(() => {
   return warehouseStore.loading;
 });
@@ -61,7 +62,7 @@ definePageMeta({
   layout: "admin",
 });
 
-onMounted( () => {
-   warehouseStore.storageList();
+onMounted(async () => {
+  await warehouseStore.storageList();
 });
 </script>

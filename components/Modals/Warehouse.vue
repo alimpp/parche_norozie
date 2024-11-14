@@ -28,14 +28,6 @@
           </div>
         </div>
       </div>
-      <div class="mx-6 my-2">
-        <AppButton
-          :name="$t('close')"
-          background="bg-primary-100"
-          :loading="loading"
-          @click="submit"
-        />
-      </div>
     </template>
   </AppModal>
 </template>
@@ -46,15 +38,15 @@ import { useWarehouseStore } from "~/store/admin/warehouse";
 
 const productStore = useProductStore();
 const warehouseStore = useWarehouseStore();
+
 const dataSource = computed(() => {
   return productStore.products;
 });
+
 const loading = computed(() => {
   return productStore.loading;
 });
-const warehouseList = computed(() => {
-  return warehouseStore.warehouseList;
-});
+
 const filteredList = ref([]);
 
 const emit = defineEmits(["close"]);

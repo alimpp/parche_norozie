@@ -89,7 +89,7 @@
               <div class="app-w-10 mx-1 pb-4">
                 <AppInput
                   height="30px"
-                  v-model="stock"
+                  v-model="data.stock"
                   :label="$t('inventory')"
                   @keyup="inputValue"
                   type="number"
@@ -126,9 +126,7 @@
 <script setup>
 import { useWarehouseStore } from "~/store/admin/warehouse";
 
-const stock = ref(0);
 const warehouseStore = useWarehouseStore();
-
 
 const props = defineProps({
   data: {
@@ -138,22 +136,22 @@ const props = defineProps({
 });
 
 const increaseStock = () => {
-  stock.value++;
+  props.data.stock++;
 };
 const decreaseStock = () => {
-  if (stock.value > 0) {
-    stock.value--;
+  if (props.data.stock > 0) {
+    props.data.stock--;
   }
 };
 
 const inputValue = () => {
-  stock.value = Number(stock.value);
+  props.data.stock = Number(props.data.stock);
 };
 
 const submit = () => {
-  warehouseStore.updateStorage({
-    product_id: props.data.ID,
-    stock: stock.value,
+  warehouseStore.updateStock({
+    product_id: props.data.ProductID,
+    stock: props.data.stock,
   });
 };
 </script>

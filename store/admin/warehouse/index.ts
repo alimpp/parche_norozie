@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
 import { useProductStore } from "../product";
+import { createWarehouseListModel } from "@/model/warehouse";
 
 export const useWarehouseStore = defineStore("useWarehouseStore", {
   state: (): any => ({
@@ -18,7 +19,7 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
         },
       })
         .then((res: any) => {
-          this.warehouseList = res.data;
+          this.warehouseList = createWarehouseListModel(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -37,7 +38,7 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
       });
     },
 
-    async updateStorage(param: any) {
+    async updateStock(param: any) {
       const cookie = useCookie("token");
       const res = await $fetch("/api/v1/storage/updateStock", {
         method: "PUT",
@@ -51,26 +52,24 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
     async accessProducts() {
       const productStore = useProductStore();
       await productStore.getAllProducts("");
-      console.log(productStore.products);
-      console.log(this.warehouseList);
       const result = await filteredWarehouse(
         productStore.products,
         this.warehouseList
       );
-      console.log(result);
     },
   },
 });
+
 export const filteredWarehouse = async (
   productData: any,
   warehouseData: any
 ) => {
-  return [
-    ...productData.filter((p: any) =>
-      warehouseData.every((w: any) => w.ProductID != p.ID)
-    ),
-    ...warehouseData.filter((p: any) =>
-      productData.every((w: any) => w.ProductID != p.ID)
-    ),
-  ];
+  // return [
+  //   ...productData.filter((p: any) =>
+  //     warehouseData.every((w: any) => w.ProductID != p.ID)
+  //   ),
+  //   ...warehouseData.filter((p: any) =>
+  //     productData.every((w: any) => w.ProductID != p.ID)
+  //   ),
+  // ];
 };

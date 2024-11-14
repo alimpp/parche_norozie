@@ -191,5 +191,7 @@
   "decrease inventory": "کاهش موجودی",
   "inventory": "موجودی",
   "add to warehouse": "افزودن به انبار",
-  "close": "بستن"
+  "close": "بستن",
+  "increase inventory and decrease inventory": "افزایش و کاهش موجودی",
+  "increase inventory and decrease inventory guide": "در این قسمت میتوانید مقدار موجودی محصول مورد نظر خود را در انبار افزایش یا کاهش دهید"
 }
