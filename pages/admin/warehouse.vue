@@ -44,7 +44,7 @@ import { useWarehouseStore } from "~/store/admin/warehouse";
 
 const warehouseStore = useWarehouseStore();
 const dataSource = computed(() => {
-  return warehouseStore.products;
+  return warehouseStore.warehouseList;
 });
 const loading = computed(() => {
   return warehouseStore.loading;

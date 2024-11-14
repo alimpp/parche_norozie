@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
+import { useProductStore } from "../product";
 
 export const useWarehouseStore = defineStore("useWarehouseStore", {
   state: (): any => ({
-    products: [],
+    warehouseList: [],
     loading: false,
   }),
   actions: {
@@ -17,7 +18,7 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
         },
       })
         .then((res: any) => {
-          this.products = res.data;
+          this.warehouseList = res.data;
         })
         .catch((err) => {
           console.log(err);
@@ -46,5 +47,30 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
         },
       });
     },
+
+    async accessProducts() {
+      const productStore = useProductStore();
+      await productStore.getAllProducts("");
+      console.log(productStore.products);
+      console.log(this.warehouseList);
+      const result = await filteredWarehouse(
+        productStore.products,
+        this.warehouseList
+      );
+      console.log(result);
+    },
   },
 });
+export const filteredWarehouse = async (
+  productData: any,
+  warehouseData: any
+) => {
+  return [
+    ...productData.filter((p: any) =>
+      warehouseData.every((w: any) => w.ProductID != p.ID)
+    ),
+    ...warehouseData.filter((p: any) =>
+      productData.every((w: any) => w.ProductID != p.ID)
+    ),
+  ];
+};

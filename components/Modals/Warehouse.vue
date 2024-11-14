@@ -20,7 +20,7 @@
             <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
             <CardsWarehouseModal
               v-else
-              v-for="data in filteredList"
+              v-for="data in dataSource"
               :data="data"
               class="app-mt-3 fade_animations"
               @selectedId="selectedId"
@@ -42,13 +42,18 @@
 
 <script setup>
 import { useProductStore } from "~/store/admin/product";
+import { useWarehouseStore } from "~/store/admin/warehouse";
 
 const productStore = useProductStore();
+const warehouseStore = useWarehouseStore();
 const dataSource = computed(() => {
   return productStore.products;
 });
 const loading = computed(() => {
   return productStore.loading;
+});
+const warehouseList = computed(() => {
+  return warehouseStore.warehouseList;
 });
 const filteredList = ref([]);
 
@@ -74,8 +79,8 @@ const submit = () => {
 };
 
 onMounted(async () => {
-  await productStore.getAllProducts("");
-  filteredList.value = dataSource.value;
+  await warehouseStore.storageList();
+  await warehouseStore.accessProducts();
 });
 </script>
 
