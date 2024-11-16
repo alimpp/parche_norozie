@@ -64,6 +64,7 @@ const props = defineProps({
 
 const selectedId = (id) => {
   filteredList.value.splice(id, 1);
+  emit("close");
 };
 
 const submit = () => {
