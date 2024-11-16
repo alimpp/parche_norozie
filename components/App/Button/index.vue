@@ -7,7 +7,9 @@
   >
     <v-progress-circular indeterminate v-if="loading"></v-progress-circular>
     <div class="app-flex app-align-center" v-else>
+      <slot name="iconRight"></slot>
       <span :class="[fontSize, fontWight, color]"> {{ name }}</span>
+      <slot name="iconLeft"></slot>
     </div>
   </button>
 </template>

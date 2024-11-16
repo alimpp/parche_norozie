@@ -57,7 +57,7 @@
           <div class="app-flex app-justify-end" v-if="data.discount > 1">
             <span
               style="auto"
-              class="app-flex app-justify-end app-mt-4 app-w-600 bg-danger-transparent color-danger app-border-radius app-px-3"
+              class="app-flex app-justify-end app-mt-4 app-w-600 app-border-radius"
             >
               <span class="f-s-12 f-w-100"
                 >{{ data.price_after_discount }} {{ $t("toman") }}</span
@@ -81,7 +81,11 @@
             height="30px"
             class="app-mt-2"
             :class="{ 'app-mt-6': data.discount == 0 }"
-          ></AppButton>
+          >
+            <template #iconLeft>
+              <IconsShoppingCard></IconsShoppingCard>
+            </template>
+          </AppButton>
         </div>
       </div> </template
   ></AppCard>
@@ -149,16 +153,20 @@
             <span class="f-s-14 f-w-100"
               >{{ data.price }} {{ $t("toman") }}</span
             >
-            <div class="app-flex">
+            <di class="app-flex">
               <IconsStar v-for="n in 5" />
-            </div>
+            </di
           </div>
           <AppButton
             :name="$t('order product')"
             background="bg-primary-100"
             class="app-mt-2"
             :class="{ 'app-mt-6': data.discount == 0 }"
-          ></AppButton>
+          >
+            <template #iconLeft>
+              <IconsShoppingCard></IconsShoppingCard>
+            </template>
+          </AppButton>
         </div>
       </div>
     </template>

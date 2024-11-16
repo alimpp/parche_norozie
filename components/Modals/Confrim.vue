@@ -1,50 +1,3 @@
-<!-- <template>
-  <AppModal width="380px" :state="state" @close="emit('close')">
-    <template #content>
-      <div
-        class="app-w-100 app-flex app-flex-column app-justify-center app-align-center app-py-8"
-      >
-        <span class="f-s-14 f-w-600">{{ title }}</span>
-        <span class="f-s-12 f-w-500">{{ text }}</span>
-        <div class="app-w-100 app-flex app-justify-center app-mt-5 app-mb-5">
-          <AppButton
-            :name="$t('confrim')"
-            background="bg-primary-100"
-            @click="emit('confrim')"
-            class="app-mx-2"
-          />
-          <AppButton
-            :name="$t('cancel')"
-            color="color-danger"
-            background="bg-danger-transparent"
-            @click="emit('cancel')"
-            class="app-mx-2"
-          />
-        </div>
-      </div>
-    </template>
-  </AppModal>
-</template>
-
-<script setup>
-const emit = defineEmits(["confrim", "cancel"]);
-
-const props = defineProps({
-  state: {
-    type: Boolean,
-    default: false,
-  },
-  title: {
-    type: String,
-    default: "",
-  },
-  text: {
-    type: String,
-    default: "",
-  },
-});
-</script> -->
-
 <template>
   <div class="content" v-if="state">
     <div
@@ -131,7 +84,7 @@ const search = () => {
 
 .modal-content {
   width: 380px;
-  height: 280px;
+  height: 220px;
   position: relative;
   overflow: hidden;
   display: flex;
