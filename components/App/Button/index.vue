@@ -8,17 +8,6 @@
     <v-progress-circular indeterminate v-if="loading"></v-progress-circular>
     <div class="app-flex app-align-center" v-else>
       <span :class="[fontSize, fontWight, color]"> {{ name }}</span>
-      <ShoppingCartIcon
-        v-if="icon == 'shopping cart'"
-        size="1x"
-        class="custom-class app-pointer app-mx-2"
-      ></ShoppingCartIcon>
-      <SearchIcon
-        v-if="icon == 'search'"
-        size="1x"
-        class="custom-class app-pointer app-mx-1"
-      ></SearchIcon>
-      <ArrowLeftIcon size="1x" v-if="icon == 'arrow left'"></ArrowLeftIcon>
     </div>
   </button>
 </template>

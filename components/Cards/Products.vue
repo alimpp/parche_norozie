@@ -17,57 +17,70 @@
             :interval="6000"
             :show-arrows="false"
           >
-            <v-carousel-item v-for="image in data.images" :key="i">
-              <v-sheet height="100%">
-                <img
-                  class="app-w-100"
-                  style="height: 160px"
-                  :src="image.url"
-                  alt="image"
-                  loading="lazy"
-                />
-              </v-sheet>
-            </v-carousel-item>
+            <v-carousel
+              height="160"
+              hide-delimiters
+              cycle
+              :interval="6000"
+              :show-arrows="false"
+            >
+              <v-carousel-item v-for="image in data.images" :key="i">
+                <v-sheet height="100%">
+                  <img
+                    class="app-w-100"
+                    style="height: 160px"
+                    :src="image"
+                    alt="image"
+                    loading="lazy"
+                  />
+                </v-sheet>
+              </v-carousel-item>
+            </v-carousel>
           </v-carousel>
         </div>
         <div
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 200px"
         >
-          <span class="f-s-12 f-w-600">{{ data.name }}</span>
-          <div class="app-flex">
-            <span class="f-s-10 f-w-100 color-gray">{{ data.category }}</span>
+          <span class="f-s-12 f-w-500">{{ data.name }}</span>
+          <span class="f-s-10 f-w-500 color-gray">{{
+            data.category.Title
+          }}</span>
+
+          <span
+            v-if="data.discount > 1"
+            class="bg-danger-100 f-s-12 app-border-radius app-px-2 app-flex app-align-center app-justify-center"
+            style="width: 80px"
+          >
+            % {{ data.discount }} {{ $t("discount") }}
+          </span>
+          <div class="app-flex app-justify-end" v-if="data.discount > 1">
             <span
-              v-if="data.hasDiscount"
-              class="f-s-10 f-w-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
-              >40% {{ $t("discount card") }}</span
+              style="auto"
+              class="app-flex app-justify-end app-mt-4 app-w-600 bg-danger-transparent color-danger app-border-radius app-px-3"
             >
-          </div>
-          <div class="app-flex app-mt-1">
-            <IconsStar v-for="n in 5" />
+              <span class="f-s-12 f-w-100"
+                >{{ data.price_after_discount }} {{ $t("toman") }}</span
+              >
+            </span>
           </div>
           <div
-            v-if="data.hasDiscount"
-            class="app-flex app-flex-column app-align-end app-mt-1 app-w-100 bg-discount app-border-radius app-px-1"
+            v-else
+            class="app-flex app-flex-column app-justify-end app-align-end app-pt-2"
           >
-            <span class="f-s-12 f-w-600"
-              >{{ data.discountPrice }} {{ $t("toman") }}</span
-            >
-            <span class="f-s-10 f-w-100 discount-style"
-              >{{ data.price }} {{ $t("toman") }}</span
-            >
-          </div>
-          <div v-else class="app-flex app-justify-end app-mt-5 app-w-600">
             <span class="f-s-12 f-w-100"
               >{{ data.price }} {{ $t("toman") }}</span
             >
+            <div class="app-flex">
+              <IconsStar v-for="n in 5" />
+            </div>
           </div>
           <AppButton
             :name="$t('order product')"
             background="bg-primary-100"
             height="30px"
             class="app-mt-2"
-            icon="shopping cart"
+            :class="{ 'app-mt-6': data.discount == 0 }"
           ></AppButton>
         </div>
       </div> </template
@@ -76,7 +89,7 @@
   <AppCard
     data-aos="fade-up"
     class="app-mx-3 app-mt-3"
-    width="240px"
+    width="300px"
     v-if="
       themeStore.wighet.product.display == 'column' &&
       themeStore.refresh == false
@@ -84,65 +97,67 @@
   >
     <template #content>
       <div class="app-flex flex-column">
-        <div style="width: 240px">
-          <v-carousel
-            height="220"
-            hide-delimiters
-            cycle
-            :interval="6000"
-            :show-arrows="false"
-          >
-            <v-carousel-item v-for="image in data.images" :key="i">
-              <v-sheet height="100%">
-                <img
-                  class="app-w-100"
-                  style="height: 220px"
-                  :src="image.url"
-                  alt="image"
-                  loading="lazy"
-                />
-              </v-sheet>
-            </v-carousel-item>
-          </v-carousel>
-        </div>
-        <div
-          class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
-          style="width: 240px; height: 165px"
+        <v-carousel
+          height="250"
+          hide-delimiters
+          cycle
+          :interval="6000"
+          :show-arrows="false"
         >
-          <span class="f-s-12 f-w-100">{{ data.name }}</span>
+          <v-carousel-item v-for="image in data.images" :key="i">
+            <v-sheet height="100%">
+              <img
+                class="app-w-100"
+                style="height: 250px"
+                :src="image"
+                alt="image"
+                loading="lazy"
+              />
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
+        <div
+          class="app-flex app-flex-column app-w-100 app-px-3 app-py-3"
+          style="width: 300px"
+        >
+          <span class="f-s-12 f-w-500">{{ data.name }}</span>
           <div class="app-flex">
-            <span class="f-s-10 f-w-100 color-gray">{{ data.category }}</span>
-            <span
-              v-if="data.hasDiscount"
-              class="f-s-10 f-w-100 bg-danger-100 app-mx-2 app-px-2 app-border-radius"
-              >40% {{ $t("discount card") }}</span
-            >
+            <span class="f-s-10 f-w-500">{{ $t("category") }} /</span>
+            <span class="f-s-10 f-w-500 app-px-1">{{
+              data.category.Title
+            }}</span>
           </div>
-          <div class="app-flex app-mt-1">
-            <IconsStar v-for="n in 5" />
+          <div v-if="data.discount > 1" class="app-w-100 app-flex app-py-5">
+            <div class="app-w-50 app-flex">
+              <span
+                class="bg-danger-100 f-s-12 app-border-radius app-px-2 app-flex app-align-center app-justify-center"
+                style="width: 80px"
+              >
+                % {{ data.discount }} {{ $t("discount") }}
+              </span>
+            </div>
+            <div class="app-w-50 app-flex app-justify-end app-align-center">
+              <span class="f-s-14 f-w-100"
+                >{{ data.price_after_discount }} {{ $t("toman") }}</span
+              >
+            </div>
           </div>
           <div
-            v-if="data.hasDiscount"
-            class="app-flex app-flex-column app-align-end app-mt-1 app-w-100 bg-discount app-border-radius app-px-1"
+            v-else
+            class="app-flex app-flex-column app-justify-end app-align-end app-pt-2"
           >
-            <span class="f-s-12 f-w-100"
-              >{{ data.discountPrice }} {{ $t("toman") }}</span
-            >
-            <span class="f-s-10 f-w-100 discount-style"
+            <span class="f-s-14 f-w-100"
               >{{ data.price }} {{ $t("toman") }}</span
             >
-          </div>
-          <div v-else class="app-flex app-justify-end app-mt-5 app-w-100">
-            <span class="f-s-12 f-w-100"
-              >{{ data.price }} {{ $t("toman") }}</span
-            >
+            <div class="app-flex">
+              <IconsStar v-for="n in 5" />
+            </div>
           </div>
           <AppButton
             :name="$t('order product')"
             background="bg-primary-100"
-            height="30px"
             class="app-mt-2"
-            icon="shopping cart"
+            :class="{ 'app-mt-6': data.discount == 0 }"
           ></AppButton>
         </div>
       </div>
@@ -160,6 +175,10 @@ const props = defineProps({
     default: {},
     type: Object,
   },
+});
+
+onMounted(() => {
+  console.log(props.data);
 });
 </script>
 

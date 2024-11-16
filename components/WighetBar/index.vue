@@ -122,18 +122,18 @@
               <div
                 @click="setDisplayCard('column')"
                 class="app-flex app-flex-column app-px-2 app-mx-1 app-py-2 app-border app-pointer"
-                style="width: 120px; height: 130px; border-radius: 6px"
+                style="width: 120px; height: 180px; border-radius: 6px"
               >
                 <div
                   class="app-w-100 bg-gray-100 app-border-radius"
-                  style="height: 80px"
+                  style="height: 107px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray-100 app-border-radius app-mt-1"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-2"
                   style="height: 20px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray-100 app-border-radius app-mt-1"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-2"
                   style="height: 20px"
                 ></div>
               </div>
