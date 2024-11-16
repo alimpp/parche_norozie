@@ -1,4 +1,13 @@
 <template>
+  <ModalsConfrim
+    :state="deleteState"
+    :title="$t('delete from warehouse')"
+    :text="$t('confirm delete from warehouse')"
+    @confrim="deleteFromWarehouse"
+    @cancel="deleteState = false"
+    @close="deleteState = false"
+    ><TrashIcon size="1.5x"></TrashIcon>
+  </ModalsConfrim>
   <table class="app-w-100">
     <tr class="app-w-100">
       <th
@@ -36,6 +45,7 @@
                 color="bg-danger-transparent"
                 class="color-danger app-pointer app-mx-2"
                 v-bind="props"
+                @click="openConfirmModal(item)"
                 ><TrashIcon size="1x"></TrashIcon
               ></AppIconContent>
             </template>
@@ -64,6 +74,8 @@
 </template>
 
 <script setup>
+import { useWarehouseStore } from "~/store/admin/warehouse";
+
 const header = ref([
   { title: "شماره", width: "20%" },
   { title: "شناسه محصول", width: "20%" },
@@ -79,12 +91,24 @@ const props = defineProps({
   },
 });
 
+const warehouseStore = useWarehouseStore();
 const modalState = ref(false);
 const selectedData = ref(null);
+const deleteState = ref(false);
+const lastItem = ref(null);
 
 const openModal = (item) => {
   selectedData.value = item;
   modalState.value = true;
+};
+
+const openConfirmModal = (item) => {
+  deleteState.value = true;
+  lastItem.value = item.ID;
+};
+
+const deleteFromWarehouse = async () => {
+  await warehouseStore.removeStorage(lastItem.value);
 };
 </script>
 

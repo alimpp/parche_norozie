@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
+import { useToastStore } from "~/store/toast";
 
 export const useBlogsStore = defineStore("useBlogsStore", {
   state: (): any => ({
@@ -19,6 +20,7 @@ export const useBlogsStore = defineStore("useBlogsStore", {
     },
 
     async createBlog(param: any) {
+      const toastStore = useToastStore();
       const cookie = useCookie("token");
       const res = await $fetch("/api/v1/blog/add", {
         method: "POST",
@@ -26,8 +28,27 @@ export const useBlogsStore = defineStore("useBlogsStore", {
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
-      });
-      this.blogList();
+      })
+        .then((res) => {
+          this.blogsList = res.data;
+          this.blogList();
+          if (res.status == 200) {
+            toastStore.state = true;
+            toastStore.title = "عملیات با موفقیت انجام شد";
+            toastStore.text = " بلاگ با موفقیت ایجاد شد";
+            setTimeout(() => {
+              toastStore.reset();
+            }, 2000);
+          }
+        })
+        .catch((err) => {
+          toastStore.state = true;
+          toastStore.title = "خطا در انجام عملیات";
+          toastStore.text = "لطفا دوباره تلاش کنید";
+          setTimeout(() => {
+            toastStore.reset();
+          }, 5000);
+        });
     },
 
     async getBlogById(id: number | string) {
@@ -44,6 +65,7 @@ export const useBlogsStore = defineStore("useBlogsStore", {
     },
 
     async updateBlog(param: any) {
+      const toastStore = useToastStore();
       const cookie = useCookie("token");
       await $fetch(`/api/v1/blog/update/${this.lastSelectedBlogId}`, {
         method: "PUT",
@@ -51,19 +73,56 @@ export const useBlogsStore = defineStore("useBlogsStore", {
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
-      });
-      this.blogList();
+      })
+        .then((res) => {
+          this.blogList();
+          if (res.status == 200) {
+            toastStore.state = true;
+            toastStore.title = "عملیات با موفقیت انجام شد";
+            toastStore.text = " بلاگ با موفقیت ویرایش شد";
+            setTimeout(() => {
+              toastStore.reset();
+            }, 2000);
+          }
+        })
+        .catch((err) => {
+          toastStore.state = true;
+          toastStore.title = "خطا در انجام عملیات";
+          toastStore.text = "لطفا دوباره تلاش کنید";
+          setTimeout(() => {
+            toastStore.reset();
+          }, 5000);
+        });
     },
 
     async deleteBlog(id: number | string) {
+      const toastStore = useToastStore();
       const cookie = useCookie("token");
       await $fetch(`/api/v1/blog/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },
-      });
-      this.blogList();
+      })
+        .then((res) => {
+          this.blogList();
+          if (res.status == 200) {
+            toastStore.state = true;
+            toastStore.title = "عملیات با موفقیت انجام شد";
+            toastStore.text = " بلاگ با موفقیت حذف شد";
+            setTimeout(() => {
+              toastStore.reset();
+            }, 2000);
+          }
+        })
+        .catch((err) => {
+          toastStore.state = true;
+          toastStore.title = "خطا در انجام عملیات";
+          toastStore.text = "لطفا دوباره تلاش کنید";
+          setTimeout(() => {
+            toastStore.reset();
+          }, 5000);
+        });
     },
 
     async searchBlog(param: any) {
@@ -72,6 +131,5 @@ export const useBlogsStore = defineStore("useBlogsStore", {
         return blog.Title.match(param);
       });
     },
-    
   },
 });
