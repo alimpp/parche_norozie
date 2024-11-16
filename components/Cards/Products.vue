@@ -176,10 +176,6 @@ const props = defineProps({
     type: Object,
   },
 });
-
-onMounted(() => {
-  console.log(props.data);
-});
 </script>
 
 <style scoped>
