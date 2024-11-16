@@ -29,6 +29,15 @@
               </template>
             </v-tooltip>
           </span>
+          <span class="app-pointer app-mx-1" @click="searchCategoryState = true">
+            <v-tooltip :text="$t('search by category')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent color="bg-primary-100" v-bind="props"
+                  ><ArchiveIcon size="1x"></ArchiveIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
+          </span>
           <span class="app-pointer app-mx-1" @click="openProductModal">
             <v-tooltip :text="$t('create')" location="bottom">
               <template v-slot:activator="{ props }">
@@ -64,12 +73,18 @@
     @close="searchState = false"
     @search="searchData"
   />
+  <ModalsSearchByCategoryId
+    :state="searchCategoryState"
+    @close="searchCategoryState = false"
+    @search="searchCategoryData"
+  />
 </template>
 <script setup>
 import { useProductStore } from "~/store/admin/product";
 
 const productStore = useProductStore();
 const searchState = ref(false);
+const searchCategoryState = ref(false);
 const dataSource = computed(() => {
   return productStore.products;
 });
