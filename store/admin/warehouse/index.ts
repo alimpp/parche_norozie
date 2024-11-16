@@ -90,6 +90,36 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
         });
     },
 
+    async removeStorage(id: any) {
+      const toastStore = useToastStore();
+      const cookie = useCookie("token");
+      const res = await $fetch(`/api/v1/storage/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
+        },
+      })
+        .then((res: any) => {
+          this.storageList();
+          if (res.status == 200) {
+            toastStore.state = true;
+            toastStore.title = "عملیات با موفقیت انجام شد";
+            toastStore.text = " محصول از انبار با موفقیت به حذف شد";
+            setTimeout(() => {
+              toastStore.reset();
+            }, 2000);
+          }
+        })
+        .catch((err) => {
+          toastStore.state = true;
+          toastStore.title = "خطا در انجام عملیات";
+          toastStore.text = "لطفا دوباره تلاش کنید";
+          setTimeout(() => {
+            toastStore.reset();
+          }, 5000);
+        });
+    },
+
     async accessProducts() {
       const productStore = useProductStore();
       await productStore.getAllProducts("");
