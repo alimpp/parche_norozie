@@ -23,7 +23,7 @@
               v-for="data in dataSource"
               :data="data"
               class="app-mt-3 fade_animations"
-              @selectedId="selectedId"
+              @selectedId="selected"
             />
           </div>
         </div>
@@ -33,46 +33,25 @@
 </template>
 
 <script setup>
-import { useProductStore } from "~/store/admin/product";
 import { useWarehouseStore } from "~/store/admin/warehouse";
 
-const productStore = useProductStore();
 const warehouseStore = useWarehouseStore();
-
 const dataSource = computed(() => {
-  return productStore.products;
+  return warehouseStore.productsWarehouseList;
 });
-
 const loading = computed(() => {
-  return productStore.loading;
+  return warehouseStore.loading;
 });
 
-const filteredList = ref([]);
 
 const emit = defineEmits(["close"]);
 
-const props = defineProps({
-  state: {
-    type: Boolean,
-    default: false,
-  },
-  data: {
-    type: Object,
-    default: {},
-  },
-});
 
-const selectedId = (id) => {
-  filteredList.value.splice(id, 1);
-  emit("close");
-};
-
-const submit = () => {
+const selected = async () => {
   emit("close");
 };
 
 onMounted(async () => {
-  await warehouseStore.storageList();
   await warehouseStore.accessProducts();
 });
 </script>

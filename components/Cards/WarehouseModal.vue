@@ -113,6 +113,7 @@ const addToWarehouse = async () => {
   emit("selectedId", props.data.id);
   await warehouseStore.addStorage(selectedId.value);
   await warehouseStore.storageList();
+  await warehouseStore.accessProducts();
 };
 </script>
 

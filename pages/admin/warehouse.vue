@@ -53,8 +53,9 @@ const loading = computed(() => {
 
 const modalState = ref(false);
 
-const openModal = () => {
+const openModal = async () => {
   modalState.value = true;
+  await warehouseStore.accessProducts();
 };
 
 definePageMeta({
