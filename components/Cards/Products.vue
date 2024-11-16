@@ -153,9 +153,9 @@
             <span class="f-s-14 f-w-100"
               >{{ data.price }} {{ $t("toman") }}</span
             >
-            <di class="app-flex">
+            <div class="app-flex">
               <IconsStar v-for="n in 5" />
-            </di
+            </div>
           </div>
           <AppButton
             :name="$t('order product')"
