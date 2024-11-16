@@ -122,5 +122,19 @@ export const useProductStore = defineStore("useProductStore", {
         });
       this.loading = false;
     },
+
+    async getByCategoryId(id: any) {
+      this.loading = true;
+      await $fetch(`/api/v1/search/${id}`, {
+        method: "GET",
+      })
+        .then((res: any) => {
+          this.products = createProductListModel(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.loading = false;
+    },
   },
 });

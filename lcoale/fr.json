@@ -195,5 +195,7 @@
   "increase inventory and decrease inventory": "افزایش و کاهش موجودی",
   "increase inventory and decrease inventory guide": "در این قسمت میتوانید مقدار موجودی محصول مورد نظر خود را در انبار افزایش یا کاهش دهید",
   "delete from warehouse": "پاک کردن محصول از انبار",
-  "confirm delete from warehouse": "آیا مایل به حذف این محصول از انبار هستید؟"
+  "confirm delete from warehouse": "آیا مایل به حذف این محصول از انبار هستید؟",
+  "search by category": "جستجو بر اساس دسته بندی",
+  "search by category guide": "با انتخاب کردن نام دسته بندی محصولاتی که در این دسته بندی قرار دارند را نمایش می دهد"
 }
