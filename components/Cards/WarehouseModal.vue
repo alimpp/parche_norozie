@@ -107,11 +107,12 @@ const props = defineProps({
   },
 });
 
-const addToWarehouse = () => {
+const addToWarehouse = async () => {
   selected.value = true;
   selectedId.value.product_id = props.data.ID;
   emit("selectedId", props.data.id);
-  warehouseStore.addStorage(selectedId.value);
+  await warehouseStore.addStorage(selectedId.value);
+  await warehouseStore.storageList();
 };
 </script>
 
@@ -125,5 +126,4 @@ const addToWarehouse = () => {
   width: 50%;
   padding: 10px 10px;
 }
-
 </style>

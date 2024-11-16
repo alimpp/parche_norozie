@@ -356,16 +356,16 @@ const selectedProperty = (data) => {
   }
 };
 
-const submit = () => {
+const submit = async () => {
   const product = {
     ...form.value,
     price: Number(form.value.price),
     discount: Number(form.value.discount),
     price_after_discount: Number(form.value.price_after_discount),
   };
-  productStore.createProduct(product);
+  await productStore.createProduct(product);
   close();
-  productStore.getAllProducts("");
+  await productStore.getAllProducts("");
 };
 </script>
 
