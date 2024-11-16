@@ -9,7 +9,12 @@ export const createProductListModel = (list: any) => {
         `https://parche-go.liara.run/api/v1/download/${key.filename}`
       );
     }
-    result.push({ ...element, images, price: createPrice(element.price) });
+    result.push({
+      ...element,
+      images,
+      price: createPrice(element.price),
+      price_after_discount: createPrice(element.price_after_discount),
+    });
   });
   return result;
 };

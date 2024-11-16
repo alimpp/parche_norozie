@@ -27,7 +27,7 @@
   <AppLoading height="70dvh" v-if="loading" />
   <div v-else>
     <AppEmptyContent v-if="dataSource.length == 0" height="70dvh" />
-    <AppCard class="app-mt-3" v-else>
+    <AppCard class="app-mt-3 app-py-3" v-else>
       <template #content>
         <TableWarehouse :items="dataSource" />
       </template>

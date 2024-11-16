@@ -11,10 +11,16 @@
     </tr>
     <tr v-for="(item, index) in items" :key="index">
       <td style="width: 20%; text-align: center">
-        {{ item.ID }}
+        <span
+          class="bg-primary-transparent app-py-2 app-px-2 app-border-radius"
+        >
+          {{ item.ID }}
+        </span>
       </td>
       <td style="width: 20%; text-align: center">
-        {{ item.ProductID }}
+        <span class="bg-danger-transparent app-py-2 app-px-2 app-border-radius">
+          {{ item.ProductID }}
+        </span>
       </td>
       <td style="width: 20%; text-align: center">
         {{ item.name }}
