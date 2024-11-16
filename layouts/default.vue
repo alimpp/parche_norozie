@@ -23,7 +23,7 @@
       :class="{
         bgsecondary: themeStore.theme == 'light',
         bgdark: themeStore.theme == 'dark',
-        'bg-primary-100-custom': themeStore.theme == 'custom',
+        'primary-custom': themeStore.theme == 'custom',
         'app-h-100': route.params.ulid,
       }"
     >
