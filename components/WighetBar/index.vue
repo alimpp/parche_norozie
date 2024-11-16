@@ -9,7 +9,7 @@
       :class="{
         bgsecondary: themeStore.theme == 'light',
         bgdark: themeStore.theme == 'dark',
-        'bg-primary-100-custom': themeStore.theme == 'custom',
+        'primary-custom': themeStore.theme == 'custom',
       }"
     >
       <div
@@ -69,15 +69,15 @@
                 class="app-flex app-flex-column app-px-2 app-py-2 primary-border has-border-default app-pointer"
               >
                 <div
-                  class="app-w-100 bg-gray app-border-radius"
+                  class="app-w-100 bg-gray-100 app-border-radius"
                   style="height: 130px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
               </div>
@@ -94,15 +94,15 @@
                 class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 primary-shadow has-shadow-default app-pointer"
               >
                 <div
-                  class="app-w-100 bg-gray app-border-radius"
+                  class="app-w-100 bg-gray-100 app-border-radius"
                   style="height: 130px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray app-border-radius app-mt-2"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-2"
                   style="height: 25px"
                 ></div>
               </div>
@@ -115,28 +115,26 @@
         </div>
         <div class="app-w-100 app-mt-5">
           <AppDivider name="حالت نمایش کارت ها" :hasLine="true" width="130px" />
-          <div
-            class="app-flex app-flex-column app-justify-center app-align-center app-mt-5"
-          >
+          <div class="app-flex app-justify-center app-align-center app-mt-5">
             <div
               class="app-flex app-flex-column app-justify-center app-align-center"
             >
               <div
                 @click="setDisplayCard('column')"
-                class="app-flex app-flex-column app-mx-2 app-px-2 app-py-2 app-border app-pointer"
-                style="width: 150px; height: 200px; border-radius: 6px"
+                class="app-flex app-flex-column app-px-2 app-mx-1 app-py-2 app-border app-pointer"
+                style="width: 120px; height: 130px; border-radius: 6px"
               >
                 <div
-                  class="app-w-100 bg-gray app-border-radius"
-                  style="height: 130px"
+                  class="app-w-100 bg-gray-100 app-border-radius"
+                  style="height: 80px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray app-border-radius app-mt-2"
-                  style="height: 25px"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-1"
+                  style="height: 20px"
                 ></div>
                 <div
-                  class="app-w-100 bg-gray app-border-radius app-mt-2"
-                  style="height: 25px"
+                  class="app-w-100 bg-gray-100 app-border-radius app-mt-1"
+                  style="height: 20px"
                 ></div>
               </div>
               <CheckCircleIcon
@@ -149,33 +147,29 @@
             >
               <div
                 @click="setDisplayCard('row')"
-                class="app-flex app-mx-2 app-px-2 app-py-2 app-border app-pointer"
-                style="width: 300px; height: 120px; border-radius: 6px"
+                class="app-flex app-align-center app-justify-center app-border app-pointer app-mx-1"
+                style="width: 180px; height: 110px; border-radius: 6px"
               >
                 <div
-                  class="bg-gray app-border-radius"
-                  style="height: 100px; width: 130px"
+                  class="bg-gray-100 app-border-radius"
+                  style="height: 95px; width: 80px"
                 ></div>
-
-                <div
-                  class="app-flex app-flex-column app-px-2"
-                  style="width: 160px; height: 100px"
-                >
+                <div class="app-flex app-flex-column">
                   <div
-                    class="app-w-100 bg-gray app-border-radius"
-                    style="height: 19px"
+                    class="bg-gray-100 app-border-radius"
+                    style="height: 20px; width: 80px; margin-right: 5px"
                   ></div>
                   <div
-                    class="app-w-100 bg-gray app-border-radius app-mt-2"
-                    style="height: 19px"
+                    class="bg-gray-100 app-border-radius app-mt-1"
+                    style="height: 20px; width: 80px; margin-right: 5px"
                   ></div>
                   <div
-                    class="app-w-100 bg-gray app-border-radius app-mt-2"
-                    style="height: 19px"
+                    class="bg-gray-100 app-border-radius app-mt-1"
+                    style="height: 20px; width: 80px; margin-right: 5px"
                   ></div>
                   <div
-                    class="app-w-100 bg-gray app-border-radius app-mt-2"
-                    style="height: 19px"
+                    class="bg-gray-100 app-border-radius app-mt-1"
+                    style="height: 20px; width: 80px; margin-right: 5px"
                   ></div>
                 </div>
               </div>

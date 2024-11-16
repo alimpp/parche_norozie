@@ -16,7 +16,6 @@
       </div>
     </div>
 
-    <CategorySlide class="app-mt-5" />
     <div class="app-w-100 app-mt-8">
       <div
         class="products app-flex app-justify-center app-align-center app-flex-wrap"

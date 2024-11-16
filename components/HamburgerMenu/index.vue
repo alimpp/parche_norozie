@@ -9,7 +9,7 @@
       :class="{
         bgsecondary: themeStore.theme == 'light',
         bgdark: themeStore.theme == 'dark',
-        'bg-primary-100-custom': themeStore.theme == 'custom',
+        'primary-custom': themeStore.theme == 'custom',
       }"
     >
       <div class="app-w-100 app-flex app-py-3 app-px-3 app-justify-end">
