@@ -7,6 +7,7 @@ import { useToastStore } from "~/store/toast";
 export const useWarehouseStore = defineStore("useWarehouseStore", {
   state: (): any => ({
     warehouseList: [],
+    productsWarehouseList: [],
     loading: false,
   }),
   actions: {
@@ -121,12 +122,17 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
     },
 
     async accessProducts() {
+      this.loading = true;
+      this.storageList();
       const productStore = useProductStore();
       await productStore.getAllProducts("");
       const result = await filteredWarehouse(
         productStore.products,
         this.warehouseList
       );
+      this.productsWarehouseList = result;
+      console.log(result);
+      this.loading = false;
     },
   },
 });
@@ -135,12 +141,12 @@ export const filteredWarehouse = async (
   productData: any,
   warehouseData: any
 ) => {
-  // return [
-  //   ...productData.filter((p: any) =>
-  //     warehouseData.every((w: any) => w.ProductID != p.ID)
-  //   ),
-  //   ...warehouseData.filter((p: any) =>
-  //     productData.every((w: any) => w.ProductID != p.ID)
-  //   ),
-  // ];
+  return [
+    ...productData.filter((p: any) =>
+      warehouseData.every((w: any) => w.ProductID != p.ID)
+    ),
+    ...warehouseData.filter((w: any) =>
+      productData.every((p: any) => w.ProductID != p.ID)
+    ),
+  ];
 };
