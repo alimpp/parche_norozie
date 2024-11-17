@@ -45,8 +45,8 @@
         </span>
       </div>
       <div class="images">
-        <img :src="dataSource.mainImage" alt="image" />
-        <div class="app-flex app-justify-center app-w-100">
+        <img :src="dataSource.mainImage" alt="image" @click="show = true" />
+        <div class="app-flex app-justify-center app-w-100" @click="show = true">
           <img
             v-for="(img, index) in dataSource.images"
             :key="index"
@@ -63,6 +63,11 @@
       </div>
     </div>
   </div>
+  <VueEasyLightbox
+    :visible="show"
+    :imgs="dataSource.images"
+    @hide="show = false"
+  />
 </template>
 
 <script setup>
@@ -71,6 +76,7 @@ import { useProductStore } from "~/store/admin/product";
 
 const route = useRoute();
 const productStore = useProductStore();
+const show = ref(false);
 
 const loading = computed(() => {
   return productStore.loading;

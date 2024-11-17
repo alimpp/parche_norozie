@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "@vite-pwa/nuxt",
+    "nuxt-easy-lightbox"
   ],
 
   pwa: {

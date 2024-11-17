@@ -12,6 +12,7 @@ export const createProductListModel = (list: any) => {
     result.push({
       ...element,
       images,
+      mainImage: `https://parche-go.liara.run/api/v1/download/${element.media[0].filename}`,
       price: createPrice(element.price),
       price_after_discount: createPrice(element.price_after_discount),
     });

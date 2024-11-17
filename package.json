@@ -16,6 +16,7 @@
     "@vite-pwa/nuxt": "^0.10.0",
     "aos": "^2.3.4",
     "nuxt": "^3.12.4",
+    "nuxt-easy-lightbox": "^1.0.2",
     "nuxt-feather-icons": "^1.2.3",
     "pinia": "^2.2.1",
     "swiper": "^11.1.14",
