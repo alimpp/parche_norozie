@@ -20,5 +20,14 @@ export const createProductListModel = (list: any) => {
 };
 
 export const createProductModel = (product: any) => {
-  console.log(product);
+  let images: any = [];
+  product.media.forEach((file: any) => {
+    images.push(`https://parche-go.liara.run/api/v1/download/${file.filename}`);
+  });
+  return {
+    ...product,
+    images,
+    price: createPrice(product.price),
+    price_after_discount: createPrice(product.price_after_discount),
+  };
 };

@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
-import { createProductListModel } from "@/model/product";
+import { createProductListModel, createProductModel } from "@/model/product";
 import { useToastStore } from "~/store/toast";
 
 export const useProductStore = defineStore("useProductStore", {
   state: (): any => ({
     products: [],
+    product: {},
     loading: false,
   }),
   actions: {
@@ -73,10 +74,13 @@ export const useProductStore = defineStore("useProductStore", {
     },
 
     async getProduct(id: number | string) {
-      await $fetch(`/api/v1/product`, {
+      this.loading = !this.loading;
+      const res = await $fetch(`/api/v1/product/get`, {
         method: "POST",
-        body: { product_id: id },
+        body: { product_id: Number(id) },
       });
+      this.product = createProductModel(res.data);
+      this.loading = !this.loading;
     },
 
     async removeProduct(id: number | string) {

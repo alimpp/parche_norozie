@@ -81,6 +81,7 @@
             height="30px"
             class="app-mt-2"
             :class="{ 'app-mt-6': data.discount == 0 }"
+            @click="getProduct"
           >
             <template #iconLeft>
               <IconsShoppingCard></IconsShoppingCard>
@@ -162,6 +163,7 @@
             background="bg-primary-100"
             class="app-mt-2"
             :class="{ 'app-mt-6': data.discount == 0 }"
+            @click="getProduct"
           >
             <template #iconLeft>
               <IconsShoppingCard></IconsShoppingCard>
@@ -174,9 +176,11 @@
 </template>
 
 <script setup>
+import { useProductStore } from "~/store/admin/product";
 import { useThemeStore } from "@/store/theme/index";
 
 const themeStore = useThemeStore();
+const productStore = useProductStore();
 
 const props = defineProps({
   data: {
@@ -184,6 +188,11 @@ const props = defineProps({
     type: Object,
   },
 });
+
+const getProduct = () => {
+  productStore.product = props.data
+  navigateTo(`/products/${props.data.ID}`);
+};
 </script>
 
 <style scoped>
