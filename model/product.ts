@@ -27,6 +27,7 @@ export const createProductModel = (product: any) => {
   return {
     ...product,
     images,
+    mainImage: `https://parche-go.liara.run/api/v1/download/${product.media[0].filename}`,
     price: createPrice(product.price),
     price_after_discount: createPrice(product.price_after_discount),
   };

@@ -126,18 +126,16 @@ export const useWarehouseStore = defineStore("useWarehouseStore", {
       this.storageList();
       const productStore = useProductStore();
       await productStore.getAllProducts("");
-      const result = await filteredWarehouse(
+      this.productsWarehouseList = await filteredDuplicateItemWarehouse(
         productStore.products,
         this.warehouseList
       );
-      this.productsWarehouseList = result;
-      console.log(result);
       this.loading = false;
     },
   },
 });
 
-export const filteredWarehouse = async (
+export const filteredDuplicateItemWarehouse = async (
   productData: any,
   warehouseData: any
 ) => {

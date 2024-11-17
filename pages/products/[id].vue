@@ -5,11 +5,11 @@
       <div class="information">
         <h1 class="f-s-18 f-w-600 color-primary">{{ dataSource.name }}</h1>
         <div class="app-flex">
-          <h2 class="f-s-12 f-w-600">{{ dataSource.category.Title }} /</h2>
+          <h2 class="f-s-12 f-w-600">{{ dataSource.category?.Title }} /</h2>
 
           <h2
             class="f-s-12 f-w-600 app-px-1"
-            v-for="(sub, index) in dataSource.category.subcategories"
+            v-for="(sub, index) in dataSource.category?.subcategories"
             :key="index"
           >
             {{ sub.Title }}
@@ -45,28 +45,21 @@
         </span>
       </div>
       <div class="images">
-        <v-carousel
-          height="300"
-          hide-delimiters
-          cycle
-          :interval="6000"
-          :show-arrows="false"
-        >
-          <v-carousel-item
-            v-for="(image, index) in dataSource.images"
+        <img :src="dataSource.mainImage" alt="image" />
+        <div class="app-flex app-justify-center app-w-100">
+          <img
+            v-for="(img, index) in dataSource.images"
             :key="index"
-          >
-            <v-sheet style="background: none">
-              <img
-                class="app-w-100"
-                style="height: 300px; border-radius: 10px; transition: 1s"
-                :src="image"
-                alt="image"
-                loading="lazy"
-              />
-            </v-sheet>
-          </v-carousel-item>
-        </v-carousel>
+            :src="img"
+            alt="image"
+            style="
+              width: 100px;
+              height: 100px;
+              border-radius: 10px;
+              margin: 10px 10px;
+            "
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -85,11 +78,12 @@ const loading = computed(() => {
 
 const dataSource = computed(() => {
   console.log(productStore.product);
-
-  return productStore.product;
+  if (productStore.product) {
+    return productStore.product;
+  }
 });
 
-onMounted(async () => {
+onBeforeMount(async () => {
   if (!productStore.product.ID) {
     await productStore.getProduct(route.params.id);
   }
@@ -116,5 +110,41 @@ onMounted(async () => {
 
 .images {
   width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.images img {
+  height: auto;
+  width: 350px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+@media (max-width: 1500px) {
+  .product-content {
+    padding: 150px 150px;
+  }
+}
+@media (max-width: 1250px) {
+  .product-content {
+    padding: 150px 100px;
+  }
+}
+@media (max-width: 1050px) {
+  .product-content {
+    padding: 150px 60px;
+  }
+  .information {
+    width: 50%;
+  }
+  .images {
+    width: 50%;
+  }
+  .images img {
+    width: 100%;
+  }
 }
 </style>

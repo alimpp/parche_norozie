@@ -43,17 +43,11 @@ const loading = computed(() => {
   return warehouseStore.loading;
 });
 
-
 const emit = defineEmits(["close"]);
-
 
 const selected = async () => {
   emit("close");
 };
-
-onMounted(async () => {
-  await warehouseStore.accessProducts();
-});
 </script>
 
 <style scoped>
