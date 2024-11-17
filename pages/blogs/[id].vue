@@ -59,7 +59,7 @@
             loading="lazy"
           />
         </div>
-        <div class="app-w-100 app-flex app-flex-column">
+        <div class="app-w-100 app-flex app-flex-column app-mt-5">
           <div class="app-flex">
             <span class="app-pt-2">
               <TagIcon size="1.5x"></TagIcon>
@@ -67,13 +67,15 @@
             <span class="f-s-18 f-w-600 app-px-2">{{ $t("labels") }}</span>
           </div>
           <div class="app-w-100 app-flex app-flex-wrap">
-            <h6
-              class="f-s-14 f-w-600 app-px-1"
+            <nuxt-link
+              to="/"
               v-for="(tag, index) in dataSource.tags"
               :key="index"
+              style="text-decoration: none"
+              class="app-px-1 f-s-14 f-w-600"
             >
-              #{{ tag }}
-            </h6>
+              #{{ tag.tag }}
+            </nuxt-link>
           </div>
         </div>
         <div class="app-w-100 app-flex app-flex-column app-mt-5">
