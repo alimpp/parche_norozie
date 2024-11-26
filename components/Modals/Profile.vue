@@ -26,7 +26,7 @@
           <span class="f-s-12 f-w-600 app-px-2 app-pt-1">آدرس ها</span>
         </div>
         <div class="line"></div>
-        <div class="app-flex app-align-center app-pointer">
+        <div class="app-flex app-align-center app-pointer" @click="toFavorite">
           <HeartIcon size="1.5x" class="custom-class"></HeartIcon>
           <span class="f-s-12 f-w-600 app-px-2 app-pt-1"
             >لیست علاقه مندی ها</span
@@ -78,6 +78,11 @@ const toAddress = () => {
 
 const toTickets = () => {
   navigateTo("/tickets");
+  emit("close");
+};
+
+const toFavorite = () => {
+  navigateTo("/favorite");
   emit("close");
 };
 

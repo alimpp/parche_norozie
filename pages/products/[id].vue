@@ -61,6 +61,36 @@
             </div>
           </div>
         </div>
+        <div class="mt-2">
+          <span
+            v-if="favoriteIconState"
+            class="app-pointer"
+            @click="addToFavorite"
+          >
+            <v-tooltip :text="$t('add to favorite')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent
+                  color="bg-primary-transparent"
+                  class="color-danger app-pointer"
+                  v-bind="props"
+                  ><HeartIcon size="1x"></HeartIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
+          </span>
+          <span v-else class="app-pointer" @click="removeFromFavorite">
+            <v-tooltip :text="$t('remove from favorite')" location="bottom">
+              <template v-slot:activator="{ props }">
+                <AppIconContent
+                  color="bg-danger-transparent"
+                  class="color-danger app-pointer"
+                  v-bind="props"
+                  ><HeartIcon size="1x"></HeartIcon
+                ></AppIconContent>
+              </template>
+            </v-tooltip>
+          </span>
+        </div>
       </div>
       <div class="images">
         <img
@@ -147,22 +177,35 @@
 import { useRoute } from "#app";
 import { useProductStore } from "~/store/admin/product";
 import { useThemeStore } from "~/store/theme";
+import { useFavoriteStore } from "~/store/favorite";
 
 const themeStore = useThemeStore();
 const route = useRoute();
 const productStore = useProductStore();
 const show = ref(false);
+const favoriteStore = useFavoriteStore();
+const favoriteIconState = ref(true);
 
 const loading = computed(() => {
   return productStore.loading;
 });
 
 const dataSource = computed(() => {
-  console.log(productStore.product);
   if (productStore.product) {
     return productStore.product;
   }
 });
+
+
+const addToFavorite = async () => {
+  await favoriteStore.addFavorite(dataSource.value.ID);
+  favoriteIconState.value = false;
+};
+
+const removeFromFavorite = async () => {
+  await favoriteStore.removeFavorite(dataSource.value.ID);
+  favoriteIconState.value = true;
+};
 
 onBeforeMount(async () => {
   if (!productStore.product.ID) {
