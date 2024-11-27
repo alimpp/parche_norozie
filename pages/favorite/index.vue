@@ -41,9 +41,9 @@ onMounted(async () => {
   scrollToTop.value.scrollIntoView();
   await favoriteStore.getFavorite();
   console.log(favoriteStore.favoriteList);
-  
-  
 });
+
+
 </script>
 
 <style scoped>

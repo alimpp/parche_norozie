@@ -42,7 +42,25 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 200px"
         >
-          <span class="f-s-12 f-w-500">{{ data.name }}</span>
+          <div>
+            <span class="f-s-12 f-w-500 float-right">{{ data.name }}</span>
+            <span
+              class="app-pointer float-left"
+              @click="removeFromFavorite"
+            >
+              <v-tooltip :text="$t('remove from favorite')" location="bottom">
+                <template v-slot:activator="{ props }">
+                  <AppIconContent
+                    color="bg-danger-transparent"
+                    class="color-danger app-pointer"
+                    v-bind="props"
+                    ><TrashIcon size="1x"></TrashIcon
+                  ></AppIconContent>
+                </template>
+              </v-tooltip>
+            </span>
+          </div>
+
           <span class="f-s-10 f-w-500 color-gray">{{
             data.category.Title
           }}</span>
@@ -75,20 +93,18 @@
               <IconsStar v-for="n in 5" />
             </div>
           </div>
-        </div>
-        <div class="pt-2 pl-2">
-          <span class="app-pointer" @click="removeFromFavorite">
-            <v-tooltip :text="$t('remove from favorite')" location="bottom">
-              <template v-slot:activator="{ props }">
-                <AppIconContent
-                  color="bg-danger-transparent"
-                  class="color-danger app-pointer"
-                  v-bind="props"
-                  ><HeartIcon size="1x"></HeartIcon
-                ></AppIconContent>
-              </template>
-            </v-tooltip>
-          </span>
+          <AppButton
+            :name="$t('order product')"
+            background="bg-primary-100"
+            height="30px"
+            class="app-mt-2"
+            :class="{ 'app-mt-6': data.discount == 0 }"
+            @click="getProduct"
+          >
+            <template #iconLeft>
+              <IconsShoppingCard></IconsShoppingCard>
+            </template>
+          </AppButton>
         </div>
       </div>
     </template>
@@ -98,9 +114,11 @@
 <script setup>
 import { useThemeStore } from "@/store/theme/index";
 import { useFavoriteStore } from "~/store/favorite";
+import { useProductStore } from "~/store/admin/product";
 
 const themeStore = useThemeStore();
 const favoriteStore = useFavoriteStore();
+const productStore = useProductStore();
 
 const props = defineProps({
   data: {
@@ -112,6 +130,11 @@ const props = defineProps({
 const removeFromFavorite = async () => {
   await favoriteStore.removeFavorite(props.data.ID);
 };
+
+const getProduct = () => {
+  productStore.product = props.data;
+  navigateTo(`/products/${props.data.ID}`);
+};
 </script>
 
 <style scoped>
@@ -121,5 +144,11 @@ const removeFromFavorite = async () => {
 .discount-style {
   color: #666666;
   position: relative;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
 }
 </style>
