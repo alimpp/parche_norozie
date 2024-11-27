@@ -3,6 +3,7 @@ import { useCookie } from "#app";
 import { useToastStore } from "../toast";
 import { favoriteModel } from "@/model/favorite";
 import { useProductStore } from "../admin/product";
+import { useRouter } from "#app";
 export const useFavoriteStore = defineStore("useFavoriteStore", {
   state: (): any => ({
     favoriteList: [],
@@ -30,7 +31,7 @@ export const useFavoriteStore = defineStore("useFavoriteStore", {
     async addFavorite(id: any) {
       const cookie = useCookie("token");
       const toastStore = useToastStore();
-
+      const router = useRouter();
       await $fetch("/api/v1/favorite/add", {
         method: "post",
         body: { product_id: Number(id) },
@@ -50,6 +51,8 @@ export const useFavoriteStore = defineStore("useFavoriteStore", {
           }
         })
         .catch((err) => {
+          localStorage.setItem("lastRoute", `/products/${id}`);
+          router.push("/auth/login");
           toastStore.state = true;
           toastStore.title = "خطا در انجام عملیات";
           toastStore.text = "لطفا دوباره تلاش کنید";
