@@ -42,10 +42,8 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-pt-1"
           style="width: 200px"
         >
-          <span class="f-s-12 f-w-500">{{ data.name }}</span>
-          <span class="f-s-10 f-w-500 color-gray">{{
-            data.category.Title
-          }}</span>
+          <span class="f-s-12 f-w-600">{{ data.name }}</span>
+          <span class="f-s-10 f-w-600">{{ data.category.Title }}</span>
 
           <span
             v-if="data.discount > 1"
@@ -59,7 +57,7 @@
               style="auto"
               class="app-flex app-justify-end app-mt-4 app-w-600 app-border-radius"
             >
-              <span class="f-s-12 f-w-100"
+              <span class="f-s-12 f-w-600"
                 >{{ data.price_after_discount }} {{ $t("toman") }}</span
               >
             </span>
@@ -68,7 +66,7 @@
             v-else
             class="app-flex app-flex-column app-justify-end app-align-end app-pt-2"
           >
-            <span class="f-s-12 f-w-100"
+            <span class="f-s-12 f-w-600"
               >{{ data.price }} {{ $t("toman") }}</span
             >
             <div class="app-flex">
@@ -125,10 +123,10 @@
           class="app-flex app-flex-column app-w-100 app-px-3 app-py-3"
           style="width: 300px"
         >
-          <span class="f-s-12 f-w-500">{{ data.name }}</span>
+          <span class="f-s-12 f-w-600">{{ data.name }}</span>
           <div class="app-flex">
-            <span class="f-s-10 f-w-500">{{ $t("category") }} /</span>
-            <span class="f-s-10 f-w-500 app-px-1">{{
+            <span class="f-s-10 f-w-600">{{ $t("category") }} /</span>
+            <span class="f-s-10 f-w-600 app-px-1">{{
               data.category.Title
             }}</span>
           </div>
@@ -142,7 +140,7 @@
               </span>
             </div>
             <div class="app-w-50 app-flex app-justify-end app-align-center">
-              <span class="f-s-14 f-w-100"
+              <span class="f-s-14 f-w-600"
                 >{{ data.price_after_discount }} {{ $t("toman") }}</span
               >
             </div>
@@ -151,7 +149,7 @@
             v-else
             class="app-flex app-flex-column app-justify-end app-align-end app-pt-2"
           >
-            <span class="f-s-14 f-w-100"
+            <span class="f-s-14 f-w-600"
               >{{ data.price }} {{ $t("toman") }}</span
             >
             <div class="app-flex">
@@ -190,7 +188,7 @@ const props = defineProps({
 });
 
 const getProduct = () => {
-  productStore.product = props.data
+  productStore.product = props.data;
   navigateTo(`/products/${props.data.ID}`);
 };
 </script>

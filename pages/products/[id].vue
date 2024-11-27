@@ -115,25 +115,23 @@
     </div>
     <div class="attributes-content app-mt-5" v-if="!loading">
       <div class="description-content app-flex app-flex-column">
-        <span class="f-s-14 f-w-600">{{ $t("descriptions") }}</span>
-        <span class="f-s-12 f-w-500">{{ dataSource.description }}</span>
+        <AppDivider :name="$t('descriptions')" hasLine="true" width="65px" />
+        <span class="f-s-12 f-w-600 app-pt-2">{{
+          dataSource.description
+        }}</span>
       </div>
       <div class="attributes app-flex app-flex-column">
-        <span class="f-s-14 f-w-600">{{ $t("more propertys") }}</span>
+        <AppDivider :name="$t('more propertys')" width="105px" />
         <div
           class="app-flex app-w-100 app-mt-2"
           v-for="(attr, index) in dataSource.attributes"
           :key="index"
         >
           <div
-            class="app-w-30 app-flex f-s-14 f-w-600 app-border-radius app-px-2 app-py-1"
+            class="app-w-100 app-flex app-flex-column app-border-radius app-px-2 app-py-1 bg-primary-transparent"
           >
-            {{ attr.key }}
-          </div>
-          <div
-            class="app-w-70 app-flex f-s-14 f-w-600 attr-border app-mx-2 app-px-2 app-py-1"
-          >
-            {{ attr.value }}
+            <span class="f-s-14 f-w-600 color-primary">{{ attr.key }}</span>
+            <span class="f-s-12 f-w-600 color-primary">{{ attr.value }}</span>
           </div>
         </div>
       </div>
