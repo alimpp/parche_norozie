@@ -86,7 +86,7 @@
             </div>
           </div>
         </div>
-        <div class="buttons-content app-mt-4">
+        <div class="buttons-content app-mt-3">
           <div class="add-to-card">
             <AppButton
               width="100%"
@@ -104,6 +104,7 @@
               :name="$t('add to favorite list')"
               background="bg-danger-transparent"
               color="color-danger"
+              @click="addToFavorite"
             >
               <template #iconLeft>
                 <IconsHeart class="app-mx-2" />
@@ -166,10 +167,14 @@
 <script setup>
 import { useRoute } from "#app";
 import { useProductStore } from "~/store/admin/product";
+import { useThemeStore } from "~/store/theme";
+import { useFavoriteStore } from "~/store/favorite";
 
 const route = useRoute();
 const productStore = useProductStore();
 const show = ref(false);
+const favoriteStore = useFavoriteStore();
+const favoriteIconState = ref(true);
 
 const loading = computed(() => {
   return productStore.loading;
@@ -180,6 +185,16 @@ const dataSource = computed(() => {
     return productStore.product;
   }
 });
+
+const addToFavorite = async () => {
+  await favoriteStore.addFavorite(dataSource.value.ID);
+  favoriteIconState.value = false;
+};
+
+const removeFromFavorite = async () => {
+  await favoriteStore.removeFavorite(dataSource.value.ID);
+  favoriteIconState.value = true;
+};
 
 onBeforeMount(async () => {
   if (!productStore.product.ID) {
