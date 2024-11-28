@@ -1,10 +1,8 @@
 <template>
-  <MainPageBanner />
   <div class="app-container">
     <AppDivider :name="$t('services')" :hasLine="true" width="55px" />
     <ServicesSection class="app-mt-5" />
   </div>
-  <AxonGifs />
   <div class="app-container">
     <div class="about-us-content">
       <div class="about-us-info app-flex app-flex-column" data-aos="fade-up">
@@ -17,10 +15,10 @@
         <span class="f-s-16 f-w-600 app-px-3 app-py-2">{{
           $t("about us norozi store")
         }}</span>
-        <span class="f-s-12 f-w-100 app-px-3 app-py-2 color-gray">{{
+        <span class="f-s-12 f-w-500 app-px-3 app-py-2">{{
           $t("home page about us text 1")
         }}</span>
-        <span class="f-s-12 f-w-100 app-px-3 app-py-2 color-gray">{{
+        <span class="f-s-12 f-w-500 app-px-3 app-py-2">{{
           $t("home page about us text 2")
         }}</span>
         <AppButton
