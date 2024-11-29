@@ -1,5 +1,5 @@
 <template>
-  <AppCard data-aos="fade-up" class="app-mx-3 app-mt-3" width="300px">
+  <AppCard data-aos="fade" class="app-mx-3 app-mt-3" width="300px">
     <template #content>
       <div class="app-flex flex-column">
         <v-carousel
@@ -92,13 +92,3 @@ const getProduct = () => {
   navigateTo(`/products/${props.data.ID}`);
 };
 </script>
-
-<style scoped>
-.bg-discount {
-  background: #9999992c;
-}
-.discount-style {
-  color: #666666;
-  position: relative;
-}
-</style>

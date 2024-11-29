@@ -17,9 +17,9 @@
           }}</span></span
         >
 
-        <span class="app-mt-3 f-s-12 f-w-500">{{
-          $t("about us part four")
-        }}</span>
+        <span class="app-mt-3 f-s-12 f-w-500"
+          >{{ $t("about us part four") }}
+        </span>
 
         <span class="app-mt-3 f-s-12 f-w-500">{{
           $t("about us part five")

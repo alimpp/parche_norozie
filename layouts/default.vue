@@ -4,7 +4,6 @@
       :state="profileModalState"
       @close="profileModalState = false"
     />
-    <WighetBar :isOpen="isOpenWighetBar" @close="handleChangeStateWighetBar" />
     <HamburgerMenu :isOpen="isOpen" @closeMenu="handleChangeStateMenu" />
     <ShoppingCard
       @close="handleChangeStateShoppingCard"
