@@ -48,7 +48,6 @@
     </div>
     <div class="logo-content">
       <span
-        @click="emit('openProfileModal')"
         class="app-pt-2 app-px-2 desktop-size"
         v-if="authStore.isAuthenticated || detectToken"
       >
@@ -57,7 +56,7 @@
       <span class="app-pt-2">
         <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
       </span>
-      <span @click="openHamburgerShoppingCard" class="app-pt-2 app-px-2">
+      <span class="app-pt-2 app-px-2">
         <ShoppingCartIcon
           size="1.5x"
           class="custom-class app-pointer"
@@ -72,21 +71,7 @@
 import { useCookie } from "@/composable/useCookie";
 import { useAuthStore } from "@/store/auth/index";
 
-const emit = defineEmits([
-  "openHamburgerMenu",
-  "openHamburgerShoppingCard",
-  "openProfileModal",
-]);
-
 const authStore = useAuthStore();
-
-const openHamburgerMenu = () => {
-  emit("openHamburgerMenu");
-};
-
-const openHamburgerShoppingCard = () => {
-  emit("openHamburgerShoppingCard");
-};
 
 const detectToken = computed(() => {
   const { getCookie } = useCookie();
