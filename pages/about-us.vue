@@ -5,7 +5,7 @@
         class="section-right app-flex app-flex-column app-py-4 app-px-5"
         data-aos="fade-left"
       >
-        <AppDivider :name="$t('aboutUs')" :hasLine="true" width="65px" />
+        <AppDivider :name="$t('about us')" :hasLine="true" width="65px" />
         <span class="app-mt-3 f-s-16 f-w-600">{{
           $t("about us part one")
         }}</span>
@@ -69,7 +69,7 @@
         <span class="f-s-14 f-w-600">{{ $t("about us part end") }}</span>
 
         <AppButton
-          :name="$t('contactUs')"
+          :name="$t('contact us')"
           background="custom-border-primary"
           width="130px"
           class="app-mt-5"

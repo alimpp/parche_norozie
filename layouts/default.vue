@@ -18,24 +18,14 @@
       v-if="!route.params.ulid"
     />
     <div
-      class="content"
+      class="content bgsecondary"
       :class="{
-        bgsecondary: themeStore.theme == 'light',
-        bgdark: themeStore.theme == 'dark',
-        'primary-custom': themeStore.theme == 'custom',
         'app-h-100': route.params.ulid,
       }"
     >
       <slot />
-      <AppFooter class="app-mt-16" v-if="showFooter" />
-      <div
-        class="wighet-button bg-primary-100 app-pointer"
-        v-if="wighetState && !route.params.ulid"
-        @click="handleChangeStateWighetBar"
-      >
-        <SettingsIcon size="1.5x" class="custom-class"></SettingsIcon>
-      </div>
     </div>
+    <MobileNavigation />
   </div>
 </template>
 

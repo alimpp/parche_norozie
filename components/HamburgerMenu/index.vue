@@ -45,13 +45,13 @@
           class="app-pointer f-s-14 f-w-600 app-mx-5 app-mt-2"
           :class="{ 'active-route-main-theme': route.path == '/about-us' }"
           @click="navigateTo('/about-us')"
-          >{{ t("aboutUs") }}</span
+          >{{ t("about us") }}</span
         >
         <span
           class="app-pointer f-s-14 f-w-600 app-mt-2"
           :class="{ 'active-route-main-theme': route.path == '/contact-us' }"
           @click="navigateTo('/contact-us')"
-          >{{ t("contactUs") }}</span
+          >{{ t("contact us") }}</span
         >
       </div>
     </div>

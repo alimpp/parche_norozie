@@ -4,24 +4,16 @@
     class="app-container fade_animations"
     style="min-height: 100dvh"
   >
-    <ModalsFilter :state="filterModalState" @close="filterModalState = false" />
     <div class="app-flex">
       <AppDivider :name="$t('products')" :hasLine="true" width="65px" />
-      <div
-        class="filter-modal app-flex app-align-center app-mx-3"
-        @click="filterModalState = true"
-      >
-        <FilterIcon size="1x" />
-        <span class="f-s-14 f-w-600 app-px-2">{{ $t("filter by") }}</span>
-      </div>
     </div>
 
-    <div class="app-w-100 app-mt-8">
+    <div class="app-w-100">
       <div
         class="products app-flex app-justify-center app-align-center app-flex-wrap"
       >
         <CardsProducts
-          class="app-mx-5 app-mt-7"
+          class=""
           :data="data"
           v-for="data in dataSource"
           :key="data"

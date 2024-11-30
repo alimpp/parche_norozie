@@ -252,7 +252,6 @@ onBeforeMount(async () => {
 
 .attributes {
   width: 50%;
-  padding: 0 10px;
 }
 
 .buttons-content {

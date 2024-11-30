@@ -3,8 +3,8 @@
   "home": "خانه",
   "products": "محصولات",
   "blogs": "بلاگ",
-  "aboutUs": "درباره ما",
-  "contactUs": "ارتباط با ما",
+  "about us": "درباره ما",
+  "contact us": "ارتباط با ما",
   "login": "ورود",
   "register": "ثبت نام",
   "phoneNumber": "شماره تلفن",
@@ -33,7 +33,6 @@
   "add to shopping card": " افزودن به سبد خرید",
   "new products": "محصولات جدید",
   "discount": "تخفیف",
-  "best seller": "پر فروش ترین محصولات ما",
   "auction": "حراجی های ما",
   "about us norozi store": "هر آنچه که باید درباره فروشگاه نوروزی بدانید",
   "read more": "مطالعه بیشتر",
@@ -204,5 +203,9 @@
   "search by category guide": "با انتخاب کردن نام دسته بندی محصولاتی که در این دسته بندی قرار دارند را نمایش می دهد",
   "add to favorite": "اضافه کردن به لیست علاقه مندی",
   "remove from favorite": "حذف از لیست علاقه مندی",
-  "favorite list": "لیست علاقه مندی ها"
+  "favorite list": "لیست علاقه مندی ها",
+  "norozi shop": "فروشگاه نوروزی",
+  "norozi shop deatail": "عرضه کننده بهترین و با کیفیت ترین محصولات کالای خواب ",
+  "view product": "مشاهده محصول",
+  "profile": "پروفایل"
 }
