@@ -1,14 +1,7 @@
 <template>
-  <div
-    :dir="locale == 'fr' ? 'rtl' : 'ltr'"
-    class="auth-layout"
-    :class="{
-      bgsecondary: themeStore.theme == 'light',
-      bgdark: themeStore.theme == 'dark',
-      'primary-custom': themeStore.theme == 'custom',
-    }"
-  >
-    <div class="form app-w-100">
+  <div :dir="locale == 'fr' ? 'rtl' : 'ltr'" class="auth-layout">
+    <img src="/public/images/bed.jpeg" alt="image" />
+    <div class="form app-w-100" data-aos="fade-up">
       <slot />
     </div>
   </div>
@@ -16,26 +9,37 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import { useThemeStore } from "@/store/theme/index";
-const themeStore = useThemeStore();
-
 const { locale } = useI18n();
 </script>
 
 <style scoped>
 .auth-layout {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+img {
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+}
+.form {
+  position: absolute;
+  z-index: 30;
+  width: 70%;
+  height: 85dvh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #ffffffc9;
+  border-radius: 60px 60px 0 0;
 }
 
-.form {
-  width: 400px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 700px) {
+  .form {
+    width: 100%;
+  }
 }
 </style>
