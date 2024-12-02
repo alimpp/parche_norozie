@@ -28,18 +28,19 @@ img {
 .form {
   position: absolute;
   z-index: 30;
-  width: 70%;
-  height: 85dvh;
+  width: 100%;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #ffffffc9;
-  border-radius: 60px 60px 0 0;
 }
 
 @media (max-width: 700px) {
   .form {
     width: 100%;
+    height: 85dvh;
+    border-radius: 60px 60px 0 0;
   }
 }
 </style>
