@@ -182,7 +182,21 @@
             >{{ $t("warehouse") }}</span
           >
         </div>
-
+        <div
+          class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
+          :class="{
+            'bg-primary-100': route.path == '/admin/pricing',
+            'app-justify-center': sidebarState == 'close',
+          }"
+          @click="navigateTo('/admin/pricing')"
+        >
+          <DollarSignIcon size="1x"></DollarSignIcon>
+          <span
+            class="f-s-12 f-w-600 app-px-2 app-pt-1"
+            v-if="sidebarState == 'open'"
+            >{{ $t("pricing") }}</span
+          >
+        </div>
         <div
           class="app-flex app-w-100 app-align-center app-pointer app-mt-3 app-border-radius app-px-2 app-py-1"
           :class="{
