@@ -1,14 +1,10 @@
 <template>
   <div class="app-container">
-    <AppDivider :name="$t('services')" :hasLine="true" width="55px" />
-    <ServicesSection class="app-mt-5" />
-  </div>
-  <div class="app-container">
     <div class="about-us-content">
       <div class="about-us-info app-flex app-flex-column" data-aos="fade-up">
         <AppDivider
           class="app-mx-3"
-          :name="$t('aboutUs')"
+          :name="$t('about us')"
           width="60px"
           :hasLine="true"
         />

@@ -11,7 +11,7 @@
       <span
         @click="navigateTo('/contact-us')"
         class="f-s-16 f-w-600 app-pointer"
-        >{{ $t("contactUs") }}</span
+        >{{ $t("contact us") }}</span
       >
       <div class="icon_container app-align-start">
         <div class="app-mt-2 app-flex app-pointer app-mt-5">

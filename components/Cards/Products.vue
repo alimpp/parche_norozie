@@ -59,14 +59,17 @@
             </div>
           </div>
           <AppButton
-            :name="$t('order product')"
-            background="bg-primary-100"
+            :name="$t('view product')"
+            background="bg-primary-transparent"
+            color="color-primary"
             class="app-mt-2"
+            font-size="f-s-14"
+            font-wight="f-w-600"
             :class="{ 'app-mt-6': data.discount == 0 }"
             @click="getProduct"
           >
-            <template #iconLeft>
-              <IconsShoppingCard></IconsShoppingCard>
+            <template #iconRight>
+              <IconsProducts />
             </template>
           </AppButton>
         </div>

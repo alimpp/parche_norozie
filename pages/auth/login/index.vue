@@ -1,5 +1,8 @@
 <template>
-  <div class="app-w-100 app-flex app-flex-column app-justify-center">
+  <div
+    class="app-flex app-flex-column app-justify-center content"
+    data-aos="fade-up"
+  >
     <div
       class="app-flex app-align-center app-justify-center app-w-100 app-h-10"
     >
@@ -11,9 +14,6 @@
       :hasLine="true"
       width="90px"
     />
-    <!-- <span class="f-s-18 f-w-600 app-px-4 app-py-2">
-      {{ t("login") }} | {{ t("register") }}</span
-    > -->
     <div class="app-px-4 app-py-4">
       <AppInput
         :label="t('phoneNumber')"
@@ -78,26 +78,7 @@ const handleLogin = async () => {
 </script>
 
 <style scoped lang="scss">
-.login-content {
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .content {
-  width: 100%;
-  height: 100vh;
-  background: #000000b5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-content {
   width: 380px;
-  display: flex;
-  flex-direction: column;
 }
 </style>

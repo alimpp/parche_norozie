@@ -4,37 +4,19 @@
       :state="profileModalState"
       @close="profileModalState = false"
     />
-    <HamburgerMenu :isOpen="isOpen" @closeMenu="handleChangeStateMenu" />
     <ShoppingCard
       @close="handleChangeStateShoppingCard"
       :isOpen="isOpenShoppingCard"
     />
     <Toast />
     <NuxtLoadingIndicator color="#7b7be3" />
-    <NavigationBar
-      @openHamburgerMenu="handleChangeStateMenu"
-      @openHamburgerShoppingCard="handleChangeStateShoppingCard"
-      @openProfileModal="openProfileModal"
-      v-if="!route.params.ulid"
-    />
     <div
-      class="content"
+      class="content bgsecondary"
       :class="{
-        bgsecondary: themeStore.theme == 'light',
-        bgdark: themeStore.theme == 'dark',
-        'primary-custom': themeStore.theme == 'custom',
         'app-h-100': route.params.ulid,
       }"
     >
       <slot />
-      <AppFooter class="app-mt-16" v-if="showFooter" />
-      <div
-        class="wighet-button bg-primary-100 app-pointer"
-        v-if="wighetState && !route.params.ulid"
-        @click="handleChangeStateWighetBar"
-      >
-        <SettingsIcon size="1.5x" class="custom-class"></SettingsIcon>
-      </div>
     </div>
   </div>
 </template>
@@ -49,35 +31,10 @@ const themeStore = useThemeStore();
 const userStore = useUserStore();
 const route = useRoute();
 
-const showFooter = computed(() => {
-  const route = useRoute();
-  switch (route.path) {
-    case "/":
-      return true;
-    case "/about-us":
-      return true;
-    case "/contact-us":
-      return true;
-    case "/blogs":
-      return true;
-    case "/products":
-      return true;
-  }
-});
-
-const wighetState = computed(() => {
-  if (isOpen.value || isOpenShoppingCard.value || isOpenWighetBar.value) {
-    return false;
-  } else {
-    return true;
-  }
-});
-
 const { locale } = useI18n();
 
 const isOpen = ref(false);
 const isOpenShoppingCard = ref(false);
-const isOpenWighetBar = ref(false);
 const profileModalState = ref(false);
 
 const handleChangeStateMenu = () => {
@@ -86,10 +43,6 @@ const handleChangeStateMenu = () => {
 
 const handleChangeStateShoppingCard = () => {
   isOpenShoppingCard.value = !isOpenShoppingCard.value;
-};
-
-const handleChangeStateWighetBar = () => {
-  isOpenWighetBar.value = !isOpenWighetBar.value;
 };
 
 const openProfileModal = () => {

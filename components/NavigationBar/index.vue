@@ -1,7 +1,8 @@
 <template>
-  <div class="app-w-100 app-h-10 app-flex app-align-center navigation">
+  <div
+    class="app-w-100 app-h-10 app-flex app-align-center navigation bgsecondary"
+  >
     <div class="menu-content">
-      <AppLogo />
       <div
         class="app-h-10 app-flex app-align-center app-mx-2"
         v-if="!authStore.isAuthenticated || !detectToken"
@@ -14,13 +15,40 @@
           fontSize="f-s-12"
           width="110px"
         />
+        <div class="desktop-size app-mx-5">
+          <span
+            class="app-pointer app-flex f-s-14 f-w-600 app-px-3"
+            @click="navigateTo('/')"
+          >
+            {{ $t("home") }}
+          </span>
+          <span
+            class="app-pointer app-flex f-s-14 f-w-600 app-px-3"
+            @click="navigateTo('/products')"
+          >
+            {{ $t("products") }} </span
+          ><span
+            class="app-pointer app-flex f-s-14 f-w-600 app-px-3"
+            @click="navigateTo('/blogs')"
+          >
+            {{ $t("blogs") }} </span
+          ><span
+            class="app-pointer app-flex f-s-14 f-w-600 app-px-3"
+            @click="navigateTo('/about-us')"
+          >
+            {{ $t("about us") }} </span
+          ><span
+            class="app-pointer app-flex f-s-14 f-w-600 app-px-3"
+            @click="navigateTo('/contact-us')"
+          >
+            {{ $t("contact us") }}
+          </span>
+        </div>
       </div>
-      <span class="app-pt-2" @click="openHamburgerMenu">
-        <MenuIcon size="1.5x" class="custom-class app-pointer"></MenuIcon>
-      </span>
+    </div>
+    <div class="logo-content">
       <span
-        @click="emit('openProfileModal')"
-        class="app-pt-2"
+        class="app-pt-2 app-px-2 desktop-size"
         v-if="authStore.isAuthenticated || detectToken"
       >
         <UserIcon size="1.5x" class="custom-class app-pointer"></UserIcon
@@ -28,40 +56,22 @@
       <span class="app-pt-2">
         <SearchIcon size="1.5x" class="custom-class app-pointer"></SearchIcon>
       </span>
-      <span @click="openHamburgerShoppingCard" class="app-pt-2 app-px-2">
+      <span class="app-pt-2 app-px-2">
         <ShoppingCartIcon
           size="1.5x"
           class="custom-class app-pointer"
         ></ShoppingCartIcon
       ></span>
+      <AppLogo />
     </div>
   </div>
 </template>
 
 <script setup>
 import { useCookie } from "@/composable/useCookie";
-import { useI18n } from "vue-i18n";
-import { useRoute } from "vue-router";
 import { useAuthStore } from "@/store/auth/index";
-import { useThemeStore } from "@/store/theme/index";
-const themeStore = useThemeStore();
-const emit = defineEmits([
-  "openHamburgerMenu",
-  "openHamburgerShoppingCard",
-  "openProfileModal",
-]);
 
-const { t } = useI18n();
-const route = useRoute();
 const authStore = useAuthStore();
-
-const openHamburgerMenu = () => {
-  emit("openHamburgerMenu");
-};
-
-const openHamburgerShoppingCard = () => {
-  emit("openHamburgerShoppingCard");
-};
 
 const detectToken = computed(() => {
   const { getCookie } = useCookie();
@@ -85,9 +95,29 @@ const detectToken = computed(() => {
 }
 
 .menu-content {
-  width: 100%;
+  width: 70%;
   height: 10vh;
   display: flex;
   align-items: center;
+}
+
+.logo-content {
+  width: 30%;
+  height: 10dvh;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+@media (max-width: 850px) {
+  .desktop-size {
+    display: none;
+  }
+  .menu-content {
+    width: auto;
+  }
+  .logo-content {
+    width: 70%;
+  }
 }
 </style>
