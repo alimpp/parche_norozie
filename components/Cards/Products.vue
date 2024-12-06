@@ -79,9 +79,9 @@
 </template>
 
 <script setup>
-import { useProductStore } from "~/store/admin/product";
+import { useWebProductStore } from '~/store/webProduct';
 
-const productStore = useProductStore();
+const productStore = useWebProductStore();
 
 const props = defineProps({
   data: {

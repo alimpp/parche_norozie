@@ -117,7 +117,7 @@ const detectToken = computed(() => {
     width: auto;
   }
   .logo-content {
-    width: 70%;
+    width: 100%;
   }
 }
 </style>

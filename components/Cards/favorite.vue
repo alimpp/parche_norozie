@@ -58,17 +58,38 @@
               <IconsStar v-for="n in 5" />
             </div>
           </div>
-          <AppButton
-            :name="$t('order product')"
-            background="bg-primary-100"
-            class="app-mt-2"
+          <div
+            class="app-flex w-100 app-mt-2"
             :class="{ 'app-mt-6': data.discount == 0 }"
-            @click="getProduct"
           >
-            <template #iconLeft>
-              <IconsShoppingCard></IconsShoppingCard>
-            </template>
-          </AppButton>
+            <span
+              class="color-white app-pointer ml-2"
+              @click="removeFromFavorite"
+            >
+              <v-tooltip :text="$t('remove')" location="bottom">
+                <template v-slot:activator="{ props }">
+                  <AppIconContent
+                    color="bg-danger-transparent"
+                    class="color-danger app-pointer"
+                    v-bind="props"
+                    height="36px"
+                    width="36px"
+                    ><TrashIcon size="1x"></TrashIcon
+                  ></AppIconContent>
+                </template>
+              </v-tooltip>
+            </span>
+            <AppButton
+              :name="$t('order product')"
+              background="bg-primary-100"
+              @click="getProduct"
+              width="232px"
+            >
+              <template #iconLeft>
+                <IconsShoppingCard></IconsShoppingCard>
+              </template>
+            </AppButton>
+          </div>
         </div>
       </div>
     </template>

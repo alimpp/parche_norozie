@@ -11,7 +11,9 @@
     <div
       class="item"
       @click="navigateTo('/products')"
-      :class="{ 'bg-primary-transparent': route.path == '/products' }"
+      :class="{
+        'bg-primary-transparent': route.path == '/products',
+      }"
     >
       <IconsProducts />
       <span class="f-s-12 f-w-600 color-primary">{{ $t("products") }}</span>
@@ -62,6 +64,7 @@ const route = useRoute();
   align-items: center;
   justify-content: center;
   padding: 0 10px;
+  border-top: 1px solid #98989892;
 }
 .item {
   display: flex;

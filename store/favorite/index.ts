@@ -7,11 +7,12 @@ import { useRouter } from "#app";
 export const useFavoriteStore = defineStore("useFavoriteStore", {
   state: (): any => ({
     favoriteList: [],
+    loading: false,
   }),
 
-  getters: {},
   actions: {
     async getFavorite() {
+      this.loading = !this.loading;
       const cookie = useCookie("token");
       const productStore = useProductStore();
       await productStore.getAllProducts("");
@@ -21,6 +22,7 @@ export const useFavoriteStore = defineStore("useFavoriteStore", {
         },
       })
         .then((res: any) => {
+          this.loading = !this.loading;
           this.favoriteList = favoriteModel(res.data, productStore.products);
         })
         .catch((err) => {

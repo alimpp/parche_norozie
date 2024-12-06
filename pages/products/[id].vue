@@ -1,4 +1,5 @@
 <template>
+  <NavigationBar />
   <div class="product-container">
     <AppLoading height="100dvh" v-if="loading" />
     <div class="product-content fade_animations" v-if="!loading">
@@ -100,6 +101,22 @@
           </div>
           <div class="add-to-favorite">
             <AppButton
+              v-if="dataSource.inFavoriteList"
+              width="100%"
+              :name="$t('remove from favorite list')"
+              background="bg-danger-transparent"
+              color="color-danger"
+              @click="removeFromFavorite"
+            >
+              <template #iconLeft>
+                <TrashIcon
+                  size="1.5x"
+                  class="color-danger app-pointer app-mx-1"
+                ></TrashIcon>
+              </template>
+            </AppButton>
+            <AppButton
+              v-else
               width="100%"
               :name="$t('add to favorite list')"
               background="bg-danger-transparent"
@@ -162,19 +179,18 @@
     :imgs="dataSource.images"
     @hide="show = false"
   />
+  <MobileNavigation />
 </template>
 
 <script setup>
 import { useRoute } from "#app";
-import { useProductStore } from "~/store/admin/product";
-import { useThemeStore } from "~/store/theme";
+import { useWebProductStore } from "~/store/webProduct";
 import { useFavoriteStore } from "~/store/favorite";
 
 const route = useRoute();
-const productStore = useProductStore();
+const productStore = useWebProductStore();
 const show = ref(false);
 const favoriteStore = useFavoriteStore();
-const favoriteIconState = ref(true);
 
 const loading = computed(() => {
   return productStore.loading;
@@ -188,12 +204,12 @@ const dataSource = computed(() => {
 
 const addToFavorite = async () => {
   await favoriteStore.addFavorite(dataSource.value.ID);
-  favoriteIconState.value = false;
+  dataSource.value.inFavoriteList = true;
 };
 
 const removeFromFavorite = async () => {
   await favoriteStore.removeFavorite(dataSource.value.ID);
-  favoriteIconState.value = true;
+  dataSource.value.inFavoriteList = false;
 };
 
 onBeforeMount(async () => {

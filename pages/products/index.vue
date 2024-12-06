@@ -1,4 +1,5 @@
 <template>
+  <NavigationBar />
   <div
     ref="scrollToTop"
     class="app-container fade_animations"
@@ -21,12 +22,13 @@
       </div>
     </div>
   </div>
+  <MobileNavigation />
 </template>
 
 <script setup>
-import { useProductStore } from "~/store/admin/product";
+import { useWebProductStore } from "~/store/webProduct";
 
-const productStore = useProductStore();
+const productStore = useWebProductStore();
 const filterModalState = ref(false);
 
 const dataSource = computed(() => {

@@ -1,4 +1,5 @@
 <template>
+  <NavigationBar />
   <div class="app-container">
     <div class="about-us-content">
       <div class="about-us-info app-flex app-flex-column" data-aos="fade-up">
@@ -35,6 +36,7 @@
       </div>
     </div>
   </div>
+  <MobileNavigation />
 </template>
 
 <script setup>

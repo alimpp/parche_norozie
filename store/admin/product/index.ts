@@ -115,18 +115,12 @@ export const useProductStore = defineStore("useProductStore", {
 
     async getAllProducts(param: any) {
       this.loading = true;
-      const cookie = useCookie("token");
-      const favoriteListId = await $fetch("/api/v1/favorite/get", {
-        headers: {
-          Authorization: `Bearer ${cookie.value}`,
-        },
-      });
 
       await $fetch(`/api/v1/search?name=${param}`, {
         method: "GET",
       })
         .then((res: any) => {
-          this.products = createProductListModel(res.data, favoriteListId.data);
+          this.products = createProductListModel(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -146,7 +140,7 @@ export const useProductStore = defineStore("useProductStore", {
         method: "GET",
       })
         .then((res: any) => {
-          this.products = createProductListModel(res.data, favoriteListId.data);
+          this.products = createProductListModel(res.data);
         })
         .catch((err) => {
           console.log(err);
