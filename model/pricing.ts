@@ -1,43 +1,57 @@
-import { createPrice } from "@/utils/number";
+import { createPrice, createNumber } from "@/utils/number";
 
 export const createPricingListModel = (list: any) => {
   let result: any = [];
 
   list.forEach((element: any) => {
-    let images = [];
-    let tagList = [];
-    let attributeList = [];
-    let propertiyList = [];
-    for (let key of element.media) {
-      images.push(
-        `https://parche-go.liara.run/api/v1/download/${key.filename}`
-      );
-    }
-    for (let key of element.tags) {
-      tagList.push(key.tag);
-    }
-    for (let item of element.attributes) {
-      let attr = { key: item.key, value: item.value };
-      attributeList.push(attr);
-    }
-    for (let key of element.properties) {
-      for (let item of key.values) {
-        let prop = { id: key.ID, value_ids: item.ID };
-        propertiyList.push(prop);
-      }
-    }
     result.push({
       ...element,
-      ID: element.ID,
       price: createPrice(element.price),
       price_after_discount: createPrice(element.price_after_discount),
       category_id: createPrice(element.category.ID),
-      media: images,
-      tags: tagList,
-      attributes: attributeList,
-      properties: propertiyList,
     });
   });
+  return result;
+};
 
+export const sendPricingModel = (element: any) => {
+  let images = [];
+  let tagList = [];
+  let attributeList = [];
+  let propertiyList = [];
+  let priced = createNumber(element.price);
+  let discounted = createNumber(element.discount);
+  let price_after_discounted = createNumber(element.price_after_discount);
+  let category_ided = Number(element.category_id);
+  let named = element.name;
+  let descriptioned = element.description;
+  for (let key of element.media) {
+    images.push(key.filename);
+  }
+  for (let key of element.tags) {
+    tagList.push(key.tag);
+  }
+  for (let item of element.attributes) {
+    let attr = { key: item.key, value: item.value };
+    attributeList.push(attr);
+  }
+  for (let key of element.properties) {
+    for (let item of key.values) {
+      let prop = { id: key.ID, value_ids: item.ID };
+      propertiyList.push(prop);
+    }
+  }
+  let result = {
+    price: priced,
+    discount: discounted,
+    price_after_discount: price_after_discounted,
+    media: images,
+    tags: tagList,
+    attributes: attributeList,
+    properties: propertiyList,
+    category_id: category_ided,
+    name: named,
+    description: descriptioned,
+  };
   return result;
 };

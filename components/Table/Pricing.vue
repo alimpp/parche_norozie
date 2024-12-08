@@ -93,25 +93,11 @@ const props = defineProps({
 });
 
 const submit = async (item) => {
-  const product = {
-    price: Number(item.price),
-    discount: Number(item.discount),
-    price_after_discount: Number(item.price_after_discount),
-    attributes: item.attributes,
-    category_id: Number(item.category_id),
-    description: item.description,
-    media: item.media,
-    name: item.name,
-    properties: item.properties,
-    tags: item.tags,
-  };
-  console.log(product);
-  await pricingStore.updatePrice(product);
+  await pricingStore.updatePrice(item);
 };
 
 onMounted(() => {
   form.value = props.items;
-  console.log(form.value);
 });
 </script>
 

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useCookie } from "#app";
-import { createPricingListModel } from "@/model/pricing";
+import { createPricingListModel, sendPricingModel } from "@/model/pricing";
 import { useToastStore } from "~/store/toast";
 
 export const usePricingStore = defineStore("usePricingStore", {
@@ -12,9 +12,10 @@ export const usePricingStore = defineStore("usePricingStore", {
     async updatePrice(param: any) {
       const toastStore = useToastStore();
       const cookie = useCookie("token");
-      const res = await $fetch("/api/v1/product/update", {
+      const resultBody = sendPricingModel(param);
+      const res = await $fetch(`/api/v1/product/update/${param.ID}`, {
         method: "PUT",
-        body: param,
+        body: resultBody,
         headers: {
           Authorization: `Bearer ${cookie.value}`,
         },

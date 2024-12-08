@@ -48,7 +48,6 @@ definePageMeta({
 
 onMounted(async () => {
   await pricingStore.getPricingList("");
-  console.log(dataSource.value);
-  
+  console.log(pricingStore.pricingList);
 });
 </script>

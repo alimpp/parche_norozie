@@ -10,3 +10,10 @@ export const createPrice = (number) => {
   }
   return integerPart + decimalPart;
 };
+
+export const createNumber = (item) => {
+  let strNumber = item.toString();
+  let newString = strNumber.replace(/,/g, "");
+  let toNumber = Number(newString);
+  return toNumber;
+};
