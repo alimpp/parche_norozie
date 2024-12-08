@@ -36,10 +36,12 @@ export const sendPricingModel = (element: any) => {
     attributeList.push(attr);
   }
   for (let key of element.properties) {
+    let value_id = [];
     for (let item of key.values) {
-      let prop = { id: key.ID, value_ids: item.ID };
-      propertiyList.push(prop);
+      value_id.push(item.ID);
     }
+    let prop = { id: key.ID, value_ids: value_id };
+    propertiyList.push(prop);
   }
   let result = {
     price: priced,
